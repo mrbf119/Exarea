@@ -1,0 +1,6 @@
+framework module Pods_exarea {
+  umbrella header "Pods-exarea-umbrella.h"
+
+  export *
+  module * { export * }
+}
