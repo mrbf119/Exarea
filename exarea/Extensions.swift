@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 extension UIFont {
     static let iranSans = UIFont(name: "IRANSans", size: 15)!
@@ -74,73 +75,94 @@ extension UITextField {
 }
 
 extension String {
-    func check(if validations: [ValidationFilter], textInputName: String) -> String? {
-        let sorted = validations.sorted(by: { $0.sortIndex < $1.sortIndex })
-        guard let filter = sorted.first(where: {$0.appliesOn(string: self)}) else {
-            return nil
+    
+    enum ValidationResult {
+        case success
+        case failure(ValidationFilter)
+        
+        var isSuccess: Bool {
+            if case .success = self {
+                return true
+            } else {
+                return false
+            }
         }
-        return filter.errorMessage(textInputName: textInputName)
+        
+        var failedFilter: ValidationFilter? {
+            if case .failure(let filter) = self {
+                return filter
+            } else {
+                return nil
+            }
+        }
     }
     
-    
-    func check(if validations: [ValidationFilter]) -> Bool {
+    func passes(_ validations: [ValidationFilter]) -> ValidationResult {
         let sorted = validations.sorted(by: { $0.sortIndex < $1.sortIndex })
-        return sorted.contains { $0.appliesOn(string: self) }
+        if let filter = sorted.first(where: { $0.notPasses(string: self)}) {
+            return .failure(filter)
+        }
+        return .success
     }
     
     enum ValidationFilter {
+        
+        static func ==(lhs: ValidationFilter, rhs: ValidationFilter) -> Bool {
+            return lhs.sortIndex == rhs.sortIndex
+        }
+        
         case notEmpty
         case minChars(Int)
         case maxChars(Int)
         case exactChars(Int)
-        case beNumber
-        case bePhoneNumber
+        case isNumber
+        case isPhoneNumber
         case charset(CharacterSet, setDec: String)
         case rangeChars(Int, Int)
         
-        var sortIndex: Int {
+        fileprivate var sortIndex: Int {
             switch self {
             case .notEmpty:      return 0
             case .minChars:      return 1
             case .maxChars:      return 2
             case .exactChars:    return 3
-            case .beNumber:      return 4
-            case .bePhoneNumber: return 5
+            case .isNumber:      return 4
+            case .isPhoneNumber: return 5
             case .charset:       return 6
-            case .rangeChars:      return 7
+            case .rangeChars:    return 7
             }
         }
         
-        func appliesOn(string: String) -> Bool {
+        func notPasses(string: String) -> Bool {
             switch self {
-            case .notEmpty:                return string != ""
-            case .maxChars(let max):       return string.count < max
-            case .minChars(let min):       return string.count > min
-            case .exactChars(let exact):   return string.count == exact
-            case .bePhoneNumber:           return string.isPhoneNumber
-            case .beNumber:                return string.isNumber
+            case .notEmpty:                return string == ""
+            case .maxChars(let max):       return string.count > max
+            case .minChars(let min):       return string.count < min
+            case .exactChars(let exact):   return string.count != exact
+            case .isPhoneNumber:           return !string.isPhoneNumber
+            case .isNumber:                return !string.isNumber
             case .charset(let set, _):
                 let subset = CharacterSet(charactersIn: string)
-                return set.isSuperset(of: subset)
+                return !set.isSuperset(of: subset)
             case .rangeChars(let min, let max):
-                return string.count <= max || string.count >= min
+                return !(string.count <= max && string.count >= min)
             }
         }
         
         fileprivate func errorMessage(textInputName: String) -> String {
             switch self {
             case .notEmpty:
-                return textInputName + " نباید خالی باشد"
+                return "لطفا " + textInputName + " را وارد کنید"
             case .maxChars(let max):
                 return textInputName + " نباید بیشتر از" + " \(max) " + "کاراکتر داشته باشد"
             case .minChars(let min):
                 return textInputName + " نباید کمتر از" + " \(min) " + "کاراکتر داشته باشد"
+            case .isNumber:
+                return textInputName + " باید فقط شامل عدد باشد"
+            case .isPhoneNumber, .exactChars:
+                return "لطفا " + textInputName + " صحیح وارد کنید"
             case .exactChars(let exact):
                 return textInputName + " باید" + " \(exact) " + "کاراکتر داشته باشد"
-            case .beNumber:
-                return textInputName + " باید فقط شامل عدد باشد"
-            case .bePhoneNumber:
-                return textInputName + " را به درستی وارد کنید"
             case .charset(_, let desc):
                 return textInputName + " باید فقط شامل " + desc + " باشد"
             case .rangeChars(let min, let max):
@@ -174,5 +196,19 @@ extension String {
             guard b == true else { return false }
         }
         return true
+    }
+    
+    var englishNumbers: String {
+        return self
+            .replacingOccurrences(of: "٠", with: "0").replacingOccurrences(of: "۰", with: "0")
+            .replacingOccurrences(of: "١", with: "1").replacingOccurrences(of: "۱", with: "1")
+            .replacingOccurrences(of: "٢", with: "2").replacingOccurrences(of: "۲", with: "2")
+            .replacingOccurrences(of: "٣", with: "3").replacingOccurrences(of: "۳", with: "3")
+            .replacingOccurrences(of: "٤", with: "4").replacingOccurrences(of: "۴", with: "4")
+            .replacingOccurrences(of: "٥", with: "5").replacingOccurrences(of: "۵", with: "5")
+            .replacingOccurrences(of: "٦", with: "6").replacingOccurrences(of: "۶", with: "6")
+            .replacingOccurrences(of: "٧", with: "7").replacingOccurrences(of: "۷", with: "7")
+            .replacingOccurrences(of: "٨", with: "8").replacingOccurrences(of: "۸", with: "8")
+            .replacingOccurrences(of: "٩", with: "9").replacingOccurrences(of: "۹", with: "9")
     }
 }

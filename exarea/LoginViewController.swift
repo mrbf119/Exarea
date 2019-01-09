@@ -52,23 +52,47 @@ class LoginViewController: UIViewController {
     
     private func validateForm() -> LoginForm? {
         
-        let phoneNumber = self.phoneNumberTextField.text!
+        let phoneNumber = self.phoneNumberTextField.text!.englishNumbers
         let password = self.passwordTextField.text!
-
-        guard phoneNumber.check(if: [.notEmpty]) else {
+        
+        if let failedFilter = phoneNumber.passes([.notEmpty, .exactChars(11), .isPhoneNumber]).failedFilter {
             self.phoneNumberTextField.shake()
+            self.phoneNumberTextField.errorMessage = failedFilter == .notEmpty ? "لطفا شماره تلفن خود را وارد کنید" : "لطفا شماره تلفن صحیح وارد کنید"
             return nil
         }
         
-        guard password.check(if: [.notEmpty]) else {
+        if !password.passes([.notEmpty]).isSuccess {
             self.passwordTextField.shake()
+            self.passwordTextField.errorMessage = "لطفا کلمه عبور خود را وارد کنید"
             return nil
         }
         return LoginForm(phoneNumber: phoneNumber, password: password)
+    }
+    
+    private func removeErrors() {
+        self.phoneNumberTextField.errorMessage = ""
+        self.passwordTextField.errorMessage = ""
     }
     
     private func login(with form: LoginForm) {
         
     }
 }
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.removeErrors()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField === self.phoneNumberTextField {
+            let finalText = NSString(string: textField.text!).replacingCharacters(in: range, with: string).englishNumbers
+            guard finalText.count <= 11 else { return false }
+        }
+        return true
+    }
+    
+}
+
 

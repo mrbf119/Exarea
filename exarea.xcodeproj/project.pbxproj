@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "exarea-Bridging-Header.h"; sourceTree = "<group>"; };
+		341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "exarea-Bridging-Header.h"; path = "../exarea-Bridging-Header.h"; sourceTree = "<group>"; };
 		341247BD21E5E75B00A34154 /* UITextField+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake.h"; sourceTree = "<group>"; };
 		341247BE21E5E75B00A34154 /* UITextField+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Shake.m"; sourceTree = "<group>"; };
 		346C840F215B59BA00F43F8C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -108,7 +108,6 @@
 				34E310DB215B1A1900C3E68E /* Login.storyboard */,
 				346C840F215B59BA00F43F8C /* Main.storyboard */,
 				34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */,
-				341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */,
 				341247C021E5E76300A34154 /* Shake */,
 			);
 			path = exarea;
@@ -117,6 +116,7 @@
 		34E310E9215B1D1800C3E68E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */,
 				34E310EC215B1E9200C3E68E /* Segoe UI Bold.ttf */,
 				34E310EA215B1D3A00C3E68E /* Segoe UI.ttf */,
 				34E310F0215B1F3400C3E68E /* IRANSans_Bold.ttf */,
@@ -426,7 +426,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tamtom.exarea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "exarea/exarea-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "exarea/Resources/exarea-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -449,7 +449,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tamtom.exarea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "exarea/exarea-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "exarea/Resources/exarea-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
