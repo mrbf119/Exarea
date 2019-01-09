@@ -1,5 +1,5 @@
 //
-//  SplashViewController.swift
+//  LoginViewController.swift
 //  exarea
 //
 //  Created by Soroush on 7/4/1397 AP.
@@ -9,14 +9,15 @@
 import UIKit
 import SkyFloatingLabelTextField
 
-class SplashViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet private var loginButton: UIButton!
-    @IBOutlet private var signUpButton: UIButton!
     @IBOutlet private var forgotPassButton: UIButton!
     
     @IBOutlet private var phoneNumberTextField: SkyFloatingLabelTextField!
     @IBOutlet private var passwordTextField: SkyFloatingLabelTextField!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
 
     override func viewDidLoad() {
@@ -24,15 +25,20 @@ class SplashViewController: UIViewController {
         self.configUI()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     private func configUI() {
-        self.loginButton.makeTamtomStyle()
-        self.signUpButton.makeTamtomStyle()
+        self.navigationController?.isNavigationBarHidden = true
+        self.view.layer.contents = UIImage(named: "image-background")?.cgImage
+        
+        self.loginButton.rounded()
         self.forgotPassButton.makeUnderlined()
-        self.phoneNumberTextField.isLTRLanguage = false
         self.phoneNumberTextField.titleFont = UIFont.iranSans
-        self.phoneNumberTextField.setTitleVisible(false)
-        self.passwordTextField.isLTRLanguage = false
         self.passwordTextField.titleFont = UIFont.iranSans
+        self.phoneNumberTextField.isLTRLanguage = false
+        self.passwordTextField.isLTRLanguage = false
     }
     
     

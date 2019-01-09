@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		24272838AE8B9FB846BD315B /* Pods_exarea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7E6D336257AC577BB97EAB /* Pods_exarea.framework */; };
+		346C8410215B59BA00F43F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346C840F215B59BA00F43F8C /* Main.storyboard */; };
+		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
+		346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8413215B61E300F43F8C /* PaginationManager.swift */; };
 		34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D7215B1A1900C3E68E /* AppDelegate.swift */; };
-		34E310DA215B1A1900C3E68E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* SplashViewController.swift */; };
-		34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Main.storyboard */; };
+		34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* LoginViewController.swift */; };
+		34E310DD215B1A1900C3E68E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Login.storyboard */; };
 		34E310DF215B1A1B00C3E68E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DE215B1A1B00C3E68E /* Assets.xcassets */; };
 		34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */; };
 		34E310EB215B1D3A00C3E68E /* Segoe UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34E310EA215B1D3A00C3E68E /* Segoe UI.ttf */; };
@@ -20,10 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		346C840F215B59BA00F43F8C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		346C8413215B61E300F43F8C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
 		34E310D4215B1A1900C3E68E /* exarea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exarea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E310D7215B1A1900C3E68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34E310D9215B1A1900C3E68E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		34E310DC215B1A1900C3E68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		34E310D9215B1A1900C3E68E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		34E310DC215B1A1900C3E68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		34E310DE215B1A1B00C3E68E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34E310E1215B1A1B00C3E68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34E310E3215B1A1B00C3E68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,9 +88,12 @@
 				34E310E3215B1A1B00C3E68E /* Info.plist */,
 				34E310E9215B1D1800C3E68E /* Resources */,
 				34E310D7215B1A1900C3E68E /* AppDelegate.swift */,
-				34E310D9215B1A1900C3E68E /* SplashViewController.swift */,
+				34E310D9215B1A1900C3E68E /* LoginViewController.swift */,
+				346C8411215B614900F43F8C /* FavoritesViewController.swift */,
+				346C8413215B61E300F43F8C /* PaginationManager.swift */,
 				34E310F1215B348F00C3E68E /* Extensions.swift */,
-				34E310DB215B1A1900C3E68E /* Main.storyboard */,
+				34E310DB215B1A1900C3E68E /* Login.storyboard */,
+				346C840F215B59BA00F43F8C /* Main.storyboard */,
 				34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */,
 			);
 			path = exarea;
@@ -170,11 +179,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346C8410215B59BA00F43F8C /* Main.storyboard in Resources */,
 				34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */,
 				34E310ED215B1E9200C3E68E /* Segoe UI Bold.ttf in Resources */,
 				34E310EB215B1D3A00C3E68E /* Segoe UI.ttf in Resources */,
 				34E310DF215B1A1B00C3E68E /* Assets.xcassets in Resources */,
-				34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */,
+				34E310DD215B1A1900C3E68E /* Login.storyboard in Resources */,
 				34E310EF215B1F2300C3E68E /* IRANSans.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,8 +247,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E310DA215B1A1900C3E68E /* SplashViewController.swift in Sources */,
+				34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */,
 				34E310F2215B348F00C3E68E /* Extensions.swift in Sources */,
+				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
+				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
 				34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,12 +258,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		34E310DB215B1A1900C3E68E /* Main.storyboard */ = {
+		34E310DB215B1A1900C3E68E /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				34E310DC215B1A1900C3E68E /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */ = {
