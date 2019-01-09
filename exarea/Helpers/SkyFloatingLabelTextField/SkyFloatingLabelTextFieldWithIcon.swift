@@ -244,7 +244,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         if isLTRLanguage {
             rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         } else {
-            rect.origin.x -= CGFloat(iconWidth + iconMarginLeft)
+            //rect.origin.x -= CGFloat(iconWidth + iconMarginLeft)
         }
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect

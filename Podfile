@@ -9,8 +9,6 @@ target 'exarea' do
   
   pod 'SwiftyJSON', '~> 4.1.0'
   
-  pod 'SkyFloatingLabelTextField', '~> 3.0'
-  
   inhibit_all_warnings!
 
 end

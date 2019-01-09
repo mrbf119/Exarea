@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SkyFloatingLabelTextField
 
 struct LoginForm {
     let phoneNumber, password: String
@@ -18,8 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet private var loginButton: UIButton!
     @IBOutlet private var forgotPassButton: UIButton!
     
-    @IBOutlet private var phoneNumberTextField: SkyFloatingLabelTextField!
-    @IBOutlet private var passwordTextField: SkyFloatingLabelTextField!
+    @IBOutlet private var phoneNumberTextField: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet private var passwordTextField: SkyFloatingLabelTextFieldWithIcon!
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -43,6 +42,8 @@ class LoginViewController: UIViewController {
         self.passwordTextField.titleFont = UIFont.iranSans
         self.phoneNumberTextField.isLTRLanguage = false
         self.passwordTextField.isLTRLanguage = false
+        
+//        self.passwordTextField.icon
     }
     
     @IBAction private func didTapLoginButton() {
