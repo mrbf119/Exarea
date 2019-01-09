@@ -12,6 +12,11 @@
 		341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */; };
 		341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */; };
 		341247C621E6250C00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C321E6250B00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		341247CC21E6271700A34154 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247CB21E6271700A34154 /* User.swift */; };
+		341247CE21E6287400A34154 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247CD21E6287400A34154 /* Networking.swift */; };
+		341247D021E6288900A34154 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247CF21E6288900A34154 /* Configurations.swift */; };
+		341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247D221E629FF00A34154 /* JSONSerializable.swift */; };
+		341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247D421E62A7400A34154 /* CustomJSONKey.swift */; };
 		346C8410215B59BA00F43F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346C840F215B59BA00F43F8C /* Main.storyboard */; };
 		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
 		346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8413215B61E300F43F8C /* PaginationManager.swift */; };
@@ -33,6 +38,11 @@
 		341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 		341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		341247C321E6250B00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		341247CB21E6271700A34154 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		341247CD21E6287400A34154 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		341247CF21E6288900A34154 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		341247D221E629FF00A34154 /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
+		341247D421E62A7400A34154 /* CustomJSONKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomJSONKey.swift; sourceTree = "<group>"; };
 		346C840F215B59BA00F43F8C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		346C8413215B61E300F43F8C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
@@ -96,10 +106,43 @@
 		341247C821E6257200A34154 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				341247D421E62A7400A34154 /* CustomJSONKey.swift */,
+				341247D221E629FF00A34154 /* JSONSerializable.swift */,
+				341247CD21E6287400A34154 /* Networking.swift */,
+				341247CF21E6288900A34154 /* Configurations.swift */,
+				34E310F1215B348F00C3E68E /* Extensions.swift */,
+				346C8413215B61E300F43F8C /* PaginationManager.swift */,
 				341247C721E6254600A34154 /* SkyFloatingLabelTextField */,
 				341247C021E5E76300A34154 /* UITextField+Shake */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		341247C921E626E800A34154 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				34E310DB215B1A1900C3E68E /* Login.storyboard */,
+				346C840F215B59BA00F43F8C /* Main.storyboard */,
+				34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		341247CA21E626F900A34154 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				34E310D9215B1A1900C3E68E /* LoginViewController.swift */,
+				346C8411215B614900F43F8C /* FavoritesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		341247D121E629C300A34154 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				341247CB21E6271700A34154 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		34E310CB215B1A1900C3E68E = {
@@ -124,16 +167,11 @@
 			isa = PBXGroup;
 			children = (
 				34E310E3215B1A1B00C3E68E /* Info.plist */,
-				341247C821E6257200A34154 /* Helpers */,
 				34E310E9215B1D1800C3E68E /* Resources */,
-				34E310D7215B1A1900C3E68E /* AppDelegate.swift */,
-				34E310D9215B1A1900C3E68E /* LoginViewController.swift */,
-				346C8411215B614900F43F8C /* FavoritesViewController.swift */,
-				346C8413215B61E300F43F8C /* PaginationManager.swift */,
-				34E310F1215B348F00C3E68E /* Extensions.swift */,
-				34E310DB215B1A1900C3E68E /* Login.storyboard */,
-				346C840F215B59BA00F43F8C /* Main.storyboard */,
-				34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */,
+				341247C821E6257200A34154 /* Helpers */,
+				341247D121E629C300A34154 /* Model */,
+				341247CA21E626F900A34154 /* Controller */,
+				341247C921E626E800A34154 /* View */,
 			);
 			path = exarea;
 			sourceTree = "<group>";
@@ -141,6 +179,7 @@
 		34E310E9215B1D1800C3E68E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				34E310D7215B1A1900C3E68E /* AppDelegate.swift */,
 				341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */,
 				34E310EC215B1E9200C3E68E /* Segoe UI Bold.ttf */,
 				34E310EA215B1D3A00C3E68E /* Segoe UI.ttf */,
@@ -287,13 +326,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */,
+				341247CE21E6287400A34154 /* Networking.swift in Sources */,
+				341247D021E6288900A34154 /* Configurations.swift in Sources */,
 				341247C621E6250C00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */,
 				34E310F2215B348F00C3E68E /* Extensions.swift in Sources */,
 				341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */,
+				341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */,
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
 				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
 				341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */,
+				341247CC21E6271700A34154 /* User.swift in Sources */,
+				341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */,
 				34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,7 +3,7 @@
 ////  Helper
 ////
 ////  Created by SoRush on 10/15/1396 AP.
-////  Copyright © 1397 Gandom. All rights reserved.
+////  Copyright © 1397 tamtom. All rights reserved.
 ////
 //
 //import UIKit

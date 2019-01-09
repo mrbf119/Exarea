@@ -8,10 +8,6 @@
 
 import UIKit
 
-struct LoginForm {
-    let phoneNumber, password: String
-}
-
 class LoginViewController: UIViewController {
     
     @IBOutlet private var loginButton: UIButton!
@@ -48,7 +44,9 @@ class LoginViewController: UIViewController {
     
     @IBAction private func didTapLoginButton() {
         guard let form = self.validateForm() else { return }
-        self.login(with: form)
+        User.login(with: form) { error in
+            
+        }
     }
     
     private func validateForm() -> LoginForm? {
@@ -73,10 +71,6 @@ class LoginViewController: UIViewController {
     private func removeErrors() {
         self.phoneNumberTextField.errorMessage = ""
         self.passwordTextField.errorMessage = ""
-    }
-    
-    private func login(with form: LoginForm) {
-        
     }
 }
 
