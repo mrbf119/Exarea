@@ -9,6 +9,10 @@
 import UIKit
 import SkyFloatingLabelTextField
 
+struct LoginForm {
+    let phoneNumber, password: String
+}
+
 class LoginViewController: UIViewController {
     
     @IBOutlet private var loginButton: UIButton!
@@ -41,6 +45,30 @@ class LoginViewController: UIViewController {
         self.passwordTextField.isLTRLanguage = false
     }
     
+    @IBAction private func didTapLoginButton() {
+        guard let form = self.validateForm() else { return }
+        self.login(with: form)
+    }
     
+    private func validateForm() -> LoginForm? {
+        
+        let phoneNumber = self.phoneNumberTextField.text!
+        let password = self.passwordTextField.text!
+
+        guard phoneNumber.check(if: [.notEmpty]) else {
+            self.phoneNumberTextField.shake()
+            return nil
+        }
+        
+        guard password.check(if: [.notEmpty]) else {
+            self.passwordTextField.shake()
+            return nil
+        }
+        return LoginForm(phoneNumber: phoneNumber, password: password)
+    }
+    
+    private func login(with form: LoginForm) {
+        
+    }
 }
 

@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9J-PZ-VGh">
-                                <rect key="frame" x="86.5" y="302.5" width="202" height="62"/>
+                                <rect key="frame" x="86.5" y="297.5" width="202" height="72.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
                                 <color key="textColor" name="color-font"/>
                                 <nil key="highlightedColor"/>
@@ -55,22 +55,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVR-90-BwD">
-                                <rect key="frame" x="87" y="174" width="201.5" height="72.5"/>
+                                <rect key="frame" x="87" y="152" width="201.5" height="72.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
                                 <color key="textColor" name="color-font"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UnQ-8e-EqK">
-                                <rect key="frame" x="56.5" y="269.5" width="262.5" height="128.5"/>
+                                <rect key="frame" x="56.5" y="247.5" width="262.5" height="172"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gyv-is-PtF">
-                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="71"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="114.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="49L-ed-5aB">
-                                                <rect key="frame" x="0.0" y="0.0" width="262.5" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="262.5" height="50"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGi-0z-xog" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230.5" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="230.5" height="50"/>
                                                         <color key="tintColor" name="color-font"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
@@ -120,7 +120,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-mobile-90" translatesAutoresizingMaskIntoConstraints="NO" id="YjE-Hb-xjL">
-                                                        <rect key="frame" x="238.5" y="4" width="24" height="24"/>
+                                                        <rect key="frame" x="238.5" y="26" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="YjE-Hb-xjL" secondAttribute="height" multiplier="1:1" id="CHS-6m-FQl"/>
                                                             <constraint firstAttribute="height" constant="24" id="aJv-U5-Axp"/>
@@ -129,10 +129,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0dv-fw-n8Q">
-                                                <rect key="frame" x="0.0" y="43" width="262.5" height="28"/>
+                                                <rect key="frame" x="0.0" y="65" width="262.5" height="49.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVo-7r-FLA" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                        <rect key="frame" x="0.0" y="0.0" width="230.5" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="230.5" height="49.5"/>
                                                         <color key="tintColor" name="color-font"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
@@ -182,7 +182,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-lock-90" translatesAutoresizingMaskIntoConstraints="NO" id="ut3-Ft-xhw">
-                                                        <rect key="frame" x="238.5" y="4" width="24" height="24"/>
+                                                        <rect key="frame" x="238.5" y="25.5" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ut3-Ft-xhw" secondAttribute="height" multiplier="1:1" id="heT-o2-1XO"/>
                                                         </constraints>
@@ -195,9 +195,9 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="593-vw-lDO">
-                                        <rect key="frame" x="0.0" y="91" width="262.5" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="134.5" width="262.5" height="37.5"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
-                                        <state key="normal" title="رمز عبور خود را فراموش کرده‌ام">
+                                        <state key="normal" title="کلمه عبور خود را فراموش کرده‌ام">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="رمز عبور خود را فراموش کرده‌ام">
                                                     <attributes>
@@ -222,6 +222,9 @@
                                 <state key="normal" title="ورود">
                                     <color key="titleColor" name="color-font"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapLoginButton" destination="pyo-eP-pxe" eventType="touchUpInside" id="u9n-0u-tzh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="color-background"/>

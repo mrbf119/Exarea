@@ -54,7 +54,7 @@ extension UIButton {
             NSAttributedString.Key.foregroundColor : UIColor.white,
             NSAttributedString.Key.underlineStyle : 1]
         
-        let attributedString = NSMutableAttributedString(string: "رمز عبور خود را فراموش کرده‌ام", attributes: attrs)
+        let attributedString = NSMutableAttributedString(string: self.titleLabel!.text!, attributes: attrs)
         
         UIView.setAnimationsEnabled(false)
         self.setAttributedTitle(attributedString, for: .normal)
@@ -71,20 +71,108 @@ extension UITextField {
     func setPlaceHolder(color: UIColor) {
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color])
     }
+}
+
+extension String {
+    func check(if validations: [ValidationFilter], textInputName: String) -> String? {
+        let sorted = validations.sorted(by: { $0.sortIndex < $1.sortIndex })
+        guard let filter = sorted.first(where: {$0.appliesOn(string: self)}) else {
+            return nil
+        }
+        return filter.errorMessage(textInputName: textInputName)
+    }
     
-    func setUnderLine(height: CGFloat, color: UIColor) {
+    
+    func check(if validations: [ValidationFilter]) -> Bool {
+        let sorted = validations.sorted(by: { $0.sortIndex < $1.sortIndex })
+        return sorted.contains { $0.appliesOn(string: self) }
+    }
+    
+    enum ValidationFilter {
+        case notEmpty
+        case minChars(Int)
+        case maxChars(Int)
+        case exactChars(Int)
+        case beNumber
+        case bePhoneNumber
+        case charset(CharacterSet, setDec: String)
+        case rangeChars(Int, Int)
         
-        let border = UIView()
-        border.backgroundColor = color
-        border.frame = CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: height)
-        self.addSubview(border)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        border.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        border.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        border.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-//        border.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-//        border.heightAnchor.constraint(equalToConstant: height).isActive = true
-//        border.setContentHuggingPriority(.defaultLow, for: .horizontal)
-//        border.setContentHuggingPriority(.init(rawValue: 100), for: .horizontal)
+        var sortIndex: Int {
+            switch self {
+            case .notEmpty:      return 0
+            case .minChars:      return 1
+            case .maxChars:      return 2
+            case .exactChars:    return 3
+            case .beNumber:      return 4
+            case .bePhoneNumber: return 5
+            case .charset:       return 6
+            case .rangeChars:      return 7
+            }
+        }
+        
+        func appliesOn(string: String) -> Bool {
+            switch self {
+            case .notEmpty:                return string != ""
+            case .maxChars(let max):       return string.count < max
+            case .minChars(let min):       return string.count > min
+            case .exactChars(let exact):   return string.count == exact
+            case .bePhoneNumber:           return string.isPhoneNumber
+            case .beNumber:                return string.isNumber
+            case .charset(let set, _):
+                let subset = CharacterSet(charactersIn: string)
+                return set.isSuperset(of: subset)
+            case .rangeChars(let min, let max):
+                return string.count <= max || string.count >= min
+            }
+        }
+        
+        fileprivate func errorMessage(textInputName: String) -> String {
+            switch self {
+            case .notEmpty:
+                return textInputName + " نباید خالی باشد"
+            case .maxChars(let max):
+                return textInputName + " نباید بیشتر از" + " \(max) " + "کاراکتر داشته باشد"
+            case .minChars(let min):
+                return textInputName + " نباید کمتر از" + " \(min) " + "کاراکتر داشته باشد"
+            case .exactChars(let exact):
+                return textInputName + " باید" + " \(exact) " + "کاراکتر داشته باشد"
+            case .beNumber:
+                return textInputName + " باید فقط شامل عدد باشد"
+            case .bePhoneNumber:
+                return textInputName + " را به درستی وارد کنید"
+            case .charset(_, let desc):
+                return textInputName + " باید فقط شامل " + desc + " باشد"
+            case .rangeChars(let min, let max):
+                var string = textInputName + " باید "
+                if max - min == 1 {
+                    string += "\(min)" + " یا " + "\(max)"
+                } else {
+                    string += "بین " + "\(min)" + " تا " + "\(max)"
+                }
+                string += " کاراکتر داشته باشد"
+                return string
+            }
+        }
+    }
+    
+    public var isPhoneNumber: Bool {
+        let regex = try! NSRegularExpression(pattern: "^09[0-9]{9}$", options: [.caseInsensitive])
+        return regex.firstMatch(in: self, options:[], range: NSMakeRange(0, utf16.count)) != nil
+    }
+    
+    public var isNumber: Bool {
+        let regex = try! NSRegularExpression(pattern: "^[0-9]*$", options: [.caseInsensitive])
+        return regex.firstMatch(in: self, options:[], range: NSMakeRange(0, utf16.count)) != nil
+    }
+    
+    public var isFarsi: Bool {
+        let alphabet = "ابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی"
+        var b = true
+        for char in self {
+            b = b && alphabet.contains(String(char))
+            guard b == true else { return false }
+        }
+        return true
     }
 }
