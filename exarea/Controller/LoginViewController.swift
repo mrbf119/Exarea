@@ -38,14 +38,23 @@ class LoginViewController: UIViewController {
         self.passwordTextField.titleFont = UIFont.iranSans
         self.phoneNumberTextField.isLTRLanguage = false
         self.passwordTextField.isLTRLanguage = false
-        
-//        self.passwordTextField.icon
+        self.passwordTextField.iconImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.togglePassword)))
     }
     
     @IBAction private func didTapLoginButton() {
         guard let form = self.validateForm() else { return }
-        User.login(with: form) { error in
+        Account.login(with: form) { error in
             
+        }
+    }
+    
+    @objc private func togglePassword() {
+        if self.passwordTextField.iconImage == UIImage(named: "icon-eye-show") {
+            self.passwordTextField.iconImage = UIImage(named: "icon-eye-hide")
+            self.passwordTextField.isSecureTextEntry = false
+        } else {
+            self.passwordTextField.iconImage = UIImage(named: "icon-eye-show")
+            self.passwordTextField.isSecureTextEntry = true
         }
     }
     
@@ -65,7 +74,7 @@ class LoginViewController: UIViewController {
             self.passwordTextField.errorMessage = "لطفا کلمه عبور خود را وارد کنید"
             return nil
         }
-        return LoginForm(phoneNumber: phoneNumber, password: password)
+        return LoginForm(userName: phoneNumber, password: password)
     }
     
     private func removeErrors() {
@@ -78,6 +87,17 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.removeErrors()
+        if textField === self.passwordTextField  {
+            self.passwordTextField.iconImage = UIImage(named: "icon-eye-show")
+            self.passwordTextField.iconImageView.isUserInteractionEnabled = true
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField === self.passwordTextField  {
+            self.passwordTextField.iconImage = UIImage(named: "icon-lock-90")
+            self.passwordTextField.iconImageView.isUserInteractionEnabled = false
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

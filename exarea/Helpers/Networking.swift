@@ -61,7 +61,7 @@ class NetManager: SessionManager, RequestRetrier {
     
     private func resetRefreshCount() {
         self.refreshCount = 0
-        User.logout()
+        Account.logout()
     }
     
     override func request(_ urlRequest: URLRequestConvertible) -> DataRequest {
@@ -124,8 +124,8 @@ class Adapter: RequestAdapter {
             let httpBody = try? JSON(data: body),
             var dict = httpBody.dictionaryObject,
             dict["UserToken"] != nil,
-            let token = User.shared?.userToken,
-            let sessionID = User.shared?.sessionID {
+            let token = Account.shared?.userToken,
+            let sessionID = Account.shared?.sessionID {
             dict["UserToken"] = token
             dict["SessionID"] = sessionID
             request.httpBody = try! JSON(dict).rawData()
