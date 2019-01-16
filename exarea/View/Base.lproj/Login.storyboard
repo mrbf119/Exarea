@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9J-PZ-VGh">
-                                <rect key="frame" x="86.5" y="297.5" width="202" height="72.5"/>
+                                <rect key="frame" x="86.5" y="302.5" width="202" height="62"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
                                 <color key="textColor" red="0.99215686274509807" green="0.83137254901960778" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -53,17 +53,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVR-90-BwD">
-                                <rect key="frame" x="87" y="155.5" width="201.5" height="72.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="NVR-90-BwD">
+                                <rect key="frame" x="87" y="74" width="201.5" height="72.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
                                 <color key="textColor" red="0.99215686274509807" green="0.83137254901960778" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UnQ-8e-EqK">
-                                <rect key="frame" x="37.5" y="248" width="300" height="171.5"/>
+                                <rect key="frame" x="37.5" y="231" width="300" height="205"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gyv-is-PtF">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="114"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gyv-is-PtF">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="147.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="RQR-1L-Qwh">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
@@ -85,7 +85,7 @@
                                                 </subviews>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="vGi-0z-xog" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="43" width="300" height="28"/>
+                                                <rect key="frame" x="0.0" y="38" width="300" height="50"/>
                                                 <color key="tintColor" red="0.99215686274509807" green="0.83137254901960778" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
@@ -151,7 +151,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="oVo-7r-FLA" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="86" width="300" height="28"/>
+                                                <rect key="frame" x="0.0" y="98" width="300" height="49.5"/>
                                                 <color key="tintColor" red="0.99215686274509807" green="0.83137254901960778" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
@@ -219,7 +219,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="593-vw-lDO">
-                                        <rect key="frame" x="0.0" y="134" width="300" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="167.5" width="300" height="37.5"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
                                         <state key="normal" title="کلمه عبور خود را فراموش کرده‌ام">
                                             <attributedString key="attributedTitle">
@@ -237,10 +237,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZ5-q3-whg">
-                                <rect key="frame" x="56.5" y="602" width="262.5" height="50"/>
+                                <rect key="frame" x="56.5" y="607" width="262.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PeI-Ya-Xee"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="dS1-aO-AZZ"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="dS1-aO-AZZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="17"/>
                                 <state key="normal" title="ورود">
@@ -255,11 +255,11 @@
                         <constraints>
                             <constraint firstItem="UnQ-8e-EqK" firstAttribute="centerX" secondItem="2Ol-Qd-CcL" secondAttribute="centerX" id="5N1-KA-KpE"/>
                             <constraint firstItem="NVR-90-BwD" firstAttribute="centerX" secondItem="2Ol-Qd-CcL" secondAttribute="centerX" id="8LS-i6-9m5"/>
-                            <constraint firstItem="EgQ-uX-OhL" firstAttribute="bottom" secondItem="lZ5-q3-whg" secondAttribute="bottom" constant="15" id="FpL-ey-Ue8"/>
+                            <constraint firstItem="EgQ-uX-OhL" firstAttribute="bottom" secondItem="lZ5-q3-whg" secondAttribute="bottom" constant="10" id="FpL-ey-Ue8"/>
+                            <constraint firstItem="NVR-90-BwD" firstAttribute="top" secondItem="EgQ-uX-OhL" secondAttribute="top" constant="10" id="L3p-JS-W0N"/>
                             <constraint firstItem="lZ5-q3-whg" firstAttribute="width" secondItem="2Ol-Qd-CcL" secondAttribute="width" multiplier="0.7" priority="999" id="Lzi-94-9fk"/>
                             <constraint firstItem="UnQ-8e-EqK" firstAttribute="centerY" secondItem="2Ol-Qd-CcL" secondAttribute="centerY" id="W9H-JE-cao"/>
                             <constraint firstItem="lZ5-q3-whg" firstAttribute="centerX" secondItem="2Ol-Qd-CcL" secondAttribute="centerX" id="c1I-vS-e6h"/>
-                            <constraint firstItem="UnQ-8e-EqK" firstAttribute="top" secondItem="NVR-90-BwD" secondAttribute="bottom" constant="20" id="wmJ-Re-5wd"/>
                             <constraint firstItem="UnQ-8e-EqK" firstAttribute="width" secondItem="2Ol-Qd-CcL" secondAttribute="width" multiplier="0.8" id="zKC-QD-1yB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EgQ-uX-OhL"/>
@@ -272,6 +272,7 @@
                         <outlet property="phoneNumberTextField" destination="vGi-0z-xog" id="2R2-nF-F7O"/>
                         <outlet property="segmentControl" destination="RhN-kl-JPe" id="uj5-U6-3Ru"/>
                         <outlet property="segmentSection" destination="RQR-1L-Qwh" id="h0W-Yr-UG0"/>
+                        <outlet property="stackCenterYConstraint" destination="W9H-JE-cao" id="tAd-71-54B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg2-mg-dtY" sceneMemberID="firstResponder"/>

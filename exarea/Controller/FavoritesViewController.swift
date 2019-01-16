@@ -10,13 +10,11 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
-    @IBOutlet weak var itemsCollectionView: UICollectionView!
-    @IBOutlet weak var categoriesSegmentedControl: UISegmentedControl!
+    @IBOutlet var itemsCollectionView: UICollectionView!
+    @IBOutlet var categoriesSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }
 

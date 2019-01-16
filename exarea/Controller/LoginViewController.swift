@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    //MARK: - Outlets
+    
     @IBOutlet private var loginButton: UIButton!
     @IBOutlet private var forgotPassButton: UIButton!
     
@@ -19,14 +21,31 @@ class LoginViewController: UIViewController {
     @IBOutlet private var segmentControl: UISegmentedControl!
     @IBOutlet private var segmentSection: UIView!
     
+    @IBOutlet var stackCenterYConstraint: NSLayoutConstraint!
+    
+    //MARK: - Properties
     
     var isInLoginMode = false
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    private var centerYDiff = 0
     
+    
+    //MARK: - VC Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.startObserveKeyboard()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.endObserveKeyboard()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -52,6 +71,35 @@ class LoginViewController: UIViewController {
         } else {
             self.segmentControl.setTitleTextAttributes([.font: UIFont.iranSans], for: .normal)
             self.forgotPassButton.isHidden = true
+        }
+    }
+    
+    private func startObserveKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didShowKeyboard(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func endObserveKeyboard() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func didShowKeyboard(_ notif: NSNotification) {
+        if let frame = notif.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, let stack = self.stackCenterYConstraint.firstItem as? UIView {
+            let diff = frame.origin.y - stack.frame.maxY
+            if diff < 0 {
+                self.stackCenterYConstraint.constant += diff
+                UIView.animate(withDuration: 0.1) {
+                    self.view.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    @objc private func willHideKeyboard() {
+        self.stackCenterYConstraint.constant = 0
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -121,7 +169,4 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
-    
 }
-
-
