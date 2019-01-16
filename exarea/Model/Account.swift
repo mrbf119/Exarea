@@ -17,6 +17,9 @@ struct LoginForm: JSONSerializable {
     let iP = "????"
 }
 
+struct RegisterForm: JSONSerializable {
+    let userName, password, roleID: String
+}
 
 class Account: JSONSerializable {
     
@@ -44,6 +47,13 @@ extension Account {
             if let user = response.result.value {
                 Account.shared = user
             }
+            completion(response.result.error)
+        }
+    }
+    
+    class func register(with form: RegisterForm, completion: @escaping ErrorableResult) {
+        let req = CustomRequest(path: "/Account/Register", method: .post, parameters: form.parameters!).api()
+        NetManager.shared.requestWithValidation(req).responseData { response in
             completion(response.result.error)
         }
     }

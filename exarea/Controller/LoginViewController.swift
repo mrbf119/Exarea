@@ -16,6 +16,11 @@ class LoginViewController: UIViewController {
     @IBOutlet private var phoneNumberTextField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet private var passwordTextField: SkyFloatingLabelTextFieldWithIcon!
     
+    @IBOutlet private var segmentControl: UISegmentedControl!
+    @IBOutlet private var segmentSection: UIView!
+    
+    
+    var isInLoginMode = false
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
 
@@ -34,11 +39,20 @@ class LoginViewController: UIViewController {
         
         self.loginButton.rounded()
         self.forgotPassButton.makeUnderlined()
+        
         self.phoneNumberTextField.titleFont = UIFont.iranSans
-        self.passwordTextField.titleFont = UIFont.iranSans
         self.phoneNumberTextField.isLTRLanguage = false
+        
+        self.passwordTextField.titleFont = UIFont.iranSans
         self.passwordTextField.isLTRLanguage = false
-        self.passwordTextField.iconImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.togglePassword)))
+        self.passwordTextField.iconImageView.superview!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.togglePassword)))
+        
+        if self.isInLoginMode {
+            self.segmentSection.isHidden = true
+        } else {
+            self.segmentControl.setTitleTextAttributes([.font: UIFont.iranSans], for: .normal)
+            self.forgotPassButton.isHidden = true
+        }
     }
     
     @IBAction private func didTapLoginButton() {
@@ -87,14 +101,14 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.removeErrors()
-        if textField === self.passwordTextField  {
+        if textField === self.passwordTextField, textField.text!.isEmpty  {
             self.passwordTextField.iconImage = UIImage(named: "icon-eye-show")
             self.passwordTextField.iconImageView.isUserInteractionEnabled = true
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField === self.passwordTextField  {
+        if textField === self.passwordTextField && textField.text!.isEmpty  {
             self.passwordTextField.iconImage = UIImage(named: "icon-lock-90")
             self.passwordTextField.iconImageView.isUserInteractionEnabled = false
         }
