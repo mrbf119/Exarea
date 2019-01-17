@@ -8,22 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		24272838AE8B9FB846BD315B /* Pods_exarea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7E6D336257AC577BB97EAB /* Pods_exarea.framework */; };
+		341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 341247BE21E5E75B00A34154 /* UITextField+Shake.m */; };
+		341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */; };
+		341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */; };
+		341247C621E6250C00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C321E6250B00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		341247CC21E6271700A34154 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247CB21E6271700A34154 /* Account.swift */; };
+		341247CE21E6287400A34154 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247CD21E6287400A34154 /* Networking.swift */; };
+		341247D021E6288900A34154 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247CF21E6288900A34154 /* Configurations.swift */; };
+		341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247D221E629FF00A34154 /* JSONSerializable.swift */; };
+		341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247D421E62A7400A34154 /* CustomJSONKey.swift */; };
+		346C8410215B59BA00F43F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346C840F215B59BA00F43F8C /* Main.storyboard */; };
+		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
+		346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8413215B61E300F43F8C /* PaginationManager.swift */; };
 		34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D7215B1A1900C3E68E /* AppDelegate.swift */; };
-		34E310DA215B1A1900C3E68E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* SplashViewController.swift */; };
-		34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Main.storyboard */; };
+		34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* LoginViewController.swift */; };
+		34E310DD215B1A1900C3E68E /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Login.storyboard */; };
 		34E310DF215B1A1B00C3E68E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DE215B1A1B00C3E68E /* Assets.xcassets */; };
 		34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */; };
 		34E310EB215B1D3A00C3E68E /* Segoe UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34E310EA215B1D3A00C3E68E /* Segoe UI.ttf */; };
 		34E310ED215B1E9200C3E68E /* Segoe UI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34E310EC215B1E9200C3E68E /* Segoe UI Bold.ttf */; };
 		34E310EF215B1F2300C3E68E /* IRANSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34E310EE215B1F2300C3E68E /* IRANSans.ttf */; };
 		34E310F2215B348F00C3E68E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310F1215B348F00C3E68E /* Extensions.swift */; };
+		34E7DC5421F06F3300D3292C /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5321F06F3300D3292C /* CustomNavigationController.swift */; };
+		34E7DC5621F071F900D3292C /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5521F071F900D3292C /* EntryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "exarea-Bridging-Header.h"; path = "../exarea-Bridging-Header.h"; sourceTree = "<group>"; };
+		341247BD21E5E75B00A34154 /* UITextField+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake.h"; sourceTree = "<group>"; };
+		341247BE21E5E75B00A34154 /* UITextField+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Shake.m"; sourceTree = "<group>"; };
+		341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		341247C321E6250B00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		341247CB21E6271700A34154 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		341247CD21E6287400A34154 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		341247CF21E6288900A34154 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		341247D221E629FF00A34154 /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
+		341247D421E62A7400A34154 /* CustomJSONKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomJSONKey.swift; sourceTree = "<group>"; };
+		346C840F215B59BA00F43F8C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		346C8413215B61E300F43F8C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
 		34E310D4215B1A1900C3E68E /* exarea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exarea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E310D7215B1A1900C3E68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34E310D9215B1A1900C3E68E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		34E310DC215B1A1900C3E68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		34E310D9215B1A1900C3E68E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		34E310DC215B1A1900C3E68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		34E310DE215B1A1B00C3E68E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34E310E1215B1A1B00C3E68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34E310E3215B1A1B00C3E68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +60,8 @@
 		34E310EE215B1F2300C3E68E /* IRANSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSans.ttf; sourceTree = "<group>"; };
 		34E310F0215B1F3400C3E68E /* IRANSans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSans_Bold.ttf; sourceTree = "<group>"; };
 		34E310F1215B348F00C3E68E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		34E7DC5321F06F3300D3292C /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		34E7DC5521F071F900D3292C /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		379F1EA477EF34FCD7F3AC36 /* Pods-exarea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-exarea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-exarea/Pods-exarea.debug.xcconfig"; sourceTree = "<group>"; };
 		9C7E6D336257AC577BB97EAB /* Pods_exarea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_exarea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC81AFB9D035D9F7E82D3B21 /* Pods-exarea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-exarea.release.xcconfig"; path = "Pods/Target Support Files/Pods-exarea/Pods-exarea.release.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +88,69 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		341247C021E5E76300A34154 /* UITextField+Shake */ = {
+			isa = PBXGroup;
+			children = (
+				341247BD21E5E75B00A34154 /* UITextField+Shake.h */,
+				341247BE21E5E75B00A34154 /* UITextField+Shake.m */,
+			);
+			path = "UITextField+Shake";
+			sourceTree = "<group>";
+		};
+		341247C721E6254600A34154 /* SkyFloatingLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */,
+				341247C321E6250B00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */,
+			);
+			path = SkyFloatingLabelTextField;
+			sourceTree = "<group>";
+		};
+		341247C821E6257200A34154 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				341247D421E62A7400A34154 /* CustomJSONKey.swift */,
+				341247D221E629FF00A34154 /* JSONSerializable.swift */,
+				341247CD21E6287400A34154 /* Networking.swift */,
+				341247CF21E6288900A34154 /* Configurations.swift */,
+				34E310F1215B348F00C3E68E /* Extensions.swift */,
+				346C8413215B61E300F43F8C /* PaginationManager.swift */,
+				341247C721E6254600A34154 /* SkyFloatingLabelTextField */,
+				341247C021E5E76300A34154 /* UITextField+Shake */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		341247C921E626E800A34154 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				34E310DB215B1A1900C3E68E /* Login.storyboard */,
+				346C840F215B59BA00F43F8C /* Main.storyboard */,
+				34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		341247CA21E626F900A34154 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				34E7DC5321F06F3300D3292C /* CustomNavigationController.swift */,
+				34E7DC5521F071F900D3292C /* EntryViewController.swift */,
+				34E310D9215B1A1900C3E68E /* LoginViewController.swift */,
+				346C8411215B614900F43F8C /* FavoritesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		341247D121E629C300A34154 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				341247CB21E6271700A34154 /* Account.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		34E310CB215B1A1900C3E68E = {
 			isa = PBXGroup;
 			children = (
@@ -81,11 +174,10 @@
 			children = (
 				34E310E3215B1A1B00C3E68E /* Info.plist */,
 				34E310E9215B1D1800C3E68E /* Resources */,
-				34E310D7215B1A1900C3E68E /* AppDelegate.swift */,
-				34E310D9215B1A1900C3E68E /* SplashViewController.swift */,
-				34E310F1215B348F00C3E68E /* Extensions.swift */,
-				34E310DB215B1A1900C3E68E /* Main.storyboard */,
-				34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */,
+				341247C821E6257200A34154 /* Helpers */,
+				341247D121E629C300A34154 /* Model */,
+				341247CA21E626F900A34154 /* Controller */,
+				341247C921E626E800A34154 /* View */,
 			);
 			path = exarea;
 			sourceTree = "<group>";
@@ -93,6 +185,8 @@
 		34E310E9215B1D1800C3E68E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				34E310D7215B1A1900C3E68E /* AppDelegate.swift */,
+				341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */,
 				34E310EC215B1E9200C3E68E /* Segoe UI Bold.ttf */,
 				34E310EA215B1D3A00C3E68E /* Segoe UI.ttf */,
 				34E310F0215B1F3400C3E68E /* IRANSans_Bold.ttf */,
@@ -144,6 +238,7 @@
 				TargetAttributes = {
 					34E310D3215B1A1900C3E68E = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -170,11 +265,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346C8410215B59BA00F43F8C /* Main.storyboard in Resources */,
 				34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */,
 				34E310ED215B1E9200C3E68E /* Segoe UI Bold.ttf in Resources */,
 				34E310EB215B1D3A00C3E68E /* Segoe UI.ttf in Resources */,
 				34E310DF215B1A1B00C3E68E /* Assets.xcassets in Resources */,
-				34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */,
+				34E310DD215B1A1900C3E68E /* Login.storyboard in Resources */,
 				34E310EF215B1F2300C3E68E /* IRANSans.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,7 +310,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-exarea/Pods-exarea-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -222,7 +317,6 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,8 +331,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E310DA215B1A1900C3E68E /* SplashViewController.swift in Sources */,
+				341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */,
+				341247CE21E6287400A34154 /* Networking.swift in Sources */,
+				341247D021E6288900A34154 /* Configurations.swift in Sources */,
+				341247C621E6250C00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */,
+				34E7DC5621F071F900D3292C /* EntryViewController.swift in Sources */,
 				34E310F2215B348F00C3E68E /* Extensions.swift in Sources */,
+				34E7DC5421F06F3300D3292C /* CustomNavigationController.swift in Sources */,
+				341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */,
+				341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */,
+				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
+				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
+				341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */,
+				341247CC21E6271700A34154 /* Account.swift in Sources */,
+				341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */,
 				34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,12 +353,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		34E310DB215B1A1900C3E68E /* Main.storyboard */ = {
+		34E310DB215B1A1900C3E68E /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				34E310DC215B1A1900C3E68E /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */ = {
@@ -386,16 +493,19 @@
 			baseConfigurationReference = 379F1EA477EF34FCD7F3AC36 /* Pods-exarea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AB733ZR39U;
+				DEVELOPMENT_TEAM = ACL3HTXHT6;
 				INFOPLIST_FILE = exarea/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tamtom.exarea;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tamtom.exarea.alpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "exarea/Resources/exarea-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -406,16 +516,18 @@
 			baseConfigurationReference = AC81AFB9D035D9F7E82D3B21 /* Pods-exarea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AB733ZR39U;
+				DEVELOPMENT_TEAM = ACL3HTXHT6;
 				INFOPLIST_FILE = exarea/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tamtom.exarea;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tamtom.exarea.alpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "exarea/Resources/exarea-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
