@@ -31,6 +31,8 @@
 		34E310F2215B348F00C3E68E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310F1215B348F00C3E68E /* Extensions.swift */; };
 		34E7DC5421F06F3300D3292C /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5321F06F3300D3292C /* CustomNavigationController.swift */; };
 		34E7DC5621F071F900D3292C /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5521F071F900D3292C /* EntryViewController.swift */; };
+		34E7DC5821F0783300D3292C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5721F0783300D3292C /* MainViewController.swift */; };
+		34E7DC5A21F086D100D3292C /* PitTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5921F086D100D3292C /* PitTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		34E310F1215B348F00C3E68E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		34E7DC5321F06F3300D3292C /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		34E7DC5521F071F900D3292C /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		34E7DC5721F0783300D3292C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		34E7DC5921F086D100D3292C /* PitTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTabBar.swift; sourceTree = "<group>"; };
 		379F1EA477EF34FCD7F3AC36 /* Pods-exarea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-exarea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-exarea/Pods-exarea.debug.xcconfig"; sourceTree = "<group>"; };
 		9C7E6D336257AC577BB97EAB /* Pods_exarea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_exarea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC81AFB9D035D9F7E82D3B21 /* Pods-exarea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-exarea.release.xcconfig"; path = "Pods/Target Support Files/Pods-exarea/Pods-exarea.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				341247CD21E6287400A34154 /* Networking.swift */,
 				341247CF21E6288900A34154 /* Configurations.swift */,
 				34E310F1215B348F00C3E68E /* Extensions.swift */,
+				34E7DC5921F086D100D3292C /* PitTabBar.swift */,
 				346C8413215B61E300F43F8C /* PaginationManager.swift */,
 				341247C721E6254600A34154 /* SkyFloatingLabelTextField */,
 				341247C021E5E76300A34154 /* UITextField+Shake */,
@@ -139,6 +144,7 @@
 				34E7DC5521F071F900D3292C /* EntryViewController.swift */,
 				34E310D9215B1A1900C3E68E /* LoginViewController.swift */,
 				346C8411215B614900F43F8C /* FavoritesViewController.swift */,
+				34E7DC5721F0783300D3292C /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -338,11 +344,13 @@
 				34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */,
 				34E7DC5621F071F900D3292C /* EntryViewController.swift in Sources */,
 				34E310F2215B348F00C3E68E /* Extensions.swift in Sources */,
+				34E7DC5821F0783300D3292C /* MainViewController.swift in Sources */,
 				34E7DC5421F06F3300D3292C /* CustomNavigationController.swift in Sources */,
 				341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */,
 				341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */,
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
 				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
+				34E7DC5A21F086D100D3292C /* PitTabBar.swift in Sources */,
 				341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */,
 				341247CC21E6271700A34154 /* Account.swift in Sources */,
 				341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */,

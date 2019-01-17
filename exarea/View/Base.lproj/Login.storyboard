@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XUE-Jd-zEI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ozJ-rn-8V0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,10 +33,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A2X-Vo-waz">
-                                <rect key="frame" x="56.5" y="565" width="262.5" height="92"/>
+                                <rect key="frame" x="56.5" y="547" width="262.5" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-VS-xHU">
-                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SUK-Fj-Jxi"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="17"/>
                                         <state key="normal" title="ورود">
                                             <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,7 +50,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pR-Cs-hV1">
-                                        <rect key="frame" x="0.0" y="51" width="262.5" height="41"/>
+                                        <rect key="frame" x="0.0" y="60" width="262.5" height="50"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="17"/>
                                         <state key="normal" title="ثبت نام">
                                             <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,8 +69,9 @@
                             <constraint firstItem="A2X-Vo-waz" firstAttribute="centerX" secondItem="ITp-Yn-CIh" secondAttribute="centerX" id="flH-AG-1ad"/>
                             <constraint firstItem="A2X-Vo-waz" firstAttribute="width" secondItem="qof-s5-4SN" secondAttribute="width" multiplier="0.7" id="hjF-pQ-nkE"/>
                             <constraint firstItem="ITp-Yn-CIh" firstAttribute="bottom" secondItem="A2X-Vo-waz" secondAttribute="bottom" constant="10" id="kHq-FQ-hKo"/>
-                            <constraint firstItem="z9J-PZ-VGh" firstAttribute="centerY" secondItem="qof-s5-4SN" secondAttribute="centerY" id="lzU-tC-3Pk"/>
+                            <constraint firstItem="z9J-PZ-VGh" firstAttribute="centerY" secondItem="qof-s5-4SN" secondAttribute="centerY" priority="750" id="lzU-tC-3Pk"/>
                             <constraint firstItem="z9J-PZ-VGh" firstAttribute="centerX" secondItem="qof-s5-4SN" secondAttribute="centerX" id="uIW-hx-51H"/>
+                            <constraint firstItem="A2X-Vo-waz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="z9J-PZ-VGh" secondAttribute="bottom" constant="40" id="xGy-bB-89Y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ITp-Yn-CIh"/>
                     </view>
@@ -293,11 +297,11 @@
                             <constraint firstItem="UnQ-8e-EqK" firstAttribute="centerX" secondItem="2Ol-Qd-CcL" secondAttribute="centerX" id="5N1-KA-KpE"/>
                             <constraint firstItem="NVR-90-BwD" firstAttribute="centerX" secondItem="2Ol-Qd-CcL" secondAttribute="centerX" id="8LS-i6-9m5"/>
                             <constraint firstItem="EgQ-uX-OhL" firstAttribute="bottom" secondItem="lZ5-q3-whg" secondAttribute="bottom" constant="10" id="FpL-ey-Ue8"/>
-                            <constraint firstItem="NVR-90-BwD" firstAttribute="top" secondItem="EgQ-uX-OhL" secondAttribute="top" constant="10" id="L3p-JS-W0N"/>
                             <constraint firstItem="lZ5-q3-whg" firstAttribute="width" secondItem="2Ol-Qd-CcL" secondAttribute="width" multiplier="0.7" priority="999" id="Lzi-94-9fk"/>
                             <constraint firstItem="UnQ-8e-EqK" firstAttribute="centerY" secondItem="2Ol-Qd-CcL" secondAttribute="centerY" id="W9H-JE-cao"/>
                             <constraint firstItem="lZ5-q3-whg" firstAttribute="centerX" secondItem="2Ol-Qd-CcL" secondAttribute="centerX" id="c1I-vS-e6h"/>
                             <constraint firstItem="UnQ-8e-EqK" firstAttribute="width" secondItem="2Ol-Qd-CcL" secondAttribute="width" multiplier="0.8" id="zKC-QD-1yB"/>
+                            <constraint firstItem="NVR-90-BwD" firstAttribute="top" secondItem="EgQ-uX-OhL" secondAttribute="top" constant="10" id="zSh-bo-Szq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EgQ-uX-OhL"/>
                     </view>
@@ -316,6 +320,91 @@
             </objects>
             <point key="canvasLocation" x="1284" y="7"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="gWp-PM-P2m">
+            <objects>
+                <viewController id="Nkf-G2-POD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AJL-qx-gQl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.4549019608" green="0.75686274509999996" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="enC-s7-OaQ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon-qrcode-75" id="9NA-Gx-gPw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ita-Uv-9lZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3078" y="-253"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8mE-9O-bl1">
+            <objects>
+                <viewController id="pox-Ci-VbG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yd4-PT-yfs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wZJ-zU-y8w"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon-home-75" id="NTo-6k-G5T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5C-a1-hYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="516"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="qHc-BH-k3f">
+            <objects>
+                <tabBarController id="ozJ-rn-8V0" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xlb-nt-kz7" customClass="PitTabBar" customModule="exarea" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                <real key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="circleBackColor">
+                                <color key="value" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="barBackColor">
+                                <color key="value" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="marginTop">
+                                <real key="value" value="-6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="marginBottom">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="barBottomRadius">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="barTopRadius">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="barHeight">
+                                <real key="value" value="60"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="pitCornerRad">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="pitCircleDistanceOffset">
+                                <real key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aDZ-bI-E5F" kind="relationship" relationship="viewControllers" id="Rtv-8Y-m6U"/>
+                        <segue destination="Nkf-G2-POD" kind="relationship" relationship="viewControllers" id="daZ-5d-TEB"/>
+                        <segue destination="pox-Ci-VbG" kind="relationship" relationship="viewControllers" id="zDH-LX-BCg"/>
+                        <segue destination="EaL-8M-aR3" kind="relationship" relationship="viewControllers" id="ahe-zV-zKK"/>
+                        <segue destination="h1O-Ke-vGC" kind="relationship" relationship="viewControllers" id="oIU-mI-R20"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBt-cj-qyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2106" y="32"/>
+        </scene>
         <!--Custom Navigation Controller-->
         <scene sceneID="mzF-Pn-XME">
             <objects>
@@ -333,9 +422,62 @@
             </objects>
             <point key="canvasLocation" x="-263" y="7"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="otd-Hf-wWS">
+            <objects>
+                <viewController id="aDZ-bI-E5F" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5lk-zE-VLB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="RYo-rD-hJR"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon-bookmark-75" id="9FA-oT-rSU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxS-Ez-9nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="-960"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ARz-kK-CMA">
+            <objects>
+                <viewController id="h1O-Ke-vGC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ae0-wZ-mnk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="m8a-UR-InN"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon-profile-75" id="CQH-XH-bpA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W4E-xu-yQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="1825"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aaN-0p-qyY">
+            <objects>
+                <viewController id="EaL-8M-aR3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pzo-bb-RFF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="DQ8-5h-V2G"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon-chat-bubble-75" id="4hK-n5-HTc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMv-gt-bno" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3057" y="1110"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="icon-bookmark-75" width="120" height="120"/>
+        <image name="icon-chat-bubble-75" width="120" height="120"/>
+        <image name="icon-home-75" width="120" height="120"/>
         <image name="icon-lock-90" width="22.5" height="22.5"/>
         <image name="icon-mobile-90" width="22.5" height="22.5"/>
+        <image name="icon-profile-75" width="120" height="120"/>
+        <image name="icon-qrcode-75" width="120" height="120"/>
     </resources>
 </document>
