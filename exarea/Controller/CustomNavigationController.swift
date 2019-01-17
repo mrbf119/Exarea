@@ -1,0 +1,55 @@
+//
+//  CustomNavigationController.swift
+//  Bebras
+//
+//  Created by Soroush on 17/8/1397 AP.
+//  Copyright © 1396 gandom. All rights reserved.
+//
+
+import UIKit
+
+class CustomNavigationController: UINavigationController {
+    
+    private var defaultBgImage: UIImage?
+    private var defaultShadowImage: UIImage?
+    private var defaultBgColor: UIColor?
+    
+    func makeDefault(translucent: Bool = false, bgColor: UIColor) {
+        self.navigationBar.setBackgroundImage(self.defaultBgImage, for: .default)
+        self.navigationBar.shadowImage = self.defaultShadowImage
+        self.navigationBar.backgroundColor = bgColor
+        self.navigationBar.barTintColor = .white
+        self.navigationBar.isTranslucent = translucent
+    }
+    
+    func clear() {
+        self.navigationBar.makeTransparent(withTint: .mainYellowColor)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.semanticContentAttribute = .forceRightToLeft
+        self.defaultBgImage = self.navigationBar.backgroundImage(for: .default)
+        self.defaultShadowImage = self.navigationBar.shadowImage
+        self.defaultBgColor = self.navigationBar.backgroundColor
+    }
+    
+    override var childForStatusBarStyle: UIViewController? {
+        return self.viewControllers.last
+    }
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        let button = UIBarButtonItem()
+        button.title = ""
+        self.viewControllers.last?.navigationItem.backBarButtonItem = button
+        super.pushViewController(viewController, animated: animated)
+    }
+    
+    override func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+        let button = UIBarButtonItem()
+        button.title = ""
+        (viewControllers[safe: viewControllers.count - 2] ?? viewControllers.first)?.navigationItem.backBarButtonItem = button
+        super.setViewControllers(viewControllers, animated: true)
+    }
+    
+}

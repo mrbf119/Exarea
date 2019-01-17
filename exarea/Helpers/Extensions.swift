@@ -9,6 +9,53 @@
 import UIKit
 import Alamofire
 
+public extension Collection {
+    
+    public subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
+public extension Collection where Index == Int {
+    
+    public func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
+        var indicies: [Index] = []
+        for (index, value) in lazy.enumerated() where try condition(value) {
+            indicies.append(index)
+        }
+        return indicies.isEmpty ? nil : indicies
+    }
+}
+
+public extension UINavigationBar {
+    
+    public func setTitleFont(_ font: UIFont, color: UIColor = .black) {
+        var attrs = [NSAttributedString.Key: Any]()
+        attrs[.font] = font
+        attrs[.foregroundColor] = color
+        titleTextAttributes = attrs
+    }
+    
+    public func makeTransparent(withTint tint: UIColor) {
+        isTranslucent = true
+        backgroundColor = .clear
+        barTintColor = .clear
+        setBackgroundImage(UIImage(), for: .default)
+        tintColor = tint
+        titleTextAttributes = [.foregroundColor: tint]
+        shadowImage = UIImage()
+    }
+    
+    public func setColors(background: UIColor, text: UIColor) {
+        isTranslucent = false
+        backgroundColor = background
+        barTintColor = background
+        setBackgroundImage(UIImage(), for: .default)
+        tintColor = text
+        titleTextAttributes = [.foregroundColor: text]
+    }
+}
+
 extension UIDevice {
     static var modelName: String {
         var systemInfo = utsname()

@@ -15,6 +15,8 @@ typealias ErrorableResult = (Error?) -> Void
 struct ResultTypeError: LocalizedError {
     let message: String
     let status: Int
+    var errorDescription: String? { return self.message }
+    var localizedDescription: String { return self.message }
 }
 
 enum NetworkError: Error {

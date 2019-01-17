@@ -18,7 +18,23 @@ struct LoginForm: JSONSerializable {
 }
 
 struct RegisterForm: JSONSerializable {
-    let userName, password, roleID: String
+    enum Role: String {
+        case user = "3"
+        case boothOwner = "4"
+        
+        init?(_ raw: Int) {
+            self = raw == 0 ? .user : .boothOwner
+        }
+    }
+    
+    let userName, password: String
+    let roleID: String
+    
+    init(userName: String, password: String, roleID: Role) {
+        self.userName = userName
+        self.password = password
+        self.roleID = roleID.rawValue
+    }
 }
 
 class Account: JSONSerializable {

@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - Properties
     
-    var isInLoginMode = false
+    var isInLoginMode = true
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private var centerYDiff = 0
@@ -41,6 +41,8 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        (self.navigationController as? CustomNavigationController)?.clear()
         self.startObserveKeyboard()
     }
     
@@ -49,12 +51,15 @@ class LoginViewController: UIViewController {
         self.endObserveKeyboard()
     }
     
+    
+    //MARK: Methods
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     private func configUI() {
-        self.navigationController?.isNavigationBarHidden = true
+        
         self.view.layer.contents = UIImage(named: "image-background")?.cgImage
         
         self.loginButton.rounded()
@@ -106,13 +111,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction private func didTapLoginButton() {
-        guard let form = self.validateForm() else { return }
-        Account.login(with: form) { error in
-            
-        }
-    }
-    
     @objc private func togglePassword() {
         if self.passwordTextField.isSecureTextEntry {
             self.passwordTextField.iconImage = UIImage(named: "icon-eye-hide")
@@ -125,7 +123,32 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func validateForm() -> LoginForm? {
+    private func removeErrors() {
+        self.phoneNumberTextField.errorMessage = ""
+        self.passwordTextField.errorMessage = ""
+    }
+    
+    @IBAction private func didTapLoginButton() {
+        guard let form = self.validateForm() else { return }
+        
+        
+        if self.isInLoginMode {
+            let form = LoginForm(userName: form.user, password: form.pass)
+            Account.login(with: form) { error in
+                if let error = error {
+                    return print(error.localizedDescription)
+                }
+                self.performSegue(withIdentifier: "toMainVC", sender: nil)
+            }
+        } else {
+            let form = RegisterForm(userName: form.user, password: form.pass, roleID: RegisterForm.Role(self.segmentControl.selectedSegmentIndex)!)
+            Account.register(with: form) { error in
+                
+            }
+        }
+    }
+    
+    private func validateForm() -> (user: String, pass: String)? {
         
         let phoneNumber = self.phoneNumberTextField.text!.englishNumbers
         let password = self.passwordTextField.text!
@@ -141,13 +164,9 @@ class LoginViewController: UIViewController {
             self.passwordTextField.errorMessage = "لطفا کلمه عبور خود را وارد کنید"
             return nil
         }
-        return LoginForm(userName: phoneNumber, password: password)
+        return (phoneNumber, password)
     }
     
-    private func removeErrors() {
-        self.phoneNumberTextField.errorMessage = ""
-        self.passwordTextField.errorMessage = ""
-    }
 }
 
 extension LoginViewController: UITextFieldDelegate {

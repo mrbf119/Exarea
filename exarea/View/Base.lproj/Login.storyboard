@@ -18,32 +18,69 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Login View Controller-->
+        <!--Entry View Controller-->
         <scene sceneID="VE3-Yn-sjC">
             <objects>
-                <viewController id="nA4-Sb-YLz" customClass="LoginViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nA4-Sb-YLz" customClass="EntryViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qof-s5-4SN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9J-PZ-VGh">
-                                <rect key="frame" x="86.5" y="302.5" width="202" height="62"/>
+                                <rect key="frame" x="87" y="297.5" width="201.5" height="72.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
                                 <color key="textColor" red="0.99215686274509807" green="0.83137254901960778" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A2X-Vo-waz">
+                                <rect key="frame" x="56.5" y="565" width="262.5" height="92"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-VS-xHU">
+                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="41"/>
+                                        <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="17"/>
+                                        <state key="normal" title="ورود">
+                                            <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTap:" destination="nA4-Sb-YLz" eventType="touchUpInside" id="BhA-gu-jPe"/>
+                                            <action selector="didTapLoginButton" destination="pyo-eP-pxe" eventType="touchUpInside" id="9Y5-HJ-n0x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pR-Cs-hV1">
+                                        <rect key="frame" x="0.0" y="51" width="262.5" height="41"/>
+                                        <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="17"/>
+                                        <state key="normal" title="ثبت نام">
+                                            <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTap:" destination="nA4-Sb-YLz" eventType="touchUpInside" id="ZNU-y7-3H7"/>
+                                            <action selector="didTapLoginButton" destination="pyo-eP-pxe" eventType="touchUpInside" id="1B1-jo-HEQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.10196078431372549" green="0.12549019607843137" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="A2X-Vo-waz" firstAttribute="width" relation="lessThanOrEqual" secondItem="qof-s5-4SN" secondAttribute="width" constant="320" id="d8s-DU-miC"/>
+                            <constraint firstItem="A2X-Vo-waz" firstAttribute="centerX" secondItem="ITp-Yn-CIh" secondAttribute="centerX" id="flH-AG-1ad"/>
+                            <constraint firstItem="A2X-Vo-waz" firstAttribute="width" secondItem="qof-s5-4SN" secondAttribute="width" multiplier="0.7" id="hjF-pQ-nkE"/>
+                            <constraint firstItem="ITp-Yn-CIh" firstAttribute="bottom" secondItem="A2X-Vo-waz" secondAttribute="bottom" constant="10" id="kHq-FQ-hKo"/>
                             <constraint firstItem="z9J-PZ-VGh" firstAttribute="centerY" secondItem="qof-s5-4SN" secondAttribute="centerY" id="lzU-tC-3Pk"/>
                             <constraint firstItem="z9J-PZ-VGh" firstAttribute="centerX" secondItem="qof-s5-4SN" secondAttribute="centerX" id="uIW-hx-51H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ITp-Yn-CIh"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ibo-sZ-fIe"/>
+                    <connections>
+                        <outlet property="RegisterButton" destination="6pR-Cs-hV1" id="B22-6H-bhp"/>
+                        <outlet property="loginButton" destination="zb9-VS-xHU" id="5Gc-v6-ff1"/>
+                        <segue destination="pyo-eP-pxe" kind="show" identifier="toLoginVC" id="hHi-H7-jwX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k95-yL-fvr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1310" y="7"/>
+            <point key="canvasLocation" x="508" y="7"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gNe-Fd-WcY">
@@ -277,23 +314,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg2-mg-dtY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="614" y="7"/>
+            <point key="canvasLocation" x="1284" y="7"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Custom Navigation Controller-->
         <scene sceneID="mzF-Pn-XME">
             <objects>
-                <navigationController id="XUE-Jd-zEI" sceneMemberID="viewController">
+                <navigationController id="XUE-Jd-zEI" customClass="CustomNavigationController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yGt-Pt-xLB">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="pyo-eP-pxe" kind="relationship" relationship="rootViewController" id="jK5-ki-0XK"/>
+                        <segue destination="nA4-Sb-YLz" kind="relationship" relationship="rootViewController" id="mfD-LA-jdL"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNJ-kX-u3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-146" y="7"/>
+            <point key="canvasLocation" x="-263" y="7"/>
         </scene>
     </scenes>
     <resources>
