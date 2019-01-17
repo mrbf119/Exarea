@@ -60,6 +60,7 @@ class LoginViewController: UIViewController {
         self.forgotPassButton.makeUnderlined()
         
         self.phoneNumberTextField.titleFont = UIFont.iranSans
+        
         self.phoneNumberTextField.isLTRLanguage = false
         
         self.passwordTextField.titleFont = UIFont.iranSans
@@ -111,9 +112,11 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func togglePassword() {
-        if self.passwordTextField.iconImage == UIImage(named: "icon-eye-show") {
+        if self.passwordTextField.isSecureTextEntry {
             self.passwordTextField.iconImage = UIImage(named: "icon-eye-hide")
             self.passwordTextField.isSecureTextEntry = false
+            self.passwordTextField.font = nil
+            self.passwordTextField.font = UIFont.iranSans
         } else {
             self.passwordTextField.iconImage = UIImage(named: "icon-eye-show")
             self.passwordTextField.isSecureTextEntry = true
