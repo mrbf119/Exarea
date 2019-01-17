@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
     //MARK: - Properties
     
     var isInLoginMode = false
+    
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private var centerYDiff = 0
     
@@ -87,9 +88,10 @@ class LoginViewController: UIViewController {
     
     @objc private func didShowKeyboard(_ notif: NSNotification) {
         if let frame = notif.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, let stack = self.stackCenterYConstraint.firstItem as? UIView {
-            let diff = frame.origin.y - stack.frame.maxY
+            let passFrame = stack.convert(self.passwordTextField.frame, to: self.view)
+            let diff = frame.origin.y - (passFrame.origin.y + passFrame.height)
             if diff < 0 {
-                self.stackCenterYConstraint.constant += diff
+                self.stackCenterYConstraint.constant += diff - 10
                 UIView.animate(withDuration: 0.1) {
                     self.view.layoutIfNeeded()
                 }
