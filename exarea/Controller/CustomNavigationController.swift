@@ -14,12 +14,19 @@ class CustomNavigationController: UINavigationController {
     private var defaultShadowImage: UIImage?
     private var defaultBgColor: UIColor?
     
-    func makeDefault(translucent: Bool = false, bgColor: UIColor) {
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    func setDefaultSettings() {
         self.navigationBar.setBackgroundImage(self.defaultBgImage, for: .default)
         self.navigationBar.shadowImage = self.defaultShadowImage
-        self.navigationBar.backgroundColor = bgColor
+        self.navigationBar.backgroundColor = self.defaultBgColor
         self.navigationBar.barTintColor = .white
-        self.navigationBar.isTranslucent = translucent
+        self.navigationBar.isTranslucent = true
     }
     
     func clear() {

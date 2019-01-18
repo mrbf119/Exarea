@@ -8,10 +8,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.setColors(background: .mainBlueColor, text: .mainYellowColor)
     }
+    
 
 }

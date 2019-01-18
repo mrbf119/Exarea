@@ -32,7 +32,7 @@ extension UITabBarItem {
     @IBInspectable public var circleRadius: CGFloat = 40
     
     let pitCornerRad: CGFloat = 10
-    let pitCircleDistanceOffset: CGFloat = 0
+    let pitCircleDistanceOffset: CGFloat = 10
     
     private lazy var circle: CAShapeLayer = {
         let result = CAShapeLayer()
