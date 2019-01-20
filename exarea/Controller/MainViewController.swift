@@ -15,6 +15,4 @@ class MainViewController: UITabBarController {
         
         self.navigationController?.navigationBar.setColors(background: .mainBlueColor, text: .mainYellowColor)
     }
-    
-
 }

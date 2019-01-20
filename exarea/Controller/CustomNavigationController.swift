@@ -8,6 +8,18 @@
 
 import UIKit
 
+extension UIColor {
+    func as1ptImage() -> UIImage? {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 3))
+        let ctx = UIGraphicsGetCurrentContext()
+        self.setFill()
+        ctx?.fill(CGRect(x: 0, y: 0, width: 1, height: 3))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
 class CustomNavigationController: UINavigationController {
     
     private var defaultBgImage: UIImage?
@@ -16,6 +28,15 @@ class CustomNavigationController: UINavigationController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.semanticContentAttribute = .forceRightToLeft
+        self.defaultBgImage = self.navigationBar.backgroundImage(for: .default)
+        self.defaultShadowImage = UIColor.mainYellowColor.as1ptImage()
+        self.defaultBgColor = self.navigationBar.backgroundColor
+        self.setDefaultSettings()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
@@ -23,7 +44,7 @@ class CustomNavigationController: UINavigationController {
     
     func setDefaultSettings() {
         self.navigationBar.setBackgroundImage(self.defaultBgImage, for: .default)
-        self.navigationBar.shadowImage = self.defaultShadowImage
+        self.navigationBar.shadowImage = UIColor.mainYellowColor.as1ptImage()
         self.navigationBar.backgroundColor = self.defaultBgColor
         self.navigationBar.barTintColor = .white
         self.navigationBar.isTranslucent = true
@@ -33,13 +54,7 @@ class CustomNavigationController: UINavigationController {
         self.navigationBar.makeTransparent(withTint: .mainYellowColor)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.semanticContentAttribute = .forceRightToLeft
-        self.defaultBgImage = self.navigationBar.backgroundImage(for: .default)
-        self.defaultShadowImage = self.navigationBar.shadowImage
-        self.defaultBgColor = self.navigationBar.backgroundColor
-    }
+    
     
     override var childForStatusBarStyle: UIViewController? {
         return self.viewControllers.last
