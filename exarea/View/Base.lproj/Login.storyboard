@@ -339,10 +339,10 @@
             </objects>
             <point key="canvasLocation" x="3078" y="-253"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="8mE-9O-bl1">
             <objects>
-                <viewController id="pox-Ci-VbG" sceneMemberID="viewController">
+                <viewController id="pox-Ci-VbG" customClass="HomeViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yd4-PT-yfs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -368,11 +368,24 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilc-0g-vLk" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ilc-0g-vLk" firstAttribute="leading" secondItem="wZJ-zU-y8w" secondAttribute="leading" id="GgQ-QN-oJG"/>
+                            <constraint firstItem="wZJ-zU-y8w" firstAttribute="trailing" secondItem="ilc-0g-vLk" secondAttribute="trailing" id="d3O-cf-Spp"/>
+                            <constraint firstItem="ilc-0g-vLk" firstAttribute="height" secondItem="Yd4-PT-yfs" secondAttribute="height" multiplier="0.35" id="jPK-F2-7ge"/>
+                            <constraint firstItem="ilc-0g-vLk" firstAttribute="top" secondItem="wZJ-zU-y8w" secondAttribute="top" id="jja-f1-qWa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wZJ-zU-y8w"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-home-75" id="NTo-6k-G5T"/>
+                    <connections>
+                        <outlet property="slideShow" destination="ilc-0g-vLk" id="TId-Ci-uBK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5C-a1-hYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

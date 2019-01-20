@@ -17,6 +17,10 @@
 		341247D021E6288900A34154 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247CF21E6288900A34154 /* Configurations.swift */; };
 		341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247D221E629FF00A34154 /* JSONSerializable.swift */; };
 		341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247D421E62A7400A34154 /* CustomJSONKey.swift */; };
+		344E0CB021F43DB100555759 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAC21F43DB100555759 /* image1.jpg */; };
+		344E0CB121F43DB100555759 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAD21F43DB100555759 /* image2.jpg */; };
+		344E0CB221F43DB100555759 /* image3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAE21F43DB100555759 /* image3.jpeg */; };
+		344E0CB321F43DB100555759 /* image4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAF21F43DB100555759 /* image4.jpeg */; };
 		346C8410215B59BA00F43F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346C840F215B59BA00F43F8C /* Main.storyboard */; };
 		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
 		346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8413215B61E300F43F8C /* PaginationManager.swift */; };
@@ -48,6 +52,10 @@
 		341247CF21E6288900A34154 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		341247D221E629FF00A34154 /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		341247D421E62A7400A34154 /* CustomJSONKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomJSONKey.swift; sourceTree = "<group>"; };
+		344E0CAC21F43DB100555759 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
+		344E0CAD21F43DB100555759 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
+		344E0CAE21F43DB100555759 /* image3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpeg; sourceTree = "<group>"; };
+		344E0CAF21F43DB100555759 /* image4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image4.jpeg; sourceTree = "<group>"; };
 		346C840F215B59BA00F43F8C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		346C8413215B61E300F43F8C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
@@ -194,6 +202,10 @@
 		34E310E9215B1D1800C3E68E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				344E0CAC21F43DB100555759 /* image1.jpg */,
+				344E0CAD21F43DB100555759 /* image2.jpg */,
+				344E0CAE21F43DB100555759 /* image3.jpeg */,
+				344E0CAF21F43DB100555759 /* image4.jpeg */,
 				34E310D7215B1A1900C3E68E /* AppDelegate.swift */,
 				341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */,
 				34E310EC215B1E9200C3E68E /* Segoe UI Bold.ttf */,
@@ -274,10 +286,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344E0CB021F43DB100555759 /* image1.jpg in Resources */,
 				346C8410215B59BA00F43F8C /* Main.storyboard in Resources */,
+				344E0CB121F43DB100555759 /* image2.jpg in Resources */,
 				34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */,
+				344E0CB221F43DB100555759 /* image3.jpeg in Resources */,
 				34E310ED215B1E9200C3E68E /* Segoe UI Bold.ttf in Resources */,
 				34E310EB215B1D3A00C3E68E /* Segoe UI.ttf in Resources */,
+				344E0CB321F43DB100555759 /* image4.jpeg in Resources */,
 				34E310DF215B1A1B00C3E68E /* Assets.xcassets in Resources */,
 				34E310DD215B1A1900C3E68E /* Login.storyboard in Resources */,
 				34E310EF215B1F2300C3E68E /* IRANSans.ttf in Resources */,
@@ -320,6 +336,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-exarea/Pods-exarea-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -329,6 +346,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);

@@ -13,6 +13,10 @@ target 'exarea' do
   
   pod 'ImageSlideshow', '~> 1.6'
   
+  pod 'Kingfisher'
+  
+  pod "ImageSlideshow/Kingfisher"
+  
   inhibit_all_warnings!
 
 end
