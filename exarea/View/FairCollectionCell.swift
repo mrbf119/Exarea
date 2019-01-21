@@ -7,6 +7,11 @@
 //
 
 import Kingfisher
+import ImageSlideshow
+
+class SlideShowHeaderView: UICollectionReusableView {
+    @IBOutlet var slideShow: ImageSlideshow!
+}
 
 class FairCollectionCell: UICollectionViewCell {
     @IBOutlet var containerView: UIView!

@@ -348,17 +348,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gMp-L9-rcz">
-                                <rect key="frame" x="0.0" y="211" width="375" height="392"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dDq-uF-usv">
                                     <size key="itemSize" width="147" height="222"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="200"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="fairCell" id="2UQ-I6-Du7" customClass="FairCollectionCell" customModule="exarea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="147" height="222"/>
+                                        <rect key="frame" x="0.0" y="200" width="147" height="222"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="147" height="222"/>
@@ -405,33 +405,43 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SlideShowHeaderView" id="lj8-68-8Cm" customClass="SlideShowHeaderView" customModule="exarea" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-Wr-yg4" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="dFu-Wr-yg4" secondAttribute="trailing" id="Zn6-4b-05d"/>
+                                        <constraint firstItem="dFu-Wr-yg4" firstAttribute="leading" secondItem="lj8-68-8Cm" secondAttribute="leading" id="cba-dV-VXr"/>
+                                        <constraint firstAttribute="bottom" secondItem="dFu-Wr-yg4" secondAttribute="bottom" id="k4p-u0-gtg"/>
+                                        <constraint firstItem="dFu-Wr-yg4" firstAttribute="top" secondItem="lj8-68-8Cm" secondAttribute="top" id="mD0-vH-fYP"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="slideShow" destination="dFu-Wr-yg4" id="Drs-xQ-rg1"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="pox-Ci-VbG" id="kMq-bl-yVo"/>
                                     <outlet property="delegate" destination="pox-Ci-VbG" id="wF8-DZ-BIz"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilc-0g-vLk" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gMp-L9-rcz" firstAttribute="top" secondItem="ilc-0g-vLk" secondAttribute="bottom" id="A16-xP-4Qx"/>
-                            <constraint firstItem="ilc-0g-vLk" firstAttribute="leading" secondItem="wZJ-zU-y8w" secondAttribute="leading" id="GgQ-QN-oJG"/>
                             <constraint firstItem="gMp-L9-rcz" firstAttribute="leading" secondItem="wZJ-zU-y8w" secondAttribute="leading" id="UQ0-O8-v16"/>
                             <constraint firstAttribute="bottom" secondItem="gMp-L9-rcz" secondAttribute="bottom" id="Wyy-xH-xKf"/>
                             <constraint firstItem="wZJ-zU-y8w" firstAttribute="trailing" secondItem="gMp-L9-rcz" secondAttribute="trailing" id="YAN-cj-gcC"/>
-                            <constraint firstItem="wZJ-zU-y8w" firstAttribute="trailing" secondItem="ilc-0g-vLk" secondAttribute="trailing" id="d3O-cf-Spp"/>
-                            <constraint firstItem="ilc-0g-vLk" firstAttribute="height" secondItem="Yd4-PT-yfs" secondAttribute="height" multiplier="0.35" id="jPK-F2-7ge"/>
-                            <constraint firstItem="ilc-0g-vLk" firstAttribute="top" secondItem="wZJ-zU-y8w" secondAttribute="top" id="jja-f1-qWa"/>
+                            <constraint firstItem="gMp-L9-rcz" firstAttribute="top" secondItem="wZJ-zU-y8w" secondAttribute="top" id="g8j-YT-5dS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wZJ-zU-y8w"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-home-75" id="NTo-6k-G5T"/>
                     <connections>
                         <outlet property="collectionView" destination="gMp-L9-rcz" id="gr8-Lt-XXI"/>
-                        <outlet property="slideShow" destination="ilc-0g-vLk" id="TId-Ci-uBK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5C-a1-hYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -456,7 +466,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
-                                <real key="value" value="35"/>
+                                <real key="value" value="25"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="circleBackColor">
                                 <color key="value" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -477,7 +487,7 @@
                                 <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="barHeight">
-                                <real key="value" value="60"/>
+                                <real key="value" value="50"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="pitCornerRad">
                                 <real key="value" value="7"/>

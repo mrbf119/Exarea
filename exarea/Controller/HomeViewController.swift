@@ -10,13 +10,14 @@ import ImageSlideshow
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet private weak var slideShow: ImageSlideshow!
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private var data = [Fair]()
     
     private var cellSize: CGFloat { return 140  }
     private var cellMargin: CGFloat { return ((self.view.bounds.width - (self.cellSize * 2)) / 3 ).rounded() }
+    private var sliderCurrentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +26,7 @@ class HomeViewController: UIViewController {
     }
     
     private func configSlideShow() {
-        self.slideShow.setImageInputs([
-            KingfisherSource(url: Bundle.main.url(forResource: "image1", withExtension: ".jpg")!),
-            KingfisherSource(url: Bundle.main.url(forResource: "image2", withExtension: ".jpg")!),
-            KingfisherSource(url: Bundle.main.url(forResource: "image3", withExtension: ".jpeg")!),
-            KingfisherSource(url: Bundle.main.url(forResource: "image4", withExtension: ".jpeg")!)
-            ])
-        self.slideShow.slideshowInterval = 3
-        self.slideShow.circular = true
-        self.slideShow.contentScaleMode = .scaleToFill
+        
     }
     
     private func getData() {
@@ -67,6 +60,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return self.cellMargin
     }
@@ -81,5 +75,47 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.cellSize, height: 220)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard
+                let headerView = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: "\(SlideShowHeaderView.self)",
+                    for: indexPath) as? SlideShowHeaderView
+                else {
+                    fatalError("Invalid view type")
+            }
+            
+            headerView.slideShow.setImageInputs([
+                KingfisherSource(url: Bundle.main.url(forResource: "image1", withExtension: ".jpg")!),
+                KingfisherSource(url: Bundle.main.url(forResource: "image2", withExtension: ".jpg")!),
+                KingfisherSource(url: Bundle.main.url(forResource: "image3", withExtension: ".jpeg")!),
+                KingfisherSource(url: Bundle.main.url(forResource: "image4", withExtension: ".jpeg")!)
+                ])
+            headerView.slideShow.slideshowInterval = 5
+            headerView.slideShow.circular = true
+            headerView.slideShow.contentScaleMode = .scaleToFill
+            headerView.slideShow.setCurrentPage(self.sliderCurrentPage, animated: false)
+            return headerView
+        default:
+            assert(false, "Invalid element type")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+        guard
+            let headerView = collectionView.dequeueReusableSupplementaryView(
+                ofKind: elementKind,
+                withReuseIdentifier: "\(SlideShowHeaderView.self)",
+                for: indexPath) as? SlideShowHeaderView
+            else {
+                fatalError("Invalid view type")
+        }
+        self.sliderCurrentPage = headerView.slideShow.currentPage
     }
 }
