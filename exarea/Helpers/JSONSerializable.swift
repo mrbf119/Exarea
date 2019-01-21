@@ -39,7 +39,7 @@ extension JSONSerializable {
     }
     
     public static var listKeyConfig: String {
-        return "list"
+        return "Result"
     }
     
     public static func create(from data: Data) throws -> Self.ModelObject? {
@@ -52,7 +52,7 @@ extension JSONSerializable {
     public static func createList(from data: Data) throws -> [Self.ModelObject]? {
         let json = JSON(data)
         var objectList: [Self.ModelObject] = []
-        guard let list = json[Self.listKeyConfig,self.listKeyConfig].array else { return nil }
+        guard let list = json[Self.listKeyConfig].array else { return nil }
         for objectJson in list {
             let objectData = try objectJson.rawData()
             if let object =  try self.create(from: objectData) {

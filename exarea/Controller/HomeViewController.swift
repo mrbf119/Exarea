@@ -7,15 +7,24 @@
 //
 
 import ImageSlideshow
-import Kingfisher
 
 class HomeViewController: UIViewController {
     
     @IBOutlet private weak var slideShow: ImageSlideshow!
-
+    @IBOutlet private weak var collectionView: UICollectionView!
+    
+    private var data = [Fair]()
+    
+    private var cellSize: CGFloat { return 140  }
+    private var cellMargin: CGFloat { return ((self.view.bounds.width - (self.cellSize * 2)) / 3 ).rounded() }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.configSlideShow()
+        self.getData()
+    }
+    
+    private func configSlideShow() {
         self.slideShow.setImageInputs([
             KingfisherSource(url: Bundle.main.url(forResource: "image1", withExtension: ".jpg")!),
             KingfisherSource(url: Bundle.main.url(forResource: "image2", withExtension: ".jpg")!),
@@ -25,5 +34,52 @@ class HomeViewController: UIViewController {
         self.slideShow.slideshowInterval = 3
         self.slideShow.circular = true
         self.slideShow.contentScaleMode = .scaleToFill
+    }
+    
+    private func getData() {
+        Fair.getAll { result in
+            switch result {
+            case .success(let fairs):
+                self.data = fairs
+                self.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fairCell", for: indexPath) as! FairCollectionCell
+        let fair = self.data[indexPath.row]
+        cell.update(with: fair)
+        cell.makeShadowed()
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return self.cellMargin
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return self.cellMargin
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: self.cellMargin, left: self.cellMargin, bottom: self.cellMargin + self.tabBarController!.tabBar.frame.height, right: self.cellMargin)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.cellSize, height: 220)
     }
 }

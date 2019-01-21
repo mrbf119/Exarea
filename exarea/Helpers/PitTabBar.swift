@@ -25,10 +25,10 @@ extension UITabBarItem {
 
 @IBDesignable class PitTabBar: UITabBar {
     
-    @IBInspectable public var barBackColor: UIColor = UIColor.white
+    @IBInspectable public var barBackColor: UIColor = UIColor.clear
     @IBInspectable public var barHeight: CGFloat = 65
     
-    @IBInspectable public var circleBackColor: UIColor = UIColor.white
+    @IBInspectable public var circleBackColor: UIColor = UIColor.clear
     @IBInspectable public var circleRadius: CGFloat = 40
     
     let pitCornerRad: CGFloat = 10
