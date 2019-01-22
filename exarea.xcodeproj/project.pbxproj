@@ -22,6 +22,7 @@
 		342A228B21F7046B0057FB5C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A228A21F7046B0057FB5C /* MenuTableViewController.swift */; };
 		342A228D21F706F40057FB5C /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A228C21F706F40057FB5C /* ContactUsViewController.swift */; };
 		342A228F21F717F70057FB5C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A228E21F717F70057FB5C /* RulesViewController.swift */; };
+		342A229521F72AEB0057FB5C /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */; };
 		344E0CB021F43DB100555759 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAC21F43DB100555759 /* image1.jpg */; };
 		344E0CB121F43DB100555759 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAD21F43DB100555759 /* image2.jpg */; };
 		344E0CB221F43DB100555759 /* image3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAE21F43DB100555759 /* image3.jpeg */; };
@@ -62,6 +63,7 @@
 		342A228A21F7046B0057FB5C /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		342A228C21F706F40057FB5C /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		342A228E21F717F70057FB5C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		344E0CAC21F43DB100555759 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		344E0CAD21F43DB100555759 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
 		344E0CAE21F43DB100555759 /* image3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpeg; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				34EADB2321F260D6001DFF62 /* HomeViewController.swift */,
 				342A228A21F7046B0057FB5C /* MenuTableViewController.swift */,
 				342A228C21F706F40057FB5C /* ContactUsViewController.swift */,
+				342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */,
 				342A228E21F717F70057FB5C /* RulesViewController.swift */,
 			);
 			path = Controller;
@@ -407,6 +410,7 @@
 				341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */,
 				341247CC21E6271700A34154 /* Account.swift in Sources */,
 				341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */,
+				342A229521F72AEB0057FB5C /* BarcodeScannerViewController.swift in Sources */,
 				342A228F21F717F70057FB5C /* RulesViewController.swift in Sources */,
 				34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */,
 			);

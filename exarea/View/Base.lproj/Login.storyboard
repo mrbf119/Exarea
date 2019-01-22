@@ -326,14 +326,14 @@
             </objects>
             <point key="canvasLocation" x="706" y="-692"/>
         </scene>
-        <!--View Controller-->
+        <!--Barcode Scanner View Controller-->
         <scene sceneID="gWp-PM-P2m">
             <objects>
-                <viewController id="Nkf-G2-POD" sceneMemberID="viewController">
+                <viewController id="Nkf-G2-POD" customClass="BarcodeScannerViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AJL-qx-gQl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.4549019608" green="0.75686274509999996" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.094117647060000004" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="enC-s7-OaQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-qrcode-75" id="9NA-Gx-gPw"/>
@@ -817,13 +817,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdo-vG-G6D">
-                                <rect key="frame" x="86" y="50" width="46" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czb-xS-jGz">
+                                <rect key="frame" x="159.5" y="278.5" width="56" height="46"/>
+                                <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="20"/>
+                                <state key="normal" title="پیام ها">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="czb-xS-jGz" firstAttribute="centerX" secondItem="5lk-zE-VLB" secondAttribute="centerX" id="Ig9-UO-KCD"/>
+                            <constraint firstItem="czb-xS-jGz" firstAttribute="centerY" secondItem="5lk-zE-VLB" secondAttribute="centerY" id="OQW-dQ-ASZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RYo-rD-hJR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-bookmark-75" id="9FA-oT-rSU"/>
