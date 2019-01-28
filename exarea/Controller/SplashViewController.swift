@@ -16,11 +16,16 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configUI()
+        self.checkUserActivity()
+    }
+    
+    private func configUI() {
         self.view.layer.contents = UIImage(named: "image-background")?.cgImage
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.loadingIndicator.color = .mainYellowColor
         self.loadingIndicator.type = .ballPulse
         self.loadingIndicator.startAnimating()
-        
         
         let shimmerView = ShimmeringView(frame: self.centerView.frame)
         self.view.addSubview(shimmerView)
@@ -30,5 +35,31 @@ class SplashViewController: UIViewController {
         shimmerView.shimmerHighlightLength = 1
         shimmerView.shimmerAnimationOpacity = 0.8
         shimmerView.center = self.view.center
+    }
+    
+    private func checkUserActivity() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if let account = Account.current {
+                account.loginWithToken { error in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+                    self.goToMainVC()
+                }
+            } else {
+                self.goToLoginOptionsVC()
+            }
+        }
+    }
+    
+    private func goToLoginOptionsVC() {
+        let homeVC = UIStoryboard(name: "Login", bundle: .main).instantiateViewController(withIdentifier: "LoginOptionsVC")
+        self.navigationController?.setViewControllers([homeVC], animated: true)
+    }
+    
+    private func goToMainVC() {
+        let homeVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "MainVC")
+        self.navigationController?.setViewControllers([homeVC], animated: true)
     }
 }

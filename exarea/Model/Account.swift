@@ -8,7 +8,9 @@
 
 import Alamofire
 
-
+struct AuthLoginForm: JSONSerializable {
+    let userToken, sessionID: String
+}
 
 struct LoginForm: JSONSerializable {
     let userName, password: String
@@ -87,6 +89,17 @@ extension Account {
     }
     
     class func activate(with form: ActivateForm, completion: @escaping ErrorableResult) {
+        let req = CustomRequest(path: "/Account/AccountActivation", method: .post, parameters: form.parameters!).api()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
+            if let user = response.result.value {
+                Account.current = user
+            }
+            completion(response.result.error)
+        }
+    }
+    
+    func loginWithToken(completion: @escaping ErrorableResult) {
+        let form = AuthLoginForm(userToken: self.userToken, sessionID: self.sessionID)
         let req = CustomRequest(path: "/Account/AccountActivation", method: .post, parameters: form.parameters!).api()
         NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
             if let user = response.result.value {

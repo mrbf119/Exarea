@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dAJ-I1-Y7R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7op-uc-Qam">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,19 +21,19 @@
         <!--Entry View Controller-->
         <scene sceneID="chI-hp-Y8R">
             <objects>
-                <viewController id="rIE-TZ-USA" customClass="EntryViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginOptionsVC" id="rIE-TZ-USA" customClass="EntryViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CBf-Lu-0d3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAq-Ar-zWA">
-                                <rect key="frame" x="87" y="265.5" width="201.5" height="72.5"/>
+                                <rect key="frame" x="87" y="297.5" width="201.5" height="72.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
                                 <color key="textColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YOR-Tw-kP8">
-                                <rect key="frame" x="56.5" y="483" width="262.5" height="110"/>
+                                <rect key="frame" x="56.5" y="547" width="262.5" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XW4-Ux-92I">
                                         <rect key="frame" x="0.0" y="0.0" width="262.5" height="50"/>
@@ -91,20 +91,20 @@
             <objects>
                 <viewController id="CEQ-3N-hzx" customClass="LoginViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SDM-GT-fP3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="91L-Du-6jR">
-                                <rect key="frame" x="87" y="10" width="201.5" height="72.5"/>
+                                <rect key="frame" x="87" y="30" width="201.5" height="72.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
                                 <color key="textColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O1Q-VR-YSU">
-                                <rect key="frame" x="37.5" y="199" width="300" height="205"/>
+                                <rect key="frame" x="37.5" y="253" width="300" height="161.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LFf-h7-yNg">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="147.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="104"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-rN-XpY">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
@@ -126,7 +126,7 @@
                                                 </subviews>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="XGn-zd-lrW" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="38" width="300" height="50"/>
+                                                <rect key="frame" x="0.0" y="38" width="300" height="28"/>
                                                 <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
@@ -192,7 +192,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="sg8-sO-N3Y" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="98" width="300" height="49.5"/>
+                                                <rect key="frame" x="0.0" y="76" width="300" height="28"/>
                                                 <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
@@ -260,7 +260,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qau-6M-B4H">
-                                        <rect key="frame" x="0.0" y="167.5" width="300" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="124" width="300" height="37.5"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
                                         <state key="normal" title="کلمه عبور خود را فراموش کرده‌ام">
                                             <attributedString key="attributedTitle">
@@ -278,7 +278,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q88-Mh-ROL">
-                                <rect key="frame" x="56.5" y="543" width="262.5" height="50"/>
+                                <rect key="frame" x="56.5" y="607" width="262.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Uvw-r0-sJP"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="cwy-fy-Mdn"/>
@@ -333,7 +333,7 @@
                                 <rect key="frame" x="37.5" y="193.5" width="300" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کد فعال سازی را وارد کنید" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYM-To-YSe">
-                                        <rect key="frame" x="49" y="35.5" width="202.5" height="34"/>
+                                        <rect key="frame" x="49" y="44.5" width="202.5" height="34"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="20"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -346,7 +346,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*****" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-IQ-oxn" customClass="SkyFloatingLabelTextField" customModule="exarea" customModuleProvider="target">
-                                        <rect key="frame" x="49" y="118.5" width="202.5" height="63"/>
+                                        <rect key="frame" x="49" y="127.5" width="202.5" height="45"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -469,23 +469,23 @@
                         <color key="barTintColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="rIE-TZ-USA" kind="relationship" relationship="rootViewController" id="2tx-FA-dKy"/>
+                        <segue destination="dAJ-I1-Y7R" kind="relationship" relationship="rootViewController" id="Sxg-aE-Rpg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfZ-Lp-M3I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1342" y="-692"/>
+            <point key="canvasLocation" x="-2066" y="-692"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="emd-ZT-SHy">
             <objects>
                 <viewController id="dAJ-I1-Y7R" customClass="SplashViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dMp-4G-Ihu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C87-dh-0ga">
-                                <rect key="frame" x="87.5" y="221" width="200" height="225.5"/>
+                                <rect key="frame" x="87.5" y="189" width="200" height="225.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ddb-fC-Np1">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="225.5"/>
@@ -538,6 +538,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZOl-Ow-a93"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mrg-5l-gaI"/>
                     <connections>
                         <outlet property="centerView" destination="C87-dh-0ga" id="b6N-dq-Ucy"/>
                         <outlet property="loadingIndicator" destination="AQp-xS-fNw" id="3xZ-VL-H1T"/>
@@ -545,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uq-Bc-hs1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1364" y="-17"/>
+            <point key="canvasLocation" x="-1338" y="-692"/>
         </scene>
     </scenes>
     <resources>
