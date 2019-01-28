@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24272838AE8B9FB846BD315B /* Pods_exarea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7E6D336257AC577BB97EAB /* Pods_exarea.framework */; };
+		340CDBAA21FF999E00F5C303 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CDBA921FF999E00F5C303 /* SplashViewController.swift */; };
 		341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 341247BE21E5E75B00A34154 /* UITextField+Shake.m */; };
 		341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */; };
 		341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */; };
@@ -18,6 +19,10 @@
 		341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247D221E629FF00A34154 /* JSONSerializable.swift */; };
 		341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247D421E62A7400A34154 /* CustomJSONKey.swift */; };
 		341E96B621FF622F00D7477B /* ActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E96B521FF622F00D7477B /* ActivateViewController.swift */; };
+		341E96BC21FF971800D7477B /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E96B821FF971700D7477B /* Shimmer.swift */; };
+		341E96BD21FF971800D7477B /* ShimmeringMaskLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E96B921FF971700D7477B /* ShimmeringMaskLayer.swift */; };
+		341E96BE21FF971800D7477B /* ShimmeringLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E96BA21FF971800D7477B /* ShimmeringLayer.swift */; };
+		341E96BF21FF971800D7477B /* ShimmeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341E96BB21FF971800D7477B /* ShimmeringView.swift */; };
 		342A228621F581240057FB5C /* Fair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A228521F581240057FB5C /* Fair.swift */; };
 		342A228821F588F10057FB5C /* FairCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A228721F588F10057FB5C /* FairCollectionCell.swift */; };
 		342A228B21F7046B0057FB5C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A228A21F7046B0057FB5C /* MenuTableViewController.swift */; };
@@ -48,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340CDBA921FF999E00F5C303 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "exarea-Bridging-Header.h"; path = "../exarea-Bridging-Header.h"; sourceTree = "<group>"; };
 		341247BD21E5E75B00A34154 /* UITextField+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake.h"; sourceTree = "<group>"; };
 		341247BE21E5E75B00A34154 /* UITextField+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Shake.m"; sourceTree = "<group>"; };
@@ -60,6 +66,10 @@
 		341247D221E629FF00A34154 /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		341247D421E62A7400A34154 /* CustomJSONKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomJSONKey.swift; sourceTree = "<group>"; };
 		341E96B521FF622F00D7477B /* ActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateViewController.swift; sourceTree = "<group>"; };
+		341E96B821FF971700D7477B /* Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
+		341E96B921FF971700D7477B /* ShimmeringMaskLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmeringMaskLayer.swift; sourceTree = "<group>"; };
+		341E96BA21FF971800D7477B /* ShimmeringLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmeringLayer.swift; sourceTree = "<group>"; };
+		341E96BB21FF971800D7477B /* ShimmeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
 		342A228521F581240057FB5C /* Fair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fair.swift; sourceTree = "<group>"; };
 		342A228721F588F10057FB5C /* FairCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairCollectionCell.swift; sourceTree = "<group>"; };
 		342A228A21F7046B0057FB5C /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 				34E310F1215B348F00C3E68E /* Extensions.swift */,
 				34E7DC5921F086D100D3292C /* PitTabBar.swift */,
 				346C8413215B61E300F43F8C /* PaginationManager.swift */,
+				341E96B721FF970B00D7477B /* Shimmer */,
 				341247C721E6254600A34154 /* SkyFloatingLabelTextField */,
 				341247C021E5E76300A34154 /* UITextField+Shake */,
 			);
@@ -176,6 +187,7 @@
 				342A228C21F706F40057FB5C /* ContactUsViewController.swift */,
 				342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */,
 				342A228E21F717F70057FB5C /* RulesViewController.swift */,
+				340CDBA921FF999E00F5C303 /* SplashViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +199,17 @@
 				342A228521F581240057FB5C /* Fair.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		341E96B721FF970B00D7477B /* Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				341E96B821FF971700D7477B /* Shimmer.swift */,
+				341E96BA21FF971800D7477B /* ShimmeringLayer.swift */,
+				341E96B921FF971700D7477B /* ShimmeringMaskLayer.swift */,
+				341E96BB21FF971800D7477B /* ShimmeringView.swift */,
+			);
+			path = Shimmer;
 			sourceTree = "<group>";
 		};
 		342A228921F5A0630057FB5C /* Fonts */ = {
@@ -366,6 +389,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -376,6 +400,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -392,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */,
+				341E96BF21FF971800D7477B /* ShimmeringView.swift in Sources */,
 				341247CE21E6287400A34154 /* Networking.swift in Sources */,
 				342A228B21F7046B0057FB5C /* MenuTableViewController.swift in Sources */,
 				34EADB2421F260D6001DFF62 /* HomeViewController.swift in Sources */,
@@ -403,6 +429,7 @@
 				342A228621F581240057FB5C /* Fair.swift in Sources */,
 				34E310F2215B348F00C3E68E /* Extensions.swift in Sources */,
 				34E7DC5821F0783300D3292C /* MainViewController.swift in Sources */,
+				341E96BE21FF971800D7477B /* ShimmeringLayer.swift in Sources */,
 				342A228D21F706F40057FB5C /* ContactUsViewController.swift in Sources */,
 				341E96B621FF622F00D7477B /* ActivateViewController.swift in Sources */,
 				34E7DC5421F06F3300D3292C /* CustomNavigationController.swift in Sources */,
@@ -411,8 +438,11 @@
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
 				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
 				34E7DC5A21F086D100D3292C /* PitTabBar.swift in Sources */,
+				341E96BD21FF971800D7477B /* ShimmeringMaskLayer.swift in Sources */,
 				341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */,
 				341247CC21E6271700A34154 /* Account.swift in Sources */,
+				341E96BC21FF971800D7477B /* Shimmer.swift in Sources */,
+				340CDBAA21FF999E00F5C303 /* SplashViewController.swift in Sources */,
 				341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */,
 				342A229521F72AEB0057FB5C /* BarcodeScannerViewController.swift in Sources */,
 				342A228F21F717F70057FB5C /* RulesViewController.swift in Sources */,
