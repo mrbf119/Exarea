@@ -109,10 +109,10 @@ extension UIButton {
         self.layer.borderWidth = 2
     }
     
-    func makeUnderlined() {
+    func makeUnderlined(color: UIColor? = nil, fontSize: CGFloat? = nil) {
         let attrs: [NSAttributedString.Key : Any] = [
-            NSAttributedString.Key.font : UIFont.iranSans.withSize(self.titleLabel!.font.pointSize),
-            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.font : self.titleLabel!.font.withSize(fontSize ?? self.titleLabel!.font.pointSize),
+            NSAttributedString.Key.foregroundColor : color ?? self.currentTitleColor,
             NSAttributedString.Key.underlineStyle : 1]
         
         let attributedString = NSMutableAttributedString(string: self.titleLabel!.text!, attributes: attrs)

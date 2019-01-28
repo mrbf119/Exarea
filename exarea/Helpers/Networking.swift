@@ -127,8 +127,8 @@ class Adapter: RequestAdapter {
             let httpBody = try? JSON(data: body),
             var dict = httpBody.dictionaryObject,
             dict["UserToken"] != nil,
-            let token = Account.shared?.userToken,
-            let sessionID = Account.shared?.sessionID {
+            let token = Account.current?.userToken,
+            let sessionID = Account.current?.sessionID {
             dict["UserToken"] = "f0749b43-113a-4a10-8101-92fde9f3eb5e"
             dict["SessionID"] = "eefd4676-1bc7-4090-bb24-a9d25948cf51"
             request.httpBody = try! JSON(dict).rawData()

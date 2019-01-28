@@ -66,7 +66,6 @@ class LoginViewController: UIViewController {
         self.forgotPassButton.makeUnderlined()
         
         self.phoneNumberTextField.titleFont = UIFont.iranSans
-        
         self.phoneNumberTextField.isLTRLanguage = false
         
         self.passwordTextField.titleFont = UIFont.iranSans
@@ -130,22 +129,37 @@ class LoginViewController: UIViewController {
     
     @IBAction private func didTapLoginButton() {
         guard let form = self.validateForm() else { return }
-        
-        
+
         if self.isInLoginMode {
             let form = LoginForm(userName: form.user, password: form.pass)
             Account.login(with: form) { error in
                 if let error = error {
                     return print(error.localizedDescription)
                 }
-                self.performSegue(withIdentifier: "toMainVC", sender: nil)
+                self.goToMainVC()
             }
         } else {
             let form = RegisterForm(userName: form.user, password: form.pass, roleID: RegisterForm.Role(self.segmentControl.selectedSegmentIndex)!)
-            Account.register(with: form) { error in
-                
+            Account.register(with: form) { result in
+                switch result {
+                case .success(let userID):
+                    self.performSegue(withIdentifier: "toActivateVC", sender: userID)
+                case .failure(let error):
+                    return print(error.localizedDescription)
+                }
             }
         }
+    }
+    
+    @IBAction func unwindToLogin(_ segue: UIStoryboardSegue) {
+        if segue.source is ActivateViewController {
+            self.goToMainVC()
+        }
+    }
+    
+    private func goToMainVC() {
+        let homeVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "MainVC")
+        self.navigationController?.setViewControllers([homeVC], animated: true)
     }
     
     private func validateForm() -> (user: String, pass: String)? {
@@ -167,6 +181,11 @@ class LoginViewController: UIViewController {
         return (phoneNumber, password)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ActivateViewController, let userID = sender as? String {
+            vc.userID = userID
+        }
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
