@@ -7,13 +7,28 @@
 //
 
 import Alamofire
-
-
-
+import KeychainAccess
 
 class Account: JSONSerializable {
     
-    static private(set) var current: Account?
+    static private(set) var current: Account? = {
+        let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+        do {
+            guard
+                let token = try keychain.get("userToken"),
+                let sessionID = try keychain.get("sessionID")
+            else { return nil }
+            return Account(token: token, sessionID: sessionID)
+        } catch {
+            return nil
+        }
+    }() {
+        didSet {
+            if let acc = current {
+                acc.saveTokenAndSession()
+            }
+        }
+    }
     
     let userID: Int
     let firstName: String?
@@ -23,6 +38,24 @@ class Account: JSONSerializable {
     let userToken: String
     let sessionID: String
     
+    private init(token: String, sessionID: String) {
+        self.userToken = token
+        self.sessionID = sessionID
+        self.userID = -1
+        self.firstName = nil
+        self.lastName = nil
+        self.role = nil
+    }
+    
+    private func saveTokenAndSession() {
+        let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+        do {
+            try keychain.set(self.userToken, key: "userToken")
+            try keychain.set(self.sessionID, key: "sessionID")
+        } catch {
+            print(error)
+        }
+    }
     
     class func logout() {
         
@@ -60,7 +93,7 @@ extension Account {
     
     func loginWithToken(completion: @escaping ErrorableResult) {
         let form = AuthLoginForm(userToken: self.userToken, sessionID: self.sessionID)
-        let req = CustomRequest(path: "/Account/AccountActivation", method: .post, parameters: form.parameters!).api()
+        let req = CustomRequest(path: "/Account/LoginUserWithTokenAndSession", method: .post, parameters: form.parameters!).api()
         NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
             if let user = response.result.value {
                 Account.current = user

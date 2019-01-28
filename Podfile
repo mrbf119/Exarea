@@ -19,6 +19,7 @@ target 'exarea' do
   
   pod 'NVActivityIndicatorView'
   
+  pod 'KeychainAccess'
   
   
   inhibit_all_warnings!
