@@ -8,47 +8,7 @@
 
 import Alamofire
 
-struct AuthLoginForm: JSONSerializable {
-    let userToken, sessionID: String
-}
 
-struct LoginForm: JSONSerializable {
-    let userName, password: String
-    let platform = "mobile app"
-    let oS = "iOS"
-    let model = UIDevice.modelName
-    let version = "9.0"
-    let iP = "????"
-}
-
-struct ActivateForm: JSONSerializable {
-    let userID, accountActivationCode: String
-    let platform = "mobile app"
-    let oS = "iOS"
-    let model = UIDevice.modelName
-    let version = "9.0"
-    let iP = "????"
-}
-
-struct RegisterForm: JSONSerializable {
-    enum Role: String {
-        case user = "3"
-        case boothOwner = "4"
-        
-        init?(_ raw: Int) {
-            self = raw == 0 ? .user : .boothOwner
-        }
-    }
-    
-    let userName, password: String
-    let roleID: String
-    
-    init(userName: String, password: String, roleID: Role) {
-        self.userName = userName
-        self.password = password
-        self.roleID = roleID.rawValue
-    }
-}
 
 
 class Account: JSONSerializable {

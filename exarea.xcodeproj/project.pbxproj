@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		24272838AE8B9FB846BD315B /* Pods_exarea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7E6D336257AC577BB97EAB /* Pods_exarea.framework */; };
 		340CDBAA21FF999E00F5C303 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CDBA921FF999E00F5C303 /* SplashViewController.swift */; };
+		340CDBAC21FFAB5D00F5C303 /* RequestAndResponseClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CDBAB21FFAB5D00F5C303 /* RequestAndResponseClasses.swift */; };
 		341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 341247BE21E5E75B00A34154 /* UITextField+Shake.m */; };
 		341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */; };
 		341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		340CDBA921FF999E00F5C303 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		340CDBAB21FFAB5D00F5C303 /* RequestAndResponseClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAndResponseClasses.swift; sourceTree = "<group>"; };
 		341247BC21E5E75900A34154 /* exarea-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "exarea-Bridging-Header.h"; path = "../exarea-Bridging-Header.h"; sourceTree = "<group>"; };
 		341247BD21E5E75B00A34154 /* UITextField+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake.h"; sourceTree = "<group>"; };
 		341247BE21E5E75B00A34154 /* UITextField+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Shake.m"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				341247CB21E6271700A34154 /* Account.swift */,
+				340CDBAB21FFAB5D00F5C303 /* RequestAndResponseClasses.swift */,
 				342A228521F581240057FB5C /* Fair.swift */,
 			);
 			path = Model;
@@ -431,6 +434,7 @@
 				34E7DC5821F0783300D3292C /* MainViewController.swift in Sources */,
 				341E96BE21FF971800D7477B /* ShimmeringLayer.swift in Sources */,
 				342A228D21F706F40057FB5C /* ContactUsViewController.swift in Sources */,
+				340CDBAC21FFAB5D00F5C303 /* RequestAndResponseClasses.swift in Sources */,
 				341E96B621FF622F00D7477B /* ActivateViewController.swift in Sources */,
 				34E7DC5421F06F3300D3292C /* CustomNavigationController.swift in Sources */,
 				341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */,

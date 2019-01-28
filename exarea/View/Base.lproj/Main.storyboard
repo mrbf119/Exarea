@@ -525,7 +525,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ae0-wZ-mnk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="m8a-UR-InN"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-profile-75" id="CQH-XH-bpA"/>
@@ -541,7 +541,7 @@
                     <view key="view" contentMode="scaleToFill" id="pzo-bb-RFF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.87450980389999999" green="0.15686274510000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.97254901959999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="DQ8-5h-V2G"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-chat-bubble-75" id="4hK-n5-HTc"/>
