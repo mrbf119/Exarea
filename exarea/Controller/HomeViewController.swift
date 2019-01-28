@@ -103,7 +103,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             headerView.slideShow.setCurrentPage(self.sliderCurrentPage, animated: false)
             return headerView
         default:
-            assert(false, "Invalid element type")
+            return UICollectionReusableView(frame: CGRect.zero)
         }
     }
     
