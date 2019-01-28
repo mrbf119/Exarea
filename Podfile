@@ -9,6 +9,14 @@ target 'exarea' do
   
   pod 'SwiftyJSON', '~> 4.1.0'
   
+  pod 'SideMenu'
+  
+  pod 'ImageSlideshow', '~> 1.6'
+  
+  pod 'Kingfisher'
+  
+  pod "ImageSlideshow/Kingfisher"
+  
   inhibit_all_warnings!
 
 end

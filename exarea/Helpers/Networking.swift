@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-
+typealias DataResult<T> = (Result<T>) -> Void
 typealias ErrorableResult = (Error?) -> Void
 
 struct ResultTypeError: LocalizedError {
@@ -113,6 +113,7 @@ class NetManager: SessionManager, RequestRetrier {
                 }
             }
             completion(false, 0.0)
+            
         }
     }
 }
@@ -128,8 +129,8 @@ class Adapter: RequestAdapter {
             dict["UserToken"] != nil,
             let token = Account.shared?.userToken,
             let sessionID = Account.shared?.sessionID {
-            dict["UserToken"] = token
-            dict["SessionID"] = sessionID
+            dict["UserToken"] = "f0749b43-113a-4a10-8101-92fde9f3eb5e"
+            dict["SessionID"] = "eefd4676-1bc7-4090-bb24-a9d25948cf51"
             request.httpBody = try! JSON(dict).rawData()
         }
         return request
@@ -170,7 +171,8 @@ class CustomRequest: URLRequestConvertible {
         var params = self.parameters
         
         if self.isAuthorized {
-            params = params.merging(["UserToken":""], uniquingKeysWith: { old, new in new })
+            params = params.merging(["UserToken": "f0749b43-113a-4a10-8101-92fde9f3eb5e",
+                                     "SessionID": "eefd4676-1bc7-4090-bb24-a9d25948cf51"], uniquingKeysWith: { old, new in new })
         }
         
         let originalRequest = try URLRequest(url: url, method: self.method, headers: self.additionalHeaders)
