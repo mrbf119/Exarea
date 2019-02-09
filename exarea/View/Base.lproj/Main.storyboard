@@ -581,17 +581,245 @@
             </objects>
             <point key="canvasLocation" x="5238" y="-958"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="ARz-kK-CMA">
             <objects>
-                <viewController id="h1O-Ke-vGC" sceneMemberID="viewController">
+                <viewController id="h1O-Ke-vGC" customClass="ProfileViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ae0-wZ-mnk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GB6-Sw-ONe">
+                                <rect key="frame" x="37.5" y="219" width="300" height="200"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ATX-vZ-nC6" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
+                                        <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ayi-eU-2Ny"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineErrorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textErrorColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleErrorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="شماره موبایل"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="شماره موبایل"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="icon-profile-white-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconMarginLeft">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconMarginBottom">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="b8p-C4-nq6" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="300" height="60"/>
+                                        <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineErrorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textErrorColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleErrorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="نام خانوادگی"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="نام خانوادگی"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="icon-profile-white-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconMarginLeft">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconMarginBottom">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Tgz-Lo-xcj" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140" width="300" height="60"/>
+                                        <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="lineErrorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textErrorColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleErrorColor">
+                                                <color key="value" red="0.84705882349999995" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="ایمیل"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="disabledColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="ایمیل"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconWidth">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="iconImage" value="icon-email-white-100"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconMarginLeft">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="iconMarginBottom">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ID-uB-ns8">
+                                <rect key="frame" x="56.5" y="553" width="262.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="320" id="8cL-uX-MkW"/>
+                                    <constraint firstAttribute="height" constant="50" id="YhF-Nz-gAs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="17"/>
+                                <state key="normal" title="ثبت">
+                                    <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonClicked" destination="h1O-Ke-vGC" eventType="touchUpInside" id="lR1-RN-MhF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.094117647060000004" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="m8a-UR-InN" firstAttribute="bottom" secondItem="4ID-uB-ns8" secondAttribute="bottom" constant="15" id="2CB-uz-bNY"/>
+                            <constraint firstItem="GB6-Sw-ONe" firstAttribute="centerY" secondItem="m8a-UR-InN" secondAttribute="centerY" priority="999" id="7iF-Oi-Yza"/>
+                            <constraint firstItem="4ID-uB-ns8" firstAttribute="width" secondItem="Ae0-wZ-mnk" secondAttribute="width" multiplier="0.7" priority="999" id="I8Z-dI-LGk"/>
+                            <constraint firstItem="4ID-uB-ns8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GB6-Sw-ONe" secondAttribute="bottom" constant="80" id="VhX-Ga-Nrx"/>
+                            <constraint firstItem="GB6-Sw-ONe" firstAttribute="centerX" secondItem="m8a-UR-InN" secondAttribute="centerX" id="an2-0s-CCP"/>
+                            <constraint firstItem="GB6-Sw-ONe" firstAttribute="width" secondItem="Ae0-wZ-mnk" secondAttribute="width" multiplier="0.8" id="l2i-Ev-S4G"/>
+                            <constraint firstItem="4ID-uB-ns8" firstAttribute="centerX" secondItem="m8a-UR-InN" secondAttribute="centerX" id="w7u-Fe-jdq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="m8a-UR-InN"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-profile-75" id="CQH-XH-bpA"/>
+                    <connections>
+                        <outlet property="buttonSubmit" destination="4ID-uB-ns8" id="Pe3-qC-srg"/>
+                        <outlet property="textFieldEmail" destination="Tgz-Lo-xcj" id="3ky-Sr-WeD"/>
+                        <outlet property="textFieldFirstName" destination="ATX-vZ-nC6" id="4tJ-Rb-atL"/>
+                        <outlet property="textFieldLastName" destination="b8p-C4-nq6" id="Ukr-cO-Ubc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4E-xu-yQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1067,6 +1295,7 @@
     <resources>
         <image name="icon-bookmark-75" width="120" height="120"/>
         <image name="icon-chat-bubble-75" width="120" height="120"/>
+        <image name="icon-email-white-100" width="33.5" height="24"/>
         <image name="icon-home-75" width="120" height="120"/>
         <image name="icon-info-100" width="75" height="75"/>
         <image name="icon-instagram-100" width="75" height="75"/>
@@ -1078,6 +1307,7 @@
         <image name="icon-phone-100" width="75" height="75"/>
         <image name="icon-phone-circle-100" width="180" height="180"/>
         <image name="icon-profile-75" width="120" height="120"/>
+        <image name="icon-profile-white-100" width="25.5" height="25.5"/>
         <image name="icon-qrcode-75" width="120" height="120"/>
         <image name="icon-rule-100" width="75" height="75"/>
         <image name="icon-send-email-small" width="45" height="45"/>

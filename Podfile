@@ -25,6 +25,10 @@ target 'exarea' do
   
   pod 'Floaty', '~> 4.1.0'
   
+  pod 'IQKeyboardManagerSwift'
+  
+  pod 'Material'
+  
   
   inhibit_all_warnings!
 

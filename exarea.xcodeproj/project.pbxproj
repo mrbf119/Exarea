@@ -41,6 +41,7 @@
 		346C8410215B59BA00F43F8C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346C840F215B59BA00F43F8C /* Login.storyboard */; };
 		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
 		346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8413215B61E300F43F8C /* PaginationManager.swift */; };
+		348816F2220F26B500EC5CC5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348816F1220F26B500EC5CC5 /* ProfileViewController.swift */; };
 		34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D7215B1A1900C3E68E /* AppDelegate.swift */; };
 		34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* LoginViewController.swift */; };
 		34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Main.storyboard */; };
@@ -94,6 +95,7 @@
 		346C840F215B59BA00F43F8C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		346C8413215B61E300F43F8C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
+		348816F1220F26B500EC5CC5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		34E310D4215B1A1900C3E68E /* exarea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exarea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E310D7215B1A1900C3E68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34E310D9215B1A1900C3E68E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				34E719D22205EEF700ECDBB8 /* Login */,
 				34E719D32205EF0900ECDBB8 /* Main */,
 				346C8411215B614900F43F8C /* FavoritesViewController.swift */,
+				348816F1220F26B500EC5CC5 /* ProfileViewController.swift */,
 				343C2119220DA86100F4CB0D /* BoothDetailsViewController.swift */,
 				342A228C21F706F40057FB5C /* ContactUsViewController.swift */,
 				342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */,
@@ -429,9 +432,12 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -443,9 +449,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -496,6 +505,7 @@
 				340CDBAA21FF999E00F5C303 /* SplashViewController.swift in Sources */,
 				341247D521E62A7400A34154 /* CustomJSONKey.swift in Sources */,
 				342A229521F72AEB0057FB5C /* BarcodeScannerViewController.swift in Sources */,
+				348816F2220F26B500EC5CC5 /* ProfileViewController.swift in Sources */,
 				342A228F21F717F70057FB5C /* RulesViewController.swift in Sources */,
 				34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */,
 			);

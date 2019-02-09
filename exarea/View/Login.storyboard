@@ -101,10 +101,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O1Q-VR-YSU">
-                                <rect key="frame" x="37.5" y="253" width="300" height="161.5"/>
+                                <rect key="frame" x="37.5" y="221" width="300" height="225.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LFf-h7-yNg">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="104"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="168"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="RbT-rN-XpY">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
@@ -126,8 +126,11 @@
                                                 </subviews>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="XGn-zd-lrW" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="38" width="300" height="28"/>
+                                                <rect key="frame" x="0.0" y="38" width="300" height="60"/>
                                                 <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="NGm-o4-4AE"/>
+                                                </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -192,8 +195,11 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="sg8-sO-N3Y" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="exarea" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="76" width="300" height="28"/>
+                                                <rect key="frame" x="0.0" y="108" width="300" height="60"/>
                                                 <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="6jr-h3-BON"/>
+                                                </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -260,7 +266,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qau-6M-B4H">
-                                        <rect key="frame" x="0.0" y="124" width="300" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="188" width="300" height="37.5"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="16"/>
                                         <state key="normal" title="کلمه عبور خود را فراموش کرده‌ام">
                                             <attributedString key="attributedTitle">
@@ -313,7 +319,6 @@
                         <outlet property="phoneNumberTextField" destination="XGn-zd-lrW" id="uy2-ij-8QB"/>
                         <outlet property="segmentControl" destination="zF3-zd-jtT" id="vYk-HH-waj"/>
                         <outlet property="segmentSection" destination="RbT-rN-XpY" id="8F1-hD-awf"/>
-                        <outlet property="stackCenterYConstraint" destination="QVO-6S-hmV" id="OXU-M5-QdA"/>
                         <segue destination="brc-ck-W5m" kind="presentation" identifier="toActivateVC" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="wb8-Hy-7L6"/>
                     </connections>
                 </viewController>
@@ -333,7 +338,7 @@
                                 <rect key="frame" x="37.5" y="193.5" width="300" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کد فعال سازی را وارد کنید" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYM-To-YSe">
-                                        <rect key="frame" x="49" y="44.5" width="202.5" height="34"/>
+                                        <rect key="frame" x="49" y="35.5" width="202.5" height="34"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="20"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -346,7 +351,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*****" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-IQ-oxn" customClass="SkyFloatingLabelTextField" customModule="exarea" customModuleProvider="target">
-                                        <rect key="frame" x="49" y="127.5" width="202.5" height="45"/>
+                                        <rect key="frame" x="49" y="118.5" width="202.5" height="63"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
