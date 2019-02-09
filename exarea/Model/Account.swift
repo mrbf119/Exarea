@@ -12,12 +12,8 @@ import KeychainAccess
 class Account: JSONSerializable {
     
     static private(set) var current: Account? = {
-        let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
-        guard
-            let token = keychain["userToken"],
-            let sessionID = keychain["sessionID"]
-            else { return nil }
-        return Account(token: token, sessionID: sessionID)
+        guard let data = Account.getTokenAndSession() else { return nil }
+        return Account(token: data.token, sessionID: data.session)
     }() {
         didSet {
             if let acc = current {
@@ -27,12 +23,26 @@ class Account: JSONSerializable {
     }
     
     let userID: Int
+    private let userToken: String
+    private var sessionID: String?
+    
     let firstName: String?
     let lastName: String?
-    let role: String?
     
-    let userToken: String
-    let sessionID: String
+    let nationalID: String?
+    let gender: String?
+    let birthShamsiDate: String?
+    let mobileNumber: String?
+    let eMailAddress: String?
+    private var role: String?
+    
+    var fullName: String {
+        return (self.firstName ?? "") + (self.lastName ?? "")
+    }
+    
+    var userRole: String? {
+        return self.role
+    }
     
     private init(token: String, sessionID: String) {
         self.userToken = token
@@ -40,7 +50,23 @@ class Account: JSONSerializable {
         self.userID = -1
         self.firstName = nil
         self.lastName = nil
+        self.nationalID = nil
+        self.gender = nil
+        self.birthShamsiDate = nil
+        self.mobileNumber = nil
+        self.eMailAddress = nil
         self.role = nil
+        
+        
+    }
+    
+    static func getTokenAndSession() -> (token: String, session: String)? {
+        let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+        guard
+            let token = keychain["userToken"],
+            let sessionID = keychain["sessionID"]
+            else { return nil }
+        return (token, sessionID)
     }
     
     private func saveTokenAndSession() {
@@ -90,10 +116,35 @@ extension Account {
     }
     
     func loginWithToken(completion: @escaping ErrorableResult) {
-        let form = AuthLoginForm(userToken: self.userToken, sessionID: self.sessionID)
+        let form = AuthLoginForm(userToken: self.userToken, sessionID: self.sessionID!
+        )
         let req = CustomRequest(path: "/Account/LoginUserWithTokenAndSession", method: .post, parameters: form.parameters!).api()
         NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
             if let user = response.result.value {
+                Account.current = user
+            }
+            completion(response.result.error)
+        }
+    }
+    
+    func update(with firsName: String, lastName: String, email: String? = nil, completion: @escaping ErrorableResult) {
+        var parameters = ["FirstName": firsName, "LastName": lastName]
+        if let email = email, email.passes([.notEmpty]).isSuccess {
+            parameters["EMail"] = email
+        }
+        let req = CustomRequest(path: "/Account/UpdateUserInfo", method: .post, parameters: parameters).api().authorize()
+        NetManager.shared.requestWithValidation(req).responseData { response in
+            self.getInfo(completion: completion)
+        }
+    }
+    
+    func getInfo(completion: @escaping ErrorableResult) {
+        let form = AuthLoginForm(userToken: self.userToken, sessionID: self.sessionID!)
+        let req = CustomRequest(path: "/Account/UserInfo", method: .post, parameters: form.parameters!).api()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
+            if let user = response.result.value {
+                user.role = Account.current!.role
+                user.sessionID = Account.current!.sessionID
                 Account.current = user
             }
             completion(response.result.error)

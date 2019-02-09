@@ -127,10 +127,9 @@ class Adapter: RequestAdapter {
             let httpBody = try? JSON(data: body),
             var dict = httpBody.dictionaryObject,
             dict["UserToken"] != nil,
-            let token = Account.current?.userToken,
-            let sessionID = Account.current?.sessionID {
-            dict["UserToken"] = "f0749b43-113a-4a10-8101-92fde9f3eb5e"
-            dict["SessionID"] = "eefd4676-1bc7-4090-bb24-a9d25948cf51"
+            let data = Account.getTokenAndSession() {
+            dict["UserToken"] = data.token
+            dict["SessionID"] = data.session
             request.httpBody = try! JSON(dict).rawData()
         }
         return request
@@ -184,8 +183,8 @@ class CustomRequest: URLRequestConvertible {
         var params = self.parameters
         
         if self.isAuthorized {
-            params = params.merging(["UserToken": "f0749b43-113a-4a10-8101-92fde9f3eb5e",
-                                     "SessionID": "eefd4676-1bc7-4090-bb24-a9d25948cf51"], uniquingKeysWith: { old, new in new })
+            params = params.merging(["UserToken": "",
+                                     "SessionID": ""], uniquingKeysWith: { old, new in new })
         }
         
         let originalRequest = try URLRequest(url: url, method: self.method, headers: self.additionalHeaders)

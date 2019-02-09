@@ -41,11 +41,17 @@ class SplashViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if let account = Account.current {
                 account.loginWithToken { error in
-                    if let error = error {
-                        print(error)
+                    guard let error = error else {
+                        account.getInfo { e in
+                            guard let error = e else {
+                                self.goToMainVC()
+                                return
+                            }
+                            print(error)
+                        }
                         return
                     }
-                    self.goToMainVC()
+                    print(error)
                 }
             } else {
                 self.goToLoginOptionsVC()

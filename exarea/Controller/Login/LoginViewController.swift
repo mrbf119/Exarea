@@ -21,8 +21,6 @@ class LoginViewController: UIViewController {
     @IBOutlet private var segmentControl: UISegmentedControl!
     @IBOutlet private var segmentSection: UIView!
     
-    @IBOutlet var stackCenterYConstraint: NSLayoutConstraint!
-    
     //MARK: - Properties
     
     var isInLoginMode = true
@@ -36,21 +34,14 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configUI()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         (self.navigationController as? CustomNavigationController)?.clear()
-        self.startObserveKeyboard()
+        
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.endObserveKeyboard()
-    }
-    
     
     //MARK: Methods
     
@@ -80,37 +71,7 @@ class LoginViewController: UIViewController {
             self.forgotPassButton.isHidden = true
         }
     }
-    
-    private func startObserveKeyboard() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didShowKeyboard(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.willHideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    private func endObserveKeyboard() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc private func didShowKeyboard(_ notif: NSNotification) {
-        if let frame = notif.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect, let stack = self.stackCenterYConstraint.firstItem as? UIView {
-            let passFrame = stack.convert(self.passwordTextField.frame, to: self.view)
-            let diff = frame.origin.y - (passFrame.origin.y + passFrame.height)
-            if diff < 0 {
-                self.stackCenterYConstraint.constant += diff - 10
-                UIView.animate(withDuration: 0.1) {
-                    self.view.layoutIfNeeded()
-                }
-            }
-        }
-    }
-    
-    @objc private func willHideKeyboard() {
-        self.stackCenterYConstraint.constant = 0
-        UIView.animate(withDuration: 0.1) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
+   
     @objc private func togglePassword() {
         if self.passwordTextField.isSecureTextEntry {
             self.passwordTextField.iconImage = UIImage(named: "icon-eye-hide")

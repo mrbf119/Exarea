@@ -9,6 +9,7 @@
 import UIKit
 import SideMenu
 import KeychainAccess
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Account.clearKeychain()
             UserDefaults.standard.set(true, forKey: "clearedKeychain")
         }
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
         return true
     }
 

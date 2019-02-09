@@ -18,6 +18,7 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setColors(background: .mainBlueColor, text: .mainYellowColor)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.selectedIndex = 2
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
