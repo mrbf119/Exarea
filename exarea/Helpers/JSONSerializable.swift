@@ -140,8 +140,13 @@ extension String: SelfDataSerializable {
         let serializer = DataResponseSerializer<String>.init { (url, response, data, error) -> Result<String> in
             guard error == nil else { return .failure(error!) }
             guard let data = data else { return .failure(AFError.responseSerializationFailed(reason: .inputDataNil)) }
-            guard let string = String(data: data, encoding: .utf8) else { return .failure(AFError.responseSerializationFailed(reason: .stringSerializationFailed(encoding: .utf8))) }
-            return .success(string)
+            do {
+                let json = try JSON(data: data)
+                guard let string = json["Result"].string else { return .failure(AFError.responseSerializationFailed(reason: .stringSerializationFailed(encoding: .utf8))) }
+                return .success(string)
+            } catch let err {
+                return .failure(err)
+            }
         }
         return serializer
     }

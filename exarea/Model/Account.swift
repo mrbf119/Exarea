@@ -7,39 +7,28 @@
 //
 
 import Alamofire
-
-struct LoginForm: JSONSerializable {
-    let userName, password: String
-    let platform = "mobile app"
-    let oS = "iOS"
-    let model = UIDevice.modelName
-    let version = "9.0"
-    let iP = "????"
-}
-
-struct RegisterForm: JSONSerializable {
-    enum Role: String {
-        case user = "3"
-        case boothOwner = "4"
-        
-        init?(_ raw: Int) {
-            self = raw == 0 ? .user : .boothOwner
-        }
-    }
-    
-    let userName, password: String
-    let roleID: String
-    
-    init(userName: String, password: String, roleID: Role) {
-        self.userName = userName
-        self.password = password
-        self.roleID = roleID.rawValue
-    }
-}
+import KeychainAccess
 
 class Account: JSONSerializable {
     
-    static private(set) var shared: Account?
+    static private(set) var current: Account? = {
+        let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+        do {
+            guard
+                let token = try keychain.get("userToken"),
+                let sessionID = try keychain.get("sessionID")
+            else { return nil }
+            return Account(token: token, sessionID: sessionID)
+        } catch {
+            return nil
+        }
+    }() {
+        didSet {
+            if let acc = current {
+                acc.saveTokenAndSession()
+            }
+        }
+    }
     
     let userID: Int
     let firstName: String?
@@ -49,6 +38,24 @@ class Account: JSONSerializable {
     let userToken: String
     let sessionID: String
     
+    private init(token: String, sessionID: String) {
+        self.userToken = token
+        self.sessionID = sessionID
+        self.userID = -1
+        self.firstName = nil
+        self.lastName = nil
+        self.role = nil
+    }
+    
+    private func saveTokenAndSession() {
+        let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+        do {
+            try keychain.set(self.userToken, key: "userToken")
+            try keychain.set(self.sessionID, key: "sessionID")
+        } catch {
+            print(error)
+        }
+    }
     
     class func logout() {
         
@@ -61,15 +68,36 @@ extension Account {
         let req = CustomRequest(path: "/Account/Login", method: .post, parameters: form.parameters!).api()
         NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
             if let user = response.result.value {
-                Account.shared = user
+                Account.current = user
             }
             completion(response.result.error)
         }
     }
     
-    class func register(with form: RegisterForm, completion: @escaping ErrorableResult) {
+    class func register(with form: RegisterForm, completion: @escaping DataResult<String>) {
         let req = CustomRequest(path: "/Account/Register", method: .post, parameters: form.parameters!).api()
-        NetManager.shared.requestWithValidation(req).responseData { response in
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
+            completion(response.result)
+        }
+    }
+    
+    class func activate(with form: ActivateForm, completion: @escaping ErrorableResult) {
+        let req = CustomRequest(path: "/Account/AccountActivation", method: .post, parameters: form.parameters!).api()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
+            if let user = response.result.value {
+                Account.current = user
+            }
+            completion(response.result.error)
+        }
+    }
+    
+    func loginWithToken(completion: @escaping ErrorableResult) {
+        let form = AuthLoginForm(userToken: self.userToken, sessionID: self.sessionID)
+        let req = CustomRequest(path: "/Account/LoginUserWithTokenAndSession", method: .post, parameters: form.parameters!).api()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
+            if let user = response.result.value {
+                Account.current = user
+            }
             completion(response.result.error)
         }
     }

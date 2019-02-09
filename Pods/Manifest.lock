@@ -6,7 +6,11 @@ PODS:
   - ImageSlideshow/Kingfisher (1.7.0):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
+  - KeychainAccess (3.1.2)
   - Kingfisher (4.10.1)
+  - NVActivityIndicatorView (4.5.1):
+    - NVActivityIndicatorView/Presenter (= 4.5.1)
+  - NVActivityIndicatorView/Presenter (4.5.1)
   - SideMenu (5.0.1)
   - SwiftyJSON (4.1.0)
 
@@ -14,7 +18,9 @@ DEPENDENCIES:
   - Alamofire (~> 4.7.3)
   - ImageSlideshow (~> 1.6)
   - ImageSlideshow/Kingfisher
+  - KeychainAccess
   - Kingfisher
+  - NVActivityIndicatorView
   - SideMenu
   - SwiftyJSON (~> 4.1.0)
 
@@ -22,17 +28,21 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - ImageSlideshow
+    - KeychainAccess
     - Kingfisher
+    - NVActivityIndicatorView
     - SideMenu
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 0735c8b684cc4584f70c49887423d5a303be3028
+PODFILE CHECKSUM: 24d71c8ec3a6b5da93e6da49bb3ccc13edb28b24
 
 COCOAPODS: 1.5.3

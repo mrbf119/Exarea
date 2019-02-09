@@ -17,6 +17,11 @@ target 'exarea' do
   
   pod "ImageSlideshow/Kingfisher"
   
+  pod 'NVActivityIndicatorView'
+  
+  pod 'KeychainAccess'
+  
+  
   inhibit_all_warnings!
 
 end

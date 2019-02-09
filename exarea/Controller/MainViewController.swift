@@ -12,7 +12,7 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.setColors(background: .mainBlueColor, text: .mainYellowColor)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
