@@ -26,8 +26,12 @@ class Paginator<T>: PaginatorProtocol {
     func newData(completion: @escaping ErrorableResult) {
         self.fetchHandler(currentPage * pageSize, pageSize) { result in
             if let list = result.value {
+                if self.paginates {
+                    self.currentPage += 1
+                } else {
+                    self.reset()
+                }
                 self.list.append(contentsOf: list)
-                self.currentPage += self.paginates ? 1 : 0
             }
             completion(result.error)
         }

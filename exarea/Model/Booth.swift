@@ -69,6 +69,7 @@ class Booth: JSONSerializable, ImageTitled {
 }
 
 extension Booth {
+    
     static func getBooths(of fair: Fair, page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
         let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
         let params = pageParams.merging(["FairID": fair.fairID]) { old, new in new }
@@ -124,6 +125,14 @@ extension Booth {
                 }
             }
             completion(response.result.error)
+        }
+    }
+    
+    static func getFavorites(page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
+        let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
+        let req = CustomRequest(path: "/Booth/Favorites", method: .post, parameters: pageParams).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
+            completion(response.result)
         }
     }
 }

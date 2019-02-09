@@ -76,7 +76,7 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = self.currentList[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fairCell", for: indexPath) as! ImageTitledCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageTitledCell", for: indexPath) as! ImageTitledCollectionCell
         cell.update(with: item)
         cell.makeShadowed()
         return cell

@@ -58,7 +58,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="fairCell" id="2UQ-I6-Du7" customClass="ImageTitledCollectionCell" customModule="exarea" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageTitledCell" id="2UQ-I6-Du7" customClass="ImageTitledCollectionCell" customModule="exarea" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="200" width="147" height="222"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -490,30 +490,92 @@
             </objects>
             <point key="canvasLocation" x="2946" y="-1923"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="otd-Hf-wWS">
             <objects>
-                <viewController id="aDZ-bI-E5F" sceneMemberID="viewController">
+                <viewController id="aDZ-bI-E5F" customClass="FavoritesViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5lk-zE-VLB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czb-xS-jGz">
-                                <rect key="frame" x="159.5" y="310.5" width="56" height="46"/>
-                                <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="20"/>
-                                <state key="normal" title="پیام ها">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LFb-u0-iPl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hoC-fz-aX0">
+                                    <size key="itemSize" width="147" height="222"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageTitledCell" id="8n8-Vj-jtA" customClass="ImageTitledCollectionCell" customModule="exarea" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="222"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="147" height="222"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGo-88-wWe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="222"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c76-qa-szM">
+                                                            <rect key="frame" x="13.5" y="10" width="120" height="120"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="c76-qa-szM" secondAttribute="height" id="EkJ-DF-17z"/>
+                                                                <constraint firstAttribute="height" constant="120" id="VaN-F3-DmT"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام غرفه" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZz-G5-kKD">
+                                                            <rect key="frame" x="13.5" y="150" width="120" height="20.5"/>
+                                                            <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="12"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="GZz-G5-kKD" firstAttribute="trailing" secondItem="c76-qa-szM" secondAttribute="trailing" id="6Lo-Pr-ds1"/>
+                                                        <constraint firstItem="c76-qa-szM" firstAttribute="centerX" secondItem="aGo-88-wWe" secondAttribute="centerX" id="85Y-u5-Ysj"/>
+                                                        <constraint firstItem="c76-qa-szM" firstAttribute="top" secondItem="aGo-88-wWe" secondAttribute="top" constant="10" id="FSK-Hb-ypR"/>
+                                                        <constraint firstItem="GZz-G5-kKD" firstAttribute="top" secondItem="c76-qa-szM" secondAttribute="bottom" constant="20" id="Oqv-Xk-ne9"/>
+                                                        <constraint firstItem="GZz-G5-kKD" firstAttribute="leading" secondItem="c76-qa-szM" secondAttribute="leading" id="XEt-3E-zpy"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="aGo-88-wWe" firstAttribute="leading" secondItem="8n8-Vj-jtA" secondAttribute="leading" id="JSM-JK-sDg"/>
+                                            <constraint firstAttribute="bottom" secondItem="aGo-88-wWe" secondAttribute="bottom" id="eUU-4E-Y59"/>
+                                            <constraint firstItem="aGo-88-wWe" firstAttribute="top" secondItem="8n8-Vj-jtA" secondAttribute="top" id="gLV-hv-gSR"/>
+                                            <constraint firstAttribute="trailing" secondItem="aGo-88-wWe" secondAttribute="trailing" id="wxE-Gr-HLW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="containerView" destination="aGo-88-wWe" id="If4-NH-wZN"/>
+                                            <outlet property="imageView" destination="c76-qa-szM" id="rvP-07-TtY"/>
+                                            <outlet property="titleLabel" destination="GZz-G5-kKD" id="4av-VR-Avu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="aDZ-bI-E5F" id="ZtL-UZ-Jdm"/>
+                                    <outlet property="delegate" destination="aDZ-bI-E5F" id="dTC-Tg-ULG"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="czb-xS-jGz" firstAttribute="centerX" secondItem="5lk-zE-VLB" secondAttribute="centerX" id="Ig9-UO-KCD"/>
-                            <constraint firstItem="czb-xS-jGz" firstAttribute="centerY" secondItem="5lk-zE-VLB" secondAttribute="centerY" id="OQW-dQ-ASZ"/>
+                            <constraint firstAttribute="trailing" secondItem="LFb-u0-iPl" secondAttribute="trailing" id="Iew-zq-XwI"/>
+                            <constraint firstItem="LFb-u0-iPl" firstAttribute="leading" secondItem="RYo-rD-hJR" secondAttribute="leading" id="eoO-S1-SVg"/>
+                            <constraint firstItem="RYo-rD-hJR" firstAttribute="bottom" secondItem="LFb-u0-iPl" secondAttribute="bottom" id="ffP-Kn-kN4"/>
+                            <constraint firstItem="LFb-u0-iPl" firstAttribute="top" secondItem="5lk-zE-VLB" secondAttribute="top" id="kXk-Ys-SdW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RYo-rD-hJR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon-bookmark-75" id="9FA-oT-rSU"/>
+                    <connections>
+                        <outlet property="collectionView" destination="LFb-u0-iPl" id="JpV-nY-GLj"/>
+                        <segue destination="4zf-G4-Fez" kind="show" identifier="toBoothDetailVC" id="ajx-Pp-K85"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxS-Ez-9nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -999,7 +1061,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjF-fD-jVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6008.8000000000002" y="429.53523238380814"/>
+            <point key="canvasLocation" x="7572" y="-282"/>
         </scene>
     </scenes>
     <resources>
@@ -1025,4 +1087,7 @@
         <image name="icon-whatsup-100" width="75" height="75"/>
         <image name="image3.jpeg" width="285" height="177"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ajx-Pp-K85"/>
+    </inferredMetricsTieBreakers>
 </document>
