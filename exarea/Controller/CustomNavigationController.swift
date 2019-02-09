@@ -8,18 +8,6 @@
 
 import UIKit
 
-extension UIColor {
-    func as1ptImage() -> UIImage? {
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 3))
-        let ctx = UIGraphicsGetCurrentContext()
-        self.setFill()
-        ctx?.fill(CGRect(x: 0, y: 0, width: 1, height: 3))
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-}
-
 class CustomNavigationController: UINavigationController {
     
     private var defaultBgImage: UIImage?

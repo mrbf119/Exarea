@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Fair: JSONSerializable {
+struct Fair: JSONSerializable, ImageTitled {
     let fairID: Int
     let name: String
     let slogan: String?
@@ -23,13 +23,21 @@ struct Fair: JSONSerializable {
     let sEOFriendlyFairName: String
     let isActive: Bool
     let fairPhotoAddress: String
+    
+    var imageURL: URL? { return URL(string: self.fairPhotoAddress) }
+    var description: String { return self.sEOFriendlyFairName.replacingOccurrences(of: "-", with: " ") }
+    
 }
 
 extension Fair {
     
-    static func getAll(completion: @escaping DataResult<[Fair]>) {
-        let req = CustomRequest(path: "/Fair/ActiveFairs", method: .post, parameters: ["FetchRow": "20", "SkipRow": "0"]).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Fair].responseDataSerializer) { response in
+    static func getAll(page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Fair]>) {
+        let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
+        let req = CustomRequest(path: "/Fair/ActiveFairs", method: .post, parameters: pageParams).api().authorize()
+        NetManager
+            .shared
+            .requestWithValidation(req)
+            .response(responseSerializer: [Fair].responseDataSerializer) { response in
             completion(response.result)
         }
     }

@@ -21,6 +21,8 @@ target 'exarea' do
   
   pod 'KeychainAccess'
   
+  pod 'Cosmos', '~> 18.0'
+  
   
   inhibit_all_warnings!
 
