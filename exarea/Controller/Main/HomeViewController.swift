@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.getData()
+        self.getData()
     }
     
     private func getData() {
