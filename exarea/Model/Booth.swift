@@ -9,7 +9,26 @@
 import UIKit
 import Alamofire
 
+struct Photo: JSONSerializable {
+    let boothPhotoID: Int
+    let boothPhotoTitle: String
+    private let boothPhotoAddress: String
+    var address: URL? {
+        return URL(string: self.boothPhotoAddress)
+    }
+}
+
 class Booth: JSONSerializable, ImageTitled {
+    
+    enum FavoriteAction: String {
+        case `is` = "Is"
+        case make = "Make"
+        case delete = "Delete"
+        
+        var path: String {
+            return self.rawValue
+        }
+    }
     
     let boothID: Int
     let userID: Int
@@ -28,6 +47,21 @@ class Booth: JSONSerializable, ImageTitled {
     let isActive: Bool
     let modifiedDate: String?
     let boothPhotoAddress: String
+    private var _score: Int?
+    private var _photos: [Photo]?
+    private var _isFavorite: Bool?
+    
+    var isFavorite: Bool {
+        return self._isFavorite ?? false
+    }
+    
+    var score: Int {
+        return self._score ?? 0
+    }
+    
+    var photos: [Photo] {
+        return self._photos ?? []
+    }
     
     var imageURL: URL? { return URL(string: self.boothPhotoAddress) }
     var description: String { return self.sEOFriendlyBoothName?.replacingOccurrences(of: "-", with: " ") ?? "" }
@@ -41,6 +75,55 @@ extension Booth {
         let req = CustomRequest(path: "/Booth/List", method: .post, parameters: params).api().authorize()
         NetManager.shared.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
             completion(response.result)
+        }
+    }
+    
+    func getScore(completion: @escaping ErrorableResult) {
+        let params = ["BoothID": self.boothID]
+        let req = CustomRequest(path: "/Booth/BoothScore", method: .post, parameters: params).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
+            if let value = response.result.value, let score = Int(value) {
+                self._score = score
+            }
+            completion(response.result.error)
+        }
+    }
+    
+    func doScore(_ score: Int, completion: @escaping ErrorableResult) -> DataRequest {
+        let params = ["BoothID": self.boothID, "Score": score]
+        let req = CustomRequest(path: "/Booth/DoScore", method: .post, parameters: params).api().authorize()
+        let dataReq = NetManager.shared.requestWithValidation(req).responseData { response in
+            guard let error = response.result.error else {
+                self.getScore(completion: completion)
+                return
+            }
+            completion(error)
+        }
+        
+        return dataReq
+    }
+    
+    func getPhotos(completion: @escaping ErrorableResult) {
+        let params = ["BoothID": self.boothID]
+        let req = CustomRequest(path: "/Booth/Photo", method: .post, parameters: params).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Photo].responseDataSerializer) { response in
+            self._photos = response.result.value
+            completion(response.result.error)
+        }
+    }
+    
+    func favorite(action: FavoriteAction, completion: @escaping ErrorableResult) {
+        let params = ["BoothID": self.boothID]
+        let req = CustomRequest(path: "/Booth/\(action.path)Favorite", method: .post, parameters: params).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
+            if let boolString = response.result.value, let isTrue = Bool(exactly: NSNumber(value: Int(boolString)!)) {
+                if action == .is {
+                    self._isFavorite = isTrue
+                } else {
+                    self._isFavorite = action == .make ? true : false
+                }
+            }
+            completion(response.result.error)
         }
     }
 }

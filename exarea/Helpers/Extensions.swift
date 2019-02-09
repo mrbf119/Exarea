@@ -6,53 +6,7 @@
 //  Copyright © 1397 tamtom. All rights reserved.
 //
 
-import UIKit
 import Alamofire
-
-//extension UIAlertController {
-//    public class func mapNavigation(placeName: String = "", latitude: Double, longitude: Double) {
-//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        if let url = URL(string: "http://maps.apple.com/"), UIApplication.shared.canOpenURL(url) {
-//            let action = UIAlertAction(title: "Maps", style: .default) { _ in
-//                let options = [
-//                    MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault
-//                ]
-//                let placeMark = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-//                let mapitem = MKMapItem(placemark: placeMark)
-//                mapitem.name = placeName
-
-//                
-//            }
-//            alert.addAction(action)
-//        }
-//        if let url = URL(string: ""), UIApplication.shared.canOpenURL(url) {
-//            let action = UIAlertAction(title: "Google Maps", style: .default) { _ in
-//                if #available(iOS 10.0, *) {
-//                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                } else {
-//                    UIApplication.shared.openURL(url)
-//                }
-//            }
-//            alert.addAction(action)
-//        }
-//        if let url = URL(string: "&navigate=yes"),
-//            UIApplication.shared.canOpenURL(url) {
-//            let action = UIAlertAction(title: "Waze", style: .default) { _ in
-//                if #available(iOS 10.0, *) {
-//                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                } else {
-//                    UIApplication.shared.openURL(url)
-//                }
-//            }
-//            alert.addAction(action)
-//        }
-//        if !alert.actions.isEmpty {
-//            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//            alert.addAction(cancel)
-//            alert.show()
-//        }
-//    }
-//}
 
 extension UIView {
     func rounded() {
@@ -62,18 +16,6 @@ extension UIView {
     func bordered(width: CGFloat = 2, color: UIColor = .mainYellowColor) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
-    }
-}
-
-extension UIColor {
-    func as1ptImage() -> UIImage? {
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 3))
-        let ctx = UIGraphicsGetCurrentContext()
-        self.setFill()
-        ctx?.fill(CGRect(x: 0, y: 0, width: 1, height: 3))
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
     }
 }
 
@@ -144,10 +86,16 @@ extension UIFont {
 extension UIColor {
     static let mainYellowColor = UIColor(hex: 0xfdd400)!
     static let mainBlueColor = UIColor(hex: 0x1a2035)!
-}
-
-extension UIColor {
     
+    func as1ptImage() -> UIImage? {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 3))
+        let ctx = UIGraphicsGetCurrentContext()
+        self.setFill()
+        ctx?.fill(CGRect(x: 0, y: 0, width: 1, height: 3))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
     
     public convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
         guard red >= 0 && red <= 255 else { return nil }

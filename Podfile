@@ -15,13 +15,15 @@ target 'exarea' do
   
   pod 'Kingfisher'
   
-  pod "ImageSlideshow/Kingfisher"
+  pod 'ImageSlideshow/Kingfisher'
   
   pod 'NVActivityIndicatorView'
   
   pod 'KeychainAccess'
   
   pod 'Cosmos', '~> 18.0'
+  
+  pod 'Floaty', '~> 4.1.0'
   
   
   inhibit_all_warnings!

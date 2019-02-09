@@ -8,6 +8,7 @@
 
 import Kingfisher
 import ImageSlideshow
+import Floaty
 
 protocol ImageTitled {
     var imageURL: URL? { get }
@@ -22,6 +23,7 @@ class ImageTitledCollectionCell: UICollectionViewCell {
     @IBOutlet var containerView: UIView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
+    
     
     func makeShadowed() {
         self.containerView.clipsToBounds = true

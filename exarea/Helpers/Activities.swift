@@ -1,5 +1,5 @@
 //
-//  Activity.swift
+//  Activities.swift
 //  exarea
 //
 //  Created by Soroush on 11/19/1397 AP.

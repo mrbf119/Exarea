@@ -32,7 +32,7 @@
 		342A229521F72AEB0057FB5C /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */; };
 		343C211A220DA86100F4CB0D /* BoothDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2119220DA86100F4CB0D /* BoothDetailsViewController.swift */; };
 		343C211C220DB16D00F4CB0D /* ShadowedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C211B220DB16D00F4CB0D /* ShadowedView.swift */; };
-		343C211E220DD01F00F4CB0D /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C211D220DD01F00F4CB0D /* Activity.swift */; };
+		343C211E220DD01F00F4CB0D /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C211D220DD01F00F4CB0D /* Activities.swift */; };
 		343C2120220DDC0C00F4CB0D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343C211F220DDC0C00F4CB0D /* MapKit.framework */; };
 		344E0CB021F43DB100555759 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAC21F43DB100555759 /* image1.jpg */; };
 		344E0CB121F43DB100555759 /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAD21F43DB100555759 /* image2.jpg */; };
@@ -85,7 +85,7 @@
 		342A72152205AF56003ACE36 /* exarea-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "exarea-Bridging-Header.h"; sourceTree = "<group>"; };
 		343C2119220DA86100F4CB0D /* BoothDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoothDetailsViewController.swift; sourceTree = "<group>"; };
 		343C211B220DB16D00F4CB0D /* ShadowedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedView.swift; sourceTree = "<group>"; };
-		343C211D220DD01F00F4CB0D /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		343C211D220DD01F00F4CB0D /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		343C211F220DDC0C00F4CB0D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		344E0CAC21F43DB100555759 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		344E0CAD21F43DB100555759 /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpg; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 				341247CD21E6287400A34154 /* Networking.swift */,
 				341247CF21E6288900A34154 /* Configurations.swift */,
 				34E310F1215B348F00C3E68E /* Extensions.swift */,
-				343C211D220DD01F00F4CB0D /* Activity.swift */,
+				343C211D220DD01F00F4CB0D /* Activities.swift */,
 				34E7DC5921F086D100D3292C /* PitTabBar.swift */,
 				346C8413215B61E300F43F8C /* PaginationManager.swift */,
 				341E96B721FF970B00D7477B /* Shimmer */,
@@ -428,6 +428,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-exarea/Pods-exarea-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -441,6 +442,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -466,7 +468,7 @@
 				342A228B21F7046B0057FB5C /* MenuTableViewController.swift in Sources */,
 				34EADB2421F260D6001DFF62 /* HomeViewController.swift in Sources */,
 				341247D021E6288900A34154 /* Configurations.swift in Sources */,
-				343C211E220DD01F00F4CB0D /* Activity.swift in Sources */,
+				343C211E220DD01F00F4CB0D /* Activities.swift in Sources */,
 				341247C621E6250C00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */,
 				343C211A220DA86100F4CB0D /* BoothDetailsViewController.swift in Sources */,

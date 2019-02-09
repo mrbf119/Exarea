@@ -164,6 +164,19 @@ class CustomRequest: URLRequestConvertible {
     private(set) var isAuthorized = false
     private(set) var isAPI = false
     
+    init(path: String,
+         method: HTTPMethod = .get,
+         parameters: Parameters = [:],
+         encoding: ParameterEncoding = JSONEncoding.default,
+         headers: HTTPHeaders = [:]
+        ) {
+        self.path = path
+        self.method = method
+        self.parameters = parameters
+        self.encoding = encoding
+        self.additionalHeaders = headers
+    }
+    
     func asURLRequest() throws -> URLRequest {
         var url = self.isAPI ? Configurations.apiURL : Configurations.baseURL
         url += self.path
@@ -188,18 +201,5 @@ class CustomRequest: URLRequestConvertible {
     func api() -> CustomRequest {
         self.isAPI = true
         return self
-    }
-    
-    init(path: String,
-         method: HTTPMethod = .get,
-         parameters: Parameters = [:],
-         encoding: ParameterEncoding = JSONEncoding.default,
-         headers: HTTPHeaders = [:]
-        ) {
-        self.path = path
-        self.method = method
-        self.parameters = parameters
-        self.encoding = encoding
-        self.additionalHeaders = headers
     }
 }
