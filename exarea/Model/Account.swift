@@ -13,15 +13,11 @@ class Account: JSONSerializable {
     
     static private(set) var current: Account? = {
         let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
-        do {
-            guard
-                let token = try keychain.get("userToken"),
-                let sessionID = try keychain.get("sessionID")
+        guard
+            let token = keychain["userToken"],
+            let sessionID = keychain["sessionID"]
             else { return nil }
-            return Account(token: token, sessionID: sessionID)
-        } catch {
-            return nil
-        }
+        return Account(token: token, sessionID: sessionID)
     }() {
         didSet {
             if let acc = current {
@@ -49,16 +45,18 @@ class Account: JSONSerializable {
     
     private func saveTokenAndSession() {
         let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
-        do {
-            try keychain.set(self.userToken, key: "userToken")
-            try keychain.set(self.sessionID, key: "sessionID")
-        } catch {
-            print(error)
-        }
+        keychain["userToken"] = self.userToken
+        keychain["sessionID"] = self.sessionID
+    }
+    
+    class func clearKeychain() {
+        let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+        keychain["userToken"] = nil
+        keychain["sessionID"] = nil
     }
     
     class func logout() {
-        
+        self.clearKeychain()
     }
 }
 

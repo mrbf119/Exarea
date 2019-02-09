@@ -6,8 +6,18 @@
 //  Copyright © 1397 tamtom. All rights reserved.
 //
 
-import UIKit
 import Alamofire
+
+extension UIView {
+    func rounded() {
+        self.layer.cornerRadius = self.bounds.height / 2
+    }
+    
+    func bordered(width: CGFloat = 2, color: UIColor = .mainYellowColor) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
+    }
+}
 
 public extension Collection {
     
@@ -76,10 +86,16 @@ extension UIFont {
 extension UIColor {
     static let mainYellowColor = UIColor(hex: 0xfdd400)!
     static let mainBlueColor = UIColor(hex: 0x1a2035)!
-}
-
-extension UIColor {
     
+    func as1ptImage() -> UIImage? {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 3))
+        let ctx = UIGraphicsGetCurrentContext()
+        self.setFill()
+        ctx?.fill(CGRect(x: 0, y: 0, width: 1, height: 3))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
     
     public convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
         guard red >= 0 && red <= 255 else { return nil }
@@ -103,11 +119,6 @@ extension UIColor {
 }
 
 extension UIButton {
-    func rounded() {
-        self.layer.cornerRadius = self.bounds.height / 2
-        self.layer.borderColor = UIColor.mainYellowColor.cgColor
-        self.layer.borderWidth = 2
-    }
     
     func makeUnderlined(color: UIColor? = nil, fontSize: CGFloat? = nil) {
         let attrs: [NSAttributedString.Key : Any] = [

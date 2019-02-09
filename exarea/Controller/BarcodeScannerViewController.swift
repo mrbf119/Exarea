@@ -47,7 +47,7 @@ class BarcodeScannerViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if (self.captureSession?.isRunning)! {
+        if self.captureSession?.isRunning ?? false {
             self.captureSession.stopRunning()
         }
     }
