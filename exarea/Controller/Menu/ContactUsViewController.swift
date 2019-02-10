@@ -9,6 +9,8 @@
 import UIKit
 
 class ContactUsViewController: UIViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -201,7 +201,7 @@ extension BarcodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
 
 extension BarcodeScannerViewController: BarcodeScannerDelegate {
     func barcodeScanner(_ scanner: BarcodeScannerViewController, didCapture barcode: String) {
-        self.stopSession()
+//        self.stopSession()
         
     }
 }

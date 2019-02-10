@@ -55,8 +55,14 @@ class MainViewController: UITabBarController {
         self.performSegue(withIdentifier: "toSearchVC", sender: nil)
     }
     
+    @IBAction private func menuButtonClicked() {
+        self.performSegue(withIdentifier: "toMenuVC", sender: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SearchViewController {
+            vc.delegate = self
+        } else if let nav = segue.destination as? UINavigationController, let vc = nav.viewControllers.first as? MenuTableViewController {
             vc.delegate = self
         }
     }
@@ -69,7 +75,17 @@ extension MainViewController: SearchVCDelegate {
         if let currentVC = self.viewControllers?[self.selectedIndex] as? UINavigationController {
             let boothVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "BoothDetailsVC") as! BoothDetailsViewController
             boothVC.booth = booth
-            currentVC.pushViewController(boothVC, animated: true)
+            currentVC.setViewControllers([currentVC.viewControllers.first!, boothVC], animated: true)
+        }
+    }
+}
+
+extension MainViewController: MenuTableViewDelegate {
+    
+    func menuTableVC(_ menuTableVC: MenuTableViewController, selectedVCWithID id: String) {
+        if let currentVC = self.viewControllers?[self.selectedIndex] as? UINavigationController {
+            let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: id)
+            currentVC.setViewControllers([currentVC.viewControllers.first!, vc], animated: true)
         }
     }
 }

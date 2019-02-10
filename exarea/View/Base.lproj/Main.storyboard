@@ -685,12 +685,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fo5-5e-Xk0"/>
-                    <connections>
-                        <segue destination="K2c-eZ-JHe" kind="show" identifier="toContactUsVC" id="fdl-O7-g0k"/>
-                        <segue destination="ge7-Cf-IEY" kind="show" identifier="toAboutUsVC" id="Avw-0a-tFh"/>
-                        <segue destination="pGC-7v-pwX" kind="show" identifier="toRulesVC" id="q09-S9-IQm"/>
-                        <segue destination="ylt-xw-gxc" kind="show" identifier="toExhibitionsVC" id="ZEH-PH-khl"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Uk-NK-Amt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -699,7 +693,7 @@
         <!--درباره ما-->
         <scene sceneID="8E4-0c-Bmv">
             <objects>
-                <viewController title="درباره ما" id="ge7-Cf-IEY" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutUsVC" title="درباره ما" id="ge7-Cf-IEY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Kw-u9-zJ2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1116,7 +1110,7 @@
         <!--Contact Us View Controller-->
         <scene sceneID="qvQ-2A-IGI">
             <objects>
-                <viewController id="K2c-eZ-JHe" customClass="ContactUsViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactUsVC" id="K2c-eZ-JHe" customClass="ContactUsViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WjU-Ai-Pd9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1257,7 +1251,7 @@
         <!--Rules View Controller-->
         <scene sceneID="I79-Cg-L5M">
             <objects>
-                <viewController id="pGC-7v-pwX" customClass="RulesViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RulesVC" id="pGC-7v-pwX" customClass="RulesViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="co0-gk-yKy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1335,7 +1329,7 @@
         <!--View Controller-->
         <scene sceneID="Ddo-Ln-7F9">
             <objects>
-                <viewController id="ylt-xw-gxc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExhibitionsVC" id="ylt-xw-gxc" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yCH-lT-jex">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

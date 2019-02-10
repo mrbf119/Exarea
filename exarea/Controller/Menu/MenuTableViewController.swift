@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol MenuTableViewDelegate: class {
+    func menuTableVC(_ menuTableVC: MenuTableViewController, selectedVCWithID id: String)
+}
+
 class MenuTableViewController: UITableViewController {
     
-    private let segues = ["toContactUsVC", "toAboutUsVC", "toRulesVC", "toExhibitionsVC"]
+    private let vcIDs = ["ContactUsVC", "AboutUsVC", "RulesVC", "ExhibitionsVC"]
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
+    weak var delegate: MenuTableViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +28,9 @@ class MenuTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: self.segues[indexPath.row], sender: nil)
+        self.dismiss(animated: true) {
+            self.delegate?.menuTableVC(self, selectedVCWithID: self.vcIDs[indexPath.row])
+        }
+        
     }
 }

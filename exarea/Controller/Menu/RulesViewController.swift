@@ -13,6 +13,8 @@ class RulesViewController: UIViewController {
     @IBOutlet weak var scrollViewContainer: UIView!
     
     private var gradient: CAGradientLayer!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
