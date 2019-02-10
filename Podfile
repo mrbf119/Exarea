@@ -27,8 +27,6 @@ target 'exarea' do
   
   pod 'IQKeyboardManagerSwift'
   
-  pod 'Material'
-  
   
   inhibit_all_warnings!
 

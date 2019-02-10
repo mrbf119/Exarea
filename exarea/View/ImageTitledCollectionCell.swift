@@ -12,7 +12,7 @@ import Floaty
 
 protocol ImageTitled {
     var imageURL: URL? { get }
-    var description: String { get }
+    var textToShow: String { get }
 }
 
 class SlideShowHeaderView: UICollectionReusableView {
@@ -41,6 +41,6 @@ class ImageTitledCollectionCell: UICollectionViewCell {
             self.imageView.kf.setImage(with: resource)
             self.imageView.kf.indicatorType = .activity
         }
-        self.titleLabel.text = data.description
+        self.titleLabel.text = data.textToShow
     }
 }

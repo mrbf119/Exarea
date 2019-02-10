@@ -11,13 +11,6 @@ PODS:
   - IQKeyboardManagerSwift (6.2.0)
   - KeychainAccess (3.1.2)
   - Kingfisher (4.10.1)
-  - Material (2.16.4):
-    - Material/Core (= 2.16.4)
-  - Material/Core (2.16.4):
-    - Motion (~> 1.4.3)
-  - Motion (1.4.3):
-    - Motion/Core (= 1.4.3)
-  - Motion/Core (1.4.3)
   - NVActivityIndicatorView (4.5.1):
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
@@ -33,7 +26,6 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - KeychainAccess
   - Kingfisher
-  - Material
   - NVActivityIndicatorView
   - SideMenu
   - SwiftyJSON (~> 4.1.0)
@@ -47,8 +39,6 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - KeychainAccess
     - Kingfisher
-    - Material
-    - Motion
     - NVActivityIndicatorView
     - SideMenu
     - SwiftyJSON
@@ -61,12 +51,10 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
-  Motion: 153ba49692997888556c7a95207278a8b1f8be95
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: b4ecdd26038b0985414fb71e5a615d85bf756c09
+PODFILE CHECKSUM: 9e1fee84393322afa611c1455c3d838970221ce6
 
 COCOAPODS: 1.6.0
