@@ -31,6 +31,8 @@ class BoothDetailsViewController: UIViewController {
     
     var booth: Booth!
     private var pendingScoreRequest: DataRequest?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
