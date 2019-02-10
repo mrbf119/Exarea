@@ -42,6 +42,7 @@
 		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
 		346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8413215B61E300F43F8C /* PaginationManager.swift */; };
 		348816F2220F26B500EC5CC5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348816F1220F26B500EC5CC5 /* ProfileViewController.swift */; };
+		348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */; };
 		34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D7215B1A1900C3E68E /* AppDelegate.swift */; };
 		34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* LoginViewController.swift */; };
 		34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		346C8413215B61E300F43F8C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
 		348816F1220F26B500EC5CC5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededViewController.swift; sourceTree = "<group>"; };
 		34E310D4215B1A1900C3E68E /* exarea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exarea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E310D7215B1A1900C3E68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34E310D9215B1A1900C3E68E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				34E7DC5321F06F3300D3292C /* CustomNavigationController.swift */,
+				348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */,
 				340CDBA921FF999E00F5C303 /* SplashViewController.swift */,
 				34E719D22205EEF700ECDBB8 /* Login */,
 				34E719D32205EF0900ECDBB8 /* Main */,
@@ -494,6 +497,7 @@
 				34E7DC5421F06F3300D3292C /* CustomNavigationController.swift in Sources */,
 				341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */,
 				341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */,
+				348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */,
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
 				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
 				34E7DC5A21F086D100D3292C /* PitTabBar.swift in Sources */,

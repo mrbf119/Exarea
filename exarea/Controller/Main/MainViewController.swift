@@ -8,24 +8,46 @@
 
 import UIKit
 
-protocol TabBarViewControllerChild {
-    func reloadScreen()
+protocol Reloadable {
+    func reloadScreen(animated: Bool)
 }
 
 class MainViewController: UITabBarController {
+    
+    private var backButton: UIBarButtonItem!
+    
+    private var lastSelectedIndex: Int = 2
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setColors(background: .mainBlueColor, text: .mainYellowColor)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.selectedIndex = 2
+        self.selectedIndex = self.lastSelectedIndex
+        self.backButton = UIBarButtonItem(image: UIImage(named: "icon-back-75"), style: .done, target: self, action: #selector(self.backButtonClicked))
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if let child = self.viewControllers?[self.selectedIndex] as? TabBarViewControllerChild {
-            child.reloadScreen()
+        if let vc = self.viewControllers?[self.lastSelectedIndex], let child = vc as? Reloadable {
+            child.reloadScreen(animated: self.viewControllers?[self.selectedIndex] === vc)
+        }
+        self.lastSelectedIndex = self.selectedIndex
+    }
+    
+    @objc private func backButtonClicked() {
+        if let vc = self.viewControllers?[self.lastSelectedIndex], let child = vc as? Reloadable {
+            child.reloadScreen(animated: self.viewControllers?[self.selectedIndex] === vc)
         }
     }
     
+    func addBackButton() {
+        if self.navigationItem.leftBarButtonItem !== self.backButton {
+            self.navigationItem.setLeftBarButtonItems([self.backButton, self.navigationItem.leftBarButtonItem!], animated: true)
+        }
+    }
     
+    func removeBackButton() {
+        if self.navigationItem.leftBarButtonItem === self.backButton {
+            self.navigationItem.setLeftBarButtonItems([self.navigationItem.leftBarButtonItems!.last!], animated: true)
+        }
+    }
 }

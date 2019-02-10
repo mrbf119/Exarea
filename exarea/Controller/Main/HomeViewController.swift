@@ -148,7 +148,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: self.cellMargin, left: self.cellMargin, bottom: self.cellMargin + self.tabBarController!.tabBar.frame.height, right: self.cellMargin)
+        return UIEdgeInsets(top: self.cellMargin, left: self.cellMargin, bottom: self.cellMargin, right: self.cellMargin)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -157,8 +157,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 
 
-extension HomeViewController: TabBarViewControllerChild {
-    func reloadScreen() {
+extension HomeViewController: Reloadable {
+    func reloadScreen(animated: Bool = false) {
         self.selectedFair = nil
     }
 }

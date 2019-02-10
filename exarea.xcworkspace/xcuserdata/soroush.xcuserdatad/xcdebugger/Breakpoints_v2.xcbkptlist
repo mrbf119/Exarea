@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "exarea/Helpers/Extensions.swift"
-            timestampString = "571426618.283904"
+            filePath = "exarea/Controller/Main/MainViewController.swift"
+            timestampString = "571491447.168551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "init(hex:transparency:)"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "backButtonClicked()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
