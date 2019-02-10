@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SearchVCDelegate: class {
+    func searchViewController(_ searchVC: SearchViewController, didSelectBooth booth: Booth)
+}
+
 class CustomSearchBar: UISearchBar {
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -31,6 +35,7 @@ class SearchViewController: UIViewController {
     private var cellSize: CGFloat { return 140  }
     private var cellMargin: CGFloat { return 10 }
     
+    weak var delegate: SearchVCDelegate?
     
     private var query: String? {
         didSet {
@@ -106,7 +111,12 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegate {
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard collectionView === self.collectionBooths else { return }
+        let item = self.boothPaginator.list[indexPath.row]
+        self.delegate?.searchViewController(self, didSelectBooth: item)
+        self.backButtonClicked()
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {

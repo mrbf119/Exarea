@@ -51,4 +51,25 @@ class MainViewController: UITabBarController {
     }
     
     
+    @IBAction private func searchButtonClicked() {
+        self.performSegue(withIdentifier: "toSearchVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SearchViewController {
+            vc.delegate = self
+        }
+    }
+    
+}
+
+extension MainViewController: SearchVCDelegate {
+    
+    func searchViewController(_ searchVC: SearchViewController, didSelectBooth booth: Booth) {
+        if let currentVC = self.viewControllers?[self.selectedIndex] as? UINavigationController {
+            let boothVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "BoothDetailsVC") as! BoothDetailsViewController
+            boothVC.booth = booth
+            currentVC.pushViewController(boothVC, animated: true)
+        }
+    }
 }

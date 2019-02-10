@@ -40,8 +40,6 @@ class CustomNavigationController: UINavigationController {
         self.navigationBar.makeTransparent(withTint: .mainYellowColor)
     }
     
-    
-    
     override var childForStatusBarStyle: UIViewController? {
         return self.viewControllers.last
     }
