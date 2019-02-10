@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow? 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UIApplication.shared.statusBarStyle = .lightContent
         SideMenuManager.default.menuPresentMode = .viewSlideOut
         if !UserDefaults.standard.bool(forKey: "clearedKeychain") {
             Account.clearKeychain()

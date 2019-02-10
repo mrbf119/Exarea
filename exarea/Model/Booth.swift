@@ -64,7 +64,7 @@ class Booth: JSONSerializable, ImageTitled {
     }
     
     var imageURL: URL? { return URL(string: self.boothPhotoAddress) }
-    var description: String { return self.sEOFriendlyBoothName?.replacingOccurrences(of: "-", with: " ") ?? "" }
+    var textToShow: String { return self.sEOFriendlyBoothName?.replacingOccurrences(of: "-", with: " ") ?? "" }
     
 }
 
@@ -131,6 +131,14 @@ extension Booth {
     static func getFavorites(page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
         let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
         let req = CustomRequest(path: "/Booth/Favorites", method: .post, parameters: pageParams).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
+            completion(response.result)
+        }
+    }
+    
+    static func search(query: String, page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
+        let params: Parameters = ["FetchRow": page + pageSize, "SkipRow": page, "TargetWord": query]
+        let req = CustomRequest(path: "/Search/SearchBooth", method: .post, parameters: params).api().authorize()
         NetManager.shared.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
             completion(response.result)
         }

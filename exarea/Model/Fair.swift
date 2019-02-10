@@ -25,7 +25,7 @@ struct Fair: JSONSerializable, ImageTitled {
     let fairPhotoAddress: String
     
     var imageURL: URL? { return URL(string: self.fairPhotoAddress) }
-    var description: String { return self.sEOFriendlyFairName.replacingOccurrences(of: "-", with: " ") }
+    var textToShow: String { return self.sEOFriendlyFairName.replacingOccurrences(of: "-", with: " ") }
     
 }
 
