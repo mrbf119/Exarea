@@ -80,7 +80,8 @@ extension UIDevice {
 }
 
 extension UIFont {
-    static let iranSans = UIFont(name: "IRANSans", size: 15)!
+    static let iranSans = UIFont(name: "IRANSansMobileFaNum", size: 15)!
+    static let iranSansEnglish = UIFont(name: "IRANSansMobile", size: 15)!
     static let segoeUIBold = UIFont(name: "SegoeUI-Bold", size: 15)!
     static let segoeUI = UIFont(name: "SegoeUI", size: 15)!
 }

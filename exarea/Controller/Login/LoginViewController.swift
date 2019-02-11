@@ -62,7 +62,8 @@ class LoginViewController: UIViewController {
         
         self.passwordTextField.titleFont = UIFont.iranSans
         self.passwordTextField.isLTRLanguage = false
-        self.passwordTextField.iconImageView.superview!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.togglePassword)))
+        self.passwordTextField.iconImageView.isUserInteractionEnabled = true
+        self.passwordTextField.iconImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.togglePassword)))
         
         if self.isInLoginMode {
             self.segmentSection.isHidden = true
@@ -77,7 +78,7 @@ class LoginViewController: UIViewController {
             self.passwordTextField.iconImage = UIImage(named: "icon-eye-hide")
             self.passwordTextField.isSecureTextEntry = false
             self.passwordTextField.font = nil
-            self.passwordTextField.font = UIFont.iranSans
+            self.passwordTextField.font = UIFont.iranSansEnglish
         } else {
             self.passwordTextField.iconImage = UIImage(named: "icon-eye-show")
             self.passwordTextField.isSecureTextEntry = true

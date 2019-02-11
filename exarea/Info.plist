@@ -31,8 +31,13 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>IRANSans.ttf</string>
-		<string>IRANSans_Bold.ttf</string>
+        <string>IRANSansMobile(FaNum)_Black.ttf</string>
+        <string>IRANSansMobile(FaNum)_Bold.ttf</string>
+        <string>IRANSansMobile(FaNum)_Light.ttf</string>
+        <string>IRANSansMobile(FaNum)_Medium.ttf</string>
+        <string>IRANSansMobile(FaNum)_UltraLight.ttf</string>
+        <string>IRANSansMobile(FaNum).ttf</string>
+        <string>IRANSansMobile.ttf</string>
 		<string>Segoe UI Bold.ttf</string>
 		<string>Segoe UI.ttf</string>
 	</array>

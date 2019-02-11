@@ -11,6 +11,14 @@
 		340CDBAA21FF999E00F5C303 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CDBA921FF999E00F5C303 /* SplashViewController.swift */; };
 		340CDBAC21FFAB5D00F5C303 /* RequestAndResponseClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CDBAB21FFAB5D00F5C303 /* RequestAndResponseClasses.swift */; };
 		3411A18C2211730900DBC057 /* TicketingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411A18B2211730900DBC057 /* TicketingViewController.swift */; };
+		3411A1932211772E00DBC057 /* IRANSansMobile(FaNum)_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3411A18D2211772C00DBC057 /* IRANSansMobile(FaNum)_Bold.ttf */; };
+		3411A1942211772E00DBC057 /* IRANSansMobile(FaNum)_Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3411A18E2211772D00DBC057 /* IRANSansMobile(FaNum)_Black.ttf */; };
+		3411A1952211772E00DBC057 /* IRANSansMobile(FaNum)_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3411A18F2211772D00DBC057 /* IRANSansMobile(FaNum)_Light.ttf */; };
+		3411A1962211772E00DBC057 /* IRANSansMobile(FaNum)_UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3411A1902211772D00DBC057 /* IRANSansMobile(FaNum)_UltraLight.ttf */; };
+		3411A1972211772E00DBC057 /* IRANSansMobile(FaNum)_Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3411A1912211772D00DBC057 /* IRANSansMobile(FaNum)_Medium.ttf */; };
+		3411A1982211772E00DBC057 /* IRANSansMobile(FaNum).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3411A1922211772E00DBC057 /* IRANSansMobile(FaNum).ttf */; };
+		3411A19A2211774700DBC057 /* FontLicense.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3411A1992211774700DBC057 /* FontLicense.txt */; };
+		3411A19D22117EA500DBC057 /* IRANSansMobile.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3411A19C22117EA400DBC057 /* IRANSansMobile.ttf */; };
 		341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 341247BE21E5E75B00A34154 /* UITextField+Shake.m */; };
 		341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */; };
 		341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */; };
@@ -53,7 +61,6 @@
 		34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */; };
 		34E310EB215B1D3A00C3E68E /* Segoe UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34E310EA215B1D3A00C3E68E /* Segoe UI.ttf */; };
 		34E310ED215B1E9200C3E68E /* Segoe UI Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34E310EC215B1E9200C3E68E /* Segoe UI Bold.ttf */; };
-		34E310EF215B1F2300C3E68E /* IRANSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34E310EE215B1F2300C3E68E /* IRANSans.ttf */; };
 		34E310F2215B348F00C3E68E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310F1215B348F00C3E68E /* Extensions.swift */; };
 		34E719D12205EC2700ECDBB8 /* Booth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E719D02205EC2700ECDBB8 /* Booth.swift */; };
 		34E7DC5421F06F3300D3292C /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5321F06F3300D3292C /* CustomNavigationController.swift */; };
@@ -67,6 +74,14 @@
 		340CDBA921FF999E00F5C303 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		340CDBAB21FFAB5D00F5C303 /* RequestAndResponseClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAndResponseClasses.swift; sourceTree = "<group>"; };
 		3411A18B2211730900DBC057 /* TicketingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketingViewController.swift; sourceTree = "<group>"; };
+		3411A18D2211772C00DBC057 /* IRANSansMobile(FaNum)_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(FaNum)_Bold.ttf"; sourceTree = "<group>"; };
+		3411A18E2211772D00DBC057 /* IRANSansMobile(FaNum)_Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(FaNum)_Black.ttf"; sourceTree = "<group>"; };
+		3411A18F2211772D00DBC057 /* IRANSansMobile(FaNum)_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(FaNum)_Light.ttf"; sourceTree = "<group>"; };
+		3411A1902211772D00DBC057 /* IRANSansMobile(FaNum)_UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(FaNum)_UltraLight.ttf"; sourceTree = "<group>"; };
+		3411A1912211772D00DBC057 /* IRANSansMobile(FaNum)_Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(FaNum)_Medium.ttf"; sourceTree = "<group>"; };
+		3411A1922211772E00DBC057 /* IRANSansMobile(FaNum).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IRANSansMobile(FaNum).ttf"; sourceTree = "<group>"; };
+		3411A1992211774700DBC057 /* FontLicense.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FontLicense.txt; sourceTree = "<group>"; };
+		3411A19C22117EA400DBC057 /* IRANSansMobile.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSansMobile.ttf; sourceTree = "<group>"; };
 		341247BD21E5E75B00A34154 /* UITextField+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake.h"; sourceTree = "<group>"; };
 		341247BE21E5E75B00A34154 /* UITextField+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Shake.m"; sourceTree = "<group>"; };
 		341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
@@ -113,8 +128,6 @@
 		34E310E3215B1A1B00C3E68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34E310EA215B1D3A00C3E68E /* Segoe UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI.ttf"; sourceTree = "<group>"; };
 		34E310EC215B1E9200C3E68E /* Segoe UI Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Segoe UI Bold.ttf"; sourceTree = "<group>"; };
-		34E310EE215B1F2300C3E68E /* IRANSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSans.ttf; sourceTree = "<group>"; };
-		34E310F0215B1F3400C3E68E /* IRANSans_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IRANSans_Bold.ttf; sourceTree = "<group>"; };
 		34E310F1215B348F00C3E68E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		34E719D02205EC2700ECDBB8 /* Booth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booth.swift; sourceTree = "<group>"; };
 		34E7DC5321F06F3300D3292C /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
@@ -147,6 +160,21 @@
 				AC81AFB9D035D9F7E82D3B21 /* Pods-exarea.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3411A19B2211775200DBC057 /* IRANSans(FaNum) */ = {
+			isa = PBXGroup;
+			children = (
+				3411A1992211774700DBC057 /* FontLicense.txt */,
+				3411A19C22117EA400DBC057 /* IRANSansMobile.ttf */,
+				3411A18E2211772D00DBC057 /* IRANSansMobile(FaNum)_Black.ttf */,
+				3411A18D2211772C00DBC057 /* IRANSansMobile(FaNum)_Bold.ttf */,
+				3411A18F2211772D00DBC057 /* IRANSansMobile(FaNum)_Light.ttf */,
+				3411A1912211772D00DBC057 /* IRANSansMobile(FaNum)_Medium.ttf */,
+				3411A1902211772D00DBC057 /* IRANSansMobile(FaNum)_UltraLight.ttf */,
+				3411A1922211772E00DBC057 /* IRANSansMobile(FaNum).ttf */,
+			);
+			path = "IRANSans(FaNum)";
 			sourceTree = "<group>";
 		};
 		341247C021E5E76300A34154 /* UITextField+Shake */ = {
@@ -235,10 +263,9 @@
 		342A228921F5A0630057FB5C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3411A19B2211775200DBC057 /* IRANSans(FaNum) */,
 				34E310EC215B1E9200C3E68E /* Segoe UI Bold.ttf */,
 				34E310EA215B1D3A00C3E68E /* Segoe UI.ttf */,
-				34E310F0215B1F3400C3E68E /* IRANSans_Bold.ttf */,
-				34E310EE215B1F2300C3E68E /* IRANSans.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -410,16 +437,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				344E0CB021F43DB100555759 /* image1.jpg in Resources */,
+				3411A1932211772E00DBC057 /* IRANSansMobile(FaNum)_Bold.ttf in Resources */,
 				346C8410215B59BA00F43F8C /* Login.storyboard in Resources */,
 				344E0CB121F43DB100555759 /* image2.jpg in Resources */,
 				34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */,
+				3411A1942211772E00DBC057 /* IRANSansMobile(FaNum)_Black.ttf in Resources */,
+				3411A1972211772E00DBC057 /* IRANSansMobile(FaNum)_Medium.ttf in Resources */,
 				344E0CB221F43DB100555759 /* image3.jpeg in Resources */,
 				34E310ED215B1E9200C3E68E /* Segoe UI Bold.ttf in Resources */,
+				3411A19A2211774700DBC057 /* FontLicense.txt in Resources */,
 				34E310EB215B1D3A00C3E68E /* Segoe UI.ttf in Resources */,
 				344E0CB321F43DB100555759 /* image4.jpeg in Resources */,
+				3411A1982211772E00DBC057 /* IRANSansMobile(FaNum).ttf in Resources */,
 				34E310DF215B1A1B00C3E68E /* Assets.xcassets in Resources */,
 				34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */,
-				34E310EF215B1F2300C3E68E /* IRANSans.ttf in Resources */,
+				3411A1952211772E00DBC057 /* IRANSansMobile(FaNum)_Light.ttf in Resources */,
+				3411A1962211772E00DBC057 /* IRANSansMobile(FaNum)_UltraLight.ttf in Resources */,
+				3411A19D22117EA500DBC057 /* IRANSansMobile.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
