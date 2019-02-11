@@ -16,6 +16,7 @@ class CustomNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.semanticContentAttribute = .forceRightToLeft
         self.defaultBgImage = self.navigationBar.backgroundImage(for: .default)
         self.defaultShadowImage = UIColor.mainYellowColor.as1ptImage()

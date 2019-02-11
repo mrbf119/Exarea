@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private var cellSize: CGFloat { return 140  }
-    private var cellMargin: CGFloat { return ((self.view.bounds.width - (self.cellSize * 2)) / 3 ).rounded() }
+    private var cellMargin: CGFloat { return ((self.view.bounds.width - (self.cellSize * 2)) / 3 ) }
     private var sliderCurrentPage = 0
     
     override func viewDidLoad() {

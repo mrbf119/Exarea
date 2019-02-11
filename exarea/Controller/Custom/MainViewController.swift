@@ -24,11 +24,15 @@ class MainViewController: UITabBarController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.backButton = UIBarButtonItem(image: UIImage(named: "icon-back-75"), style: .done, target: self, action: #selector(self.backButtonClicked))
         self.selectedIndex = 2
+        self.setTitleFor(index: self.selectedIndex)
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if let vc = self.viewControllers?[self.selectedIndex], let child = vc as? Reloadable {
             child.reloadScreen(animated: false)
+        }
+        if let index = self.tabBar.items?.lastIndex(where: {  $0 === item }) {
+            self.setTitleFor(index: index)
         }
     }
     
@@ -36,6 +40,13 @@ class MainViewController: UITabBarController {
         if let vc = self.viewControllers?[self.selectedIndex], let child = vc as? Reloadable {
             child.reloadScreen(animated: self.viewControllers?[self.selectedIndex] === vc)
         }
+    }
+    
+    private func setTitleFor(index: Int) {
+        self.title = ["پسندیده‌ها","بارکد خوان","EXAREA","پیام ها","پروفایل"][index]
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [.foregroundColor: UIColor.mainYellowColor,
+             .font: index != 2 ? UIFont.iranSans.withSize(20) : UIFont.segoeUIBold.withSize(20)]
     }
     
     func addBackButton() {

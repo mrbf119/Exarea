@@ -13,7 +13,7 @@ class FavoritesViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     private var cellSize: CGFloat { return 140  }
-    private var cellMargin: CGFloat { return ((self.view.bounds.width - (self.cellSize * 2)) / 3 ).rounded() }
+    private var cellMargin: CGFloat { return ((self.view.bounds.width - (self.cellSize * 2)) / 3 ) }
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     private var favoritesPaginator = Paginator<Booth>(paginates: false) { page, pageSize, completion in

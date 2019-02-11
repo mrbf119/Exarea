@@ -224,28 +224,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IJ-4b-WTc">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem id="c1P-2g-7YE">
-                                        <barButtonItem key="leftBarButtonItem" image="icon-back-75" id="JUk-fQ-hNh">
-                                            <color key="tintColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="backButtonClicked" destination="ycQ-vp-2lv" id="y6V-ef-Ecn"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="icon-search-75" id="4mW-zK-gy4">
-                                            <color key="tintColor" red="0.094117647060000004" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="searchButtonClicked" destination="ycQ-vp-2lv" id="Zdt-Mx-B2c"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <connections>
-                                            <outlet property="titleView" destination="Hf0-9P-PvR" id="L4V-qD-DMc"/>
-                                        </connections>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nqi-22-7wF">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
@@ -434,15 +412,50 @@
                                     <constraint firstItem="A6f-br-LFJ" firstAttribute="height" secondItem="xcg-yu-yge" secondAttribute="height" id="iFm-TD-oYz"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zia-WO-jrh">
+                                <rect key="frame" x="10" y="20" width="355" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMc-24-kmm">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <color key="tintColor" red="0.094117647060000004" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="icon-back-75"/>
+                                        <connections>
+                                            <action selector="backButtonClicked" destination="ycQ-vp-2lv" eventType="touchUpInside" id="PNt-jN-yyP"/>
+                                        </connections>
+                                    </button>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3i-pQ-XcH" customClass="CustomSearchBar" customModule="exarea" customModuleProvider="target">
+                                        <rect key="frame" x="44" y="0.0" width="267" height="44"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ycQ-vp-2lv" id="CI3-Vp-oAU"/>
+                                        </connections>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4Y-OV-kYX">
+                                        <rect key="frame" x="311" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="c4Y-OV-kYX" secondAttribute="height" id="fob-2X-3yb"/>
+                                            <constraint firstAttribute="width" constant="44" id="hBD-xJ-pvQ"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.094117647060000004" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="icon-search-75"/>
+                                        <connections>
+                                            <action selector="searchButtonClicked" destination="ycQ-vp-2lv" eventType="touchUpInside" id="eGr-s9-B1h"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="c4Y-OV-kYX" firstAttribute="width" secondItem="ZMc-24-kmm" secondAttribute="width" id="PCz-cx-6ce"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nqi-22-7wF" firstAttribute="top" secondItem="7IJ-4b-WTc" secondAttribute="bottom" id="0Ac-kn-zUL"/>
-                            <constraint firstItem="7IJ-4b-WTc" firstAttribute="trailing" secondItem="AwX-cn-n5D" secondAttribute="trailing" id="8Q1-Ha-xSK"/>
                             <constraint firstItem="nqi-22-7wF" firstAttribute="leading" secondItem="AwX-cn-n5D" secondAttribute="leading" id="Daf-lz-aAS"/>
-                            <constraint firstItem="7IJ-4b-WTc" firstAttribute="top" secondItem="AwX-cn-n5D" secondAttribute="top" id="e5c-e7-908"/>
+                            <constraint firstItem="Zia-WO-jrh" firstAttribute="top" secondItem="AwX-cn-n5D" secondAttribute="top" id="FCd-e8-luS"/>
+                            <constraint firstItem="Zia-WO-jrh" firstAttribute="leading" secondItem="AwX-cn-n5D" secondAttribute="leading" constant="10" id="Z0X-dO-I5I"/>
+                            <constraint firstItem="nqi-22-7wF" firstAttribute="top" secondItem="Zia-WO-jrh" secondAttribute="bottom" id="bmK-dz-WeZ"/>
+                            <constraint firstItem="AwX-cn-n5D" firstAttribute="trailing" secondItem="Zia-WO-jrh" secondAttribute="trailing" constant="10" id="eHL-S2-RlL"/>
                             <constraint firstItem="nqi-22-7wF" firstAttribute="trailing" secondItem="AwX-cn-n5D" secondAttribute="trailing" id="uD4-CU-lTA"/>
-                            <constraint firstItem="7IJ-4b-WTc" firstAttribute="leading" secondItem="AwX-cn-n5D" secondAttribute="leading" id="un0-to-4k0"/>
                             <constraint firstItem="AwX-cn-n5D" firstAttribute="bottom" secondItem="nqi-22-7wF" secondAttribute="bottom" id="xff-DZ-Zcy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AwX-cn-n5D"/>
@@ -450,18 +463,10 @@
                     <connections>
                         <outlet property="collectionBooths" destination="A6f-br-LFJ" id="0S6-wQ-qf1"/>
                         <outlet property="collectionProducts" destination="xcg-yu-yge" id="T9I-gD-cJ9"/>
-                        <outlet property="searchBar" destination="Hf0-9P-PvR" id="Xje-aP-XYB"/>
+                        <outlet property="searchBar" destination="A3i-pQ-XcH" id="Ale-Ov-Aih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzH-mk-7Xc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" semanticContentAttribute="forceRightToLeft" placeholder="نام نمایشگاه یا غرفه..." id="Hf0-9P-PvR" customClass="CustomSearchBar" customModule="exarea" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="ycQ-vp-2lv" id="2te-Kh-GE7"/>
-                    </connections>
-                </searchBar>
             </objects>
             <point key="canvasLocation" x="1821.5999999999999" y="908.9955022488756"/>
         </scene>
@@ -473,6 +478,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q0Z-Lr-V6m">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="19"/>
+                            <color key="textColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="pox-Ci-VbG" kind="relationship" relationship="rootViewController" id="rfs-Cy-Goc"/>
@@ -1091,10 +1100,10 @@
             </objects>
             <point key="canvasLocation" x="5238" y="1890"/>
         </scene>
-        <!--View Controller-->
+        <!--Ticketing View Controller-->
         <scene sceneID="aaN-0p-qyY">
             <objects>
-                <viewController id="EaL-8M-aR3" sceneMemberID="viewController">
+                <viewController id="EaL-8M-aR3" customClass="TicketingViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pzo-bb-RFF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1565,6 +1574,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bv2-aP-isV">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="IRANSans" family="IRANSans" pointSize="19"/>
+                            <color key="textColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="aDZ-bI-E5F" kind="relationship" relationship="rootViewController" id="wQF-Ze-GrL"/>

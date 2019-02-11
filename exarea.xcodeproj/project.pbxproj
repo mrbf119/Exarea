@@ -10,6 +10,7 @@
 		24272838AE8B9FB846BD315B /* Pods_exarea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C7E6D336257AC577BB97EAB /* Pods_exarea.framework */; };
 		340CDBAA21FF999E00F5C303 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CDBA921FF999E00F5C303 /* SplashViewController.swift */; };
 		340CDBAC21FFAB5D00F5C303 /* RequestAndResponseClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340CDBAB21FFAB5D00F5C303 /* RequestAndResponseClasses.swift */; };
+		3411A18C2211730900DBC057 /* TicketingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411A18B2211730900DBC057 /* TicketingViewController.swift */; };
 		341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 341247BE21E5E75B00A34154 /* UITextField+Shake.m */; };
 		341247C421E6250C00A34154 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */; };
 		341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341247C221E6250B00A34154 /* SkyFloatingLabelTextField.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		340CDBA921FF999E00F5C303 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		340CDBAB21FFAB5D00F5C303 /* RequestAndResponseClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAndResponseClasses.swift; sourceTree = "<group>"; };
+		3411A18B2211730900DBC057 /* TicketingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketingViewController.swift; sourceTree = "<group>"; };
 		341247BD21E5E75B00A34154 /* UITextField+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake.h"; sourceTree = "<group>"; };
 		341247BE21E5E75B00A34154 /* UITextField+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Shake.m"; sourceTree = "<group>"; };
 		341247C121E6250A00A34154 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				346C8411215B614900F43F8C /* FavoritesViewController.swift */,
 				348816F1220F26B500EC5CC5 /* ProfileViewController.swift */,
 				342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */,
+				3411A18B2211730900DBC057 /* TicketingViewController.swift */,
 			);
 			path = "Tab Bar";
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				34A74AAB22104DFD007808F1 /* SearchViewController.swift in Sources */,
 				341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */,
 				341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */,
+				3411A18C2211730900DBC057 /* TicketingViewController.swift in Sources */,
 				348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */,
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
 				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
