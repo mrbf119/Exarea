@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1.0</string>
+	<string>0.2.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -31,13 +31,13 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-        <string>IRANSansMobile(FaNum)_Black.ttf</string>
-        <string>IRANSansMobile(FaNum)_Bold.ttf</string>
-        <string>IRANSansMobile(FaNum)_Light.ttf</string>
-        <string>IRANSansMobile(FaNum)_Medium.ttf</string>
-        <string>IRANSansMobile(FaNum)_UltraLight.ttf</string>
-        <string>IRANSansMobile(FaNum).ttf</string>
-        <string>IRANSansMobile.ttf</string>
+		<string>IRANSansMobile(FaNum)_Black.ttf</string>
+		<string>IRANSansMobile(FaNum)_Bold.ttf</string>
+		<string>IRANSansMobile(FaNum)_Light.ttf</string>
+		<string>IRANSansMobile(FaNum)_Medium.ttf</string>
+		<string>IRANSansMobile(FaNum)_UltraLight.ttf</string>
+		<string>IRANSansMobile(FaNum).ttf</string>
+		<string>IRANSansMobile.ttf</string>
 		<string>Segoe UI Bold.ttf</string>
 		<string>Segoe UI.ttf</string>
 	</array>
