@@ -15,6 +15,9 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.5.1)
   - NVActivityIndicatorView/Presenter (4.5.1)
   - SideMenu (5.0.1)
+  - SwiftMessages (6.0.2):
+    - SwiftMessages/App (= 6.0.2)
+  - SwiftMessages/App (6.0.2)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
@@ -28,6 +31,7 @@ DEPENDENCIES:
   - Kingfisher
   - NVActivityIndicatorView
   - SideMenu
+  - SwiftMessages
   - SwiftyJSON (~> 4.1.0)
 
 SPEC REPOS:
@@ -41,6 +45,7 @@ SPEC REPOS:
     - Kingfisher
     - NVActivityIndicatorView
     - SideMenu
+    - SwiftMessages
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -53,8 +58,9 @@ SPEC CHECKSUMS:
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
+  SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 9e1fee84393322afa611c1455c3d838970221ce6
+PODFILE CHECKSUM: 2ecbdac45631ac8b56b20eb5e637cdd750092743
 
 COCOAPODS: 1.6.0

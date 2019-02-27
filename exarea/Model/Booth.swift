@@ -157,4 +157,12 @@ extension Booth {
             completion(response.result)
         }
     }
+    
+    func getProducts(completion: @escaping DataResult<[Product]>) {
+        let params = ["BoothID": self.boothID]
+        let req = CustomRequest(path: "/Booth/ProductList", method: .post, parameters: params).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Product].responseDataSerializer) { response in
+            completion(response.result)
+        }
+    }
 }

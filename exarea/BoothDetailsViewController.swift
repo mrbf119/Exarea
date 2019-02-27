@@ -129,6 +129,18 @@ class BoothDetailsViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ProductsViewController, let booth = sender as? Booth {
+            vc.booth = booth
+        }
+    }
+    
+    //MARK: - actions
+    
+    @IBAction private func productsButtonClicked() {
+        self.performSegue(withIdentifier: "toProductsVC", sender: self.booth)
+    }
+    
     @IBAction private func checkFave() {
         let wasLocalyFaved = self.booth.isFavorite
         

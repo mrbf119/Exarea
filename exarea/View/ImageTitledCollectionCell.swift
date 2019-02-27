@@ -24,6 +24,11 @@ class ImageTitledCollectionCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.imageView.layer.cornerRadius = 7
+        self.imageView.clipsToBounds = true
+    }
     
     func makeShadowed() {
         self.containerView.clipsToBounds = true
