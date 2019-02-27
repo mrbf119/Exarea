@@ -25,7 +25,7 @@ class BoothDetailsViewController: UIViewController {
     
     @IBOutlet private var labelBoothName: UILabel!
     @IBOutlet private var floaty: Floaty!
-    @IBOutlet private var textViewAbout: UITextView!
+    @IBOutlet private var labelAbout: UILabel!
     
     @IBOutlet private var cosmosViewScore: CosmosView!
     
@@ -66,7 +66,7 @@ class BoothDetailsViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.labelBoothName.text = self.booth.title
-            self.textViewAbout.text = self.booth.about
+            self.labelAbout.text = self.booth.about
             if let url = self.booth.imageURL {
                 let resource = ImageResource(downloadURL: url)
                 self.imageViewLogo.kf.setImage(with: resource)
