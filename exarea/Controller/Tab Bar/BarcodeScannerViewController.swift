@@ -175,6 +175,9 @@ class BarcodeScannerViewController: UIViewController {
     // MARK: - navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? BoothDetailsViewController, let booth = sender as? Booth {
+            vc.booth = booth
+        }
     }
 }
 
@@ -201,7 +204,20 @@ extension BarcodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
 
 extension BarcodeScannerViewController: BarcodeScannerDelegate {
     func barcodeScanner(_ scanner: BarcodeScannerViewController, didCapture barcode: String) {
-//        self.stopSession()
+        self.stopSession()
         
+        if barcode.contains("https://www.exarea.ir") {
+            let boothID = barcode.components(separatedBy: "/")[5]
+            Booth.getInfo(id: Int(boothID)!) { result in
+                switch result {
+                case .success(let booth):
+                    self.performSegue(withIdentifier: "toBoothDetailVC", sender: booth)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        } else {
+            
+        }
     }
 }

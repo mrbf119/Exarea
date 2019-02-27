@@ -192,7 +192,7 @@ extension String {
         case isNumber
         case isPhoneNumber
         case charset(CharacterSet, setDec: String)
-        case rangeChars(Int, Int)
+        case rangeChars(Int, Int) 
         
         fileprivate var sortIndex: Int {
             switch self {

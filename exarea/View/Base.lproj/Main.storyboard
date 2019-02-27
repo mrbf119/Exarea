@@ -38,6 +38,9 @@
                         <viewLayoutGuide key="safeArea" id="enC-s7-OaQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xt1-1R-jFh"/>
+                    <connections>
+                        <segue destination="4zf-G4-Fez" kind="show" identifier="toBoothDetailVC" id="sPs-2n-aQi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ita-Uv-9lZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1376,7 +1379,7 @@
                                     <constraint firstAttribute="width" secondItem="bA2-lf-sCU" secondAttribute="height" id="wjl-f2-IPA"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oF6-oE-POU" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oF6-oE-POU" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="10" y="285" width="112" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -1441,7 +1444,7 @@
                                     <constraint firstAttribute="height" constant="25" id="FeJ-qo-7ED"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJv-Ts-Qhg" customClass="ShadowedView" customModule="exarea" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJv-Ts-Qhg" customClass="ShadowedView" customModule="exarea" customModuleProvider="target">
                                 <rect key="frame" x="56.5" y="325" width="262.5" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fk1-j9-aBW">
@@ -1473,7 +1476,7 @@
                                     <outlet property="contentView" destination="Fk1-j9-aBW" id="c5E-6f-nDb"/>
                                 </connections>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mY0-Rs-i8t">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mY0-Rs-i8t">
                                 <rect key="frame" x="47.5" y="385" width="280" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85T-Bt-MCg">
@@ -1510,7 +1513,7 @@
                                     <constraint firstItem="85T-Bt-MCg" firstAttribute="height" secondItem="VMS-YD-uBL" secondAttribute="height" id="g92-zw-d1Z"/>
                                 </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="voW-sN-8wn">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="voW-sN-8wn">
                                 <rect key="frame" x="0.0" y="455" width="375" height="163"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1670,6 +1673,6 @@
         <image name="image3.jpeg" width="285" height="177"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R6l-cb-NJM"/>
+        <segue reference="sPs-2n-aQi"/>
     </inferredMetricsTieBreakers>
 </document>

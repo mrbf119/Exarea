@@ -33,7 +33,7 @@ class Booth: JSONSerializable, ImageTitled {
     let boothID: Int
     let userID: Int
     let fairID: Int
-    let hallID: Int
+    let hallID: Int?
     let title: String?
     let logo: String?
     let slogan: String?
@@ -46,7 +46,7 @@ class Booth: JSONSerializable, ImageTitled {
     let sEOFriendlyBoothName: String?
     let isActive: Bool
     let modifiedDate: String?
-    let boothPhotoAddress: String
+    let boothPhotoAddress: String?
     private var _score: Int?
     private var _photos: [Photo]?
     private var _isFavorite: Bool?
@@ -63,7 +63,13 @@ class Booth: JSONSerializable, ImageTitled {
         return self._photos ?? []
     }
     
-    var imageURL: URL? { return URL(string: self.boothPhotoAddress) }
+    var imageURL: URL? {
+        if let string = self.logo {
+            return URL(string: string)
+        }
+        return nil
+    }
+    
     var textToShow: String { return self.sEOFriendlyBoothName?.replacingOccurrences(of: "-", with: " ") ?? "" }
     
 }
@@ -140,6 +146,14 @@ extension Booth {
         let params: Parameters = ["FetchRow": page + pageSize, "SkipRow": page, "TargetWord": query]
         let req = CustomRequest(path: "/Search/SearchBooth", method: .post, parameters: params).api().authorize()
         NetManager.shared.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
+            completion(response.result)
+        }
+    }
+    
+    static func getInfo(id: Int, completion: @escaping DataResult<Booth>) {
+        let params = ["BoothID": id]
+        let req = CustomRequest(path: "/Booth/Info", method: .post, parameters: params).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: Booth.responseDataSerializer) { response in
             completion(response.result)
         }
     }

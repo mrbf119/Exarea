@@ -12,7 +12,7 @@ struct Fair: JSONSerializable, ImageTitled {
     let fairID: Int
     let name: String
     let slogan: String?
-    let about: String
+    let about: String?
     let view: Int
     let colorHex: String
     let startDateShamsi: String
