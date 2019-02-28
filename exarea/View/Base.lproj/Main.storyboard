@@ -16,9 +16,6 @@
         <array key="IRANSansMobile.ttf">
             <string>IRANSansMobile</string>
         </array>
-        <array key="IRANSans_Bold.ttf">
-            <string>IRANSansFaNum-Bold</string>
-        </array>
         <array key="Segoe UI Bold.ttf">
             <string>SegoeUI-Bold</string>
         </array>
@@ -535,17 +532,17 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0tY-pg-PwB">
-                                    <rect key="frame" x="211" y="10" width="64" height="80"/>
+                                    <rect key="frame" x="207.5" y="10" width="67.5" height="80"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نام کاربری" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TiE-ze-lhQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
-                                            <fontDescription key="fontDescription" name="IRANSansFaNum-Bold" family="IRANSansMobileFaNum(FaNum)" pointSize="17"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="67.5" height="36"/>
+                                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کاربر عادی" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3w-VH-t66">
-                                            <rect key="frame" x="0.0" y="44" width="64" height="36"/>
-                                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="15"/>
+                                            <rect key="frame" x="0.0" y="44" width="67.5" height="36"/>
+                                            <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -659,35 +656,6 @@
                                                 <constraint firstItem="oUr-fr-b6w" firstAttribute="leading" secondItem="zMS-Up-H0c" secondAttribute="trailing" constant="10" id="hnK-zT-AT2"/>
                                                 <constraint firstAttribute="trailing" secondItem="oUr-fr-b6w" secondAttribute="trailing" constant="10" id="sbU-jZ-Hqd"/>
                                                 <constraint firstItem="oUr-fr-b6w" firstAttribute="height" secondItem="sYp-Zi-vPG" secondAttribute="height" multiplier="0.6" id="xXQ-t6-ssZ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="52" id="kAi-gK-8My">
-                                        <rect key="frame" x="0.0" y="256" width="375" height="52"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kAi-gK-8My" id="1zN-nG-89o">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-nav-100" translatesAutoresizingMaskIntoConstraints="NO" id="e7P-ML-qih">
-                                                    <rect key="frame" x="334" y="10.5" width="31" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="e7P-ML-qih" secondAttribute="height" id="3ph-zT-VaL"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نمایشگاه‌ ها" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTk-d7-juD">
-                                                    <rect key="frame" x="257.5" y="10.5" width="66.5" height="31"/>
-                                                    <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="14"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="e7P-ML-qih" secondAttribute="trailing" constant="10" id="209-09-F3U"/>
-                                                <constraint firstItem="oTk-d7-juD" firstAttribute="height" secondItem="e7P-ML-qih" secondAttribute="height" id="98w-IF-s1Y"/>
-                                                <constraint firstItem="oTk-d7-juD" firstAttribute="centerY" secondItem="e7P-ML-qih" secondAttribute="centerY" id="Pjz-hx-rvm"/>
-                                                <constraint firstItem="e7P-ML-qih" firstAttribute="leading" secondItem="oTk-d7-juD" secondAttribute="trailing" constant="10" id="Wvs-Vf-FeC"/>
-                                                <constraint firstItem="e7P-ML-qih" firstAttribute="height" secondItem="1zN-nG-89o" secondAttribute="height" multiplier="0.6" id="fE7-1u-cUD"/>
-                                                <constraint firstItem="e7P-ML-qih" firstAttribute="centerY" secondItem="1zN-nG-89o" secondAttribute="centerY" id="nM5-5b-egY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1594,6 +1562,7 @@
                         <outlet property="labelBoothName" destination="gPL-e7-yaT" id="ljL-vh-017"/>
                         <outlet property="slideShow" destination="kot-lA-V6w" id="Tqd-Fw-AXm"/>
                         <segue destination="gLQ-71-icJ" kind="show" identifier="toProductsVC" id="J9x-Bv-JtM"/>
+                        <segue destination="gcE-uO-Btu" kind="custom" identifier="toAudioRecorderVC" customClass="MessagesBottomCardSegue" customModule="exarea" customModuleProvider="target" id="fdL-xD-a7w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjF-fD-jVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1690,10 +1659,10 @@
             </objects>
             <point key="canvasLocation" x="9159" y="-486"/>
         </scene>
-        <!--Product Peek View Controller-->
+        <!--Product Popup View Controller-->
         <scene sceneID="z9l-Vv-9H2">
             <objects>
-                <viewController id="e23-KD-No0" customClass="ProductPeekViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="e23-KD-No0" customClass="ProductPopupViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GdO-6e-XT0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1805,12 +1774,102 @@
             </objects>
             <point key="canvasLocation" x="4460" y="1890"/>
         </scene>
+        <!--Audio Recorder View Controller-->
+        <scene sceneID="8qj-Hh-SmW">
+            <objects>
+                <viewController storyboardIdentifier="AudioRecorderVC" id="gcE-uO-Btu" customClass="AudioRecorderViewController" customModule="Arzbaan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W1t-2W-U2x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fQa-Kr-eIx">
+                                <rect key="frame" x="72.5" y="293.5" width="230" height="80.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eek-Sp-euw">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="80.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEK-ad-k4K">
+                                                <rect key="frame" x="92" y="0.0" width="46" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="U20-D7-tQ8">
+                                                <rect key="frame" x="0.0" y="30.5" width="230" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxo-Fp-AEb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <color key="tintColor" red="0.24166786670000001" green="0.24188035729999999" blue="0.2417007387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="icon-exit-white-100"/>
+                                                        <connections>
+                                                            <action selector="deleteTapped" destination="gcE-uO-Btu" eventType="touchUpInside" id="GB5-3M-Mvs"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4y-Lu-jgm">
+                                                        <rect key="frame" x="60" y="0.0" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="s4y-Lu-jgm" secondAttribute="height" multiplier="1:1" id="Tgh-3a-q1K"/>
+                                                            <constraint firstAttribute="height" constant="50" id="kY5-Fg-no1"/>
+                                                        </constraints>
+                                                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="icon-record-filled-white-100"/>
+                                                        <connections>
+                                                            <action selector="recordTapped" destination="gcE-uO-Btu" eventType="touchUpInside" id="Bb1-Yt-CGU"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36C-0g-4A8">
+                                                        <rect key="frame" x="120" y="0.0" width="50" height="50"/>
+                                                        <color key="tintColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="icon-play-filled-white-100"/>
+                                                        <connections>
+                                                            <action selector="playTapped" destination="gcE-uO-Btu" eventType="touchUpInside" id="KTE-Jm-5OW"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrd-zQ-ngm">
+                                                        <rect key="frame" x="180" y="0.0" width="50" height="50"/>
+                                                        <color key="tintColor" red="0.24166786670000001" green="0.24188035729999999" blue="0.2417007387" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="icon-done-tick-white"/>
+                                                        <connections>
+                                                            <action selector="confirmTapped:" destination="gcE-uO-Btu" eventType="touchUpInside" id="jep-97-ew1"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97592383623123169" green="0.97666221857070923" blue="0.97603815793991089" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fQa-Kr-eIx" firstAttribute="centerX" secondItem="W1t-2W-U2x" secondAttribute="centerX" id="Olg-wt-VDz"/>
+                            <constraint firstItem="fQa-Kr-eIx" firstAttribute="centerY" secondItem="W1t-2W-U2x" secondAttribute="centerY" id="pYc-1X-VCe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mur-9u-c0u"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnClose" destination="xxo-Fp-AEb" id="dhk-5D-fj5"/>
+                        <outlet property="btnPlay" destination="36C-0g-4A8" id="u36-v4-hy4"/>
+                        <outlet property="btnRecord" destination="s4y-Lu-jgm" id="ghm-lA-cWs"/>
+                        <outlet property="lblTime" destination="xEK-ad-k4K" id="s7f-ec-orv"/>
+                        <outletCollection property="playingModeButtons" destination="lrd-zQ-ngm" collectionClass="NSMutableArray" id="BcI-8f-UsP"/>
+                        <outletCollection property="playingModeButtons" destination="36C-0g-4A8" collectionClass="NSMutableArray" id="b9E-FJ-mGY"/>
+                        <segue destination="qn6-j0-zMV" kind="unwind" identifier="unwindToAddIllegalActVC" unwindAction="unwindToAddIllegalActVC:" id="Hpp-OG-46A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OGE-D8-B4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qn6-j0-zMV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="8377" y="316"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icon-back-75" width="10" height="18.5"/>
         <image name="icon-bookmark-75" width="120" height="120"/>
         <image name="icon-chat-bubble-75" width="120" height="120"/>
+        <image name="icon-done-tick-white" width="40" height="40"/>
         <image name="icon-email-white-100" width="33.5" height="24"/>
+        <image name="icon-exit-white-100" width="40" height="40"/>
         <image name="icon-home-75" width="120" height="120"/>
         <image name="icon-info-100" width="75" height="75"/>
         <image name="icon-instagram-100" width="75" height="75"/>
@@ -1818,12 +1877,13 @@
         <image name="icon-location-100" width="75" height="75"/>
         <image name="icon-mail-100" width="75" height="75"/>
         <image name="icon-menu-75" width="120" height="120"/>
-        <image name="icon-nav-100" width="75" height="75"/>
         <image name="icon-phone-100" width="75" height="75"/>
         <image name="icon-phone-circle-100" width="180" height="180"/>
+        <image name="icon-play-filled-white-100" width="40" height="40"/>
         <image name="icon-profile-75" width="120" height="120"/>
         <image name="icon-profile-white-100" width="25.5" height="25.5"/>
         <image name="icon-qrcode-75" width="120" height="120"/>
+        <image name="icon-record-filled-white-100" width="40" height="40"/>
         <image name="icon-rule-100" width="75" height="75"/>
         <image name="icon-search-75" width="21.5" height="22.5"/>
         <image name="icon-send-email-small" width="45" height="45"/>

@@ -6,7 +6,6 @@
 //  Copyright © 1397 tamtom. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 
 struct Photo: JSONSerializable {
@@ -29,6 +28,9 @@ class Booth: JSONSerializable, ImageTitled {
             return self.rawValue
         }
     }
+    
+    private static var boothFilesURL: URL { return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!  }
+    private var path: String { return "/BoothFiles/\(self.fairID)-\(self.boothID)" }
     
     let boothID: Int
     let userID: Int
@@ -73,6 +75,83 @@ class Booth: JSONSerializable, ImageTitled {
     var textToShow: String { return self.sEOFriendlyBoothName?.replacingOccurrences(of: "-", with: " ") ?? "" }
     
 }
+
+//MARK: - file management
+
+struct Note: JSONSerializable {
+    let title, description: String
+}
+
+extension Booth {
+    
+    enum FileType: String {
+        case audio = "Audios"
+        case image = "Images"
+        case note = "Notes"
+    }
+    
+    enum FileSavingError: Error {
+        case canNotCreateFile(dir: String)
+    }
+    
+    func urlFor(type: FileType) -> URL {
+        return Booth.boothFilesURL.appendingPathComponent(self.path).appendingPathComponent(type.rawValue)
+    }
+    
+    private func getPaths(type: FileType) throws -> [String] {
+        return try FileManager.default.contentsOfDirectory(atPath: self.urlFor(type: type).path)
+    }
+    
+    private func getData(type: FileType) throws -> [Data] {
+        let paths = try self.getPaths(type: type)
+        var dataList = [Data]()
+        for path in paths {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path))
+            dataList.append(data)
+        }
+        return dataList
+    }
+    
+    func getImage() throws -> [UIImage] {
+        let dataList = try self.getData(type: .image)
+        return dataList.map { UIImage(data: $0)! }
+    }
+    
+    func getAudios() throws -> [URL] {
+        let pathList = try self.getPaths(type: .audio)
+        return pathList.map { URL(fileURLWithPath: $0) }
+    }
+    
+    func getNotes() throws -> ([Note]) {
+        let dataList = try self.getData(type: .note)
+        return try dataList.map { try Note.create(from: $0) }
+    }
+    
+    
+    func saveImage(_ image: UIImage) throws{
+        let folderPath = self.urlFor(type: .image)
+        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
+        guard FileManager.default.createFile(atPath: folderPath.appendingPathComponent(Date().description).path, contents: image.pngData(), attributes: nil)
+            else { throw FileSavingError.canNotCreateFile(dir: folderPath.appendingPathComponent(Date().description).path)}
+    }
+    
+//
+//    func saveAudio(_ url: URL) throws {
+//        let sourcePath = url.path
+//        let folderPath = urlFor(folder: "Audios")
+//        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
+//        try FileManager.default.moveItem(atPath: sourcePath, toPath: folderPath.appendingPathComponent(Date().description).path)
+//    }
+    
+    func saveNote(_ note: Note) throws {
+        let folderPath = self.urlFor(type: .note)
+        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
+        guard FileManager.default.createFile(atPath: folderPath.appendingPathComponent(Date().description).path, contents: note.data, attributes: nil)
+        else { throw FileSavingError.canNotCreateFile(dir: folderPath.appendingPathComponent(Date().description).path)}
+    }
+}
+
+//MARK: - api methods
 
 extension Booth {
     

@@ -38,7 +38,7 @@ class ProductsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ProductPeekViewController, let details = sender as? (UIImage, String) {
+        if let vc = segue.destination as? ProductPopupViewController, let details = sender as? (UIImage, String) {
             vc.details = details
         }
     }

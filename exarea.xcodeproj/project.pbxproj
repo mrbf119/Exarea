@@ -49,7 +49,9 @@
 		344E0CB221F43DB100555759 /* image3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAE21F43DB100555759 /* image3.jpeg */; };
 		344E0CB321F43DB100555759 /* image4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 344E0CAF21F43DB100555759 /* image4.jpeg */; };
 		345EED0A2226B9AD00298B97 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EED092226B9AD00298B97 /* ProductsViewController.swift */; };
-		345EED0C2226C01200298B97 /* ProductPeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EED0B2226C01200298B97 /* ProductPeekViewController.swift */; };
+		345EED0C2226C01200298B97 /* ProductPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EED0B2226C01200298B97 /* ProductPopupViewController.swift */; };
+		345EED0E22279C9800298B97 /* AudioRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EED0D22279C9800298B97 /* AudioRecorderViewController.swift */; };
+		345EED102227A5EC00298B97 /* CustomSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EED0F2227A5EC00298B97 /* CustomSegues.swift */; };
 		346C8410215B59BA00F43F8C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346C840F215B59BA00F43F8C /* Login.storyboard */; };
 		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
 		346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8413215B61E300F43F8C /* PaginationManager.swift */; };
@@ -116,7 +118,9 @@
 		344E0CAE21F43DB100555759 /* image3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpeg; sourceTree = "<group>"; };
 		344E0CAF21F43DB100555759 /* image4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image4.jpeg; sourceTree = "<group>"; };
 		345EED092226B9AD00298B97 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
-		345EED0B2226C01200298B97 /* ProductPeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPeekViewController.swift; sourceTree = "<group>"; };
+		345EED0B2226C01200298B97 /* ProductPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPopupViewController.swift; sourceTree = "<group>"; };
+		345EED0D22279C9800298B97 /* AudioRecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderViewController.swift; sourceTree = "<group>"; };
+		345EED0F2227A5EC00298B97 /* CustomSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegues.swift; sourceTree = "<group>"; };
 		346C840F215B59BA00F43F8C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		346C8413215B61E300F43F8C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				343C211D220DD01F00F4CB0D /* Activities.swift */,
 				34E7DC5921F086D100D3292C /* PitTabBar.swift */,
 				346C8413215B61E300F43F8C /* PaginationManager.swift */,
+				345EED0F2227A5EC00298B97 /* CustomSegues.swift */,
 				341E96B721FF970B00D7477B /* Shimmer */,
 				341247C721E6254600A34154 /* SkyFloatingLabelTextField */,
 				341247C021E5E76300A34154 /* UITextField+Shake */,
@@ -325,7 +330,8 @@
 				343C2119220DA86100F4CB0D /* BoothDetailsViewController.swift */,
 				34A74AAA22104DFD007808F1 /* SearchViewController.swift */,
 				345EED092226B9AD00298B97 /* ProductsViewController.swift */,
-				345EED0B2226C01200298B97 /* ProductPeekViewController.swift */,
+				345EED0B2226C01200298B97 /* ProductPopupViewController.swift */,
+				345EED0D22279C9800298B97 /* AudioRecorderViewController.swift */,
 				341247C921E626E800A34154 /* View */,
 			);
 			path = exarea;
@@ -566,10 +572,12 @@
 				348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */,
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
 				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
-				345EED0C2226C01200298B97 /* ProductPeekViewController.swift in Sources */,
+				345EED0C2226C01200298B97 /* ProductPopupViewController.swift in Sources */,
 				34E7DC5A21F086D100D3292C /* PitTabBar.swift in Sources */,
+				345EED102227A5EC00298B97 /* CustomSegues.swift in Sources */,
 				345EED0A2226B9AD00298B97 /* ProductsViewController.swift in Sources */,
 				341E96BD21FF971800D7477B /* ShimmeringMaskLayer.swift in Sources */,
+				345EED0E22279C9800298B97 /* AudioRecorderViewController.swift in Sources */,
 				34E719D12205EC2700ECDBB8 /* Booth.swift in Sources */,
 				341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */,
 				341247CC21E6271700A34154 /* Account.swift in Sources */,

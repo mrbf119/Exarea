@@ -97,7 +97,7 @@ class BoothDetailsViewController: UIViewController {
         camera.buttonColor = .mainBlueColor
         camera.imageSize.height *= 0.8
         camera.imageSize.width *= 0.8
-        camera.handler = { _ in print("open camera") }
+        camera.handler = { _ in self.openCamera() }
         
         let note = FloatyItem()
         note.buttonColor = .mainBlueColor
@@ -109,7 +109,7 @@ class BoothDetailsViewController: UIViewController {
         let record = FloatyItem()
         record.buttonColor = .mainBlueColor
         record.icon = UIImage(named: "icon-record-audio-yellow-90")
-        record.handler = { _ in print("open record") }
+        record.handler = { _ in self.openRecorder() }
         
         [camera, note, record].forEach { self.floaty.addItem(item: $0) }
     }
@@ -132,6 +132,8 @@ class BoothDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ProductsViewController, let booth = sender as? Booth {
             vc.booth = booth
+        } else if let vc = segue.destination as? AudioRecorderViewController {
+            vc.dirToRecord = self.booth.urlFor(type: .audio)
         }
     }
     
@@ -139,6 +141,10 @@ class BoothDetailsViewController: UIViewController {
     
     @IBAction private func productsButtonClicked() {
         self.performSegue(withIdentifier: "toProductsVC", sender: self.booth)
+    }
+    
+    @IBAction private func filesButtonClicked() {
+        self.performSegue(withIdentifier: "toFilesMenuVC", sender: self.booth)
     }
     
     @IBAction private func checkFave() {
@@ -188,5 +194,59 @@ class BoothDetailsViewController: UIViewController {
                 self.cosmosViewScore.rating = Double(self.booth.score)
             }
         }
+    }
+}
+
+extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    private func openRecorder() {
+        self.performSegue(withIdentifier: "toAudioRecorderVC", sender: nil)
+    }
+    
+    private func openCamera() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .camera
+//        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+        imagePicker.cameraCaptureMode = .photo
+        imagePicker.cameraFlashMode = .auto
+        imagePicker.showsCameraControls = true
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func openGallery() {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+//        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+//        if let tempURL = info[.mediaURL] as? URL {
+//
+//        } else
+        self.dismiss(animated: true)
+        
+        let image: UIImage
+        if let img = info[.editedImage] as? UIImage {
+            image = img
+        } else if let img = info[.originalImage] as? UIImage {
+            image = img
+        } else {
+            return
+        }
+        
+        do { try self.booth.saveImage(image) }
+        catch { print(error) }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true)
     }
 }
