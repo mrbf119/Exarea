@@ -17,9 +17,16 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.2.0</string>
+	<string>0.3.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+		<string>waze</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>نرم‌افزار برای دسترسی به گالری به اجازه شما احتیاج دارد.</string>
 	<key>NSCameraUsageDescription</key>
@@ -32,13 +39,6 @@
 	<string>نرم‌افزار برای استفاده از نقشه دستگاه به اجازه شما احتیاج دارد.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>نرم‌افزار برای استفاده از میکروفن دستگاه به اجازه شما احتیاج دارد.</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>comgooglemaps</string>
-		<string>waze</string>
-	</array>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>IRANSansMobile(FaNum)_Black.ttf</string>
