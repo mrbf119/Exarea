@@ -79,7 +79,8 @@ class Booth: JSONSerializable, ImageTitled {
 //MARK: - file management
 
 struct Note: JSONSerializable {
-    let title, description: String
+    let title: String
+    let description: String?
 }
 
 extension Booth {
@@ -98,15 +99,17 @@ extension Booth {
         return Booth.boothFilesURL.appendingPathComponent(self.path).appendingPathComponent(type.rawValue)
     }
     
-    private func getPaths(type: FileType) throws -> [String] {
-        return try FileManager.default.contentsOfDirectory(atPath: self.urlFor(type: type).path)
+    private func getURLs(type: FileType) throws -> [URL] {
+        let folderURL = self.urlFor(type: type)
+        let paths = try FileManager.default.contentsOfDirectory(atPath: folderURL.path)
+        return paths.map { folderURL.appendingPathComponent($0) }
     }
     
     private func getData(type: FileType) throws -> [Data] {
-        let paths = try self.getPaths(type: type)
+        let urls = try self.getURLs(type: type)
         var dataList = [Data]()
-        for path in paths {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path))
+        for url in urls {
+            let data = try Data(contentsOf: url)
             dataList.append(data)
         }
         return dataList
@@ -118,8 +121,7 @@ extension Booth {
     }
     
     func getAudios() throws -> [URL] {
-        let pathList = try self.getPaths(type: .audio)
-        return pathList.map { URL(fileURLWithPath: $0) }
+        return try self.getURLs(type: .audio)
     }
     
     func getNotes() throws -> ([Note]) {

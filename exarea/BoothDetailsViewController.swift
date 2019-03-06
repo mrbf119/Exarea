@@ -12,6 +12,7 @@ import Kingfisher
 import MapKit
 import Cosmos
 import Floaty
+import SwiftyJSON
 
 class BoothDetailsViewController: UIViewController {
     
@@ -104,7 +105,7 @@ class BoothDetailsViewController: UIViewController {
         note.iconImageView.center.x += 1
         note.iconImageView.center.y += 1
         note.icon = UIImage(named: "icon-note-yellow-90")
-        note.handler = { _ in print("open note") }
+        note.handler = { _ in self.openNote() }
         
         let record = FloatyItem()
         record.buttonColor = .mainBlueColor
@@ -134,6 +135,16 @@ class BoothDetailsViewController: UIViewController {
             vc.booth = booth
         } else if let vc = segue.destination as? AudioRecorderViewController {
             vc.dirToRecord = self.booth.urlFor(type: .audio)
+        } else if let vc = segue.destination as? NoteViewController {
+            if let customSegue = segue as? MessagesCenteredSegue {
+                customSegue.dimMode = .blur(style: .dark, alpha: 0.5, interactive: false)
+                customSegue.messageView.tapHandler = { _ in
+                    customSegue.destination.view.endEditing(true)
+                }
+            }
+            vc.delegate = self
+        } else if let vc = segue.destination as? FilesCategoryTableViewController {
+            vc.booth = self.booth
         }
     }
     
@@ -144,7 +155,7 @@ class BoothDetailsViewController: UIViewController {
     }
     
     @IBAction private func filesButtonClicked() {
-        self.performSegue(withIdentifier: "toFilesMenuVC", sender: self.booth)
+        self.performSegue(withIdentifier: "toFilesVC", sender: self.booth)
     }
     
     @IBAction private func checkFave() {
@@ -199,6 +210,10 @@ class BoothDetailsViewController: UIViewController {
 
 extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    private func openNote() {
+        self.performSegue(withIdentifier: "toNoteVC", sender: nil)
+    }
+    
     private func openRecorder() {
         self.performSegue(withIdentifier: "toAudioRecorderVC", sender: nil)
     }
@@ -248,5 +263,17 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true)
+    }
+}
+
+extension BoothDetailsViewController: NoteViewContorolerDelegate {
+    func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andDescription description: String?) {
+        let note = Note(title: title, description: description)
+        do {
+            try self.booth.saveNote(note)
+        } catch {
+            print(error)
+        }
+        
     }
 }

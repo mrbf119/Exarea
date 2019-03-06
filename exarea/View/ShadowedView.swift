@@ -9,15 +9,6 @@
 import UIKit
 
 class ShadowedView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
     
     @IBOutlet private var contentView: UIView!
     
@@ -30,5 +21,24 @@ class ShadowedView: UIView {
         self.layer.shadowOffset = CGSize(width: 1, height: 1)
         self.backgroundColor = .clear
         
+    }
+}
+
+class BorderedTextView: UITextView {
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        self.setup()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setup()
+    }
+    
+    private func setup() {
+        self.layer.cornerRadius = 7
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.borderGrey.cgColor
     }
 }

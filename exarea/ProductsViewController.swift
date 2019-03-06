@@ -38,8 +38,9 @@ class ProductsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ProductPopupViewController, let details = sender as? (UIImage, String) {
+        if let vc = segue.destination as? PreviewPopupViewController, let details = sender as? (UIImage, String) {
             vc.details = details
+            (segue as? MessagesCenteredSegue)?.dimMode = .blur(style: .dark, alpha: 0.5, interactive: true)
         }
     }
 }

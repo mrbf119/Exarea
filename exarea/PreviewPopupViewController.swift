@@ -1,5 +1,5 @@
 //
-//  ProductPopupViewController.swift
+//  PreviewPopupViewController.swift
 //  exarea
 //
 //  Created by Soroush on 12/8/1397 AP.
@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ProductPopupViewController: UIViewController {
+class PreviewPopupViewController: UIViewController {
 
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var labelTitle: UILabel!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     var details: (image: UIImage, title: String)!
     

@@ -19,6 +19,7 @@ PODS:
     - SwiftMessages/App (= 6.0.2)
   - SwiftMessages/App (6.0.2)
   - SwiftyJSON (4.1.0)
+  - "UITextView+Placeholder (1.2.1)"
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.3)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - SideMenu
   - SwiftMessages
   - SwiftyJSON (~> 4.1.0)
+  - "UITextView+Placeholder"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -47,6 +49,7 @@ SPEC REPOS:
     - SideMenu
     - SwiftMessages
     - SwiftyJSON
+    - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -60,7 +63,8 @@ SPEC CHECKSUMS:
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
 
-PODFILE CHECKSUM: 2ecbdac45631ac8b56b20eb5e637cdd750092743
+PODFILE CHECKSUM: 839661ed0666ecd0334d3e736cc0e7a79a1692ba
 
 COCOAPODS: 1.6.0

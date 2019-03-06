@@ -12,11 +12,9 @@ public class MessagesCenteredSegue: SwiftMessagesSegue {
     override public init(identifier: String?, source: UIViewController, destination: UIViewController) {
         super.init(identifier: identifier, source: source, destination: destination)
         self.interactiveHide = false
-        self.dimMode = .blur(style: .dark, alpha: 0.3, interactive: true)
         self.configure(layout: .centered)
-        self.messageView.backgroundHeight = 250
+        self.messageView.backgroundHeight = destination.preferredContentSize.height
         self.containerView.cornerRadius = 7
-        
     }
 }
 

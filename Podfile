@@ -29,6 +29,8 @@ target 'exarea' do
   
   pod 'SwiftMessages'
   
+  pod 'UITextView+Placeholder'
+  
   
   inhibit_all_warnings!
 
