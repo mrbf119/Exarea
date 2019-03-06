@@ -12,6 +12,7 @@ import Kingfisher
 import MapKit
 import Cosmos
 import Floaty
+import SwiftyJSON
 
 class BoothDetailsViewController: UIViewController {
     
@@ -25,7 +26,7 @@ class BoothDetailsViewController: UIViewController {
     
     @IBOutlet private var labelBoothName: UILabel!
     @IBOutlet private var floaty: Floaty!
-    @IBOutlet private var textViewAbout: UITextView!
+    @IBOutlet private var labelAbout: UILabel!
     
     @IBOutlet private var cosmosViewScore: CosmosView!
     
@@ -66,7 +67,7 @@ class BoothDetailsViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.labelBoothName.text = self.booth.title
-            self.textViewAbout.text = self.booth.about
+            self.labelAbout.text = self.booth.about
             if let url = self.booth.imageURL {
                 let resource = ImageResource(downloadURL: url)
                 self.imageViewLogo.kf.setImage(with: resource)
@@ -97,19 +98,19 @@ class BoothDetailsViewController: UIViewController {
         camera.buttonColor = .mainBlueColor
         camera.imageSize.height *= 0.8
         camera.imageSize.width *= 0.8
-        camera.handler = { _ in print("open camera") }
+        camera.handler = { _ in self.openCamera() }
         
         let note = FloatyItem()
         note.buttonColor = .mainBlueColor
         note.iconImageView.center.x += 1
         note.iconImageView.center.y += 1
         note.icon = UIImage(named: "icon-note-yellow-90")
-        note.handler = { _ in print("open note") }
+        note.handler = { _ in self.openNote() }
         
         let record = FloatyItem()
         record.buttonColor = .mainBlueColor
         record.icon = UIImage(named: "icon-record-audio-yellow-90")
-        record.handler = { _ in print("open record") }
+        record.handler = { _ in self.openRecorder() }
         
         [camera, note, record].forEach { self.floaty.addItem(item: $0) }
     }
@@ -127,6 +128,34 @@ class BoothDetailsViewController: UIViewController {
                 self.buttonFavorite.tintColor = self.booth.isFavorite ? .mainYellowColor : .mainBlueColor
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ProductsViewController, let booth = sender as? Booth {
+            vc.booth = booth
+        } else if let vc = segue.destination as? AudioRecorderViewController {
+            vc.dirToRecord = self.booth.urlFor(type: .audio)
+        } else if let vc = segue.destination as? NoteViewController {
+            if let customSegue = segue as? MessagesCenteredSegue {
+                customSegue.dimMode = .blur(style: .dark, alpha: 0.5, interactive: false)
+                customSegue.messageView.tapHandler = { _ in
+                    customSegue.destination.view.endEditing(true)
+                }
+            }
+            vc.delegate = self
+        } else if let vc = segue.destination as? FilesCategoryTableViewController {
+            vc.booth = self.booth
+        }
+    }
+    
+    //MARK: - actions
+    
+    @IBAction private func productsButtonClicked() {
+        self.performSegue(withIdentifier: "toProductsVC", sender: self.booth)
+    }
+    
+    @IBAction private func filesButtonClicked() {
+        self.performSegue(withIdentifier: "toFilesVC", sender: self.booth)
     }
     
     @IBAction private func checkFave() {
@@ -176,5 +205,75 @@ class BoothDetailsViewController: UIViewController {
                 self.cosmosViewScore.rating = Double(self.booth.score)
             }
         }
+    }
+}
+
+extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    private func openNote() {
+        self.performSegue(withIdentifier: "toNoteVC", sender: nil)
+    }
+    
+    private func openRecorder() {
+        self.performSegue(withIdentifier: "toAudioRecorderVC", sender: nil)
+    }
+    
+    private func openCamera() {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .camera
+//        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
+        imagePicker.cameraCaptureMode = .photo
+        imagePicker.cameraFlashMode = .auto
+        imagePicker.showsCameraControls = true
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func openGallery() {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+//        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+//        if let tempURL = info[.mediaURL] as? URL {
+//
+//        } else
+        self.dismiss(animated: true)
+        
+        let image: UIImage
+        if let img = info[.editedImage] as? UIImage {
+            image = img
+        } else if let img = info[.originalImage] as? UIImage {
+            image = img
+        } else {
+            return
+        }
+        
+        do { try self.booth.saveImage(image) }
+        catch { print(error) }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true)
+    }
+}
+
+extension BoothDetailsViewController: NoteViewContorolerDelegate {
+    func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andDescription description: String?) {
+        let note = Note(title: title, description: description)
+        do {
+            try self.booth.saveNote(note)
+        } catch {
+            print(error)
+        }
+        
     }
 }

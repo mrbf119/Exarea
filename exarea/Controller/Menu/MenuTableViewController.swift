@@ -14,7 +14,7 @@ protocol MenuTableViewDelegate: class {
 
 class MenuTableViewController: UITableViewController {
     
-    private let vcIDs = ["ContactUsVC", "AboutUsVC", "RulesVC", "ExhibitionsVC"]
+    private let vcIDs = ["ContactUsVC", "AboutUsVC", "RulesVC"]
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     

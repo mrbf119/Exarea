@@ -10,6 +10,7 @@ import Alamofire
 
 extension UIView {
     func rounded() {
+        self.clipsToBounds = true
         self.layer.cornerRadius = self.bounds.height / 2
     }
     
@@ -89,6 +90,7 @@ extension UIFont {
 extension UIColor {
     static let mainYellowColor = UIColor(hex: 0xfdd400)!
     static let mainBlueColor = UIColor(hex: 0x1a2035)!
+    static var borderGrey = UIColor(hex: 0xC0C1C0)!
     
     func as1ptImage() -> UIImage? {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 3))

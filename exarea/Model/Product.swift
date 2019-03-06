@@ -11,11 +11,11 @@ import Alamofire
 struct Product: JSONSerializable, ImageTitled {
     
     var imageURL: URL? { return URL(string: self.productPhoto) }
-    var textToShow: String { return self.name }
+    var textToShow: String { return self.name ?? "" }
     
     let productID: Int
     let boothID: Int
-    let name: String
+    let name: String?
     let description: String?
     let productPhoto: String
 }

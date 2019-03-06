@@ -39,7 +39,7 @@ extension EmbededViewController: Reloadable {
     
     func reloadScreen(animated: Bool = true) {
         if self.viewControllers.count > 1 {
-            _ = self.popToRootViewController(animated: animated)
+            _ = self.popViewController(animated: animated)
         } else {
             if let root = self.viewControllers.first as? Reloadable {
                 root.reloadScreen(animated: animated)

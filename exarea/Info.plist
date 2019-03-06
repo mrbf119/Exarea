@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>برای استفاده از بارکدخوان و سایر امکانات مرتبط، به دسترسی دوربین نیاز است.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -22,6 +20,18 @@
 	<string>0.2.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>نرم‌افزار برای دسترسی به گالری به اجازه شما احتیاج دارد.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>نرم‌افزار برای استفاده از بارکدخوان و سایر امکانات مرتبط، به دسترسی دوربین نیاز دارد.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>نرم‌افزار برای استفاده از نقشه دستگاه به اجازه شما احتیاج دارد.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>نرم‌افزار برای استفاده قابلیت مکان یابی دستگاه به اجازه شما احتیاج دارد.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>نرم‌افزار برای استفاده از نقشه دستگاه به اجازه شما احتیاج دارد.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>نرم‌افزار برای استفاده از میکروفن دستگاه به اجازه شما احتیاج دارد.</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>comgooglemaps</string>

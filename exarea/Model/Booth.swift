@@ -6,7 +6,6 @@
 //  Copyright © 1397 tamtom. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 
 struct Photo: JSONSerializable {
@@ -29,6 +28,9 @@ class Booth: JSONSerializable, ImageTitled {
             return self.rawValue
         }
     }
+    
+    private static var boothFilesURL: URL { return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!  }
+    private var path: String { return "/BoothFiles/\(self.fairID)-\(self.boothID)" }
     
     let boothID: Int
     let userID: Int
@@ -73,6 +75,85 @@ class Booth: JSONSerializable, ImageTitled {
     var textToShow: String { return self.sEOFriendlyBoothName?.replacingOccurrences(of: "-", with: " ") ?? "" }
     
 }
+
+//MARK: - file management
+
+struct Note: JSONSerializable {
+    let title: String
+    let description: String?
+}
+
+extension Booth {
+    
+    enum FileType: String {
+        case audio = "Audios"
+        case image = "Images"
+        case note = "Notes"
+    }
+    
+    enum FileSavingError: Error {
+        case canNotCreateFile(dir: String)
+    }
+    
+    func urlFor(type: FileType) -> URL {
+        return Booth.boothFilesURL.appendingPathComponent(self.path).appendingPathComponent(type.rawValue)
+    }
+    
+    private func getURLs(type: FileType) throws -> [URL] {
+        let folderURL = self.urlFor(type: type)
+        let paths = try FileManager.default.contentsOfDirectory(atPath: folderURL.path)
+        return paths.map { folderURL.appendingPathComponent($0) }
+    }
+    
+    private func getData(type: FileType) throws -> [Data] {
+        let urls = try self.getURLs(type: type)
+        var dataList = [Data]()
+        for url in urls {
+            let data = try Data(contentsOf: url)
+            dataList.append(data)
+        }
+        return dataList
+    }
+    
+    func getImage() throws -> [UIImage] {
+        let dataList = try self.getData(type: .image)
+        return dataList.map { UIImage(data: $0)! }
+    }
+    
+    func getAudios() throws -> [URL] {
+        return try self.getURLs(type: .audio)
+    }
+    
+    func getNotes() throws -> ([Note]) {
+        let dataList = try self.getData(type: .note)
+        return try dataList.map { try Note.create(from: $0) }
+    }
+    
+    
+    func saveImage(_ image: UIImage) throws{
+        let folderPath = self.urlFor(type: .image)
+        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
+        guard FileManager.default.createFile(atPath: folderPath.appendingPathComponent(Date().description).path, contents: image.pngData(), attributes: nil)
+            else { throw FileSavingError.canNotCreateFile(dir: folderPath.appendingPathComponent(Date().description).path)}
+    }
+    
+//
+//    func saveAudio(_ url: URL) throws {
+//        let sourcePath = url.path
+//        let folderPath = urlFor(folder: "Audios")
+//        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
+//        try FileManager.default.moveItem(atPath: sourcePath, toPath: folderPath.appendingPathComponent(Date().description).path)
+//    }
+    
+    func saveNote(_ note: Note) throws {
+        let folderPath = self.urlFor(type: .note)
+        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
+        guard FileManager.default.createFile(atPath: folderPath.appendingPathComponent(Date().description).path, contents: note.data, attributes: nil)
+        else { throw FileSavingError.canNotCreateFile(dir: folderPath.appendingPathComponent(Date().description).path)}
+    }
+}
+
+//MARK: - api methods
 
 extension Booth {
     
@@ -154,6 +235,14 @@ extension Booth {
         let params = ["BoothID": id]
         let req = CustomRequest(path: "/Booth/Info", method: .post, parameters: params).api().authorize()
         NetManager.shared.requestWithValidation(req).response(responseSerializer: Booth.responseDataSerializer) { response in
+            completion(response.result)
+        }
+    }
+    
+    func getProducts(completion: @escaping DataResult<[Product]>) {
+        let params = ["BoothID": self.boothID]
+        let req = CustomRequest(path: "/Booth/ProductList", method: .post, parameters: params).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Product].responseDataSerializer) { response in
             completion(response.result)
         }
     }

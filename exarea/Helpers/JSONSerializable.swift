@@ -26,8 +26,8 @@ public protocol JSONSerializable: SelfDataSerializable, Codable where ModelObjec
     var parameters: Parameters? { get }
     static var config: CodingStrategies { get }
     static var listKeyConfig: String { get }
-    static func create(from data: Data) throws -> ModelObject?
-    static func createList(from data: Data) throws -> [ModelObject]?
+    static func create(from data: Data) throws -> ModelObject
+    static func createList(from data: Data) throws -> [ModelObject]
     
 }
 
@@ -42,22 +42,22 @@ extension JSONSerializable {
         return "Result"
     }
     
-    public static func create(from data: Data) throws -> Self.ModelObject? {
+    public static func create(from data: Data) throws -> Self.ModelObject {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = self.config.decodeStrategy
         let model = try decoder.decode(ModelObject.self, from: data)
         return model
     }
     
-    public static func createList(from data: Data) throws -> [Self.ModelObject]? {
+    public static func createList(from data: Data) throws -> [Self.ModelObject] {
         let json = JSON(data)
         var objectList: [Self.ModelObject] = []
-        guard let list = json[Self.listKeyConfig].array else { return nil }
+        
+        guard let list = json[Self.listKeyConfig].array else { throw json[Self.listKeyConfig].error! }
         for objectJson in list {
             let objectData = try objectJson.rawData()
-            if let object =  try self.create(from: objectData) {
-                objectList.append(object)
-            }
+            let object =  try self.create(from: objectData)
+            objectList.append(object)
         }
         return objectList
     }
@@ -91,7 +91,7 @@ extension JSONSerializable {
             guard error == nil else { return .failure(error!) }
             guard let data = data else { return .failure(AFError.responseSerializationFailed(reason: .inputDataNil)) }
             do {
-                let selfObject = try self.create(from: JSON(data)["Result"].rawData())!
+                let selfObject = try self.create(from: JSON(data)["Result"].rawData())
                 return .success(selfObject)
             } catch let err {
                 return .failure(err)

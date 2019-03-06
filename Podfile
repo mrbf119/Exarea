@@ -27,6 +27,10 @@ target 'exarea' do
   
   pod 'IQKeyboardManagerSwift'
   
+  pod 'SwiftMessages'
+  
+  pod 'UITextView+Placeholder'
+  
   
   inhibit_all_warnings!
 
