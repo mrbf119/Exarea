@@ -25,10 +25,22 @@ struct Conversation: JSONSerializable {
     let conversationID: String
     let title: String
     let senderID: Int
-    let recipientName: String
+    let recipientName: String?
     let conversationStatus: String
     let senderArchive: Bool
     let modifiedDate: String
+}
+
+struct Mail: JSONSerializable {
+    let mailguid: String
+    let userName: String
+    let conversationID: String
+    let title: String
+    let senderID: Int
+    let modifiedDate: String
+    let readDateTime: String?
+    let replyTo: String?
+    let content: String
 }
 
 extension Conversation {
@@ -50,6 +62,27 @@ extension Conversation {
             .shared
             .requestWithValidation(req)
             .response(responseSerializer: String.responseDataSerializer) { response in
+                completion(response.result)
+        }
+    }
+    
+    static func sentByUser(completion: @escaping DataResult<[Conversation]>) {
+        let req = CustomRequest(path: "/Conversation/SentByPerson", method: .post, parameters: ["Archive": false]).api().authorize()
+        NetManager
+            .shared
+            .requestWithValidation(req)
+            .response(responseSerializer: [Conversation].responseDataSerializer) { response in
+                completion(response.result)
+        }
+    }
+    
+    func getMails(completion: @escaping DataResult<[Mail]>) {
+        let params = ["ConversationID": self.conversationID]
+        let req = CustomRequest(path: "/Conversation/ConversationMails", method: .post, parameters: params).api().authorize()
+        NetManager
+            .shared
+            .requestWithValidation(req)
+            .response(responseSerializer: [Mail].responseDataSerializer) { response in
                 completion(response.result)
         }
     }
