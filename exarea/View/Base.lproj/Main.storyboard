@@ -1074,10 +1074,10 @@
             </objects>
             <point key="canvasLocation" x="5238" y="1890"/>
         </scene>
-        <!--Ticketing View Controller-->
+        <!--Tickets List View Controller-->
         <scene sceneID="aaN-0p-qyY">
             <objects>
-                <viewController id="EaL-8M-aR3" customClass="TicketingViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EaL-8M-aR3" customClass="TicketsListViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pzo-bb-RFF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

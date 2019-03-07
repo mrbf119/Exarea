@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.enableDebugging = false
+        
         return true
     }
 

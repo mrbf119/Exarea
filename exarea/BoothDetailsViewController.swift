@@ -40,6 +40,11 @@ class BoothDetailsViewController: UIViewController {
         self.configUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.floaty.setNeedsUpdateConstraints()
+    }
+    
     private func configUI() {
         self.buttonFiles.rounded()
         self.buttonProducts.rounded()

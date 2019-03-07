@@ -13,8 +13,6 @@ class NotePreviewViewController: UIViewController {
     @IBOutlet private var labelTitle: UILabel!
     @IBOutlet private var textViewDescription: UITextView!
     
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    
     var note: Note!
 
     override func viewDidLoad() {

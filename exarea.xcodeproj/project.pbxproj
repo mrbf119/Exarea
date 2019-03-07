@@ -62,6 +62,9 @@
 		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
 		346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8413215B61E300F43F8C /* PaginationManager.swift */; };
 		34831B67223073A400D6DCA1 /* NotePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34831B66223073A400D6DCA1 /* NotePreviewViewController.swift */; };
+		34831B6922307E6700D6DCA1 /* TicketsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34831B6822307E6700D6DCA1 /* TicketsListViewController.swift */; };
+		34831B6F2230814300D6DCA1 /* BoothAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34831B6E2230814300D6DCA1 /* BoothAccess.swift */; };
+		34831B7122308ADD00D6DCA1 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34831B7022308ADD00D6DCA1 /* PickerViewController.swift */; };
 		348816F2220F26B500EC5CC5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348816F1220F26B500EC5CC5 /* ProfileViewController.swift */; };
 		348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */; };
 		34A74AAB22104DFD007808F1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A74AAA22104DFD007808F1 /* SearchViewController.swift */; };
@@ -139,6 +142,9 @@
 		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		346C8413215B61E300F43F8C /* PaginationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
 		34831B66223073A400D6DCA1 /* NotePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePreviewViewController.swift; sourceTree = "<group>"; };
+		34831B6822307E6700D6DCA1 /* TicketsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsListViewController.swift; sourceTree = "<group>"; };
+		34831B6E2230814300D6DCA1 /* BoothAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoothAccess.swift; sourceTree = "<group>"; };
+		34831B7022308ADD00D6DCA1 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		348816F1220F26B500EC5CC5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededViewController.swift; sourceTree = "<group>"; };
 		34A74AAA22104DFD007808F1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +279,7 @@
 				342A228521F581240057FB5C /* Fair.swift */,
 				34E719D02205EC2700ECDBB8 /* Booth.swift */,
 				341CE74422106502006D7031 /* Product.swift */,
+				34831B6E2230814300D6DCA1 /* BoothAccess.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -315,7 +322,7 @@
 				346C8411215B614900F43F8C /* FavoritesViewController.swift */,
 				348816F1220F26B500EC5CC5 /* ProfileViewController.swift */,
 				342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */,
-				3411A18B2211730900DBC057 /* TicketingViewController.swift */,
+				34831B6822307E6700D6DCA1 /* TicketsListViewController.swift */,
 			);
 			path = "Tab Bar";
 			sourceTree = "<group>";
@@ -356,6 +363,8 @@
 				341470C7222FA73F00405E51 /* ImagesViewController.swift */,
 				341470C5222FA71900405E51 /* MediaViewController.swift */,
 				34831B66223073A400D6DCA1 /* NotePreviewViewController.swift */,
+				3411A18B2211730900DBC057 /* TicketingViewController.swift */,
+				34831B7022308ADD00D6DCA1 /* PickerViewController.swift */,
 				341247C921E626E800A34154 /* View */,
 			);
 			path = exarea;
@@ -603,16 +612,19 @@
 				3411A18C2211730900DBC057 /* TicketingViewController.swift in Sources */,
 				348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */,
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
+				34831B6922307E6700D6DCA1 /* TicketsListViewController.swift in Sources */,
 				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
 				345EED0C2226C01200298B97 /* PreviewPopupViewController.swift in Sources */,
 				34E7DC5A21F086D100D3292C /* PitTabBar.swift in Sources */,
 				345EED102227A5EC00298B97 /* CustomSegues.swift in Sources */,
 				345EED0A2226B9AD00298B97 /* ProductsViewController.swift in Sources */,
 				341E96BD21FF971800D7477B /* ShimmeringMaskLayer.swift in Sources */,
+				34831B7122308ADD00D6DCA1 /* PickerViewController.swift in Sources */,
 				345EED0E22279C9800298B97 /* AudioRecorderViewController.swift in Sources */,
 				341470CA222FAC5100405E51 /* AudioTableViewCell.swift in Sources */,
 				34E719D12205EC2700ECDBB8 /* Booth.swift in Sources */,
 				341247C521E6250C00A34154 /* SkyFloatingLabelTextField.swift in Sources */,
+				34831B6F2230814300D6DCA1 /* BoothAccess.swift in Sources */,
 				341247CC21E6271700A34154 /* Account.swift in Sources */,
 				341E96BC21FF971800D7477B /* Shimmer.swift in Sources */,
 				340CDBAA21FF999E00F5C303 /* SplashViewController.swift in Sources */,

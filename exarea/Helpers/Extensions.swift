@@ -173,7 +173,7 @@ extension String {
         }
     }
     
-    func passes(_ validations: [ValidationFilter]) -> ValidationResult {
+    func checking(_ validations: [ValidationFilter]) -> ValidationResult {
         let sorted = validations.sorted(by: { $0.sortIndex < $1.sortIndex })
         if let filter = sorted.first(where: { $0.notPasses(string: self)}) {
             return .failure(filter)

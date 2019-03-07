@@ -129,7 +129,7 @@ extension Account {
     
     func update(with firsName: String, lastName: String, email: String? = nil, completion: @escaping ErrorableResult) {
         var parameters = ["FirstName": firsName, "LastName": lastName]
-        if let email = email, email.passes([.notEmpty]).isSuccess {
+        if let email = email, email.checking([.notEmpty]).isSuccess {
             parameters["EMail"] = email
         }
         let req = CustomRequest(path: "/Account/UpdateUserInfo", method: .post, parameters: parameters).api().authorize()
