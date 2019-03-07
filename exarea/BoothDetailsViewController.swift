@@ -276,6 +276,8 @@ extension BoothDetailsViewController: NoteViewContorolerDelegate {
         let note = Note(title: title, description: description)
         do {
             try self.booth.saveNote(note)
+            self.dismiss(animated: true)
+            self.floaty.setNeedsUpdateConstraints()
         } catch {
             print(error)
         }

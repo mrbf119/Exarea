@@ -19,6 +19,10 @@ class ConversationListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         Conversation.sentByUser { result in
             switch result {
             case .success(let conversations):
