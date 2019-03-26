@@ -102,7 +102,7 @@ class LoginViewController: UIViewController {
                 self.goToMainVC()
             }
         } else {
-            let form = RegisterForm(userName: form.user, password: form.pass, roleID: RegisterForm.Role(self.segmentControl.selectedSegmentIndex)!)
+            let form = RegisterForm(userName: form.user, password: form.pass, roleID: Account.Role(self.segmentControl.selectedSegmentIndex)!)
             Account.register(with: form) { result in
                 switch result {
                 case .success(let userID):

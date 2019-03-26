@@ -6,13 +6,18 @@
 //  Copyright © 1397 tamtom. All rights reserved.
 //
 
-import UIKit
+import Kingfisher
 
 protocol MenuTableViewDelegate: class {
     func menuTableVC(_ menuTableVC: MenuTableViewController, selectedVCWithID id: String)
 }
 
 class MenuTableViewController: UITableViewController {
+    
+    @IBOutlet private var imageViewProfile: UIImageView!
+    @IBOutlet private var labelAccountInfo: UILabel!
+    @IBOutlet private var labelAccountType: UILabel!
+    
     
     private let vcIDs = ["ContactUsVC", "AboutUsVC", "RulesVC"]
     
@@ -23,6 +28,10 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = true
+        self.labelAccountInfo.text = Account.current?.fullName
+        self.labelAccountType.text = Account.current?.userRole.title
+        self.imageViewProfile.rounded()
+        self.imageViewProfile.bordered()
     }
 
     // MARK: - Table view data source

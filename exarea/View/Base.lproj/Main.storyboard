@@ -668,6 +668,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fo5-5e-Xk0"/>
+                    <connections>
+                        <outlet property="imageViewProfile" destination="tjo-WC-K5o" id="Eq0-Ib-A9Q"/>
+                        <outlet property="labelAccountInfo" destination="TiE-ze-lhQ" id="HE4-P6-kAB"/>
+                        <outlet property="labelAccountType" destination="B3w-VH-t66" id="2Zx-k4-RER"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Uk-NK-Amt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
