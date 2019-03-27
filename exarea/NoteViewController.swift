@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol NoteViewContorolerDelegate: class {
-    func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andDescription description: String?)
+protocol NoteViewControllerDelegate: class {
+    func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andContent content: String?)
+    func noteVC(_ noteVC: NoteViewController, didEdit note: Note)
 }
 
 class NoteViewController: UIViewController {
@@ -21,7 +22,8 @@ class NoteViewController: UIViewController {
     @IBOutlet private var textViewDescription: UITextView!
     
     
-    weak var delegate: NoteViewContorolerDelegate?
+    var note: Note?
+    weak var delegate: NoteViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +39,24 @@ class NoteViewController: UIViewController {
     private func configUI() {
         self.buttonCancel.rounded()
         self.buttonSubmit.rounded()
+        self.textFieldTitle.text = self.note?.title
+        self.textViewDescription.text = self.note?.content
     }
     
-    func isValid() -> Bool {
+    private func isValid() -> Bool {
         return !self.textFieldTitle.text!.isEmpty
     }
     
     @IBAction private func submit() {
         guard self.isValid() else { return }
-        self.delegate?.noteVC(self, didSubmitTitle: self.textFieldTitle.text!, andDescription: self.textViewDescription.text)
+        
+        if var note = self.note {
+            note.title = self.textFieldTitle.text!
+            note.content = self.textViewDescription.text
+            self.delegate?.noteVC(self, didEdit: note)
+        } else {
+            self.delegate?.noteVC(self, didSubmitTitle: self.textFieldTitle.text!, andContent: self.textViewDescription.text)
+        }
     }
     
     @IBAction private func cancel() {

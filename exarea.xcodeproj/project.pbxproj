@@ -71,6 +71,7 @@
 		348816F2220F26B500EC5CC5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348816F1220F26B500EC5CC5 /* ProfileViewController.swift */; };
 		348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */; };
 		34A74AAB22104DFD007808F1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A74AAA22104DFD007808F1 /* SearchViewController.swift */; };
+		34B5907F224C1A18004B6E00 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5907E224C1A18004B6E00 /* NoteTableViewCell.swift */; };
 		34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D7215B1A1900C3E68E /* AppDelegate.swift */; };
 		34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* LoginViewController.swift */; };
 		34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Main.storyboard */; };
@@ -154,6 +155,7 @@
 		348816F1220F26B500EC5CC5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededViewController.swift; sourceTree = "<group>"; };
 		34A74AAA22104DFD007808F1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		34B5907E224C1A18004B6E00 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		34E310D4215B1A1900C3E68E /* exarea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exarea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E310D7215B1A1900C3E68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34E310D9215B1A1900C3E68E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				34831B722230A16200D6DCA1 /* ConversationTableViewCell.swift */,
 				34831B762230A41600D6DCA1 /* MailTableViewCell.swift */,
 				341470C9222FAC5100405E51 /* AudioTableViewCell.swift */,
+				34B5907E224C1A18004B6E00 /* NoteTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				34EADB2421F260D6001DFF62 /* HomeViewController.swift in Sources */,
 				341247D021E6288900A34154 /* Configurations.swift in Sources */,
 				343C211E220DD01F00F4CB0D /* Activities.swift in Sources */,
+				34B5907F224C1A18004B6E00 /* NoteTableViewCell.swift in Sources */,
 				341247C621E6250C00A34154 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				341470C8222FA73F00405E51 /* ImagesViewController.swift in Sources */,
 				34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */,

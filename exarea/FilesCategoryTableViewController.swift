@@ -26,6 +26,7 @@ class FilesCategoryTableViewController: UITableViewController {
             } else if let data = sender as? [Note] {
                 vc.notes = data
             }
+            vc.booth = self.booth
         } else if let vc = segue.destination as? ImagesViewController, let images = sender as? [UIImage] {
             vc.images = images
         }

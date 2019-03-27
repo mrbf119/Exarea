@@ -8,14 +8,12 @@
 
 import UIKit
 
-class NoteTableViewCell: UITableViewCell {
-    @IBOutlet private var labelTitle: UILabel!
-    @IBOutlet private var labelDescription: UILabel!
-    
-    func update(with note: Note) {
-        self.labelTitle.text = note.title
-        self.labelDescription.text = note.description
-    }
+protocol EditableTableViewCellDelegate: class {
+    func editButtonTappedFor(_ cell: UITableViewCell)
+}
+
+protocol DeletableTableViewCellDelegate: class {
+    func deleteButtonTappedFor(_ cell: UITableViewCell)
 }
 
 protocol AudioCellDelegate: class {

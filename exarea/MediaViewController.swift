@@ -13,6 +13,7 @@ class MediaViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    var booth: Booth!
     var audioURLs: [URL]?
     var notes: [Note]?
     private var player: AVAudioPlayer!
@@ -32,6 +33,9 @@ class MediaViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? NotePreviewViewController, let note = sender as? Note {
+            vc.note = note
+        } else if let vc = segue.destination as? NoteViewController, let note = sender as? Note {
+            vc.delegate = self
             vc.note = note
         }
     }
@@ -53,6 +57,7 @@ extension MediaViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NoteTableViewCell
             let note = self.notes![indexPath.row]
             cell.update(with: note)
+            cell.delegate = self
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "audioCell", for: indexPath) as! AudioTableViewCell
@@ -141,6 +146,40 @@ extension MediaViewController: AudioCellDelegate {
         } else {
             self.displayLink?.invalidate()
             cell.configForStopState()
+        }
+    }
+}
+
+extension MediaViewController: EditableDeletableTableViewCell {
+    
+    func deleteButtonTappedFor(_ cell: UITableViewCell) {
+        
+    }
+    
+    func editButtonTappedFor(_ cell: UITableViewCell) {
+        guard
+            let indexPath = self.tableView.indexPath(for: cell),
+            let note = self.notes?[indexPath.row]
+        else { return }
+        
+        self.performSegue(withIdentifier: "toNoteVC", sender: note)
+    }
+}
+
+extension MediaViewController: NoteViewControllerDelegate {
+    
+    func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andContent content: String?) {
+        return
+    }
+    
+    
+    func noteVC(_ noteVC: NoteViewController, didEdit note: Note) {
+        do {
+            try self.booth.saveNote(note)
+            self.dismiss(animated: true)
+            self.notes = try self.booth.getNotes()
+        } catch {
+            print(error)
         }
     }
 }

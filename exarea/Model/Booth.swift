@@ -79,8 +79,9 @@ class Booth: JSONSerializable, ImageTitled {
 //MARK: - file management
 
 struct Note: JSONSerializable {
-    let title: String
-    let description: String?
+    var title: String
+    var content: String?
+    fileprivate let path: String
 }
 
 extension Booth {
@@ -129,27 +130,29 @@ extension Booth {
         return try dataList.map { try Note.create(from: $0) }
     }
     
-    
-    func saveImage(_ image: UIImage) throws{
+    func saveImage(_ image: UIImage) throws {
         let folderPath = self.urlFor(type: .image)
         try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
         guard FileManager.default.createFile(atPath: folderPath.appendingPathComponent(Date().description).path, contents: image.pngData(), attributes: nil)
             else { throw FileSavingError.canNotCreateFile(dir: folderPath.appendingPathComponent(Date().description).path)}
     }
     
-//
-//    func saveAudio(_ url: URL) throws {
-//        let sourcePath = url.path
-//        let folderPath = urlFor(folder: "Audios")
-//        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
-//        try FileManager.default.moveItem(atPath: sourcePath, toPath: folderPath.appendingPathComponent(Date().description).path)
-//    }
+    func saveNote(title: String, content: String? = nil) throws {
+        let folderPath = self.urlFor(type: .note)
+        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
+        
+        let note = Note(title: title,
+                        content: content,
+                        path: Date().timeIntervalSinceReferenceDate.description)
+        
+        try self.saveNote(note)
+    }
     
     func saveNote(_ note: Note) throws {
         let folderPath = self.urlFor(type: .note)
-        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
-        guard FileManager.default.createFile(atPath: folderPath.appendingPathComponent(Date().description).path, contents: note.data, attributes: nil)
-        else { throw FileSavingError.canNotCreateFile(dir: folderPath.appendingPathComponent(Date().description).path)}
+        let url = folderPath.appendingPathComponent(note.path)
+        guard FileManager.default.createFile(atPath: url.path, contents: note.data, attributes: nil)
+            else { throw FileSavingError.canNotCreateFile(dir: path)}
     }
 }
 

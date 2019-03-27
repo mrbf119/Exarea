@@ -271,16 +271,18 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
     }
 }
 
-extension BoothDetailsViewController: NoteViewContorolerDelegate {
-    func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andDescription description: String?) {
-        let note = Note(title: title, description: description)
+extension BoothDetailsViewController: NoteViewControllerDelegate {
+    func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andContent content: String?) {
         do {
-            try self.booth.saveNote(note)
+            try self.booth.saveNote(title: title, content: content)
             self.dismiss(animated: true)
             self.floaty.setNeedsUpdateConstraints()
         } catch {
             print(error)
         }
-        
+    }
+    
+    func noteVC(_ noteVC: NoteViewController, didEdit note: Note) {
+        return
     }
 }
