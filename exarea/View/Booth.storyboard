@@ -1277,7 +1277,7 @@
                                                     <color key="tintColor" red="0.24313725489999999" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="icon-trash-black-small"/>
                                                     <connections>
-                                                        <action selector="playTapped" destination="bSu-0z-feO" eventType="touchUpInside" id="hCa-nk-6iy"/>
+                                                        <action selector="deleteButtonClicked" destination="yPb-Ue-bYk" eventType="touchUpInside" id="QML-Ru-eXD"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

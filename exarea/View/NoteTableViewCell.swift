@@ -8,13 +8,11 @@
 
 import UIKit
 
-typealias EditableDeletableTableViewCell = EditableTableViewCellDelegate & DeletableTableViewCellDelegate
-
 class NoteTableViewCell: UITableViewCell {
     @IBOutlet private var labelTitle: UILabel!
     @IBOutlet private var labelDescription: UILabel!
     
-    weak var delegate: EditableDeletableTableViewCell?
+    weak var delegate: (EditableTableViewCellDelegate & DeletableTableViewCellDelegate)?
     
     func update(with note: Note) {
         self.labelTitle.text = note.title

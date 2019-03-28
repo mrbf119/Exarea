@@ -154,6 +154,16 @@ extension Booth {
         guard FileManager.default.createFile(atPath: url.path, contents: note.data, attributes: nil)
             else { throw FileSavingError.canNotCreateFile(dir: path)}
     }
+    
+    func deleteNote(_ note: Note) throws {
+        let folderPath = self.urlFor(type: .note)
+        let url = folderPath.appendingPathComponent(note.path)
+        try FileManager.default.removeItem(at: url)
+    }
+    
+    func deleteAudio(at url: URL) throws {
+        try FileManager.default.removeItem(at: url)
+    }
 }
 
 //MARK: - api methods

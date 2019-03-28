@@ -16,8 +16,8 @@ protocol DeletableTableViewCellDelegate: class {
     func deleteButtonTappedFor(_ cell: UITableViewCell)
 }
 
-protocol AudioCellDelegate: class {
-    func playButtonTappedFor(_ cell: AudioTableViewCell)
+protocol PlayableTableViewCellDelegate: class {
+    func playButtonTappedFor(_ cell: UITableViewCell)
 }
 
 class AudioTableViewCell: UITableViewCell {
@@ -25,10 +25,14 @@ class AudioTableViewCell: UITableViewCell {
     @IBOutlet private var btnPlay: UIButton!
     @IBOutlet private var lblTime: UILabel!
     
-    weak var delegate: AudioCellDelegate?
+    weak var delegate: (PlayableTableViewCellDelegate & DeletableTableViewCellDelegate)?
     
     @IBAction private func playButtonClicked() {
         self.delegate?.playButtonTappedFor(self)
+    }
+    
+    @IBAction private func deleteButtonClicked() {
+        self.delegate?.deleteButtonTappedFor(self)
     }
    
     func setTime(min: Int, sec: Int) {

@@ -23,7 +23,7 @@ class MediaViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     private var isNote: Bool {
-        return !(notes?.isEmpty ?? true)
+        return self.notes != nil
     }
 
     override func viewDidLoad() {
@@ -88,10 +88,9 @@ extension MediaViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MediaViewController: AudioCellDelegate {
+extension MediaViewController: PlayableTableViewCellDelegate {
     
-    func playButtonTappedFor(_ cell: AudioTableViewCell) {
-        
+    func playButtonTappedFor(_ cell: UITableViewCell) {
         guard
             let indexPath = self.tableView.indexPath(for: cell),
             let audioURL = self.audioURLs?[indexPath.row]
@@ -107,7 +106,7 @@ extension MediaViewController: AudioCellDelegate {
         if self.player.isPlaying {
             if indexPath == self.playingIndexPath {
                 self.player.pause()
-                cell.configForPauseState()
+                (cell as? AudioTableViewCell)?.configForPauseState()
             } else {
                 self.player.stop()
                 self.displayLink?.invalidate()
@@ -119,13 +118,15 @@ extension MediaViewController: AudioCellDelegate {
             }
             
         } else {
-            cell.configForPlayingState()
+            (cell as? AudioTableViewCell)?.configForPlayingState()
             self.player.play()
             self.playingIndexPath = indexPath
             self.displayLink = CADisplayLink(target: self, selector: #selector(self.refreshPlayerTime))
             self.displayLink?.add(to: .main, forMode: .default)
         }
     }
+    
+   
     
     private func prepareToPlay(url: URL, success: ()->()) {
         do {
@@ -150,10 +151,30 @@ extension MediaViewController: AudioCellDelegate {
     }
 }
 
-extension MediaViewController: EditableDeletableTableViewCell {
+extension MediaViewController: EditableTableViewCellDelegate, DeletableTableViewCellDelegate {
     
     func deleteButtonTappedFor(_ cell: UITableViewCell) {
-        
+        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
+        let title = "حذف فایل"
+        let message = "آیا از حذف این فایل مطمئن هستید؟"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let yes = UIAlertAction(title: "بله", style: .destructive) { _ in
+            do {
+                if let audioURL = self.audioURLs?[indexPath.row] {
+                    try self.booth.deleteAudio(at: audioURL)
+                    try self.audioURLs = self.booth.getAudios()
+                } else if let note = self.notes?[indexPath.row] {
+                    try self.booth.deleteNote(note)
+                    try self.notes = self.booth.getNotes()
+                }
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+            } catch {
+                print(error)
+            }
+        }
+        let cancel = UIAlertAction(title: "خیر", style: .cancel) { _ in }
+        [yes, cancel].forEach { alert.addAction($0) }
+        self.present(alert, animated: true)
     }
     
     func editButtonTappedFor(_ cell: UITableViewCell) {
