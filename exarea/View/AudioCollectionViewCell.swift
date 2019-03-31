@@ -1,5 +1,5 @@
 //
-//  AudioTableViewCell.swift
+//  AudioCollectionViewCell.swift
 //  exarea
 //
 //  Created by Soroush on 12/15/1397 AP.
@@ -8,28 +8,24 @@
 
 import UIKit
 
-protocol EditableTableViewCellDelegate: class {
-    func editButtonTappedFor(_ cell: UITableViewCell)
-}
-
-protocol DeletableTableViewCellDelegate: class {
-    func deleteButtonTappedFor(_ cell: UITableViewCell)
+protocol EditableCollectionViewCellDelegate: class {
+    func editButtonTappedFor(_ cell: UICollectionViewCell)
 }
 
 protocol DeletableCollectionViewCellDelegate: class {
     func deleteButtonTappedFor(_ cell: UICollectionViewCell)
 }
 
-protocol PlayableTableViewCellDelegate: class {
-    func playButtonTappedFor(_ cell: UITableViewCell)
+protocol PlayableCollectionViewCellDelegate: class {
+    func playButtonTappedFor(_ cell: UICollectionViewCell)
 }
 
-class AudioTableViewCell: UITableViewCell {
+class AudioCollectionViewCell: ShadowableCollectionCell {
     
     @IBOutlet private var btnPlay: UIButton!
     @IBOutlet private var lblTime: UILabel!
     
-    weak var delegate: (PlayableTableViewCellDelegate & DeletableTableViewCellDelegate)?
+    weak var delegate: (PlayableCollectionViewCellDelegate & DeletableCollectionViewCellDelegate)?
     
     @IBAction private func playButtonClicked() {
         self.delegate?.playButtonTappedFor(self)
@@ -45,7 +41,7 @@ class AudioTableViewCell: UITableViewCell {
     }
     
     func configForPlayingState() {
-        self.btnPlay.setImage(#imageLiteral(resourceName: "icon-stop-filled-white-100"), for: .normal)
+        self.btnPlay.setImage(#imageLiteral(resourceName: "icon-pause-white-100"), for: .normal)
     }
     
     func configForStopState() {

@@ -1,5 +1,5 @@
 //
-//  NoteTableViewCell.swift
+//  NoteCollectionViewCell.swift
 //  exarea
 //
 //  Created by Soroush on 1/8/1398 AP.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class NoteTableViewCell: UITableViewCell {
+class NoteCollectionViewCell: ShadowableCollectionCell {
     @IBOutlet private var labelTitle: UILabel!
     @IBOutlet private var labelDescription: UILabel!
     
-    weak var delegate: (EditableTableViewCellDelegate & DeletableTableViewCellDelegate)?
+    weak var delegate: (EditableCollectionViewCellDelegate & DeletableCollectionViewCellDelegate)?
     
     func update(with note: Note) {
         self.labelTitle.text = note.title

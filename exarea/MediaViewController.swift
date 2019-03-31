@@ -11,11 +11,14 @@ import AVFoundation
 
 class MediaViewController: UIViewController {
     
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     var booth: Booth!
     
     var files = [File]()
+    
+    private var imageCellSize: CGFloat { return 120.0  }
+    private var imageCellMargin: CGFloat { return floor((self.view.bounds.width - (self.imageCellSize * 2)) / 3 ) }
     
     private var player: AVAudioPlayer!
     private var playingIndexPath: IndexPath!
@@ -25,7 +28,6 @@ class MediaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.tableFooterView = UIView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,30 +36,42 @@ class MediaViewController: UIViewController {
         } else if let vc = segue.destination as? NoteViewController, let note = sender as? NoteFile {
             vc.delegate = self
             vc.note = note
+        } else if let vc = segue.destination as? PreviewPopupViewController, let details = sender as? (UIImage, String) {
+            vc.details = details
+            (segue as? MessagesCenteredSegue)?.dimMode = .blur(style: .dark, alpha: 0.5, interactive: true)
         }
     }
     
 }
 
-extension MediaViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+extension MediaViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.files.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let notes = self.files as? [NoteFile] {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NoteTableViewCell
-            let item = notes[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "noteCell", for: indexPath) as! NoteCollectionViewCell
+            let item = notes[indexPath.item]
             cell.update(with: item.converted)
+            cell.delegate = self
+            cell.makeShadowed()
+            return cell
+        } else if let images = self.files as? [ImageFile] {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
+            let image = images[indexPath.item]
+            cell.imageView.image = image.converted
+            cell.makeShadowed()
+            cell.isDeletable = true
             cell.delegate = self
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "audioCell", for: indexPath) as! AudioTableViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "audioCell", for: indexPath) as! AudioCollectionViewCell
             cell.delegate = self
             if indexPath == self.playingIndexPath {
                 if self.player.isPlaying {
@@ -68,29 +82,49 @@ extension MediaViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 cell.configForPauseState()
             }
+            cell.makeShadowed()
             return cell
         }
-        
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let notes = self.files as? [NoteFile] {
-            let note = notes[indexPath.row]
+            let note = notes[indexPath.item]
             self.performSegue(withIdentifier: "toNotePreviewVC", sender: note)
+        } else if let images = self.files as? [ImageFile] {
+            let image = images[indexPath.item]
+            let details = (image.converted, "")
+            self.performSegue(withIdentifier: "toPeekVC", sender: details)
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return self.files is [ImageFile] ? self.imageCellMargin : 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return self.files is [ImageFile] ? self.imageCellMargin : 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let sideMargin = self.files is [ImageFile] ? self.imageCellMargin : 10
+        let topBottomMargin = sideMargin
+        return UIEdgeInsets(top: topBottomMargin, left: sideMargin, bottom: topBottomMargin, right: sideMargin)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width =  self.files is [ImageFile] ? self.imageCellSize : self.view.frame.width - 20
+        let height = self.files is [ImageFile] ? self.imageCellSize : 60
+        return CGSize(width: width, height: height)
     }
 }
 
-extension MediaViewController: PlayableTableViewCellDelegate {
+extension MediaViewController: PlayableCollectionViewCellDelegate {
     
-    func playButtonTappedFor(_ cell: UITableViewCell) {
-        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
+    func playButtonTappedFor(_ cell: UICollectionViewCell) {
+        guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
         
-        let audio = self.files[indexPath.row]
+        let audio = self.files[indexPath.item]
         
         guard self.player != nil else {
             self.prepareToPlay(url: audio.url) {
@@ -99,30 +133,40 @@ extension MediaViewController: PlayableTableViewCellDelegate {
             return
         }
         
-        if self.player.isPlaying {
-            if indexPath == self.playingIndexPath {
+        if indexPath == self.playingIndexPath {
+            if self.player.isPlaying {
                 self.player.pause()
-                (cell as? AudioTableViewCell)?.configForPauseState()
+                self.displayLink?.invalidate()
+                (cell as? AudioCollectionViewCell)?.configForPauseState()
             } else {
+                self.player.play()
+                (cell as? AudioCollectionViewCell)?.configForPlayingState()
+                self.displayLink = CADisplayLink(target: self, selector: #selector(self.refreshPlayerTime))
+                self.displayLink?.add(to: .main, forMode: .default)
+            }
+        } else {
+            if let index = self.playingIndexPath, let lastPlayingCell = self.collectionView.cellForItem(at: index) as? AudioCollectionViewCell {
+                lastPlayingCell.configForStopState()
+            }
+            if self.player.isPlaying {
                 self.player.stop()
                 self.displayLink?.invalidate()
                 self.player = nil
-                if let lastPlayingCell = tableView.cellForRow(at: self.playingIndexPath) as? AudioTableViewCell {
+                if let lastPlayingCell = self.collectionView.cellForItem(at: indexPath) as? AudioCollectionViewCell {
                     lastPlayingCell.configForStopState()
                 }
                 self.playButtonTappedFor(cell)
+            } else {
+                self.prepareToPlay(url: audio.url) {
+                    (cell as? AudioCollectionViewCell)?.configForPlayingState()
+                    self.player.play()
+                    self.playingIndexPath = indexPath
+                    self.displayLink = CADisplayLink(target: self, selector: #selector(self.refreshPlayerTime))
+                    self.displayLink?.add(to: .main, forMode: .default)
+                }
             }
-            
-        } else {
-            (cell as? AudioTableViewCell)?.configForPlayingState()
-            self.player.play()
-            self.playingIndexPath = indexPath
-            self.displayLink = CADisplayLink(target: self, selector: #selector(self.refreshPlayerTime))
-            self.displayLink?.add(to: .main, forMode: .default)
         }
     }
-    
-   
     
     private func prepareToPlay(url: URL, success: ()->()) {
         do {
@@ -134,12 +178,17 @@ extension MediaViewController: PlayableTableViewCellDelegate {
     }
     
     @objc func refreshPlayerTime() {
-        guard let cell = self.tableView.cellForRow(at: self.playingIndexPath) as? AudioTableViewCell else { return }
+        guard let cell = self.collectionView.cellForItem(at: self.playingIndexPath) as? AudioCollectionViewCell else { return }
         
-        if self.player.isPlaying && self.player.currentTime < self.player.duration {
-            let min = Int(self.player.currentTime) / 60
-            let second = Int(self.player.currentTime) % 60
-            cell.setTime(min: min, sec: second)
+        if self.player.isPlaying {
+            if self.player.currentTime > self.player.duration {
+                self.displayLink?.invalidate()
+                cell.configForStopState()
+            } else {
+                let min = Int(self.player.currentTime) / 60
+                let second = Int(self.player.currentTime) % 60
+                cell.setTime(min: min, sec: second)
+            }
         } else {
             self.displayLink?.invalidate()
             cell.configForStopState()
@@ -147,19 +196,24 @@ extension MediaViewController: PlayableTableViewCellDelegate {
     }
 }
 
-extension MediaViewController: EditableTableViewCellDelegate, DeletableTableViewCellDelegate {
+extension MediaViewController: EditableCollectionViewCellDelegate, DeletableCollectionViewCellDelegate {
     
-    func deleteButtonTappedFor(_ cell: UITableViewCell) {
-        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
+    func deleteButtonTappedFor(_ cell: UICollectionViewCell) {
+        guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
         let title = "حذف فایل"
         let message = "آیا از حذف این فایل مطمئن هستید؟"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let yes = UIAlertAction(title: "بله", style: .destructive) { _ in
             do {
-                let file = self.files[indexPath.row]
+                let file = self.files[indexPath.item]
+                if self.player?.isPlaying ?? false {
+                    self.player.stop()
+                    self.displayLink.invalidate()
+                    self.player = nil
+                }
                 try self.booth.delete(file: file)
-                self.files.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .left)
+                self.files.remove(at: indexPath.item)
+                self.collectionView.deleteItems(at: [indexPath])
             } catch {
                 print(error)
             }
@@ -169,9 +223,9 @@ extension MediaViewController: EditableTableViewCellDelegate, DeletableTableView
         self.present(alert, animated: true)
     }
     
-    func editButtonTappedFor(_ cell: UITableViewCell) {
-        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
-        let note = self.files[indexPath.row]
+    func editButtonTappedFor(_ cell: UICollectionViewCell) {
+        guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+        let note = self.files[indexPath.item]
         self.performSegue(withIdentifier: "toNoteVC", sender: note)
     }
 }

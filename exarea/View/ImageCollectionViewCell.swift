@@ -8,9 +8,22 @@
 
 import UIKit
 
-class ImageCollectionViewCell: UICollectionViewCell {
-    
+class ShadowableCollectionCell: UICollectionViewCell {
     @IBOutlet var containerView: UIView!
+    
+    func makeShadowed() {
+        self.containerView.clipsToBounds = true
+        self.containerView.layer.cornerRadius = 7
+        self.clipsToBounds = false
+        self.layer.shadowRadius = 3
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+    }
+}
+
+class ImageCollectionViewCell: ShadowableCollectionCell {
+    
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var buttonTrash: UIButton!
     
@@ -27,16 +40,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
         self.imageView.layer.cornerRadius = 7
         self.imageView.clipsToBounds = true
         self.buttonTrash?.isHidden = !self.isDeletable
-    }
-    
-    func makeShadowed() {
-        self.containerView.clipsToBounds = true
-        self.containerView.layer.cornerRadius = 7
-        self.clipsToBounds = false
-        self.layer.shadowRadius = 3
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.3
-        self.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
     
     @IBAction private func trashButtonClicked() {
