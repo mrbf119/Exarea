@@ -11,6 +11,18 @@ import KeychainAccess
 
 class Account: JSONSerializable {
     
+    enum Role: String {
+        case user = "User"
+        case boothOwner = "BoothOwner"
+        
+        init?(_ index: Int) {
+            self = index == 0 ? .user : .boothOwner
+        }
+        
+        var id: String { return self == .user ? "3" : "4" }
+        var title: String { return self == .user ? "کاربر عادی" : "صاحب غرفه" }
+    }
+    
     static private(set) var current: Account? = {
         guard let data = Account.getTokenAndSession() else { return nil }
         return Account(token: data.token, sessionID: data.session)
@@ -37,11 +49,11 @@ class Account: JSONSerializable {
     private var role: String?
     
     var fullName: String {
-        return (self.firstName ?? "") + (self.lastName ?? "")
+        return (self.firstName ?? "") + " " + (self.lastName ?? "")
     }
     
-    var userRole: String? {
-        return self.role
+    var userRole: Role {
+        return Role(rawValue: self.role ?? "User")!
     }
     
     private init(token: String, sessionID: String) {
@@ -56,8 +68,6 @@ class Account: JSONSerializable {
         self.mobileNumber = nil
         self.eMailAddress = nil
         self.role = nil
-        
-        
     }
     
     static func getTokenAndSession() -> (token: String, session: String)? {
@@ -129,7 +139,7 @@ extension Account {
     
     func update(with firsName: String, lastName: String, email: String? = nil, completion: @escaping ErrorableResult) {
         var parameters = ["FirstName": firsName, "LastName": lastName]
-        if let email = email, email.passes([.notEmpty]).isSuccess {
+        if let email = email, email.checking([.notEmpty]).isSuccess {
             parameters["EMail"] = email
         }
         let req = CustomRequest(path: "/Account/UpdateUserInfo", method: .post, parameters: parameters).api().authorize()

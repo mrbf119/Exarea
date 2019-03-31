@@ -102,7 +102,7 @@ class LoginViewController: UIViewController {
                 self.goToMainVC()
             }
         } else {
-            let form = RegisterForm(userName: form.user, password: form.pass, roleID: RegisterForm.Role(self.segmentControl.selectedSegmentIndex)!)
+            let form = RegisterForm(userName: form.user, password: form.pass, roleID: Account.Role(self.segmentControl.selectedSegmentIndex)!)
             Account.register(with: form) { result in
                 switch result {
                 case .success(let userID):
@@ -130,13 +130,13 @@ class LoginViewController: UIViewController {
         let phoneNumber = self.phoneNumberTextField.text!.englishNumbers
         let password = self.passwordTextField.text!
         
-        if let failedFilter = phoneNumber.passes([.notEmpty, .exactChars(11), .isPhoneNumber]).failedFilter {
+        if let failedFilter = phoneNumber.checking([.notEmpty, .exactChars(11), .isPhoneNumber]).failedFilter {
             self.phoneNumberTextField.shake()
             self.phoneNumberTextField.errorMessage = failedFilter == .notEmpty ? "لطفا شماره تلفن خود را وارد کنید" : "لطفا شماره تلفن صحیح وارد کنید"
             return nil
         }
         
-        if !password.passes([.notEmpty]).isSuccess {
+        if !password.checking([.notEmpty]).isSuccess {
             self.passwordTextField.shake()
             self.passwordTextField.errorMessage = "لطفا کلمه عبور خود را وارد کنید"
             return nil

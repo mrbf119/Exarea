@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "exarea/ImagesViewController.swift"
-            timestampString = "573601194.397101"
+            filePath = "exarea/View/ImageCollectionViewCell.swift"
+            timestampString = "575740787.307822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "trashButtonClicked()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -20,49 +20,23 @@ class FilesCategoryTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? MediaViewController {
-            if let data = sender as? [URL] {
-                vc.audioURLs = data
-            } else if let data = sender as? [Note] {
-                vc.notes = data
-            }
-        } else if let vc = segue.destination as? ImagesViewController, let images = sender as? [UIImage] {
-            vc.images = images
+        if let vc = segue.destination as? MediaViewController, let files = sender as? [File] {
+            vc.files = files
+            vc.booth = self.booth
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            self.showImages()
-        case 1:
-            self.showData(isNote: true)
-        default:
-            self.showData(isNote: false)
-        }
-    }
-    
-    
-    private func showImages() {
+        var files = [File]()
         do {
-            let images = try self.booth.getImage()
-            self.performSegue(withIdentifier: "toImagesVC", sender: images)
-        } catch {
-            print(error)
-        }
-    }
-    
-    private func showData(isNote: Bool) {
-        do {
-            if isNote {
-                let notes = try self.booth.getNotes()
-                self.performSegue(withIdentifier: "toMediaVC", sender: notes)
-            } else {
-                let audios = try self.booth.getAudios()
-                self.performSegue(withIdentifier: "toMediaVC", sender: audios)
+            switch indexPath.row {
+            case 0:  files = try self.booth.getFiles(type: ImageFile.self)
+            case 1:  files = try self.booth.getFiles(type: NoteFile.self)
+            default: files = try self.booth.getFiles(type: AudioFile.self)
             }
         } catch {
             print(error)
         }
+        self.performSegue(withIdentifier: "toMediaVC", sender: files)
     }
 }

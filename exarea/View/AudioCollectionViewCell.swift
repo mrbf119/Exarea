@@ -1,5 +1,5 @@
 //
-//  AudioTableViewCell.swift
+//  AudioCollectionViewCell.swift
 //  exarea
 //
 //  Created by Soroush on 12/15/1397 AP.
@@ -8,29 +8,31 @@
 
 import UIKit
 
-class NoteTableViewCell: UITableViewCell {
-    @IBOutlet private var labelTitle: UILabel!
-    @IBOutlet private var labelDescription: UILabel!
-    
-    func update(with note: Note) {
-        self.labelTitle.text = note.title
-        self.labelDescription.text = note.description
-    }
+protocol EditableCollectionViewCellDelegate: class {
+    func editButtonTappedFor(_ cell: UICollectionViewCell)
 }
 
-protocol AudioCellDelegate: class {
-    func playButtonTappedFor(_ cell: AudioTableViewCell)
+protocol DeletableCollectionViewCellDelegate: class {
+    func deleteButtonTappedFor(_ cell: UICollectionViewCell)
 }
 
-class AudioTableViewCell: UITableViewCell {
+protocol PlayableCollectionViewCellDelegate: class {
+    func playButtonTappedFor(_ cell: UICollectionViewCell)
+}
+
+class AudioCollectionViewCell: ShadowableCollectionCell {
     
     @IBOutlet private var btnPlay: UIButton!
     @IBOutlet private var lblTime: UILabel!
     
-    weak var delegate: AudioCellDelegate?
+    weak var delegate: (PlayableCollectionViewCellDelegate & DeletableCollectionViewCellDelegate)?
     
     @IBAction private func playButtonClicked() {
         self.delegate?.playButtonTappedFor(self)
+    }
+    
+    @IBAction private func deleteButtonClicked() {
+        self.delegate?.deleteButtonTappedFor(self)
     }
    
     func setTime(min: Int, sec: Int) {
@@ -39,7 +41,7 @@ class AudioTableViewCell: UITableViewCell {
     }
     
     func configForPlayingState() {
-        self.btnPlay.setImage(#imageLiteral(resourceName: "icon-stop-filled-white-100"), for: .normal)
+        self.btnPlay.setImage(#imageLiteral(resourceName: "icon-pause-white-100"), for: .normal)
     }
     
     func configForStopState() {

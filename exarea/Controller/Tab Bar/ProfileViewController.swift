@@ -56,13 +56,13 @@ class ProfileViewController: UIViewController {
         let firstName = self.textFieldFirstName.text!
         let lastName = self.textFieldLastName.text!
         
-        if !firstName.passes([.notEmpty]).isSuccess {
+        if !firstName.checking([.notEmpty]).isSuccess {
             self.textFieldFirstName.shake()
             self.textFieldFirstName.errorMessage = "لطفا نام خود را وارد کنید"
             return false
         }
         
-        if !lastName.passes([.notEmpty]).isSuccess {
+        if !lastName.checking([.notEmpty]).isSuccess {
             self.textFieldLastName.shake()
             self.textFieldLastName.errorMessage = "لطفا نام خانوادگی خود را وارد کنید"
             return false

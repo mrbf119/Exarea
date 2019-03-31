@@ -47,7 +47,7 @@ class ActivateViewController: UIViewController {
     
     private func validate() -> String? {
         let code = self.activationCodeTextField.text!.englishNumbers
-        if let failedFilter = code.passes([.notEmpty, .exactChars(5)]).failedFilter {
+        if let failedFilter = code.checking([.notEmpty, .exactChars(5)]).failedFilter {
             self.activationCodeTextField.shake()
             self.activationCodeTextField.errorMessage = failedFilter == .notEmpty ? "لطفا شماره کد فعال سازی را وارد کنید" : "لطفا کد فعال سازی صحیح وارد کنید"
             return nil

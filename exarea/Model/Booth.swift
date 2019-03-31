@@ -8,15 +8,6 @@
 
 import Alamofire
 
-struct Photo: JSONSerializable {
-    let boothPhotoID: Int
-    let boothPhotoTitle: String
-    private let boothPhotoAddress: String
-    var address: URL? {
-        return URL(string: self.boothPhotoAddress)
-    }
-}
-
 class Booth: JSONSerializable, ImageTitled {
     
     enum FavoriteAction: String {
@@ -28,9 +19,6 @@ class Booth: JSONSerializable, ImageTitled {
             return self.rawValue
         }
     }
-    
-    private static var boothFilesURL: URL { return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!  }
-    private var path: String { return "/BoothFiles/\(self.fairID)-\(self.boothID)" }
     
     let boothID: Int
     let userID: Int
@@ -78,79 +66,36 @@ class Booth: JSONSerializable, ImageTitled {
 
 //MARK: - file management
 
-struct Note: JSONSerializable {
-    let title: String
-    let description: String?
-}
-
 extension Booth {
-    
-    enum FileType: String {
-        case audio = "Audios"
-        case image = "Images"
-        case note = "Notes"
-    }
-    
-    enum FileSavingError: Error {
-        case canNotCreateFile(dir: String)
-    }
-    
-    func urlFor(type: FileType) -> URL {
-        return Booth.boothFilesURL.appendingPathComponent(self.path).appendingPathComponent(type.rawValue)
-    }
-    
-    private func getURLs(type: FileType) throws -> [URL] {
-        let folderURL = self.urlFor(type: type)
-        let paths = try FileManager.default.contentsOfDirectory(atPath: folderURL.path)
-        return paths.map { folderURL.appendingPathComponent($0) }
-    }
-    
-    private func getData(type: FileType) throws -> [Data] {
-        let urls = try self.getURLs(type: type)
-        var dataList = [Data]()
-        for url in urls {
-            let data = try Data(contentsOf: url)
-            dataList.append(data)
-        }
-        return dataList
-    }
-    
-    func getImage() throws -> [UIImage] {
-        let dataList = try self.getData(type: .image)
-        return dataList.map { UIImage(data: $0)! }
-    }
-    
-    func getAudios() throws -> [URL] {
-        return try self.getURLs(type: .audio)
-    }
-    
-    func getNotes() throws -> ([Note]) {
-        let dataList = try self.getData(type: .note)
-        return try dataList.map { try Note.create(from: $0) }
-    }
-    
-    
-    func saveImage(_ image: UIImage) throws{
-        let folderPath = self.urlFor(type: .image)
+   
+    func addImageFile(_ image: UIImage) throws {
+        let folderPath = FileType.image.folderURL(forBooth: self)
         try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
-        guard FileManager.default.createFile(atPath: folderPath.appendingPathComponent(Date().description).path, contents: image.pngData(), attributes: nil)
+        let fileURL = folderPath.appendingPathComponent(Date().description)
+        guard FileManager.default.createFile(atPath: fileURL.path, contents: image.pngData(), attributes: nil)
             else { throw FileSavingError.canNotCreateFile(dir: folderPath.appendingPathComponent(Date().description).path)}
     }
     
-//
-//    func saveAudio(_ url: URL) throws {
-//        let sourcePath = url.path
-//        let folderPath = urlFor(folder: "Audios")
-//        try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
-//        try FileManager.default.moveItem(atPath: sourcePath, toPath: folderPath.appendingPathComponent(Date().description).path)
-//    }
-    
-    func saveNote(_ note: Note) throws {
-        let folderPath = self.urlFor(type: .note)
+    func addNoteFile(title: String, content: String? = nil) throws {
+        let folderPath = FileType.note.folderURL(forBooth: self)
+        let url = folderPath.appendingPathComponent(Date.timeIntervalSinceReferenceDate.description)
+        let note = Note(title: title, content: content)
+        
         try FileManager.default.createDirectory(at: folderPath, withIntermediateDirectories: true, attributes: nil)
-        guard FileManager.default.createFile(atPath: folderPath.appendingPathComponent(Date().description).path, contents: note.data, attributes: nil)
-        else { throw FileSavingError.canNotCreateFile(dir: folderPath.appendingPathComponent(Date().description).path)}
+        guard FileManager.default.createFile(atPath: url.path, contents: note.data, attributes: nil)
+            else { throw FileSavingError.canNotCreateFile(dir: url.path)}
     }
+    
+    func getFiles<T: File>(type: T.Type) throws -> [T] {
+        let url = T.type.folderURL(forBooth: self)
+        let urls = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
+        return urls.map { T.init(name: $0.lastPathComponent, url: $0) }
+    }
+    
+    func delete(file: File) throws {
+        try FileManager.default.removeItem(at: file.url)
+    }
+    
 }
 
 //MARK: - api methods
