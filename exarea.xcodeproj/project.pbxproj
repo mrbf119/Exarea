@@ -44,6 +44,7 @@
 		342A228D21F706F40057FB5C /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A228C21F706F40057FB5C /* ContactUsViewController.swift */; };
 		342A228F21F717F70057FB5C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A228E21F717F70057FB5C /* RulesViewController.swift */; };
 		342A229521F72AEB0057FB5C /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */; };
+		342C402C2250A97100ABBA9F /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342C402B2250A97100ABBA9F /* File.swift */; };
 		3431B114222A723D002CAD65 /* FilesCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431B113222A723D002CAD65 /* FilesCategoryTableViewController.swift */; };
 		343C211A220DA86100F4CB0D /* BoothDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C2119220DA86100F4CB0D /* BoothDetailsViewController.swift */; };
 		343C211C220DB16D00F4CB0D /* ShadowedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C211B220DB16D00F4CB0D /* ShadowedView.swift */; };
@@ -72,6 +73,8 @@
 		348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */; };
 		34A74AAB22104DFD007808F1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A74AAA22104DFD007808F1 /* SearchViewController.swift */; };
 		34B5907F224C1A18004B6E00 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5907E224C1A18004B6E00 /* NoteTableViewCell.swift */; };
+		34B59081224ED241004B6E00 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B59080224ED241004B6E00 /* Photo.swift */; };
+		34B59085224ED646004B6E00 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B59084224ED646004B6E00 /* Note.swift */; };
 		34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D7215B1A1900C3E68E /* AppDelegate.swift */; };
 		34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* LoginViewController.swift */; };
 		34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Main.storyboard */; };
@@ -128,6 +131,7 @@
 		342A228E21F717F70057FB5C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		342A229421F72AEB0057FB5C /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		342A72152205AF56003ACE36 /* exarea-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "exarea-Bridging-Header.h"; sourceTree = "<group>"; };
+		342C402B2250A97100ABBA9F /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3431B113222A723D002CAD65 /* FilesCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesCategoryTableViewController.swift; sourceTree = "<group>"; };
 		343C2119220DA86100F4CB0D /* BoothDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoothDetailsViewController.swift; sourceTree = "<group>"; };
 		343C211B220DB16D00F4CB0D /* ShadowedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedView.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 		348816F3220F4FF600EC5CC5 /* EmbededViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededViewController.swift; sourceTree = "<group>"; };
 		34A74AAA22104DFD007808F1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		34B5907E224C1A18004B6E00 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		34B59080224ED241004B6E00 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		34B59084224ED646004B6E00 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		34E310D4215B1A1900C3E68E /* exarea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exarea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E310D7215B1A1900C3E68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34E310D9215B1A1900C3E68E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +295,9 @@
 				341247CB21E6271700A34154 /* Account.swift */,
 				342A228521F581240057FB5C /* Fair.swift */,
 				34E719D02205EC2700ECDBB8 /* Booth.swift */,
+				342C402B2250A97100ABBA9F /* File.swift */,
+				34B59084224ED646004B6E00 /* Note.swift */,
+				34B59080224ED241004B6E00 /* Photo.swift */,
 				341CE74422106502006D7031 /* Product.swift */,
 				34831B6E2230814300D6DCA1 /* BoothAccess.swift */,
 			);
@@ -370,11 +379,11 @@
 				345EED092226B9AD00298B97 /* ProductsViewController.swift */,
 				345EED0B2226C01200298B97 /* PreviewPopupViewController.swift */,
 				345EED0D22279C9800298B97 /* AudioRecorderViewController.swift */,
-				345EED112227C86F00298B97 /* NoteViewController.swift */,
 				3431B113222A723D002CAD65 /* FilesCategoryTableViewController.swift */,
 				341470C7222FA73F00405E51 /* ImagesViewController.swift */,
 				341470C5222FA71900405E51 /* MediaViewController.swift */,
 				34831B66223073A400D6DCA1 /* NotePreviewViewController.swift */,
+				345EED112227C86F00298B97 /* NoteViewController.swift */,
 				3411A18B2211730900DBC057 /* TicketingViewController.swift */,
 				34831B7022308ADD00D6DCA1 /* PickerViewController.swift */,
 				341247C921E626E800A34154 /* View */,
@@ -612,9 +621,11 @@
 				34E310F2215B348F00C3E68E /* Extensions.swift in Sources */,
 				34E7DC5821F0783300D3292C /* MainViewController.swift in Sources */,
 				343C211C220DB16D00F4CB0D /* ShadowedView.swift in Sources */,
+				34B59085224ED646004B6E00 /* Note.swift in Sources */,
 				34831B772230A41600D6DCA1 /* MailTableViewCell.swift in Sources */,
 				341E96BE21FF971800D7477B /* ShimmeringLayer.swift in Sources */,
 				341CE74522106502006D7031 /* Product.swift in Sources */,
+				34B59081224ED241004B6E00 /* Photo.swift in Sources */,
 				341470C6222FA71900405E51 /* MediaViewController.swift in Sources */,
 				342A228D21F706F40057FB5C /* ContactUsViewController.swift in Sources */,
 				34831B732230A16200D6DCA1 /* ConversationTableViewCell.swift in Sources */,
@@ -628,6 +639,7 @@
 				3411A18C2211730900DBC057 /* TicketingViewController.swift in Sources */,
 				348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */,
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,
+				342C402C2250A97100ABBA9F /* File.swift in Sources */,
 				34831B6922307E6700D6DCA1 /* ConversationListViewController.swift in Sources */,
 				346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */,
 				345EED0C2226C01200298B97 /* PreviewPopupViewController.swift in Sources */,

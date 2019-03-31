@@ -564,17 +564,31 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="90W-Jd-PPn">
-                                                            <rect key="frame" x="10" y="10" width="100" height="100"/>
+                                                            <rect key="frame" x="2.5" y="2.5" width="115" height="115"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="100" id="Eyt-7t-Up3"/>
+                                                                <constraint firstAttribute="height" constant="115" id="Eyt-7t-Up3"/>
                                                                 <constraint firstAttribute="width" secondItem="90W-Jd-PPn" secondAttribute="height" id="xoL-XS-CEj"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEI-8t-x2t">
+                                                            <rect key="frame" x="5" y="8" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="UR7-Wj-Qej"/>
+                                                                <constraint firstAttribute="width" secondItem="fEI-8t-x2t" secondAttribute="height" multiplier="1:1" id="jEg-o5-V80"/>
+                                                            </constraints>
+                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <state key="normal" image="icon-trash-black-small"/>
+                                                            <connections>
+                                                                <action selector="trashButtonClicked" destination="Obg-on-6Re" eventType="touchUpInside" id="Q43-5x-ew9"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="90W-Jd-PPn" firstAttribute="centerY" secondItem="Tl9-7O-tgh" secondAttribute="centerY" id="Soh-Zx-L9O"/>
                                                         <constraint firstItem="90W-Jd-PPn" firstAttribute="centerX" secondItem="Tl9-7O-tgh" secondAttribute="centerX" id="TK1-H1-YlP"/>
+                                                        <constraint firstItem="fEI-8t-x2t" firstAttribute="leading" secondItem="Tl9-7O-tgh" secondAttribute="leading" constant="5" id="lap-66-zKm"/>
+                                                        <constraint firstItem="fEI-8t-x2t" firstAttribute="top" secondItem="Tl9-7O-tgh" secondAttribute="top" constant="8" id="u0N-ah-LYH"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -587,6 +601,7 @@
                                         </constraints>
                                         <size key="customSize" width="120" height="120"/>
                                         <connections>
+                                            <outlet property="buttonTrash" destination="fEI-8t-x2t" id="QLQ-7k-E0m"/>
                                             <outlet property="containerView" destination="Tl9-7O-tgh" id="r7M-cl-hL8"/>
                                             <outlet property="imageView" destination="90W-Jd-PPn" id="LUt-12-S7Q"/>
                                         </connections>
@@ -614,7 +629,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1o-Rk-Icr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9569" y="402"/>
+            <point key="canvasLocation" x="9568.7999999999993" y="401.64917541229386"/>
         </scene>
         <!--Note Preview View Controller-->
         <scene sceneID="5Gn-Vn-8nO">

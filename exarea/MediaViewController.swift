@@ -14,27 +14,24 @@ class MediaViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var booth: Booth!
-    var audioURLs: [URL]?
-    var notes: [Note]?
+    
+    var files = [File]()
+    
     private var player: AVAudioPlayer!
     private var playingIndexPath: IndexPath!
     private var displayLink: CADisplayLink!
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
-    private var isNote: Bool {
-        return self.notes != nil
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? NotePreviewViewController, let note = sender as? Note {
-            vc.note = note
-        } else if let vc = segue.destination as? NoteViewController, let note = sender as? Note {
+        if let vc = segue.destination as? NotePreviewViewController, let note = sender as? NoteFile {
+            vc.note = note.converted
+        } else if let vc = segue.destination as? NoteViewController, let note = sender as? NoteFile {
             vc.delegate = self
             vc.note = note
         }
@@ -48,15 +45,15 @@ extension MediaViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.isNote ? self.notes!.count : self.audioURLs!.count
+        return self.files.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if isNote {
+        if let notes = self.files as? [NoteFile] {
             let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NoteTableViewCell
-            let note = self.notes![indexPath.row]
-            cell.update(with: note)
+            let item = notes[indexPath.row]
+            cell.update(with: item.converted)
             cell.delegate = self
             return cell
         } else {
@@ -77,8 +74,8 @@ extension MediaViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if isNote {
-            let note = self.notes![indexPath.row]
+        if let notes = self.files as? [NoteFile] {
+            let note = notes[indexPath.row]
             self.performSegue(withIdentifier: "toNotePreviewVC", sender: note)
         }
     }
@@ -91,13 +88,12 @@ extension MediaViewController: UITableViewDelegate, UITableViewDataSource {
 extension MediaViewController: PlayableTableViewCellDelegate {
     
     func playButtonTappedFor(_ cell: UITableViewCell) {
-        guard
-            let indexPath = self.tableView.indexPath(for: cell),
-            let audioURL = self.audioURLs?[indexPath.row]
-        else { return }
+        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
+        
+        let audio = self.files[indexPath.row]
         
         guard self.player != nil else {
-            self.prepareToPlay(url: audioURL) {
+            self.prepareToPlay(url: audio.url) {
                 self.playButtonTappedFor(cell)
             }
             return
@@ -160,13 +156,9 @@ extension MediaViewController: EditableTableViewCellDelegate, DeletableTableView
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let yes = UIAlertAction(title: "بله", style: .destructive) { _ in
             do {
-                if let audioURL = self.audioURLs?[indexPath.row] {
-                    try self.booth.deleteAudio(at: audioURL)
-                    try self.audioURLs = self.booth.getAudios()
-                } else if let note = self.notes?[indexPath.row] {
-                    try self.booth.deleteNote(note)
-                    try self.notes = self.booth.getNotes()
-                }
+                let file = self.files[indexPath.row]
+                try self.booth.delete(file: file)
+                self.files.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .left)
             } catch {
                 print(error)
@@ -178,11 +170,8 @@ extension MediaViewController: EditableTableViewCellDelegate, DeletableTableView
     }
     
     func editButtonTappedFor(_ cell: UITableViewCell) {
-        guard
-            let indexPath = self.tableView.indexPath(for: cell),
-            let note = self.notes?[indexPath.row]
-        else { return }
-        
+        guard let indexPath = self.tableView.indexPath(for: cell) else { return }
+        let note = self.files[indexPath.row]
         self.performSegue(withIdentifier: "toNoteVC", sender: note)
     }
 }
@@ -193,14 +182,7 @@ extension MediaViewController: NoteViewControllerDelegate {
         return
     }
     
-    
-    func noteVC(_ noteVC: NoteViewController, didEdit note: Note) {
-        do {
-            try self.booth.saveNote(note)
-            self.dismiss(animated: true)
-            self.notes = try self.booth.getNotes()
-        } catch {
-            print(error)
-        }
+    func noteVC(_ noteVC: NoteViewController, didEdit note: NoteFile) {
+        self.dismiss(animated: true)
     }
 }

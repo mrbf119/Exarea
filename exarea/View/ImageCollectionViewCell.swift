@@ -12,11 +12,21 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var containerView: UIView!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var buttonTrash: UIButton!
+    
+    weak var delegate: DeletableCollectionViewCellDelegate?
+    
+    var isDeletable: Bool = false {
+        didSet {
+            self.buttonTrash?.isHidden = !self.isDeletable
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.imageView.layer.cornerRadius = 7
         self.imageView.clipsToBounds = true
+        self.buttonTrash?.isHidden = !self.isDeletable
     }
     
     func makeShadowed() {
@@ -27,5 +37,9 @@ class ImageCollectionViewCell: UICollectionViewCell {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize(width: 1, height: 1)
+    }
+    
+    @IBAction private func trashButtonClicked() {
+        self.delegate?.deleteButtonTappedFor(self)
     }
 }

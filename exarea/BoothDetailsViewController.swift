@@ -139,7 +139,7 @@ class BoothDetailsViewController: UIViewController {
         if let vc = segue.destination as? ProductsViewController, let booth = sender as? Booth {
             vc.booth = booth
         } else if let vc = segue.destination as? AudioRecorderViewController {
-            vc.dirToRecord = self.booth.urlFor(type: .audio)
+            vc.dirToRecord = FileType.audio.folderURL(forBooth: self.booth) 
         } else if let vc = segue.destination as? NoteViewController {
             if let customSegue = segue as? MessagesCenteredSegue {
                 customSegue.dimMode = .blur(style: .dark, alpha: 0.5, interactive: false)
@@ -229,7 +229,6 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .camera
-//        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .camera)!
         imagePicker.cameraCaptureMode = .photo
         imagePicker.cameraFlashMode = .auto
         imagePicker.showsCameraControls = true
@@ -242,15 +241,10 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
-//        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         self.present(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-//        if let tempURL = info[.mediaURL] as? URL {
-//
-//        } else
         self.dismiss(animated: true)
         
         let image: UIImage
@@ -262,7 +256,7 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
             return
         }
         
-        do { try self.booth.saveImage(image) }
+        do { try self.booth.addImageFile(image) }
         catch { print(error) }
     }
     
@@ -274,7 +268,7 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
 extension BoothDetailsViewController: NoteViewControllerDelegate {
     func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andContent content: String?) {
         do {
-            try self.booth.saveNote(title: title, content: content)
+            try self.booth.addNoteFile(title: title, content: content)
             self.dismiss(animated: true)
             self.floaty.setNeedsUpdateConstraints()
         } catch {
@@ -282,7 +276,7 @@ extension BoothDetailsViewController: NoteViewControllerDelegate {
         }
     }
     
-    func noteVC(_ noteVC: NoteViewController, didEdit note: Note) {
+    func noteVC(_ noteVC: NoteViewController, didEdit note: NoteFile) {
         return
     }
 }

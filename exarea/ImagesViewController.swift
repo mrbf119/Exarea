@@ -16,6 +16,7 @@ class ImagesViewController: UIViewController {
     private var cellSize: CGFloat { return 120.0  }
     private var cellMargin: CGFloat { return floor((self.view.bounds.width - (self.cellSize * 2)) / 3 ) }
     
+    var booth: Booth!
     var images = [UIImage]()
 
     override func viewDidLoad() {
@@ -71,4 +72,19 @@ extension ImagesViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
-
+extension ImagesViewController: DeletableCollectionViewCellDelegate {
+    
+    func deleteButtonTappedFor(_ cell: UICollectionViewCell) {
+        guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+        let title = "حذف فایل"
+        let message = "آیا از حذف این فایل مطمئن هستید؟"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let yes = UIAlertAction(title: "بله", style: .destructive) { _ in
+            
+        }
+        let cancel = UIAlertAction(title: "خیر", style: .cancel) { _ in }
+        [yes, cancel].forEach { alert.addAction($0) }
+        self.present(alert, animated: true)
+    }
+    
+}

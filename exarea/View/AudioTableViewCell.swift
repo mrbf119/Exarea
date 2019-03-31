@@ -16,6 +16,10 @@ protocol DeletableTableViewCellDelegate: class {
     func deleteButtonTappedFor(_ cell: UITableViewCell)
 }
 
+protocol DeletableCollectionViewCellDelegate: class {
+    func deleteButtonTappedFor(_ cell: UICollectionViewCell)
+}
+
 protocol PlayableTableViewCellDelegate: class {
     func playButtonTappedFor(_ cell: UITableViewCell)
 }
