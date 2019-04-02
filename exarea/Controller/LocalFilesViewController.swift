@@ -1,5 +1,5 @@
 //
-//  MediaViewController.swift
+//  LocalFilesViewController.swift
 //  exarea
 //
 //  Created by Soroush on 12/15/1397 AP.
@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class MediaViewController: UIViewController {
+class LocalFilesViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
@@ -44,7 +44,7 @@ class MediaViewController: UIViewController {
     
 }
 
-extension MediaViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension LocalFilesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -119,7 +119,7 @@ extension MediaViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-extension MediaViewController: PlayableCollectionViewCellDelegate {
+extension LocalFilesViewController: PlayableCollectionViewCellDelegate {
     
     func playButtonTappedFor(_ cell: UICollectionViewCell) {
         guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
@@ -196,7 +196,7 @@ extension MediaViewController: PlayableCollectionViewCellDelegate {
     }
 }
 
-extension MediaViewController: EditableCollectionViewCellDelegate, DeletableCollectionViewCellDelegate {
+extension LocalFilesViewController: EditableCollectionViewCellDelegate, DeletableCollectionViewCellDelegate {
     
     func deleteButtonTappedFor(_ cell: UICollectionViewCell) {
         guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
@@ -230,7 +230,7 @@ extension MediaViewController: EditableCollectionViewCellDelegate, DeletableColl
     }
 }
 
-extension MediaViewController: NoteViewControllerDelegate {
+extension LocalFilesViewController: NoteViewControllerDelegate {
     
     func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andContent content: String?) {
         return

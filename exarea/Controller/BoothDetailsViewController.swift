@@ -148,7 +148,7 @@ class BoothDetailsViewController: UIViewController {
                 }
             }
             vc.delegate = self
-        } else if let vc = segue.destination as? FilesCategoryTableViewController {
+        } else if let vc = segue.destination as? FileFoldersTableViewController {
             vc.booth = self.booth
         }
     }

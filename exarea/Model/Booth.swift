@@ -62,6 +62,13 @@ class Booth: JSONSerializable, ImageTitled {
     
     var textToShow: String { return self.sEOFriendlyBoothName?.replacingOccurrences(of: "-", with: " ") ?? "" }
     
+    var serverFilesFolderURL: URL {
+        return
+            FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            .appendingPathComponent("BoothFiles", isDirectory: true)
+            .appendingPathComponent(self.fairID.description, isDirectory: true)
+            .appendingPathComponent(self.boothID.description, isDirectory: true)
+    }
 }
 
 //MARK: - file management
@@ -86,7 +93,7 @@ extension Booth {
             else { throw FileSavingError.canNotCreateFile(dir: url.path)}
     }
     
-    func getFiles<T: File>(type: T.Type) throws -> [T] {
+    func getLocalFiles<T: File>(ofType: T.Type) throws -> [T] {
         let url = T.type.folderURL(forBooth: self)
         let urls = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
         return urls.map { T.init(name: $0.lastPathComponent, url: $0) }
@@ -190,5 +197,42 @@ extension Booth {
         NetManager.shared.requestWithValidation(req).response(responseSerializer: [Product].responseDataSerializer) { response in
             completion(response.result)
         }
+    }
+    
+    func getServerFiles(completion: @escaping DataResult<[BoothFile]>) {
+        let params = ["BoothID": self.boothID]
+        let req = CustomRequest(path: "/Booth/File", method: .post, parameters: params).api().authorize()
+        NetManager.shared.requestWithValidation(req).response(responseSerializer: [BoothFile].responseDataSerializer) { response in
+            completion(response.result)
+        }
+    }
+    
+    @discardableResult
+    func open(file: BoothFile, completion: @escaping DataResult<URL>) -> DownloadRequest? {
+        let serverURL = URL(string: file.fileAddress)!
+        let destinationURL = self.serverFilesFolderURL.appendingPathComponent(serverURL.lastPathComponent)
+        if FileManager.default.fileExists(atPath: destinationURL.path) {
+            completion(.success(destinationURL))
+            return nil
+        } else {
+            
+            let req = NetManager.shared.download(serverURL) { (_, _) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
+                return (destinationURL, .createIntermediateDirectories)
+                }.responseData { response in
+                    switch response.result {
+                    case .success:
+                        completion(.success(destinationURL))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+            }
+            return req
+        }
+    }
+    
+    func hasDownloaded(file: BoothFile) -> Bool {
+        let serverURL = URL(string: file.fileAddress)!
+        let destinationURL = self.serverFilesFolderURL.appendingPathComponent(serverURL.lastPathComponent)
+        return FileManager.default.fileExists(atPath: destinationURL.path)
     }
 }

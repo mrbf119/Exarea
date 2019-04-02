@@ -23,10 +23,16 @@ class EmbededViewController: UINavigationController {
     }
     
     override func popViewController(animated: Bool) -> UIViewController? {
-        if self.viewControllers.count < 3 {
-            (self.tabBarController as? MainViewController)?.removeBackButton()
+        
+        if let vc = self.viewControllers.last as? FileFoldersTableViewController {
+            vc.resetMain()
+            return nil
+        } else {
+            if self.viewControllers.count < 3 {
+                (self.tabBarController as? MainViewController)?.removeBackButton()
+            }
+            return super.popViewController(animated: animated)
         }
-        return super.popViewController(animated: animated)
     }
     
     override func popToRootViewController(animated: Bool) -> [UIViewController]? {
