@@ -1628,7 +1628,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                                 <integer key="value" value="0"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="پیام..."/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value=" پیام..."/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="delegate" destination="N5H-Bk-QJJ" id="SmB-c9-Ffb"/>
@@ -1690,6 +1690,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mkK-is-3hz"/>
                     <connections>
+                        <outlet property="bottomConstraint" destination="SEI-3Z-DO4" id="vDK-Ab-LQS"/>
                         <outlet property="buttonSend" destination="uEJ-EP-WTn" id="dcz-eJ-L9B"/>
                         <outlet property="tableView" destination="P9A-a4-cgG" id="dbe-y1-hz1"/>
                         <outlet property="textView" destination="RO6-hv-iZW" id="ndh-3C-1vf"/>
