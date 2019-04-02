@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EE2E2E6924E12C9F2D4EF4D57E302BB3"
+               BuildableName = "ImageSlideshow.framework"
                BlueprintName = "ImageSlideshow"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ImageSlideshow.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

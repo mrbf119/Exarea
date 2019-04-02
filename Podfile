@@ -31,6 +31,8 @@ target 'exarea' do
   
   pod 'UITextView+Placeholder'
   
+  pod 'GrowingTextView', '0.6.1'
+  
   
   inhibit_all_warnings!
 
