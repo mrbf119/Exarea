@@ -60,7 +60,7 @@ class Booth: JSONSerializable, ImageTitled {
         return nil
     }
     
-    var textToShow: String { return self.sEOFriendlyBoothName?.replacingOccurrences(of: "-", with: " ") ?? "" }
+    var textToShow: String { return self.title ?? "" }
     
     var serverFilesFolderURL: URL {
         return

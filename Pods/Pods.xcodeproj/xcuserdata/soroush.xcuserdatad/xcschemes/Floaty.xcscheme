@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8CFF7D709CC2B880BE7BC2613974B4D2"
+               BuildableName = "Floaty.framework"
                BlueprintName = "Floaty"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Floaty.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
