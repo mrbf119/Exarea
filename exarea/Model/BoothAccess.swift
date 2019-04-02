@@ -87,5 +87,23 @@ extension Conversation {
         }
     }
 
-//    func resume
+    func resume(content: String, replyingTo mail: Mail? = nil, completion: @escaping ErrorableResult) {
+        var params = [
+        "ConversationID": self.conversationID,
+        "Content": content
+        ]
+        
+        if let replyID = mail?.mailguid {
+            params["ReplyTo"] = replyID
+        }
+        
+        let req = CustomRequest(path: "/Conversation/ResumeConversation", method: .post, parameters: params).api().authorize()
+        
+        NetManager
+            .shared
+            .requestWithValidation(req)
+            .responseData() { response in
+                completion(response.result.error)
+        }
+    }
 }

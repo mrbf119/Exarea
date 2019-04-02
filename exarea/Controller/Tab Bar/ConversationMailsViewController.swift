@@ -25,7 +25,10 @@ class ConversationMailsViewController: UIViewController {
         self.buttonSend.rounded()
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tabBarController?.tabBar.isHidden = true
-        
+        self.refreshData()
+    }
+    
+    private func refreshData() {
         self.conversation.getMails { result in
             if let mails = result.value {
                 self.mails = mails
@@ -39,14 +42,19 @@ class ConversationMailsViewController: UIViewController {
         }
     }
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
         super.viewWillDisappear(animated)
     }
     
     @IBAction private func didTapSendButton() {
-        
+        guard !self.textView.text.isEmpty else { return }
+        self.conversation.resume(content: self.textView.text) { error in
+            if error == nil {
+                self.textView.text = ""
+                self.refreshData()
+            }
+        }
     }
 }
 
