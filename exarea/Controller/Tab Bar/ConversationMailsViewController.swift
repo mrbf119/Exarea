@@ -23,6 +23,7 @@ class ConversationMailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.buttonSend.rounded()
+        self.textView.maxHeight = 200
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tabBarController?.tabBar.isHidden = true
         self.refreshData()
