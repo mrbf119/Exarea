@@ -84,7 +84,7 @@ extension MainViewController: SearchVCDelegate {
     
     func searchViewController(_ searchVC: SearchViewController, didSelectBooth booth: Booth) {
         if let currentVC = self.viewControllers?[self.selectedIndex] as? UINavigationController {
-            let boothVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "BoothDetailsVC") as! BoothDetailsViewController
+            let boothVC = UIStoryboard.init(name: "Booth", bundle: .main).instantiateViewController(withIdentifier: "BoothDetailsVC") as! BoothDetailsViewController
             boothVC.booth = booth
             currentVC.setViewControllers([currentVC.viewControllers.first!, boothVC], animated: true)
         }

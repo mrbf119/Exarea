@@ -22,6 +22,7 @@ enum FileType: String {
             .appendingPathComponent("BoothFiles", isDirectory: true)
             .appendingPathComponent(booth.fairID.description, isDirectory: true)
             .appendingPathComponent(booth.boothID.description, isDirectory: true)
+            .appendingPathComponent("User")
             .appendingPathComponent(self.rawValue, isDirectory: true)
         return url
     }
