@@ -103,7 +103,7 @@ class BoothDetailsViewController: UIViewController {
         camera.buttonColor = .mainBlueColor
         camera.imageSize.height *= 0.8
         camera.imageSize.width *= 0.8
-        camera.handler = { _ in self.openGallery() }
+        camera.handler = { _ in self.openCamera() }
         
         let note = FloatyItem()
         note.buttonColor = .mainBlueColor

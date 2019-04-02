@@ -31,9 +31,13 @@ class FileFoldersTableViewController: UITableViewController {
         }
     }
     
-    func resetMain() {
-        self.isInLocalMode = false
-        self.tableView.reloadData()
+    func canNavigateBack() -> Bool {
+        if self.isInLocalMode {
+            self.isInLocalMode = false
+            self.tableView.reloadData()
+            return false
+        }
+        return true
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

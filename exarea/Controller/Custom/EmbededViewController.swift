@@ -24,8 +24,7 @@ class EmbededViewController: UINavigationController {
     
     override func popViewController(animated: Bool) -> UIViewController? {
         
-        if let vc = self.viewControllers.last as? FileFoldersTableViewController {
-            vc.resetMain()
+        if let vc = self.viewControllers.last as? FileFoldersTableViewController, !vc.canNavigateBack() {
             return nil
         } else {
             if self.viewControllers.count < 3 {

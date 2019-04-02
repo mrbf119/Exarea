@@ -17,6 +17,7 @@ class ServerFilesViewController: UIViewController {
     
     var booth: Booth!
     private var files = [BoothFileWrapper]()
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
