@@ -78,6 +78,9 @@
 		34B5907F224C1A18004B6E00 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5907E224C1A18004B6E00 /* NoteCollectionViewCell.swift */; };
 		34B59081224ED241004B6E00 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B59080224ED241004B6E00 /* Photo.swift */; };
 		34B59085224ED646004B6E00 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B59084224ED646004B6E00 /* Note.swift */; };
+		34D693DA2254C1520088C6EC /* Rules.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 34D693D92254C1520088C6EC /* Rules.rtf */; };
+		34D693DE2254C72D0088C6EC /* About.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 34D693DD2254C72C0088C6EC /* About.rtf */; };
+		34D693E02254C74F0088C6EC /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D693DF2254C74F0088C6EC /* AboutUsViewController.swift */; };
 		34E310D8215B1A1900C3E68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D7215B1A1900C3E68E /* AppDelegate.swift */; };
 		34E310DA215B1A1900C3E68E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E310D9215B1A1900C3E68E /* LoginViewController.swift */; };
 		34E310DD215B1A1900C3E68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34E310DB215B1A1900C3E68E /* Main.storyboard */; };
@@ -167,6 +170,9 @@
 		34B5907E224C1A18004B6E00 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		34B59080224ED241004B6E00 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		34B59084224ED646004B6E00 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		34D693D92254C1520088C6EC /* Rules.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Rules.rtf; sourceTree = "<group>"; };
+		34D693DD2254C72C0088C6EC /* About.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = About.rtf; sourceTree = "<group>"; };
+		34D693DF2254C74F0088C6EC /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		34E310D4215B1A1900C3E68E /* exarea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = exarea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34E310D7215B1A1900C3E68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34E310D9215B1A1900C3E68E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +355,7 @@
 				342A228A21F7046B0057FB5C /* MenuTableViewController.swift */,
 				342A228C21F706F40057FB5C /* ContactUsViewController.swift */,
 				342A228E21F717F70057FB5C /* RulesViewController.swift */,
+				34D693DF2254C74F0088C6EC /* AboutUsViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -401,6 +408,8 @@
 			isa = PBXGroup;
 			children = (
 				34E310D7215B1A1900C3E68E /* AppDelegate.swift */,
+				34D693D92254C1520088C6EC /* Rules.rtf */,
+				34D693DD2254C72C0088C6EC /* About.rtf */,
 				344E0CAC21F43DB100555759 /* image1.jpg */,
 				344E0CAD21F43DB100555759 /* image2.jpg */,
 				344E0CAE21F43DB100555759 /* image3.jpeg */,
@@ -514,6 +523,8 @@
 				344E0CB121F43DB100555759 /* image2.jpg in Resources */,
 				34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */,
 				3411A1942211772E00DBC057 /* IRANSansMobile(FaNum)_Black.ttf in Resources */,
+				34D693DE2254C72D0088C6EC /* About.rtf in Resources */,
+				34D693DA2254C1520088C6EC /* Rules.rtf in Resources */,
 				3411A1972211772E00DBC057 /* IRANSansMobile(FaNum)_Medium.ttf in Resources */,
 				342C4052225226CC00ABBA9F /* Booth.storyboard in Resources */,
 				344E0CB221F43DB100555759 /* image3.jpeg in Resources */,
@@ -648,6 +659,7 @@
 				342C4044225223AE00ABBA9F /* ProductsViewController.swift in Sources */,
 				342C4047225223AE00ABBA9F /* BoothDetailsViewController.swift in Sources */,
 				341247BF21E5E75B00A34154 /* UITextField+Shake.m in Sources */,
+				34D693E02254C74F0088C6EC /* AboutUsViewController.swift in Sources */,
 				341247D321E629FF00A34154 /* JSONSerializable.swift in Sources */,
 				348816F4220F4FF600EC5CC5 /* EmbededViewController.swift in Sources */,
 				346C8414215B61E300F43F8C /* PaginationManager.swift in Sources */,

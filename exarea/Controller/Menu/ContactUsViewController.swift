@@ -16,5 +16,4 @@ class ContactUsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "تماس با ما"
     }
-
 }

@@ -8,9 +8,24 @@
 
 import UIKit
 
+class RTF {
+    
+    let content: NSAttributedString
+    
+    init?(resource: String) {
+        var attributes: NSDictionary? = nil
+        guard
+            let url = Bundle.main.url(forResource: resource, withExtension: "rtf"),
+            let attr = try? NSAttributedString(url: url, options: [.documentType : NSAttributedString.DocumentType.rtf], documentAttributes: &attributes)
+        else { return nil }
+        self.content = attr
+    }
+}
+
 class RulesViewController: UIViewController {
     
-    @IBOutlet weak var scrollViewContainer: UIView!
+    @IBOutlet private var scrollViewContainer: UIView!
+    @IBOutlet private var labelRules: UILabel!
     
     private var gradient: CAGradientLayer!
     
@@ -18,6 +33,7 @@ class RulesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.labelRules.attributedText = RTF(resource: "Rules")?.content
         self.gradient = CAGradientLayer()
         self.gradient.frame = self.scrollViewContainer.bounds
         self.gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor]
