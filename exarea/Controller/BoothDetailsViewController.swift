@@ -13,6 +13,7 @@ import MapKit
 import Cosmos
 import Floaty
 import SwiftyJSON
+import SwiftMessages
 
 class BoothDetailsViewController: UIViewController {
     
@@ -103,7 +104,7 @@ class BoothDetailsViewController: UIViewController {
         camera.buttonColor = .mainBlueColor
         camera.imageSize.height *= 0.8
         camera.imageSize.width *= 0.8
-        camera.handler = { _ in self.openCamera() }
+        camera.handler = { _ in self.openGallery() }
         
         let note = FloatyItem()
         note.buttonColor = .mainBlueColor
@@ -245,19 +246,23 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        self.dismiss(animated: true)
-        
-        let image: UIImage
-        if let img = info[.editedImage] as? UIImage {
-            image = img
-        } else if let img = info[.originalImage] as? UIImage {
-            image = img
-        } else {
-            return
+        self.dismiss(animated: true) {
+            let image: UIImage
+            if let img = info[.editedImage] as? UIImage {
+                image = img
+            } else if let img = info[.originalImage] as? UIImage {
+                image = img
+            } else {
+                return
+            }
+            
+            do {
+                try self.booth.addImageFile(image)
+                SwiftMessages.toast(content: "تصویر با موفقیت افزوده شد.")
+            } catch {
+                SwiftMessages.toastError()
+            }
         }
-        
-        do { try self.booth.addImageFile(image) }
-        catch { print(error) }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -269,9 +274,11 @@ extension BoothDetailsViewController: NoteViewControllerDelegate {
     func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andContent content: String?) {
         do {
             try self.booth.addNoteFile(title: title, content: content)
+            SwiftMessages.toast(content: "یادداشت با موفقیت افزوده شد.")
             self.dismiss(animated: true)
             self.floaty.setNeedsUpdateConstraints()
         } catch {
+            SwiftMessages.toastError()
             print(error)
         }
     }
