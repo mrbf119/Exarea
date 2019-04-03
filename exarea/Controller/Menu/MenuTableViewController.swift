@@ -75,7 +75,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             let message = "آیا با پشتیبانی تماس حاصل شود؟"
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let yes = UIAlertAction(title: "بله", style: .default) { _ in
-                if let url = URL(string: "tel://+989129302311"), UIApplication.shared.canOpenURL(url) {
+                if let url = URL(string: "tel://+982195118734"), UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.openURL(url)
                 }
             }
