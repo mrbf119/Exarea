@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -1162,8 +1163,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="LHk-lC-EYP">
-                                <rect key="frame" x="20" y="40" width="335" height="338"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LHk-lC-EYP">
+                                <rect key="frame" x="20" y="182" width="335" height="303"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JvK-ef-Aft">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="61"/>
@@ -1195,7 +1196,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lfA-3v-p9s">
-                                        <rect key="frame" x="0.0" y="76" width="335" height="57"/>
+                                        <rect key="frame" x="0.0" y="69" width="335" height="57"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="246" text="منطقه آزاد ماکو، دانشگاه پیام نور، مرکز نوآوری و فناوری سازمان منطقه آزاد ماکو، کدپستی: 5861994485" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMN-Eu-O1d">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="57"/>
@@ -1213,7 +1214,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OxT-RU-GtN">
-                                        <rect key="frame" x="0.0" y="148" width="335" height="38"/>
+                                        <rect key="frame" x="0.0" y="134" width="335" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="246" text="تهران، بلوار ارتش (شرق به غرب)، بعد از چهارراه مینی سیتی، پلاک 79، مجتمع کاسپین، واحد 13" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8J-tg-uqB">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="38"/>
@@ -1231,7 +1232,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oFS-0K-uuR">
-                                        <rect key="frame" x="0.0" y="201" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="180" width="335" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9E-MG-Uqw">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -1250,7 +1251,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eTH-tW-FPy">
-                                        <rect key="frame" x="0.0" y="246" width="335" height="30"/>
+                                        <rect key="frame" x="0.0" y="218" width="335" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3o9-mz-7Yf">
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -1269,7 +1270,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="shE-DF-ag7">
-                                        <rect key="frame" x="0.0" y="291" width="335" height="47"/>
+                                        <rect key="frame" x="0.0" y="256" width="335" height="47"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDa-Rd-vNg">
                                                 <rect key="frame" x="17" y="0.0" width="301.5" height="1"/>
@@ -1343,8 +1344,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LHk-lC-EYP" firstAttribute="top" secondItem="735-eh-JC4" secondAttribute="top" constant="20" id="Q5Q-1a-0MF"/>
                             <constraint firstItem="LHk-lC-EYP" firstAttribute="leading" secondItem="WjU-Ai-Pd9" secondAttribute="leading" constant="20" id="RGi-Ad-31E"/>
+                            <constraint firstItem="LHk-lC-EYP" firstAttribute="centerY" secondItem="WjU-Ai-Pd9" secondAttribute="centerY" id="RNx-BQ-g17"/>
                             <constraint firstItem="735-eh-JC4" firstAttribute="trailing" secondItem="LHk-lC-EYP" secondAttribute="trailing" constant="20" id="vEw-56-Fir"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="735-eh-JC4"/>
