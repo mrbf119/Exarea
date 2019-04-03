@@ -6,7 +6,7 @@
 //  Copyright © 1397 tamtom. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ConversationTableViewCell: UITableViewCell {
     

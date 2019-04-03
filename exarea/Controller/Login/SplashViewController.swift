@@ -56,14 +56,9 @@ class SplashViewController: UIViewController {
                     print(error)
                 }
             } else {
-                self.goToLoginOptionsVC()
+                Account.logout()
             }
         }
-    }
-    
-    private func goToLoginOptionsVC() {
-        let homeVC = UIStoryboard(name: "Login", bundle: .main).instantiateViewController(withIdentifier: "LoginOptionsVC")
-        self.navigationController?.setViewControllers([homeVC], animated: true)
     }
     
     private func goToMainVC() {

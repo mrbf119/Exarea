@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct MainSliderItem: JSONSerializable {
+    let sliderID: Int
+    let title: String?
+    let imageAddress: String
+    let link: String?
+    let location: String?
+}
+
 struct Fair: JSONSerializable, ImageTitled {
     let fairID: Int
     let name: String
@@ -39,6 +47,16 @@ extension Fair {
             .requestWithValidation(req)
             .response(responseSerializer: [Fair].responseDataSerializer) { response in
             completion(response.result)
+        }
+    }
+    
+    static func mainSlider(completion: @escaping DataResult<[MainSliderItem]>) {
+        let req = CustomRequest(path: "/Fair/MainSlider", method: .post).api()
+        NetManager
+            .shared
+            .requestWithValidation(req)
+            .response(responseSerializer: [MainSliderItem].responseDataSerializer) { response in
+                completion(response.result)
         }
     }
 }

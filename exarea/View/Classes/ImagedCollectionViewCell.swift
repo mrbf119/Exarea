@@ -8,21 +8,7 @@
 
 import UIKit
 
-class ShadowableCollectionCell: UICollectionViewCell {
-    @IBOutlet var containerView: UIView!
-    
-    func makeShadowed() {
-        self.containerView.clipsToBounds = true
-        self.containerView.layer.cornerRadius = 7
-        self.clipsToBounds = false
-        self.layer.shadowRadius = 3
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.3
-        self.layer.shadowOffset = CGSize(width: 1, height: 1)
-    }
-}
-
-class ImageCollectionViewCell: ShadowableCollectionCell {
+class ImagedCollectionViewCell: ShadowableCollectionCell {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var buttonTrash: UIButton!

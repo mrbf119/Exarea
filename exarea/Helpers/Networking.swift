@@ -74,12 +74,6 @@ class NetManager: SessionManager, RequestRetrier {
         return dataRequest
     }
     
-    var isOnline: Bool {
-        let isReachable = NetworkReachabilityManager()!.isReachable
-        //if !isReachable { LocalNotification.toast(message: NetManager.Message.internetAccess, type: .error) }
-        return isReachable
-    }
-    
     func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
         self.lock.lock() ; defer { self.lock.unlock() }
         

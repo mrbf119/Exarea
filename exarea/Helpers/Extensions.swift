@@ -8,6 +8,10 @@
 
 import Alamofire
 
+extension Notification {
+    static let logout = Notification(name: .init("exarea.logout"))
+}
+
 extension UIView {
     func rounded() {
         self.clipsToBounds = true

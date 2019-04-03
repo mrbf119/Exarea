@@ -93,6 +93,7 @@ class Account: JSONSerializable {
     
     class func logout() {
         self.clearKeychain()
+        NotificationCenter.default.post(.logout)
     }
 }
 

@@ -29,10 +29,16 @@ class HomeViewController: UIViewController {
     private var cellSize: CGFloat { return 140  }
     private var cellMargin: CGFloat { return ((self.view.bounds.width - (self.cellSize * 2)) / 3 ) }
     private var sliderCurrentPage = 0
+    private var sliderItems = [MainSliderItem]() {
+        didSet {
+            self.collectionView.reloadSections(IndexSet(integer: 0))
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getData()
+        self.getSliderItems()
     }
     
     private func getData() {
@@ -42,6 +48,17 @@ class HomeViewController: UIViewController {
                 self.collectionView.reloadData()
             }
             print(error)
+        }
+    }
+    
+    private func getSliderItems() {
+        Fair.mainSlider { result in
+            switch result {
+            case .success(let items):
+                self.sliderItems = items
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     
@@ -97,12 +114,8 @@ extension HomeViewController: UICollectionViewDataSource {
                     fatalError("Invalid view type")
             }
             
-            headerView.slideShow.setImageInputs([
-                KingfisherSource(url: Bundle.main.url(forResource: "image1", withExtension: ".jpg")!),
-                KingfisherSource(url: Bundle.main.url(forResource: "image2", withExtension: ".jpg")!),
-                KingfisherSource(url: Bundle.main.url(forResource: "image3", withExtension: ".jpeg")!),
-                KingfisherSource(url: Bundle.main.url(forResource: "image4", withExtension: ".jpeg")!)
-                ])
+            let items = self.sliderItems.map { KingfisherSource(url: URL(string: $0.imageAddress)!) }
+            headerView.slideShow.setImageInputs(items)
             headerView.slideShow.slideshowInterval = 4
             headerView.slideShow.circular = true
             headerView.slideShow.contentScaleMode = .scaleToFill
