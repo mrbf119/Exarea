@@ -113,7 +113,7 @@ extension Booth {
         let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
         let params = pageParams.merging(["FairID": fair.fairID]) { old, new in new }
         let req = CustomRequest(path: "/Booth/List", method: .post, parameters: params).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
             completion(response.result)
         }
     }
@@ -121,7 +121,7 @@ extension Booth {
     func getScore(completion: @escaping ErrorableResult) {
         let params = ["BoothID": self.boothID]
         let req = CustomRequest(path: "/Booth/BoothScore", method: .post, parameters: params).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
             if let value = response.result.value, let score = Int(value) {
                 self._score = score
             }
@@ -132,7 +132,7 @@ extension Booth {
     func doScore(_ score: Int, completion: @escaping ErrorableResult) -> DataRequest {
         let params = ["BoothID": self.boothID, "Score": score]
         let req = CustomRequest(path: "/Booth/DoScore", method: .post, parameters: params).api().authorize()
-        let dataReq = NetManager.shared.requestWithValidation(req).responseData { response in
+        let dataReq = NetworkManager.session.requestWithValidation(req).responseData { response in
             guard let error = response.result.error else {
                 self.getScore(completion: completion)
                 return
@@ -146,7 +146,7 @@ extension Booth {
     func getPhotos(completion: @escaping ErrorableResult) {
         let params = ["BoothID": self.boothID]
         let req = CustomRequest(path: "/Booth/Photo", method: .post, parameters: params).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Photo].responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Photo].responseDataSerializer) { response in
             self._photos = response.result.value
             completion(response.result.error)
         }
@@ -155,7 +155,7 @@ extension Booth {
     func favorite(action: FavoriteAction, completion: @escaping ErrorableResult) {
         let params = ["BoothID": self.boothID]
         let req = CustomRequest(path: "/Booth/\(action.path)Favorite", method: .post, parameters: params).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
             if let boolString = response.result.value, let isTrue = Bool(exactly: NSNumber(value: Int(boolString)!)) {
                 if action == .is {
                     self._isFavorite = isTrue
@@ -170,7 +170,7 @@ extension Booth {
     static func getFavorites(page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
         let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
         let req = CustomRequest(path: "/Booth/Favorites", method: .post, parameters: pageParams).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
             completion(response.result)
         }
     }
@@ -178,7 +178,7 @@ extension Booth {
     static func search(query: String, page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
         let params: Parameters = ["FetchRow": page + pageSize, "SkipRow": page, "TargetWord": query]
         let req = CustomRequest(path: "/Search/SearchBooth", method: .post, parameters: params).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
             completion(response.result)
         }
     }
@@ -186,7 +186,7 @@ extension Booth {
     static func getInfo(id: Int, completion: @escaping DataResult<Booth>) {
         let params = ["BoothID": id]
         let req = CustomRequest(path: "/Booth/Info", method: .post, parameters: params).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: Booth.responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: Booth.responseDataSerializer) { response in
             completion(response.result)
         }
     }
@@ -194,7 +194,7 @@ extension Booth {
     func getProducts(completion: @escaping DataResult<[Product]>) {
         let params = ["BoothID": self.boothID]
         let req = CustomRequest(path: "/Booth/ProductList", method: .post, parameters: params).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: [Product].responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Product].responseDataSerializer) { response in
             completion(response.result)
         }
     }
@@ -202,7 +202,7 @@ extension Booth {
     func getServerFiles(completion: @escaping DataResult<[BoothFile]>) {
         let params = ["BoothID": self.boothID]
         let req = CustomRequest(path: "/Booth/File", method: .post, parameters: params).api().authorize()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: [BoothFile].responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: [BoothFile].responseDataSerializer) { response in
             completion(response.result)
         }
     }
@@ -216,7 +216,7 @@ extension Booth {
             return nil
         } else {
             
-            let req = NetManager.shared.download(serverURL) { (_, _) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
+            let req = NetworkManager.session.download(serverURL) { (_, _) -> (destinationURL: URL, options: DownloadRequest.DownloadOptions) in
                 return (destinationURL, .createIntermediateDirectories)
                 }.responseData { response in
                     switch response.result {

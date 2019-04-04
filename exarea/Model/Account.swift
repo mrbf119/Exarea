@@ -101,7 +101,7 @@ extension Account {
     
     class func login(with form: LoginForm, completion: @escaping ErrorableResult) {
         let req = CustomRequest(path: "/Account/Login", method: .post, parameters: form.parameters!).api()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
             if let user = response.result.value {
                 Account.current = user
             }
@@ -111,14 +111,14 @@ extension Account {
     
     class func register(with form: RegisterForm, completion: @escaping DataResult<String>) {
         let req = CustomRequest(path: "/Account/Register", method: .post, parameters: form.parameters!).api()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
             completion(response.result)
         }
     }
     
     class func activate(with form: ActivateForm, completion: @escaping ErrorableResult) {
         let req = CustomRequest(path: "/Account/AccountActivation", method: .post, parameters: form.parameters!).api()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
             if let user = response.result.value {
                 Account.current = user
             }
@@ -130,7 +130,7 @@ extension Account {
         let form = AuthLoginForm(userToken: self.userToken, sessionID: self.sessionID!
         )
         let req = CustomRequest(path: "/Account/LoginUserWithTokenAndSession", method: .post, parameters: form.parameters!).api()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
             if let user = response.result.value {
                 Account.current = user
             }
@@ -144,7 +144,7 @@ extension Account {
             parameters["EMail"] = email
         }
         let req = CustomRequest(path: "/Account/UpdateUserInfo", method: .post, parameters: parameters).api().authorize()
-        NetManager.shared.requestWithValidation(req).responseData { response in
+        NetworkManager.session.requestWithValidation(req).responseData { response in
             self.getInfo(completion: completion)
         }
     }
@@ -152,7 +152,7 @@ extension Account {
     func getInfo(completion: @escaping ErrorableResult) {
         let form = AuthLoginForm(userToken: self.userToken, sessionID: self.sessionID!)
         let req = CustomRequest(path: "/Account/UserInfo", method: .post, parameters: form.parameters!).api()
-        NetManager.shared.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: Account.responseDataSerializer) { response in
             if let user = response.result.value {
                 user.role = Account.current!.role
                 user.sessionID = Account.current!.sessionID

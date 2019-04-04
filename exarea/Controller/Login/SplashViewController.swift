@@ -8,11 +8,17 @@
 
 import UIKit
 import NVActivityIndicatorView
+import SwiftMessages
 
 class SplashViewController: UIViewController {
     
-    @IBOutlet weak var centerView: UIView!
-    @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!
+    @IBOutlet private var shimmerContentView: UIView!
+    @IBOutlet private var loadingIndicator: NVActivityIndicatorView!
+    @IBOutlet private var imageViewLoadingStatus: UIImageView!
+    @IBOutlet private var labelLoadingStatus: UILabel!
+    @IBOutlet private var shimmerView: ShimmeringView!
+    @IBOutlet private var buttonRetry: UIButton!
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -27,37 +33,73 @@ class SplashViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.loadingIndicator.color = .mainYellowColor
         self.loadingIndicator.type = .ballPulse
-        self.loadingIndicator.startAnimating()
         
-        let shimmerView = ShimmeringView(frame: self.centerView.frame)
-        self.view.addSubview(shimmerView)
-        
-        shimmerView.contentView = self.centerView
-        shimmerView.isShimmering = true
-        shimmerView.shimmerHighlightLength = 1
-        shimmerView.shimmerAnimationOpacity = 0.8
-        shimmerView.center = self.view.center
+        self.shimmerView.contentView = self.shimmerContentView
+        self.shimmerView.shimmerHighlightLength = 1
+        self.shimmerView.shimmerAnimationOpacity = 0.8
+        self.shimmerView.center = self.view.center
+        self.hideRetry()
+    }
+    
+    private func hideRetry() {
+        self.imageViewLoadingStatus.isHidden = true
+        self.labelLoadingStatus.isHidden = true
+        self.buttonRetry.isHidden = true
     }
     
     private func checkUserActivity() {
+        self.startLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if let account = Account.current {
                 account.loginWithToken { error in
                     guard let error = error else {
-                        account.getInfo { e in
-                            guard let error = e else {
-                                self.goToMainVC()
-                                return
-                            }
-                            print(error)
-                        }
+                        self.getInfo(for: account)
                         return
                     }
-                    print(error)
+                    self.stopLoading()
+                    self.handle(error: error)
                 }
-            } else {
-                Account.logout()
+            } else { Account.logout() }
+        }
+    }
+    
+    private func getInfo(for account: Account) {
+        account.getInfo { error in
+            guard let error = error else {
+                self.goToMainVC()
+                return
             }
+            self.stopLoading()
+            self.handle(error: error)
+        }
+    }
+    
+    @IBAction private func retryButtonClicked() {
+        self.hideRetry()
+        self.startLoading()
+        self.checkUserActivity()
+    }
+    
+    private func startLoading() {
+        self.loadingIndicator.startAnimating()
+        self.shimmerView.isShimmering = true
+    }
+    
+    private func stopLoading() {
+        self.loadingIndicator.stopAnimating()
+        self.shimmerView.isShimmering = false
+    }
+    
+    private func handle(error: Error) {
+        if let netError = error as? NetworkError, case NetworkError.noInternetAccess = netError {
+            self.labelLoadingStatus.text = netError.recoverySuggestion
+            if let image = netError.image {
+                self.imageViewLoadingStatus.image = image
+                self.imageViewLoadingStatus.isHidden = false
+            }
+            self.buttonRetry.isHidden = false
+            self.labelLoadingStatus.isHidden = false
+            self.view.layoutIfNeeded()
         }
     }
     

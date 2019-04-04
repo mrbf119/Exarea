@@ -112,7 +112,7 @@ extension UIFont {
 }
 
 extension UIColor {
-    static let mainYellowColor = UIColor(hex: 0xfdd400)!
+    static let mainYellowColor = UIColor(hex: 0xFDB913)!
     static let mainBlueColor = UIColor(hex: 0x1a2035)!
     static var borderGrey = UIColor(hex: 0xC0C1C0)!
     
