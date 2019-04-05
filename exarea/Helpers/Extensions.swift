@@ -9,25 +9,6 @@
 import Alamofire
 import SwiftMessages
 
-extension SwiftMessages {
-    
-    static func toastError(content: String? = nil) {
-        let generalError = "عملیات با مشکل مواجه شد."
-        self.toast(content: content ?? generalError , theme: .error)
-    }
-    
-    static func toast(content: String, theme: Theme = .success) {
-        let view = MessageView.viewFromNib(layout: .statusLine)
-        view.configureTheme(theme)
-        view.bodyLabel?.font = UIFont.iranSans.withSize(17)
-        view.configureDropShadow()
-        view.configureContent(body: content)
-        view.layoutMarginAdditions = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
-        SwiftMessages.show(view: view)
-    }
-}
-
 extension Notification {
     static let logout = Notification(name: .init("exarea.logout"))
 }

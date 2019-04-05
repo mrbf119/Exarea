@@ -12,28 +12,32 @@ import SwiftyJSON
 typealias DataResult<T> = (Result<T>) -> Void
 typealias ErrorableResult = (Error?) -> Void
 
+class RetryNeededError: ToastableError {
+    
+    var image: UIImage? { return UIImage(named: "icon-noConnection-white") }
+    let failureReason: String?
+    let recoverySuggestion: String?
+    
+    static let noInternetAccess = RetryNeededError(reason: "خطا در اتصال به اینترنت", suggestion: "لطفا تنظیمات شبکه را بررسی کنید.")
+    
+    init(reason: String, suggestion: String? = nil) {
+        self.failureReason = reason
+        self.recoverySuggestion = suggestion
+    }
+}
+
 enum NetworkError: LocalizedError {
-    case noInternetAccess
     case resultTypeError(message: String, status: Int)
+    case general
     
     var recoverySuggestion: String? {
-        switch self {
-        case .noInternetAccess: return "لطفا تنظیمات شبکه را بررسی کنید."
-        default:                return nil
-        }
+        return nil
     }
     
-    var errorDescription: String? {
+    var failureReason: String? {
         switch self {
-        case .noInternetAccess:                        return "خطا در اتصال به اینترنت"
+        case .general:                                 return "عملیات با خطا مواجه شد."
         case .resultTypeError(let message, status: _): return message
-        }
-    }
-    
-    var image: UIImage? {
-        switch self {
-        case .noInternetAccess: return UIImage(named: "icon-noConnection-yellow")
-        default:                return nil
         }
     }
 }
@@ -45,8 +49,15 @@ class NetworkManager: SessionManager {
         let session = SessionManager(configuration: config, delegate: CustomSessionDelegate())
         session.retrier = CustomSessionRetrier()
         session.adapter = CustomSessionAdapter()
+        session.delegate.taskDidComplete = { session, task, error in
+            if let toastable = error as? ToastableError, !(toastable is RetryNeededError) {
+                NetworkManager.toaster?.toast(error: toastable)
+            }
+        }
         return session
     }()
+    
+    static var toaster: Toaster?
 }
 
 class CustomSessionRetrier: RequestRetrier {
@@ -74,9 +85,7 @@ class CustomSessionRetrier: RequestRetrier {
                 self.isRefreshingTokens = true
             case 400:
                 completion(false, 0.0)
-                DispatchQueue.main.async {
-                    self.resetRefreshCount()
-                }
+                self.resetRefreshCount()
             default:
                 completion(false, 0.0)
                 return
@@ -89,7 +98,7 @@ class CustomSessionRetrier: RequestRetrier {
 
 class CustomSessionDelegate: SessionDelegate {
     override func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        let err: Error? = (error as? URLError)?.code == URLError.Code(rawValue: -1009) ? NetworkError.noInternetAccess : error
+        let err: Error? = (error as? URLError)?.code == URLError.Code(rawValue: -1009) ? RetryNeededError.noInternetAccess : error
         super.urlSession(session, task: task, didCompleteWithError: err)
     }
 }

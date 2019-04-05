@@ -14,11 +14,7 @@ class SplashViewController: UIViewController {
     
     @IBOutlet private var shimmerContentView: UIView!
     @IBOutlet private var loadingIndicator: NVActivityIndicatorView!
-    @IBOutlet private var imageViewLoadingStatus: UIImageView!
-    @IBOutlet private var labelLoadingStatus: UILabel!
     @IBOutlet private var shimmerView: ShimmeringView!
-    @IBOutlet private var buttonRetry: UIButton!
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -34,17 +30,10 @@ class SplashViewController: UIViewController {
         self.loadingIndicator.color = .mainYellowColor
         self.loadingIndicator.type = .ballPulse
         
-        self.shimmerView.contentView = self.shimmerContentView
+//        self.shimmerView.contentView = self.shimmerContentView
         self.shimmerView.shimmerHighlightLength = 1
         self.shimmerView.shimmerAnimationOpacity = 0.8
         self.shimmerView.center = self.view.center
-        self.hideRetry()
-    }
-    
-    private func hideRetry() {
-        self.imageViewLoadingStatus.isHidden = true
-        self.labelLoadingStatus.isHidden = true
-        self.buttonRetry.isHidden = true
     }
     
     private func checkUserActivity() {
@@ -75,9 +64,8 @@ class SplashViewController: UIViewController {
     }
     
     @IBAction private func retryButtonClicked() {
-        self.hideRetry()
-        self.startLoading()
-        self.checkUserActivity()
+//        self.hideRetry()
+        
     }
     
     private func startLoading() {
@@ -91,15 +79,11 @@ class SplashViewController: UIViewController {
     }
     
     private func handle(error: Error) {
-        if let netError = error as? NetworkError, case NetworkError.noInternetAccess = netError {
-            self.labelLoadingStatus.text = netError.recoverySuggestion
-            if let image = netError.image {
-                self.imageViewLoadingStatus.image = image
-                self.imageViewLoadingStatus.isHidden = false
+        if let retryNeeded = error as? RetryNeededError {
+            Toaster.default.toast(error: retryNeeded) {
+                self.startLoading()
+                self.checkUserActivity()
             }
-            self.buttonRetry.isHidden = false
-            self.labelLoadingStatus.isHidden = false
-            self.view.layoutIfNeeded()
         }
     }
     

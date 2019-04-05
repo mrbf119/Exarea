@@ -94,6 +94,7 @@
 		34E7DC5821F0783300D3292C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5721F0783300D3292C /* MainViewController.swift */; };
 		34E7DC5A21F086D100D3292C /* PitTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E7DC5921F086D100D3292C /* PitTabBar.swift */; };
 		34EADB2421F260D6001DFF62 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EADB2321F260D6001DFF62 /* HomeViewController.swift */; };
+		34F50B502256B5C3001AA8D5 /* Toaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F50B4F2256B5C3001AA8D5 /* Toaster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,6 +188,7 @@
 		34E7DC5721F0783300D3292C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		34E7DC5921F086D100D3292C /* PitTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitTabBar.swift; sourceTree = "<group>"; };
 		34EADB2321F260D6001DFF62 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		34F50B4F2256B5C3001AA8D5 /* Toaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toaster.swift; sourceTree = "<group>"; };
 		379F1EA477EF34FCD7F3AC36 /* Pods-exarea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-exarea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-exarea/Pods-exarea.debug.xcconfig"; sourceTree = "<group>"; };
 		9C7E6D336257AC577BB97EAB /* Pods_exarea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_exarea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC81AFB9D035D9F7E82D3B21 /* Pods-exarea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-exarea.release.xcconfig"; path = "Pods/Target Support Files/Pods-exarea/Pods-exarea.release.xcconfig"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				341247D221E629FF00A34154 /* JSONSerializable.swift */,
 				341247CD21E6287400A34154 /* Networking.swift */,
 				34E310F1215B348F00C3E68E /* Extensions.swift */,
+				34F50B4F2256B5C3001AA8D5 /* Toaster.swift */,
 				343C211D220DD01F00F4CB0D /* Activities.swift */,
 				34E7DC5921F086D100D3292C /* PitTabBar.swift */,
 				346C8413215B61E300F43F8C /* PaginationManager.swift */,
@@ -648,6 +651,7 @@
 				342A228821F588F10057FB5C /* ImageTitledCollectionCell.swift in Sources */,
 				342A228621F581240057FB5C /* Fair.swift in Sources */,
 				34E310F2215B348F00C3E68E /* Extensions.swift in Sources */,
+				34F50B502256B5C3001AA8D5 /* Toaster.swift in Sources */,
 				342C402E225132DC00ABBA9F /* BoothFile.swift in Sources */,
 				34E7DC5821F0783300D3292C /* MainViewController.swift in Sources */,
 				343C211C220DB16D00F4CB0D /* ShadowedView.swift in Sources */,

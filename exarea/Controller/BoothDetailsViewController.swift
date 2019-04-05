@@ -13,7 +13,6 @@ import MapKit
 import Cosmos
 import Floaty
 import SwiftyJSON
-import SwiftMessages
 
 class BoothDetailsViewController: UIViewController {
     
@@ -104,7 +103,7 @@ class BoothDetailsViewController: UIViewController {
         camera.buttonColor = .mainBlueColor
         camera.imageSize.height *= 0.8
         camera.imageSize.width *= 0.8
-        camera.handler = { _ in self.openGallery() }
+        camera.handler = { _ in self.openCamera() }
         
         let note = FloatyItem()
         note.buttonColor = .mainBlueColor
@@ -258,9 +257,9 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
             
             do {
                 try self.booth.addImageFile(image)
-                SwiftMessages.toast(content: "تصویر با موفقیت افزوده شد.")
+                Toaster.default.toast(title: "عملیات انجام شد", content: "تصویر با موفقیت افزوده شد.")
             } catch {
-                SwiftMessages.toastError()
+                Toaster.default.toast(title: "خطا", content: NetworkError.general.failureReason!, theme: .error)
             }
         }
     }
@@ -274,11 +273,11 @@ extension BoothDetailsViewController: NoteViewControllerDelegate {
     func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andContent content: String?) {
         do {
             try self.booth.addNoteFile(title: title, content: content)
-            SwiftMessages.toast(content: "یادداشت با موفقیت افزوده شد.")
+            Toaster.default.toast(title: "عملیات انجام شد", content: "یادداشت با موفقیت افزوده شد.")
             self.dismiss(animated: true)
             self.floaty.setNeedsUpdateConstraints()
         } catch {
-            SwiftMessages.toastError()
+            Toaster.default.toast(title: "خطا", content: NetworkError.general.failureReason!, theme: .error)
             print(error)
         }
     }

@@ -115,7 +115,7 @@ class AudioRecorderViewController: UIViewController {
         }
         
         self.dismiss(animated: true) {
-            SwiftMessages.toast(content: "فایل صوتی با موفقیت افزوده شد.")
+            Toaster.default.toast(title: "عملیات با موفقیت انجام شد", content: "فایل صوتی با موفقیت افزوده شد.")
         }
     }
     

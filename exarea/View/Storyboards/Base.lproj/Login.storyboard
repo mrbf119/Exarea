@@ -494,13 +494,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2t-fM-JSm" customClass="ShimmeringView" customModule="exarea" customModuleProvider="target">
-                                <rect key="frame" x="87" y="116.5" width="201.5" height="370.5"/>
+                                <rect key="frame" x="87" y="190.5" width="201.5" height="222.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qz9-VG-yIs">
-                                        <rect key="frame" x="0.0" y="0.0" width="201.5" height="370.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="201.5" height="222.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eNa-H3-5xE">
-                                                <rect key="frame" x="0.0" y="0.0" width="201.5" height="370.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="201.5" height="222.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ClU-8H-laQ">
                                                         <rect key="frame" x="50.5" y="0.0" width="100" height="100"/>
@@ -515,38 +515,8 @@
                                                         <color key="textColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6Zr-nD-Sgw">
-                                                        <rect key="frame" x="57" y="172.5" width="87" height="148"/>
-                                                        <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-noConnection-yellow" translatesAutoresizingMaskIntoConstraints="NO" id="b4N-ci-cfX">
-                                                                <rect key="frame" x="23.5" y="0.0" width="40" height="40"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="b4N-ci-cfX" secondAttribute="height" multiplier="1:1" id="43V-z6-iMB"/>
-                                                                    <constraint firstAttribute="height" constant="40" id="a9h-ZU-e9X"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="784-HU-KR9">
-                                                                <rect key="frame" x="18.5" y="50" width="50" height="50"/>
-                                                                <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="17"/>
-                                                                <color key="textColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZX-lq-qDA">
-                                                                <rect key="frame" x="0.0" y="110" width="87" height="38"/>
-                                                                <color key="backgroundColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="14"/>
-                                                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                                <state key="normal" title="تلاش مجدد">
-                                                                    <color key="titleColor" red="0.094117647060000004" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="retryButtonClicked" destination="dAJ-I1-Y7R" eventType="touchUpInside" id="ENe-k7-3pu"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4t-kl-Is8" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                                        <rect key="frame" x="0.5" y="320.5" width="200" height="50"/>
+                                                        <rect key="frame" x="0.5" y="172.5" width="200" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="LWR-PL-3Up"/>
@@ -586,9 +556,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="mrg-5l-gaI"/>
                     <connections>
-                        <outlet property="buttonRetry" destination="zZX-lq-qDA" id="mxO-IO-aAv"/>
-                        <outlet property="imageViewLoadingStatus" destination="b4N-ci-cfX" id="nPH-Ft-EZR"/>
-                        <outlet property="labelLoadingStatus" destination="784-HU-KR9" id="wGO-pp-ulH"/>
                         <outlet property="loadingIndicator" destination="f4t-kl-Is8" id="zgV-Kv-c0z"/>
                         <outlet property="shimmerContentView" destination="qz9-VG-yIs" id="Ga5-GK-EHK"/>
                         <outlet property="shimmerView" destination="b2t-fM-JSm" id="ao1-fV-z75"/>
@@ -602,7 +569,6 @@
     <resources>
         <image name="icon-lock-90" width="22.5" height="22.5"/>
         <image name="icon-mobile-90" width="22.5" height="22.5"/>
-        <image name="icon-noConnection-yellow" width="154.28572082519531" height="154.28572082519531"/>
         <image name="image-logo" width="192" height="192"/>
     </resources>
 </document>
