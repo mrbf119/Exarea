@@ -8,11 +8,13 @@
 
 import UIKit
 import NVActivityIndicatorView
+import SwiftMessages
 
 class SplashViewController: UIViewController {
     
-    @IBOutlet weak var centerView: UIView!
-    @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!
+    @IBOutlet private var shimmerContentView: UIView!
+    @IBOutlet private var loadingIndicator: NVActivityIndicatorView!
+    @IBOutlet private var shimmerView: ShimmeringView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -27,43 +29,62 @@ class SplashViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.loadingIndicator.color = .mainYellowColor
         self.loadingIndicator.type = .ballPulse
-        self.loadingIndicator.startAnimating()
         
-        let shimmerView = ShimmeringView(frame: self.centerView.frame)
-        self.view.addSubview(shimmerView)
-        
-        shimmerView.contentView = self.centerView
-        shimmerView.isShimmering = true
-        shimmerView.shimmerHighlightLength = 1
-        shimmerView.shimmerAnimationOpacity = 0.8
-        shimmerView.center = self.view.center
+//        self.shimmerView.contentView = self.shimmerContentView
+        self.shimmerView.shimmerHighlightLength = 1
+        self.shimmerView.shimmerAnimationOpacity = 0.8
+        self.shimmerView.center = self.view.center
     }
     
     private func checkUserActivity() {
+        self.startLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             if let account = Account.current {
                 account.loginWithToken { error in
                     guard let error = error else {
-                        account.getInfo { e in
-                            guard let error = e else {
-                                self.goToMainVC()
-                                return
-                            }
-                            print(error)
-                        }
+                        self.getInfo(for: account)
                         return
                     }
-                    print(error)
+                    self.stopLoading()
+                    self.handle(error: error)
                 }
-            } else {
-                self.goToLoginOptionsVC()
-            }
+            } else { Account.logout() }
         }
     }
     
-    private func goToLoginOptionsVC() {
-        let homeVC = UIStoryboard(name: "Login", bundle: .main).instantiateViewController(withIdentifier: "LoginOptionsVC")
-        self.navigationController?.setViewControllers([homeVC], animated: true)
+    private func getInfo(for account: Account) {
+        account.getInfo { error in
+            guard let error = error else {
+                self.goToMainVC()
+                return
+            }
+            self.stopLoading()
+            self.handle(error: error)
+        }
+    }
+    
+    @IBAction private func retryButtonClicked() {
+//        self.hideRetry()
+        
+    }
+    
+    private func startLoading() {
+        self.loadingIndicator.startAnimating()
+        self.shimmerView.isShimmering = true
+    }
+    
+    private func stopLoading() {
+        self.loadingIndicator.stopAnimating()
+        self.shimmerView.isShimmering = false
+    }
+    
+    private func handle(error: Error) {
+        if let retryNeeded = error as? RetryNeededError {
+            Toaster.default.toast(error: retryNeeded) {
+                self.startLoading()
+                self.checkUserActivity()
+            }
+        }
     }
     
     private func goToMainVC() {

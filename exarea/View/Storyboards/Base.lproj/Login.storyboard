@@ -32,7 +32,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAq-Ar-zWA">
                                 <rect key="frame" x="87" y="297.5" width="201.5" height="72.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
-                                <color key="textColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.99215686274509807" green="0.72549019607843135" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YOR-Tw-kP8">
@@ -45,7 +45,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="17"/>
                                         <state key="normal" title="ورود">
-                                            <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="didTap:" destination="rIE-TZ-USA" eventType="touchUpInside" id="v0s-uV-si9"/>
@@ -56,7 +56,7 @@
                                         <rect key="frame" x="0.0" y="60" width="262.5" height="50"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="17"/>
                                         <state key="normal" title="ثبت نام">
-                                            <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="didTap:" destination="rIE-TZ-USA" eventType="touchUpInside" id="gsj-TC-seE"/>
@@ -100,7 +100,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="91L-Du-6jR">
                                 <rect key="frame" x="87" y="30" width="201.5" height="72.5"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
-                                <color key="textColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O1Q-VR-YSU">
@@ -118,7 +118,7 @@
                                                             <segment title="غرفه‌دار"/>
                                                             <segment title="بازدید کننده"/>
                                                         </segments>
-                                                        <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.99215686274509807" green="0.72549019607843135" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </segmentedControl>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ثبت نام به عنوان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Thc-35-b4m">
                                                         <rect key="frame" x="192.5" y="0.0" width="107.5" height="28"/>
@@ -287,7 +287,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="17"/>
                                 <state key="normal" title="ورود">
-                                    <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapLoginButton" destination="CEQ-3N-hzx" eventType="touchUpInside" id="Laz-iF-dUs"/>
@@ -334,7 +334,7 @@
                                 <rect key="frame" x="37.5" y="193.5" width="300" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="کد فعال سازی را وارد کنید" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYM-To-YSe">
-                                        <rect key="frame" x="48" y="49" width="204" height="25.5"/>
+                                        <rect key="frame" x="48" y="58" width="204" height="25.5"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="20"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -347,7 +347,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*****" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-IQ-oxn" customClass="SkyFloatingLabelTextField" customModule="exarea" customModuleProvider="target">
-                                        <rect key="frame" x="48" y="123.5" width="204" height="53"/>
+                                        <rect key="frame" x="48" y="132.5" width="204" height="35"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -368,7 +368,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AP-bI-b6e">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="17"/>
                                                 <state key="normal" title="خیر">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -386,7 +386,7 @@
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4d-Ig-RoD">
                                                 <rect key="frame" x="79" y="0.0" width="70" height="30"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Aeg-hB-H9i"/>
                                                     <constraint firstAttribute="width" constant="70" id="pGM-yx-8JX"/>
@@ -459,10 +459,10 @@
             </objects>
             <point key="canvasLocation" x="901.60000000000002" y="-692.20389805097454"/>
         </scene>
-        <!--Custom Navigation Controller-->
+        <!--Main Navigation Controller-->
         <scene sceneID="Hvf-Kf-ouN">
             <objects>
-                <navigationController id="7op-uc-Qam" customClass="CustomNavigationController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="7op-uc-Qam" customClass="MainNavigationController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Vep-ZL-t8n">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -493,61 +493,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C87-dh-0ga">
-                                <rect key="frame" x="87" y="178" width="201.5" height="247.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2t-fM-JSm" customClass="ShimmeringView" customModule="exarea" customModuleProvider="target">
+                                <rect key="frame" x="87" y="190.5" width="201.5" height="222.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ddb-fC-Np1">
-                                        <rect key="frame" x="0.0" y="0.0" width="201.5" height="247.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qz9-VG-yIs">
+                                        <rect key="frame" x="0.0" y="0.0" width="201.5" height="222.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-logo" translatesAutoresizingMaskIntoConstraints="NO" id="dLv-G4-s0i">
-                                                <rect key="frame" x="50.5" y="0.0" width="100" height="100"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="3tC-Gc-CyW"/>
-                                                    <constraint firstAttribute="width" secondItem="dLv-G4-s0i" secondAttribute="height" id="Orj-YC-yg5"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOc-NW-c38">
-                                                <rect key="frame" x="0.0" y="100" width="201.5" height="72.5"/>
-                                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
-                                                <color key="textColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQp-xS-fNw" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
-                                                <rect key="frame" x="0.5" y="197.5" width="200" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="qcv-S2-Unu"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.87450980389999999" green="0.15686274510000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballPulse"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eNa-H3-5xE">
+                                                <rect key="frame" x="0.0" y="0.0" width="201.5" height="222.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-logo" translatesAutoresizingMaskIntoConstraints="NO" id="ClU-8H-laQ">
+                                                        <rect key="frame" x="50.5" y="0.0" width="100" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ClU-8H-laQ" secondAttribute="height" id="EL7-no-FlM"/>
+                                                            <constraint firstAttribute="height" constant="100" id="KqY-8Y-Fni"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXAREA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JX-HW-KNT">
+                                                        <rect key="frame" x="0.0" y="100" width="201.5" height="72.5"/>
+                                                        <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="53"/>
+                                                        <color key="textColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4t-kl-Is8" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                                        <rect key="frame" x="0.5" y="172.5" width="200" height="50"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="LWR-PL-3Up"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                <color key="value" red="0.87450980389999999" green="0.15686274510000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballPulse"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="eNa-H3-5xE" secondAttribute="bottom" id="4gM-Nl-WR7"/>
+                                            <constraint firstItem="eNa-H3-5xE" firstAttribute="leading" secondItem="qz9-VG-yIs" secondAttribute="leading" id="X5h-af-lwq"/>
+                                            <constraint firstItem="eNa-H3-5xE" firstAttribute="top" secondItem="qz9-VG-yIs" secondAttribute="top" id="pmy-hj-pT7"/>
+                                            <constraint firstAttribute="trailing" secondItem="eNa-H3-5xE" secondAttribute="trailing" id="qhz-uk-1ZB"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ddb-fC-Np1" secondAttribute="trailing" id="HIR-CK-O9I"/>
-                                    <constraint firstItem="ddb-fC-Np1" firstAttribute="leading" secondItem="C87-dh-0ga" secondAttribute="leading" id="IjP-9E-x1U"/>
-                                    <constraint firstItem="ddb-fC-Np1" firstAttribute="top" secondItem="C87-dh-0ga" secondAttribute="top" id="SGD-ts-SVC"/>
-                                    <constraint firstAttribute="bottom" secondItem="ddb-fC-Np1" secondAttribute="bottom" id="rwT-qf-pWS"/>
+                                    <constraint firstAttribute="bottom" secondItem="qz9-VG-yIs" secondAttribute="bottom" id="8AM-0i-7Zf"/>
+                                    <constraint firstItem="qz9-VG-yIs" firstAttribute="leading" secondItem="b2t-fM-JSm" secondAttribute="leading" id="954-sZ-2pC"/>
+                                    <constraint firstItem="qz9-VG-yIs" firstAttribute="top" secondItem="b2t-fM-JSm" secondAttribute="top" id="Lht-cf-FI3"/>
+                                    <constraint firstAttribute="trailing" secondItem="qz9-VG-yIs" secondAttribute="trailing" id="qVy-c6-HEa"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="C87-dh-0ga" firstAttribute="centerX" secondItem="dMp-4G-Ihu" secondAttribute="centerX" id="YNo-48-zqe"/>
-                            <constraint firstItem="C87-dh-0ga" firstAttribute="centerY" secondItem="dMp-4G-Ihu" secondAttribute="centerY" id="caM-lf-WdB"/>
+                            <constraint firstItem="b2t-fM-JSm" firstAttribute="centerY" secondItem="dMp-4G-Ihu" secondAttribute="centerY" id="CBt-cc-2bh"/>
+                            <constraint firstItem="b2t-fM-JSm" firstAttribute="centerX" secondItem="dMp-4G-Ihu" secondAttribute="centerX" id="TOY-9G-wjD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZOl-Ow-a93"/>
                     </view>
                     <navigationItem key="navigationItem" id="mrg-5l-gaI"/>
                     <connections>
-                        <outlet property="centerView" destination="C87-dh-0ga" id="b6N-dq-Ucy"/>
-                        <outlet property="loadingIndicator" destination="AQp-xS-fNw" id="3xZ-VL-H1T"/>
+                        <outlet property="loadingIndicator" destination="f4t-kl-Is8" id="zgV-Kv-c0z"/>
+                        <outlet property="shimmerContentView" destination="qz9-VG-yIs" id="Ga5-GK-EHK"/>
+                        <outlet property="shimmerView" destination="b2t-fM-JSm" id="ao1-fV-z75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uq-Bc-hs1" userLabel="First Responder" sceneMemberID="firstResponder"/>

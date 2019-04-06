@@ -1,5 +1,5 @@
 //
-//  CustomNavigationController.swift
+//  MainNavigationController.swift
 //  Bebras
 //
 //  Created by Soroush on 17/8/1397 AP.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomNavigationController: UINavigationController {
+class MainNavigationController: UINavigationController {
     
     private var defaultBgImage: UIImage?
     private var defaultShadowImage: UIImage?
@@ -16,7 +16,7 @@ class CustomNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.logout), name: Notification.logout.name, object: nil)
         self.view.semanticContentAttribute = .forceRightToLeft
         self.defaultBgImage = self.navigationBar.backgroundImage(for: .default)
         self.defaultShadowImage = UIColor.mainYellowColor.as1ptImage()
@@ -27,6 +27,11 @@ class CustomNavigationController: UINavigationController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    @objc private func logout() {
+        let homeVC = UIStoryboard(name: "Login", bundle: .main).instantiateViewController(withIdentifier: "LoginOptionsVC")
+        self.setViewControllers([homeVC], animated: true)
     }
     
     func setDefaultSettings() {

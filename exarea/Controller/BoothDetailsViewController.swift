@@ -245,19 +245,23 @@ extension BoothDetailsViewController: UINavigationControllerDelegate, UIImagePic
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        self.dismiss(animated: true)
-        
-        let image: UIImage
-        if let img = info[.editedImage] as? UIImage {
-            image = img
-        } else if let img = info[.originalImage] as? UIImage {
-            image = img
-        } else {
-            return
+        self.dismiss(animated: true) {
+            let image: UIImage
+            if let img = info[.editedImage] as? UIImage {
+                image = img
+            } else if let img = info[.originalImage] as? UIImage {
+                image = img
+            } else {
+                return
+            }
+            
+            do {
+                try self.booth.addImageFile(image)
+                Toaster.default.toast(title: "عملیات انجام شد", content: "تصویر با موفقیت افزوده شد.")
+            } catch {
+                Toaster.default.toast(title: "خطا", content: NetworkError.general.failureReason!, theme: .error)
+            }
         }
-        
-        do { try self.booth.addImageFile(image) }
-        catch { print(error) }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -269,9 +273,11 @@ extension BoothDetailsViewController: NoteViewControllerDelegate {
     func noteVC(_ noteVC: NoteViewController, didSubmitTitle title: String, andContent content: String?) {
         do {
             try self.booth.addNoteFile(title: title, content: content)
+            Toaster.default.toast(title: "عملیات انجام شد", content: "یادداشت با موفقیت افزوده شد.")
             self.dismiss(animated: true)
             self.floaty.setNeedsUpdateConstraints()
         } catch {
+            Toaster.default.toast(title: "خطا", content: NetworkError.general.failureReason!, theme: .error)
             print(error)
         }
     }

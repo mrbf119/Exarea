@@ -63,7 +63,7 @@ extension LocalFilesViewController: UICollectionViewDelegate, UICollectionViewDa
             cell.makeShadowed()
             return cell
         } else if let images = self.files as? [ImageFile] {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImagedCollectionViewCell
             let image = images[indexPath.item]
             cell.imageView.image = image.converted
             cell.makeShadowed()

@@ -114,7 +114,9 @@ class AudioRecorderViewController: UIViewController {
             self.player.stop()
         }
         
-        self.dismiss(animated: true)
+        self.dismiss(animated: true) {
+            Toaster.default.toast(title: "عملیات با موفقیت انجام شد", content: "فایل صوتی با موفقیت افزوده شد.")
+        }
     }
     
     @IBAction func deleteTapped() {

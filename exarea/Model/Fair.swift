@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct MainSliderItem: JSONSerializable {
+    let sliderID: Int
+    let title: String?
+    let imageAddress: String
+    let link: String?
+    let location: String?
+}
+
 struct Fair: JSONSerializable, ImageTitled {
     let fairID: Int
     let name: String
@@ -34,11 +42,19 @@ extension Fair {
     static func getAll(page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Fair]>) {
         let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
         let req = CustomRequest(path: "/Fair/ActiveFairs", method: .post, parameters: pageParams).api().authorize()
-        NetManager
-            .shared
+        NetworkManager.session
             .requestWithValidation(req)
             .response(responseSerializer: [Fair].responseDataSerializer) { response in
             completion(response.result)
+        }
+    }
+    
+    static func mainSlider(completion: @escaping DataResult<[MainSliderItem]>) {
+        let req = CustomRequest(path: "/Fair/MainSlider", method: .post).api()
+        NetworkManager.session
+            .requestWithValidation(req)
+            .response(responseSerializer: [MainSliderItem].responseDataSerializer) { response in
+                completion(response.result)
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  NetManager.swift
+//  NetworkManager.swift
 //  saraf.ios
 //
 //  Created by SoRush on 10/19/1397 AP.
@@ -8,52 +8,56 @@
 
 import Alamofire
 import SwiftyJSON
+import SwiftMessages
 
 typealias DataResult<T> = (Result<T>) -> Void
 typealias ErrorableResult = (Error?) -> Void
 
-struct ResultTypeError: LocalizedError {
-    let message: String
-    let status: Int
-    var errorDescription: String? { return self.message }
-    var localizedDescription: String { return self.message }
-}
-
-enum NetworkError: Error {
-    case noInternetAccess
-    case resultTypeError(message: String)
-    case canceled
-    case notAuthorized //401
-    case forbidden //403
-    case badRequest // 400
-}
-
-extension SessionManager {
+class RetryNeededError: ToastableError {
     
-    func requestWithValidation(_ url: URLRequestConvertible) -> DataRequest {
-        return self.request(url).validate().validate(CustomRequest.apiValidation)
+    var image: UIImage? { return UIImage(named: "icon-noConnection-white") }
+    let failureReason: String?
+    let recoverySuggestion: String?
+    
+    static let noInternetAccess = RetryNeededError(reason: "خطا در اتصال به اینترنت", suggestion: "لطفا تنظیمات شبکه را بررسی کنید.")
+    
+    init(reason: String, suggestion: String? = nil) {
+        self.failureReason = reason
+        self.recoverySuggestion = suggestion
     }
 }
 
-class NetManager: SessionManager, RequestRetrier {
+enum NetworkError: LocalizedError {
+    case resultTypeError(message: String, status: Int)
+    case general
     
-    static let shared: NetManager = {
+    var recoverySuggestion: String? {
+        return nil
+    }
+    
+    var failureReason: String? {
+        switch self {
+        case .general:                                 return "عملیات با خطا مواجه شد."
+        case .resultTypeError(let message, status: _): return message
+        }
+    }
+}
+
+class NetworkManager: SessionManager {
+    static let session: SessionManager = {
         let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 45
-        config.timeoutIntervalForResource = 45
         config.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        let session = NetManager(configuration: config)
-        session.retrier = session
-        session.adapter = Adapter()
+        let session = SessionManager(configuration: config, delegate: CustomSessionDelegate())
+        session.retrier = CustomSessionRetrier()
+        session.adapter = CustomSessionAdapter()
         return session
     }()
     
-    struct Message {
-        static var tryAgain: String { return "مشکلی پیش آمده که به زودی برطرف میشود. لطفا کمی بعد دوباره تلاش کنید" }
-        static var internetAccess: String { return "ارتباط با سرور برقرار نشد. لطفا ارتباط اینترنت خود را چک کنید" }
-        static var getDataFailure: String { return "متاسفانه دریافت اطلاعات به صورت کامل انجام نشد" }
-        static var submissionSuccess: String { return "اطلاعات با موفقیت ثبت شد." }
-    }
+    static var toaster: Toaster?
+    static var loadingIndicator: LoadingIndicator?
+}
+
+class CustomSessionRetrier: RequestRetrier {
     
     private var maxRefreshCount: Int = 5
     private var refreshCount: Int = 0
@@ -66,20 +70,6 @@ class NetManager: SessionManager, RequestRetrier {
         Account.logout()
     }
     
-    override func request(_ urlRequest: URLRequestConvertible) -> DataRequest {
-        let dataRequest = super.request(urlRequest).validate()
-        if let arzbaanReq = urlRequest as? CustomRequest, arzbaanReq.isAPI {
-            dataRequest.validate(CustomRequest.apiValidation)
-        }
-        return dataRequest
-    }
-    
-    var isOnline: Bool {
-        let isReachable = NetworkReachabilityManager()!.isReachable
-        //if !isReachable { LocalNotification.toast(message: NetManager.Message.internetAccess, type: .error) }
-        return isReachable
-    }
-    
     func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
         self.lock.lock() ; defer { self.lock.unlock() }
         
@@ -90,38 +80,92 @@ class NetManager: SessionManager, RequestRetrier {
                 guard self.maxRefreshCount > self.refreshCount else { return self.resetRefreshCount() }
                 self.requestsToRetry.append(completion)
                 self.isRefreshingTokens = true
-//                User.requestTokens(mode: .refresh) {[weak self] error in
-//                    guard let strongSelf = self else { return }
-//                    strongSelf.isRefreshingTokens = false
-//                    strongSelf.lock.lock() ; defer { strongSelf.lock.unlock() }
-//                    strongSelf.requestsToRetry.forEach { $0(error == nil, 0.0) }
-//                    strongSelf.requestsToRetry.removeAll()
-//                }
             case 400:
                 completion(false, 0.0)
-                DispatchQueue.main.async {
-                    self.resetRefreshCount()
-                }
+                self.resetRefreshCount()
             default:
                 completion(false, 0.0)
                 return
             }
         } else {
-            if (error as NSError).code == -1009 {
-                DispatchQueue.main.async {
-//                    LocalNotification.shared.toast(message: Message.internetAccess, type: .error)
-                }
-            }
             completion(false, 0.0)
-            
         }
     }
 }
 
-class Adapter: RequestAdapter {
+class LoadingIndicator {
+    
+    func startLoading() {
+        let view = try! SwiftMessages.viewFromNib(named: "IndicatorView") as! MessageView
+        view.id = "indicatorView"
+        view.configureTheme(.info)
+        view.configureDropShadow()
+        view.bodyLabel?.text = "درحال دریافت اطلاعات"
+        var config = SwiftMessages.Config()
+        config.duration = .forever
+        config.presentationStyle = .top
+        config.dimMode = .gray(interactive: false)
+        SwiftMessages.show(config: config, view: view)
+    }
+    
+    func stopLoading() {
+        SwiftMessages.hide(id: "indicatorView")
+    }
+}
+
+class CustomSessionDelegate: SessionDelegate {
+    
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.startLoading(_:)), name: Notification.Name.Task.DidResume, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.stopLoading(_:)), name: Notification.Name.Task.DidComplete, object: nil)
+    }
+    
+    private var requestsNeedLoading = 0
+    
+    @objc private func startLoading(_ notif: Notification) {
+        if notif.userInfo?[Notification.Key.Task] is URLSessionTask {
+            if self.requestsNeedLoading == 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    if self.requestsNeedLoading != 0 {
+                        NetworkManager.loadingIndicator?.startLoading()
+                    }
+                }
+            }
+            self.requestsNeedLoading += 1
+        }
+    }
+    
+    @objc private func stopLoading(_ notif: Notification) {
+        if notif.userInfo?[Notification.Key.Task] is URLSessionTask {
+            self.requestsNeedLoading -= 1
+            if self.requestsNeedLoading == 0 {
+                NetworkManager.loadingIndicator?.stopLoading()
+            }
+        }
+    }
+    
+    override func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        let err: Error? = (error as? URLError)?.code == URLError.Code(rawValue: -1009) ? RetryNeededError.noInternetAccess : error
+        super.urlSession(session, task: task, didCompleteWithError: err)
+        if let toastable = error as? ToastableError, !(toastable is RetryNeededError) {
+            NetworkManager.toaster?.toast(error: toastable)
+        }
+    }
+}
+
+extension SessionManager {
+    @discardableResult
+    func requestWithValidation(_ url: URLRequestConvertible) -> DataRequest {
+        let req = request(url).validate().validate(CustomRequest.apiValidation)
+        return req
+    }
+}
+
+class CustomSessionAdapter: RequestAdapter {
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var request = urlRequest
-        if  // checks if request is api and needs auth.
+        if
             request.url?.pathComponents.contains("api") ?? false,
             let body = request.httpBody,
             let httpBody = try? JSON(data: body),
@@ -140,13 +184,19 @@ class CustomRequest: URLRequestConvertible {
     
     static var apiValidation: DataRequest.Validation {
         let pattern: (URLRequest?,HTTPURLResponse, Data?) -> (DataRequest.ValidationResult) = { (req, res, data) -> DataRequest.ValidationResult in
+            
             guard let data = data else { return .failure(AFError.responseValidationFailed(reason: .dataFileNil)) }
             do {
                 let json = try JSON(data: data)
-                guard json["Status", "Code"].intValue == 200 else { return .failure(ResultTypeError(message: json["Status", "Message"].stringValue,
-                                                                                                    status: json["Status", "Code"].intValue)) }
+                guard json["Status", "Code"].intValue == 200 else {
+                    let status = json["Status", "Code"].intValue
+                    let message = json["Status", "Message"].stringValue
+                    let error = NetworkError.resultTypeError(message: message, status: status)
+                    return .failure(error)
+                }
             } catch let err {
-                return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: err)))
+                let error = AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: err))
+                return .failure(error)
             }
             return .success
         }
@@ -183,8 +233,7 @@ class CustomRequest: URLRequestConvertible {
         var params = self.parameters
         
         if self.isAuthorized {
-            params = params.merging(["UserToken": "",
-                                     "SessionID": ""], uniquingKeysWith: { old, new in new })
+            params = params.merging(["UserToken": "", "SessionID": ""], uniquingKeysWith: { old, new in new })
         }
         
         let originalRequest = try URLRequest(url: url, method: self.method, headers: self.additionalHeaders)

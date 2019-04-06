@@ -12,7 +12,6 @@ protocol DownloadableTableViewCellDelegate: class {
     func downloadButtonTappedFor(_ cell: UITableViewCell)
 }
 
-
 class ServerFileTableViewCell: UITableViewCell {
     
     @IBOutlet private var labelTitle: UILabel!

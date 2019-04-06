@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct Configurations {
     static var `protocol`: String { return "https://" }
     static var baseURL: String { return Configurations.protocol + "www.exarea.ir" }

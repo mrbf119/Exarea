@@ -20,6 +20,7 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetworkManager.loadingIndicator = LoadingIndicator()
         self.navigationController?.navigationBar.setColors(background: .mainBlueColor, text: .mainYellowColor)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.backButton = UIBarButtonItem(image: UIImage(named: "icon-back-75"), style: .done, target: self, action: #selector(self.backButtonClicked))
@@ -73,8 +74,8 @@ class MainViewController: UITabBarController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SearchViewController {
             vc.delegate = self
-        } else if let nav = segue.destination as? UINavigationController, let vc = nav.viewControllers.first as? MenuTableViewController {
-            vc.delegate = self
+        } else if let nav = segue.destination as? UINavigationController, let vc = nav.viewControllers.first as? MenuViewController {
+            vc.transitionDelegate = self
         }
     }
     
@@ -91,9 +92,9 @@ extension MainViewController: SearchVCDelegate {
     }
 }
 
-extension MainViewController: MenuTableViewDelegate {
+extension MainViewController: TransitionDelegate {
     
-    func menuTableVC(_ menuTableVC: MenuTableViewController, selectedVCWithID id: String) {
+    func viewController(_ viewController: UIViewController, didSelectVCWithID id: String) {
         if let currentVC = self.viewControllers?[self.selectedIndex] as? UINavigationController {
             let vc = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: id)
             currentVC.setViewControllers([currentVC.viewControllers.first!, vc], animated: true)

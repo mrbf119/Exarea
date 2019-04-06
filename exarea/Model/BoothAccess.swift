@@ -47,8 +47,7 @@ extension Conversation {
     static func getAllBoothAccesses(completion: @escaping DataResult<[BoothAccess]>) {
         let params = ["OnTicket": "True", "IsActive": "True"]
         let req = CustomRequest(path: "/Conversation/BoothAccessList", method: .post, parameters: params).api().authorize()
-        NetManager
-            .shared
+        NetworkManager.session
             .requestWithValidation(req)
             .response(responseSerializer: [BoothAccess].responseDataSerializer) { response in
                 completion(response.result)
@@ -58,8 +57,7 @@ extension Conversation {
     static func begin(with form: TicketForm, completion: @escaping DataResult<String>) {
         
         let req = CustomRequest(path: "/Conversation/StartConversation", method: .post, parameters: form.parameters!).api().authorize()
-        NetManager
-            .shared
+        NetworkManager.session
             .requestWithValidation(req)
             .response(responseSerializer: String.responseDataSerializer) { response in
                 completion(response.result)
@@ -68,8 +66,7 @@ extension Conversation {
     
     static func sentByUser(completion: @escaping DataResult<[Conversation]>) {
         let req = CustomRequest(path: "/Conversation/SentByPerson", method: .post, parameters: ["Archive": false]).api().authorize()
-        NetManager
-            .shared
+        NetworkManager.session
             .requestWithValidation(req)
             .response(responseSerializer: [Conversation].responseDataSerializer) { response in
                 completion(response.result)
@@ -79,8 +76,7 @@ extension Conversation {
     func getMails(completion: @escaping DataResult<[Mail]>) {
         let params = ["ConversationID": self.conversationID]
         let req = CustomRequest(path: "/Conversation/ConversationMails", method: .post, parameters: params).api().authorize()
-        NetManager
-            .shared
+        NetworkManager.session
             .requestWithValidation(req)
             .response(responseSerializer: [Mail].responseDataSerializer) { response in
                 completion(response.result)
@@ -99,8 +95,7 @@ extension Conversation {
         
         let req = CustomRequest(path: "/Conversation/ResumeConversation", method: .post, parameters: params).api().authorize()
         
-        NetManager
-            .shared
+        NetworkManager.session
             .requestWithValidation(req)
             .responseData() { response in
                 completion(response.result.error)

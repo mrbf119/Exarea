@@ -7,19 +7,13 @@
 //
 
 import Kingfisher
-import ImageSlideshow
-import Floaty
 
 protocol ImageTitled {
     var imageURL: URL? { get }
     var textToShow: String { get }
 }
 
-class SlideShowHeaderView: UICollectionReusableView {
-    @IBOutlet var slideShow: ImageSlideshow!
-}
-
-class ImageTitledCollectionCell: ImageCollectionViewCell {
+class ImageTitledCollectionCell: ImagedCollectionViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     
