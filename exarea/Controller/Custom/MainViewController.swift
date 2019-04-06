@@ -20,7 +20,7 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkManager.toaster = Toaster.default
+        NetworkManager.loadingIndicator = LoadingIndicator()
         self.navigationController?.navigationBar.setColors(background: .mainBlueColor, text: .mainYellowColor)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.backButton = UIBarButtonItem(image: UIImage(named: "icon-back-75"), style: .done, target: self, action: #selector(self.backButtonClicked))

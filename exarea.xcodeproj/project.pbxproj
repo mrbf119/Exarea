@@ -60,6 +60,8 @@
 		343C211C220DB16D00F4CB0D /* ShadowedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C211B220DB16D00F4CB0D /* ShadowedView.swift */; };
 		343C211E220DD01F00F4CB0D /* Activities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C211D220DD01F00F4CB0D /* Activities.swift */; };
 		343C2120220DDC0C00F4CB0D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343C211F220DDC0C00F4CB0D /* MapKit.framework */; };
+		345A6957225842DE005E7C32 /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345A6956225842DE005E7C32 /* IndicatorView.xib */; };
+		345A695922584428005E7C32 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345A695822584428005E7C32 /* IndicatorView.swift */; };
 		345DAFA12252C2A400CB567E /* ServerFileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DAFA02252C2A400CB567E /* ServerFileTableViewCell.swift */; };
 		345EED102227A5EC00298B97 /* CustomSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EED0F2227A5EC00298B97 /* CustomSegues.swift */; };
 		346C8412215B614900F43F8C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8411215B614900F43F8C /* FavoritesViewController.swift */; };
@@ -152,6 +154,8 @@
 		343C211B220DB16D00F4CB0D /* ShadowedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedView.swift; sourceTree = "<group>"; };
 		343C211D220DD01F00F4CB0D /* Activities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activities.swift; sourceTree = "<group>"; };
 		343C211F220DDC0C00F4CB0D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		345A6956225842DE005E7C32 /* IndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
+		345A695822584428005E7C32 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		345DAFA02252C2A400CB567E /* ServerFileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerFileTableViewCell.swift; sourceTree = "<group>"; };
 		345EED0F2227A5EC00298B97 /* CustomSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegues.swift; sourceTree = "<group>"; };
 		346C8411215B614900F43F8C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 				341470C9222FAC5100405E51 /* AudioCollectionViewCell.swift */,
 				34B5907E224C1A18004B6E00 /* NoteCollectionViewCell.swift */,
 				3493263D2254D12E00686D4E /* ImageTitledTableViewCell.swift */,
+				345A6956225842DE005E7C32 /* IndicatorView.xib */,
+				345A695822584428005E7C32 /* IndicatorView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				3411A1932211772E00DBC057 /* IRANSansMobile(FaNum)_Bold.ttf in Resources */,
 				34E310E2215B1A1B00C3E68E /* LaunchScreen.storyboard in Resources */,
 				3411A1942211772E00DBC057 /* IRANSansMobile(FaNum)_Black.ttf in Resources */,
+				345A6957225842DE005E7C32 /* IndicatorView.xib in Resources */,
 				34D693DE2254C72D0088C6EC /* About.rtf in Resources */,
 				34D693DA2254C1520088C6EC /* Rules.rtf in Resources */,
 				3411A1972211772E00DBC057 /* IRANSansMobile(FaNum)_Medium.ttf in Resources */,
@@ -655,6 +662,7 @@
 				342C402E225132DC00ABBA9F /* BoothFile.swift in Sources */,
 				34E7DC5821F0783300D3292C /* MainViewController.swift in Sources */,
 				343C211C220DB16D00F4CB0D /* ShadowedView.swift in Sources */,
+				345A695922584428005E7C32 /* IndicatorView.swift in Sources */,
 				34B59085224ED646004B6E00 /* Note.swift in Sources */,
 				342C4048225223AE00ABBA9F /* NotePreviewViewController.swift in Sources */,
 				342C404D225223AE00ABBA9F /* TicketingViewController.swift in Sources */,

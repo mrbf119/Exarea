@@ -8,6 +8,7 @@
 
 import Alamofire
 import SwiftyJSON
+import SwiftMessages
 
 typealias DataResult<T> = (Result<T>) -> Void
 typealias ErrorableResult = (Error?) -> Void
@@ -49,15 +50,11 @@ class NetworkManager: SessionManager {
         let session = SessionManager(configuration: config, delegate: CustomSessionDelegate())
         session.retrier = CustomSessionRetrier()
         session.adapter = CustomSessionAdapter()
-        session.delegate.taskDidComplete = { session, task, error in
-            if let toastable = error as? ToastableError, !(toastable is RetryNeededError) {
-                NetworkManager.toaster?.toast(error: toastable)
-            }
-        }
         return session
     }()
     
     static var toaster: Toaster?
+    static var loadingIndicator: LoadingIndicator?
 }
 
 class CustomSessionRetrier: RequestRetrier {
@@ -96,10 +93,64 @@ class CustomSessionRetrier: RequestRetrier {
     }
 }
 
+class LoadingIndicator {
+    
+    func startLoading() {
+        let view = try! SwiftMessages.viewFromNib(named: "IndicatorView") as! MessageView
+        view.id = "indicatorView"
+        view.configureTheme(.info)
+        view.configureDropShadow()
+        view.bodyLabel?.text = "درحال دریافت اطلاعات"
+        var config = SwiftMessages.Config()
+        config.duration = .forever
+        config.presentationStyle = .top
+        config.dimMode = .gray(interactive: false)
+        SwiftMessages.show(config: config, view: view)
+    }
+    
+    func stopLoading() {
+        SwiftMessages.hide(id: "indicatorView")
+    }
+}
+
 class CustomSessionDelegate: SessionDelegate {
+    
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.startLoading(_:)), name: Notification.Name.Task.DidResume, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.stopLoading(_:)), name: Notification.Name.Task.DidComplete, object: nil)
+    }
+    
+    private var requestsNeedLoading = 0
+    
+    @objc private func startLoading(_ notif: Notification) {
+        if notif.userInfo?[Notification.Key.Task] is URLSessionTask {
+            if self.requestsNeedLoading == 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    if self.requestsNeedLoading != 0 {
+                        NetworkManager.loadingIndicator?.startLoading()
+                    }
+                }
+            }
+            self.requestsNeedLoading += 1
+        }
+    }
+    
+    @objc private func stopLoading(_ notif: Notification) {
+        if notif.userInfo?[Notification.Key.Task] is URLSessionTask {
+            self.requestsNeedLoading -= 1
+            if self.requestsNeedLoading == 0 {
+                NetworkManager.loadingIndicator?.stopLoading()
+            }
+        }
+    }
+    
     override func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         let err: Error? = (error as? URLError)?.code == URLError.Code(rawValue: -1009) ? RetryNeededError.noInternetAccess : error
         super.urlSession(session, task: task, didCompleteWithError: err)
+        if let toastable = error as? ToastableError, !(toastable is RetryNeededError) {
+            NetworkManager.toaster?.toast(error: toastable)
+        }
     }
 }
 
