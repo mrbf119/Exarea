@@ -30,6 +30,7 @@ class BoothDetailsViewController: UIViewController {
     
     @IBOutlet private var cosmosViewScore: CosmosView!
     
+    var fair: Fair!
     var booth: Booth!
     private var pendingScoreRequest: DataRequest?
     
@@ -161,6 +162,21 @@ class BoothDetailsViewController: UIViewController {
     
     @IBAction private func filesButtonClicked() {
         self.performSegue(withIdentifier: "toFilesVC", sender: self.booth)
+    }
+    
+    @IBAction private func shareButtonClicked() {
+        Fair.getAll { result in
+            if let all = result.value, let fair = all.first(where: { $0.fairID == self.booth.fairID }) {
+                let title = "EXAREA"
+                let url = "https://www.exarea.ir/"
+                    .appending("غرفه")
+                    .appending("/\(self.booth.sEOFriendlyBoothName!)")
+                    .appending("/\(self.booth.boothID.description)")
+                let textArray = [title, url, fair.name]
+                let activity = UIActivityViewController(activityItems: [textArray.joined(separator: "\n")], applicationActivities: nil)
+                self.present(activity, animated: true)
+            }
+        }
     }
     
     @IBAction private func checkFave() {
