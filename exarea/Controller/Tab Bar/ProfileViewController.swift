@@ -47,7 +47,9 @@ class ProfileViewController: UIViewController {
     @IBAction func submitButtonClicked() {
         guard self.validateFields() else { return }
         Account.current?.update(with: self.textFieldFirstName.text!, lastName: self.textFieldLastName.text!, email: self.textFieldEmail.text!) { error in
-            print(error)
+            if error == nil {
+                Toaster.default.toast(title: "ثبت اطلاعات", content: "اطلاعات با موفقیت ویرایش شد")
+            }
         }
     }
     

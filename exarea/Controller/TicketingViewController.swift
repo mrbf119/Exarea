@@ -15,6 +15,7 @@ class TicketingViewController: UIViewController {
     @IBOutlet private var textFieldPhoneNumber: SkyFloatingLabelTextField!
     @IBOutlet private var textFieldTitle: SkyFloatingLabelTextField!
     @IBOutlet private var textFieldType: SkyFloatingLabelTextField!
+    @IBOutlet private var textFieldFakeContent: SkyFloatingLabelTextField!
     @IBOutlet private var textViewContent: UITextView!
     @IBOutlet private var buttonSendTicket: UIButton!
     
@@ -50,9 +51,11 @@ class TicketingViewController: UIViewController {
         self.textFieldName.isLTRLanguage = false
         self.textFieldPhoneNumber.isLTRLanguage = false
         self.textFieldType.isLTRLanguage = false
+        self.textFieldFakeContent.isLTRLanguage = false
         
         self.textFieldTitle.titleFont = .iranSansEnglish
         self.textFieldName.titleFont = .iranSansEnglish
+        self.textFieldFakeContent.titleFont = .iranSansEnglish
         self.textFieldPhoneNumber.titleFont = .iranSansEnglish
         self.textViewContent.font = UIFont.iranSansEnglish.withSize(17)
         self.textViewContent.textAlignment = .right
@@ -64,6 +67,7 @@ class TicketingViewController: UIViewController {
         guard let form = self.validateForm() else { return }
         Conversation.begin(with: form) { result in
             if result.isSuccess {
+                Toaster.default.toast(title: "ارسال پیام", content: "پیام با موفقیت ارسال شد")
                 self.navigationController?.popViewController(animated: true)
             } else {
                 print(result.error!)
@@ -77,12 +81,7 @@ class TicketingViewController: UIViewController {
         let phoneNumber = self.textFieldPhoneNumber.text!.englishNumbers
         let title = self.textFieldTitle.text!
         let content = self.textViewContent.text!
-        
-        if let failedFilter = phoneNumber.checking([.notEmpty, .exactChars(11), .isPhoneNumber]).failedFilter {
-            self.textFieldPhoneNumber.shake()
-            self.textFieldPhoneNumber.errorMessage = failedFilter == .notEmpty ? "لطفا شماره تلفن خود را وارد کنید" : "لطفا شماره تلفن صحیح وارد کنید"
-            return nil
-        }
+        self.view.endEditing(true)
         
         if !name.checking([.notEmpty]).isSuccess {
             self.textFieldName.shake()
@@ -90,20 +89,27 @@ class TicketingViewController: UIViewController {
             return nil
         }
         
+        if let failedFilter = phoneNumber.checking([.notEmpty, .exactChars(11), .isPhoneNumber]).failedFilter {
+            self.textFieldPhoneNumber.shake()
+            self.textFieldPhoneNumber.errorMessage = failedFilter == .notEmpty ? "لطفا شماره تلفن خود را وارد کنید" : "لطفا شماره تلفن صحیح وارد کنید"
+            return nil
+        }
+        
         if !title.checking([.notEmpty]).isSuccess {
-            self.textFieldName.shake()
-            self.textFieldName.errorMessage = "لطفا عنوان پیام خود را وارد کنید"
+            self.textFieldTitle.shake()
+            self.textFieldTitle.errorMessage = "لطفا عنوان پیام خود را وارد کنید"
             return nil
         }
         
         if !content.checking([.notEmpty]).isSuccess {
-            self.textFieldName.shake()
-            self.textFieldName.errorMessage = "لطفا متن پیام خود را وارد کنید"
+            self.textFieldFakeContent.shake()
+            self.textFieldFakeContent.errorMessage = "لطفا متن پیام خود را وارد کنید"
             return nil
         }
         
         return TicketForm(boothAccessID: self.selectedBoothAccess.boothAccessID, title: title, content: content)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PickerViewController {
@@ -141,6 +147,7 @@ extension TicketingViewController: UIPickerViewDelegate, UIPickerViewDataSource 
 extension TicketingViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        (textField as? SkyFloatingLabelTextField)?.errorMessage = ""
         if textField === self.textFieldType {
             self.performSegue(withIdentifier: "toPickerVC", sender: nil)
             self.view.endEditing(true)
@@ -156,4 +163,11 @@ extension TicketingViewController: UITextFieldDelegate {
         return true
     }
     
+}
+
+extension TicketingViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        self.textFieldFakeContent.errorMessage = ""
+        return true
+    }
 }
