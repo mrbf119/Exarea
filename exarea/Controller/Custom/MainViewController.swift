@@ -26,6 +26,7 @@ class MainViewController: UITabBarController {
         self.backButton = UIBarButtonItem(image: UIImage(named: "icon-back-75"), style: .done, target: self, action: #selector(self.backButtonClicked))
         self.selectedIndex = 2
         self.setTitleFor(index: self.selectedIndex)
+        (self.navigationController as? MainNavigationController)?.setDefaultSettings()
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

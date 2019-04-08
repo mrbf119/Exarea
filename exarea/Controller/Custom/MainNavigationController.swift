@@ -13,6 +13,7 @@ class MainNavigationController: UINavigationController {
     private var defaultBgImage: UIImage?
     private var defaultShadowImage: UIImage?
     private var defaultBgColor: UIColor?
+    private var defaultDefaultTintColor: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ class MainNavigationController: UINavigationController {
         self.defaultBgImage = self.navigationBar.backgroundImage(for: .default)
         self.defaultShadowImage = UIColor.mainYellowColor.as1ptImage()
         self.defaultBgColor = self.navigationBar.backgroundColor
-        self.setDefaultSettings()
+        self.defaultDefaultTintColor = self.navigationBar.barTintColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +39,8 @@ class MainNavigationController: UINavigationController {
         self.navigationBar.setBackgroundImage(self.defaultBgImage, for: .default)
         self.navigationBar.shadowImage = UIColor.mainYellowColor.as1ptImage()
         self.navigationBar.backgroundColor = self.defaultBgColor
-        self.navigationBar.barTintColor = .white
-        self.navigationBar.isTranslucent = true
+        self.navigationBar.barTintColor = self.defaultDefaultTintColor
+        self.navigationBar.isTranslucent = false
     }
     
     func clear() {
