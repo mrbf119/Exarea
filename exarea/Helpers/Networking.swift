@@ -95,7 +95,11 @@ class CustomSessionRetrier: RequestRetrier {
 
 class LoadingIndicator {
     
+    private(set) var hasRequestedShowing = false
+    
     func startLoading() {
+        guard !self.hasRequestedShowing else { return }
+        self.hasRequestedShowing = true
         let view = try! SwiftMessages.viewFromNib(named: "IndicatorView") as! MessageView
         view.id = "indicatorView"
         view.configureTheme(.info)
@@ -109,6 +113,7 @@ class LoadingIndicator {
     }
     
     func stopLoading() {
+        self.hasRequestedShowing = false
         SwiftMessages.hide(id: "indicatorView")
     }
 }
@@ -121,32 +126,31 @@ class CustomSessionDelegate: SessionDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.stopLoading(_:)), name: Notification.Name.Task.DidComplete, object: nil)
     }
     
-    private var requestsNeedLoading = 0
-    
     @objc private func startLoading(_ notif: Notification) {
-        if notif.userInfo?[Notification.Key.Task] is URLSessionTask {
-            if self.requestsNeedLoading == 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    if self.requestsNeedLoading != 0 {
+        guard let indicator = NetworkManager.loadingIndicator else { return }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            if !indicator.hasRequestedShowing {
+                NetworkManager.session.session.getAllTasks { tasks in
+                    if tasks.contains(where: { $0.state == .running }) {
                         NetworkManager.loadingIndicator?.startLoading()
                     }
                 }
             }
-            self.requestsNeedLoading += 1
+            
         }
     }
     
     @objc private func stopLoading(_ notif: Notification) {
-        if notif.userInfo?[Notification.Key.Task] is URLSessionTask {
-            self.requestsNeedLoading -= 1
-            if self.requestsNeedLoading == 0 {
+        NetworkManager.session.session.getAllTasks { tasks in
+            if !tasks.contains(where: { $0.state == .running }) {
                 NetworkManager.loadingIndicator?.stopLoading()
             }
         }
     }
     
     override func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        let err: Error? = (error as? URLError)?.code == URLError.Code(rawValue: -1009) ? RetryNeededError.noInternetAccess : error
+        let err: Error? = (error as? URLError)?.code == URLError.notConnectedToInternet ? RetryNeededError.noInternetAccess : error
         super.urlSession(session, task: task, didCompleteWithError: err)
         if let toastable = error as? ToastableError, !(toastable is RetryNeededError) {
             NetworkManager.toaster?.toast(error: toastable)
