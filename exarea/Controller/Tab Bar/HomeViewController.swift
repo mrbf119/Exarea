@@ -16,6 +16,9 @@ class HomeViewController: UIViewController {
         didSet { self.setBoothPaginator(); self.getData() }
     }
     
+    private var isInFairMode: Bool { return self.selectedFair != nil }
+    private var isExtended = false
+    
     private var boothPaginator: Paginator<Booth>?
     private let fairPaginator = Paginator<Fair> { page, pageSize, completion in
         Fair.getAll(page: page, pageSize: pageSize, completion: completion)
@@ -84,21 +87,34 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return self.isInFairMode ? 2 : 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.currentList.count
+        
+        return self.isInFairMode && section == 0 ? 1 : self.currentList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = self.currentList[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageTitledCell", for: indexPath) as! ImageTitledCollectionCell
-        cell.update(with: item)
-        cell.makeShadowed()
-        return cell
+        if self.isInFairMode, indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! ExpandableLabelCollectionViewCell
+            cell.label.text = self.selectedFair?.about
+            cell.label.numberOfLines = self.isExtended ? 0 : 3
+            cell.delegate = self
+            cell.makeShadowed()
+            return cell
+        } else {
+            let item = self.currentList[indexPath.row]
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageTitledCell", for: indexPath) as! ImageTitledCollectionCell
+            cell.update(with: item)
+            cell.makeShadowed()
+            return cell
+        }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return section == 0 ? CGSize(width: self.view.frame.width, height: 200) : CGSize.zero
+    }
     
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
@@ -141,6 +157,9 @@ extension HomeViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if self.isInFairMode {
+            guard indexPath.section != 0 else { return }
+        }
         let item = self.currentList[indexPath.row]
         if let fair = item as? Fair {
             self.selectedFair = fair
@@ -165,13 +184,29 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.cellSize, height: 220)
+        if self.isInFairMode && indexPath.section == 0 {
+            let label = UILabel()
+            label.numberOfLines = self.isExtended ? 0 : 3
+            label.font = UIFont.iranSansEnglish.withSize(17)
+            label.text = self.selectedFair!.about
+            let size = label.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 40, height: UIView.layoutFittingCompressedSize.height))
+            return CGSize(width: size.width + 20, height: size.height + 60)
+        } else {
+            return CGSize(width: self.cellSize, height: 220)
+        }
     }
 }
-
 
 extension HomeViewController: Reloadable {
     func reloadScreen(animated: Bool = false) {
         self.selectedFair = nil
+    }
+}
+
+
+extension HomeViewController: ExpandableLabelCollectionViewCellDelegate {
+    func expandableCell(_ cell: ExpandableLabelCollectionViewCell, didChangeState isExtened: Bool) {
+        self.isExtended = isExtened
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
 }

@@ -27,14 +27,14 @@ extension UIView {
 
 public extension Collection {
     
-    public subscript(safe index: Index) -> Element? {
+    subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }
 
 public extension Collection where Index == Int {
     
-    public func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
+    func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
         var indicies: [Index] = []
         for (index, value) in lazy.enumerated() where try condition(value) {
             indicies.append(index)
@@ -45,14 +45,14 @@ public extension Collection where Index == Int {
 
 public extension UINavigationBar {
     
-    public func setTitleFont(_ font: UIFont, color: UIColor = .black) {
+    func setTitleFont(_ font: UIFont, color: UIColor = .black) {
         var attrs = [NSAttributedString.Key: Any]()
         attrs[.font] = font
         attrs[.foregroundColor] = color
         titleTextAttributes = attrs
     }
     
-    public func makeTransparent(withTint tint: UIColor) {
+    func makeTransparent(withTint tint: UIColor) {
         isTranslucent = true
         backgroundColor = .clear
         barTintColor = .clear
@@ -62,7 +62,7 @@ public extension UINavigationBar {
         shadowImage = UIImage()
     }
     
-    public func setColors(background: UIColor, text: UIColor) {
+    func setColors(background: UIColor, text: UIColor) {
         isTranslucent = false
         backgroundColor = background
         barTintColor = background

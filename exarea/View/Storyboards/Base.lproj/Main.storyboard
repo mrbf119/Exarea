@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ozJ-rn-8V0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ozJ-rn-8V0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -65,8 +65,66 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="descriptionCell" id="w7R-5l-ghn" customClass="ExpandableLabelCollectionViewCell" customModule="exarea" customModuleProvider="target">
+                                        <rect key="frame" x="4.5" y="200" width="366" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="366" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkp-dv-aWG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="80"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Fw8-24-JFM">
+                                                            <rect key="frame" x="10" y="10" width="346" height="60"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="247" text="asd" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ux-FT-8zi" customClass="ExpandableLabel" customModule="ExpandableLabel">
+                                                                    <rect key="frame" x="318" y="0.0" width="28" height="29"/>
+                                                                    <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shouldExpand" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shouldCollapse" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="collapsed" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fZ-ta-EtG">
+                                                                    <rect key="frame" x="312" y="29" width="34" height="31"/>
+                                                                    <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="15"/>
+                                                                    <state key="normal" title="بیشتر"/>
+                                                                    <connections>
+                                                                        <action selector="didTapMoreButton" destination="w7R-5l-ghn" eventType="touchUpInside" id="obC-1q-e70"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Fw8-24-JFM" firstAttribute="top" secondItem="zkp-dv-aWG" secondAttribute="top" constant="10" id="DCM-hO-bxM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Fw8-24-JFM" secondAttribute="trailing" constant="10" id="GSJ-JU-twA"/>
+                                                        <constraint firstItem="Fw8-24-JFM" firstAttribute="leading" secondItem="zkp-dv-aWG" secondAttribute="leading" constant="10" id="Nw9-G9-b0x"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Fw8-24-JFM" secondAttribute="bottom" constant="10" id="e5s-r2-qsT"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="zkp-dv-aWG" firstAttribute="top" secondItem="w7R-5l-ghn" secondAttribute="top" id="4AO-22-7xk"/>
+                                            <constraint firstAttribute="bottom" secondItem="zkp-dv-aWG" secondAttribute="bottom" id="VgC-UU-LYK"/>
+                                            <constraint firstItem="zkp-dv-aWG" firstAttribute="leading" secondItem="w7R-5l-ghn" secondAttribute="leading" id="rso-zy-Ubu"/>
+                                            <constraint firstAttribute="trailing" secondItem="zkp-dv-aWG" secondAttribute="trailing" id="v7u-4k-pAs"/>
+                                        </constraints>
+                                        <size key="customSize" width="366" height="80"/>
+                                        <connections>
+                                            <outlet property="buttonMore" destination="9fZ-ta-EtG" id="EnC-jU-9iE"/>
+                                            <outlet property="containerView" destination="zkp-dv-aWG" id="hnE-It-5Jf"/>
+                                            <outlet property="label" destination="5Ux-FT-8zi" id="Pdg-rg-Tvg"/>
+                                        </connections>
+                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageTitledCell" id="2UQ-I6-Du7" customClass="ImageTitledCollectionCell" customModule="exarea" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="200" width="147" height="222"/>
+                                        <rect key="frame" x="114" y="290" width="147" height="222"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="147" height="222"/>
@@ -155,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5C-a1-hYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5238" y="-310"/>
+            <point key="canvasLocation" x="5237.6000000000004" y="-310.79460269865069"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="qHc-BH-k3f">
@@ -622,7 +680,7 @@
                                 <rect key="frame" x="0.0" y="597" width="375" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbm-f9-jCW">
-                                        <rect key="frame" x="283" y="16.5" width="82" height="37"/>
+                                        <rect key="frame" x="295" y="22" width="70" height="26"/>
                                         <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="20"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="titleEdgeInsets" minX="-70" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1779,28 +1837,28 @@
     </scenes>
     <resources>
         <image name="icon-back-75" width="10" height="18.5"/>
-        <image name="icon-bookmark-75" width="120" height="120"/>
-        <image name="icon-chat-bubble-75" width="120" height="120"/>
+        <image name="icon-bookmark-75" width="25" height="25"/>
+        <image name="icon-chat-bubble-75" width="25" height="25"/>
         <image name="icon-email-white-100" width="33.5" height="24"/>
-        <image name="icon-exit-black-75" width="37.5" height="37.5"/>
-        <image name="icon-facebook-black" width="154.28572082519531" height="154.28572082519531"/>
-        <image name="icon-googleplus-black" width="154.28572082519531" height="154.28572082519531"/>
-        <image name="icon-home-75" width="120" height="120"/>
-        <image name="icon-instagram-100" width="75" height="75"/>
-        <image name="icon-location-100" width="75" height="75"/>
-        <image name="icon-mail-100" width="75" height="75"/>
-        <image name="icon-menu-75" width="120" height="120"/>
-        <image name="icon-phone-100" width="75" height="75"/>
-        <image name="icon-profile-75" width="120" height="120"/>
+        <image name="icon-exit-black-75" width="25" height="25"/>
+        <image name="icon-facebook-black" width="30" height="30"/>
+        <image name="icon-googleplus-black" width="30" height="30"/>
+        <image name="icon-home-75" width="25" height="25"/>
+        <image name="icon-instagram-100" width="100" height="100"/>
+        <image name="icon-location-100" width="100" height="100"/>
+        <image name="icon-mail-100" width="100" height="100"/>
+        <image name="icon-menu-75" width="25" height="25"/>
+        <image name="icon-phone-100" width="100" height="100"/>
+        <image name="icon-profile-75" width="25" height="25"/>
         <image name="icon-profile-white-100" width="25.5" height="25.5"/>
-        <image name="icon-qrcode-75" width="120" height="120"/>
-        <image name="icon-rule-100" width="75" height="75"/>
+        <image name="icon-qrcode-75" width="25" height="25"/>
+        <image name="icon-rule-100" width="100" height="100"/>
         <image name="icon-search-75" width="21.5" height="22.5"/>
-        <image name="icon-send-yellow" width="154.28572082519531" height="154.28572082519531"/>
-        <image name="icon-twitter-100" width="75" height="75"/>
+        <image name="icon-send-yellow" width="30" height="30"/>
+        <image name="icon-twitter-100" width="100" height="100"/>
         <image name="image-aboutUs-header" width="1723" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oF6-Ih-1Eq"/>
+        <segue reference="pn1-KP-j1Y"/>
     </inferredMetricsTieBreakers>
 </document>
