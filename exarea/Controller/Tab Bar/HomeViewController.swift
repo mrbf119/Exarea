@@ -16,16 +16,25 @@ class HomeViewController: UIViewController {
         didSet { self.setBoothPaginator(); self.getData() }
     }
     
+    private var hasRequestedFairData = false
+    private var endOfList = false
+    
     private var isInFairMode: Bool { return self.selectedFair != nil }
     private var isExtended = false
     
+    
+    var fairBannerArray = [Imaged]()
+    
     private var boothPaginator: Paginator<Booth>?
-    private let fairPaginator = Paginator<Fair> { page, pageSize, completion in
-        Fair.getAll(page: page, pageSize: pageSize, completion: completion)
+    
+    private var fairPaginator: Paginator<Fair>!
+    
+    private var bannerPaginator = Paginator<Fair.Banner>(pageSize: 1) { page, pageSize, completion in
+        Fair.getBanners(page: page, completion: completion)
     }
     
-    private var currentList: [ImageTitled] {
-        return self.boothPaginator?.list ?? self.fairPaginator.list
+    private var currentList: [Imaged] {
+        return self.boothPaginator?.list ?? self.fairBannerArray
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -40,6 +49,31 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fairPaginator = Paginator<Fair>(pageSize: 12) { page, pageSize, completion in
+            Fair.getAll(page: page, pageSize: pageSize) { result in
+                switch result {
+                case .success(let fairs):
+                    if fairs.isEmpty {
+                        self.endOfList = true
+                        completion(result)
+                        return
+                    }
+                    self.fairBannerArray.append(contentsOf: fairs)
+                    self.bannerPaginator.newData { err in
+                        if let error = err {
+                            completion(.failure(error))
+                        } else {
+                            if let banner = self.bannerPaginator.list.last {
+                                self.fairBannerArray.append(banner)
+                            }
+                            completion(result)
+                        }
+                    }
+                case .failure:
+                    completion(result)
+                }
+            }
+        }
         self.getData()
         self.getSliderItems()
     }
@@ -48,6 +82,7 @@ class HomeViewController: UIViewController {
         let currentPagintor: PaginatorProtocol = self.boothPaginator ?? self.fairPaginator
         currentPagintor.newData { error in
             if error == nil {
+                self.hasRequestedFairData = false
                 self.collectionView.reloadData()
             }
             print(error)
@@ -105,10 +140,18 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
         } else {
             let item = self.currentList[indexPath.row]
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageTitledCell", for: indexPath) as! ImageTitledCollectionCell
-            cell.update(with: item)
-            cell.makeShadowed()
-            return cell
+            if let banner = item as? Fair.Banner {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImagedCollectionViewCell
+                cell.update(with: banner)
+                cell.makeShadowed()
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageTitledCell", for: indexPath) as! ImageTitledCollectionCell
+                cell.update(with: item as! ImageTitled)
+                cell.makeShadowed()
+                
+                return cell
+            }
         }
     }
     
@@ -192,7 +235,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             let size = label.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 40, height: UIView.layoutFittingCompressedSize.height))
             return CGSize(width: size.width + 20, height: size.height + 60)
         } else {
-            return CGSize(width: self.cellSize, height: 220)
+            if self.currentList[indexPath.row] is Fair.Banner {
+                return CGSize(width: UIScreen.main.bounds.width - (self.cellMargin * 2), height: 80)
+            } else {
+                return CGSize(width: self.cellSize, height: 220)
+            }
         }
     }
 }
@@ -209,4 +256,15 @@ extension HomeViewController: ExpandableLabelCollectionViewCellDelegate {
         self.isExtended = isExtened
         self.collectionView.collectionViewLayout.invalidateLayout()
     }
+}
+
+extension HomeViewController {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if !self.isInFairMode && self.currentList.count - 1 == indexPath.row && !self.hasRequestedFairData, !self.endOfList {
+            self.hasRequestedFairData = true
+            self.getData()
+        }
+    }
+    
 }

@@ -96,18 +96,23 @@ class CustomSessionRetrier: RequestRetrier {
 class LoadingIndicator {
     
     private(set) var hasRequestedShowing = false
+    private let id: String
     
-    func startLoading() {
+    init(id: String = "indicatorView") {
+        self.id = id
+    }
+    
+    func startLoading(from: SwiftMessages.PresentationStyle = .top) {
         guard !self.hasRequestedShowing else { return }
         self.hasRequestedShowing = true
         let view = try! SwiftMessages.viewFromNib(named: "IndicatorView") as! MessageView
-        view.id = "indicatorView"
+        view.id = id
         view.configureTheme(.info)
         view.configureDropShadow()
         view.bodyLabel?.text = "درحال دریافت اطلاعات"
         var config = SwiftMessages.Config()
         config.duration = .forever
-        config.presentationStyle = .top
+        config.presentationStyle = from
         config.dimMode = .gray(interactive: false)
         SwiftMessages.show(config: config, view: view)
     }

@@ -52,11 +52,11 @@
             <objects>
                 <viewController id="pox-Ci-VbG" customClass="HomeViewController" customModule="exarea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yd4-PT-yfs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gMp-L9-rcz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dDq-uF-usv">
                                     <size key="itemSize" width="147" height="222"/>
@@ -170,6 +170,42 @@
                                             <outlet property="titleLabel" destination="8Dv-PT-r3o" id="O2k-zf-pam"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="H3K-gm-7dH" customClass="ImagedCollectionViewCell" customModule="exarea" customModuleProvider="target">
+                                        <rect key="frame" x="37.5" y="522" width="300" height="98"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYH-SV-oH0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="98"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JJ3-An-Stw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="98"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="JJ3-An-Stw" secondAttribute="trailing" id="J3O-za-fs2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="JJ3-An-Stw" secondAttribute="bottom" id="i5Z-q5-Uj0"/>
+                                                        <constraint firstItem="JJ3-An-Stw" firstAttribute="top" secondItem="aYH-SV-oH0" secondAttribute="top" id="pFM-w2-I8j"/>
+                                                        <constraint firstItem="JJ3-An-Stw" firstAttribute="leading" secondItem="aYH-SV-oH0" secondAttribute="leading" id="yLG-5C-tVe"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="aYH-SV-oH0" firstAttribute="top" secondItem="H3K-gm-7dH" secondAttribute="top" id="CgQ-PE-J80"/>
+                                            <constraint firstItem="aYH-SV-oH0" firstAttribute="leading" secondItem="H3K-gm-7dH" secondAttribute="leading" id="FqU-2P-GWd"/>
+                                            <constraint firstAttribute="bottom" secondItem="aYH-SV-oH0" secondAttribute="bottom" id="MZ6-d8-EQs"/>
+                                            <constraint firstAttribute="trailing" secondItem="aYH-SV-oH0" secondAttribute="trailing" id="ZbZ-Pe-2kA"/>
+                                        </constraints>
+                                        <size key="customSize" width="300" height="98"/>
+                                        <connections>
+                                            <outlet property="containerView" destination="aYH-SV-oH0" id="Dle-0D-BMo"/>
+                                            <outlet property="imageView" destination="JJ3-An-Stw" id="GNX-Mo-yP7"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SlideShowHeaderView" id="lj8-68-8Cm" customClass="SlideShowHeaderView" customModule="exarea" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -206,6 +242,8 @@
                         <viewLayoutGuide key="safeArea" id="wZJ-zU-y8w"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ddi-bi-G4l"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="collectionView" destination="gMp-L9-rcz" id="gr8-Lt-XXI"/>
                         <segue destination="x5f-2e-yt1" kind="show" identifier="toBoothDetailVC" id="pn1-KP-j1Y"/>
@@ -213,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5C-a1-hYB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5237.6000000000004" y="-310.79460269865069"/>
+            <point key="canvasLocation" x="5319" y="-310"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="qHc-BH-k3f">
