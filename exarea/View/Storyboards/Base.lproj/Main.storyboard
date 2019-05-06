@@ -58,7 +58,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gMp-L9-rcz">
                                 <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dDq-uF-usv">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dDq-uF-usv" customClass="AlignedCollectionViewFlowLayout" customModule="AlignedCollectionViewFlowLayout">
                                     <size key="itemSize" width="147" height="222"/>
                                     <size key="headerReferenceSize" width="50" height="200"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1623,7 +1623,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P9A-a4-cgG">
-                                <rect key="frame" x="0.0" y="64" width="375" height="470"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="482.5"/>
                                 <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1762,20 +1762,20 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1G-mh-EPz" customClass="ShadowedView" customModule="exarea" customModuleProvider="target">
-                                <rect key="frame" x="5" y="539" width="365" height="74"/>
+                                <rect key="frame" x="5" y="551.5" width="365" height="61.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmE-fM-CK1">
-                                        <rect key="frame" x="0.0" y="0.0" width="365" height="74"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="61.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ic2-BI-kGw">
-                                        <rect key="frame" x="10" y="10" width="345" height="54"/>
+                                        <rect key="frame" x="10" y="10" width="345" height="41.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="P8C-Zy-soY">
-                                                <rect key="frame" x="0.0" y="0.0" width="297" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="297" height="41.5"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="RO6-hv-iZW" customClass="GrowingTextView" customModule="GrowingTextView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="297" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="297" height="37.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1790,7 +1790,7 @@
                                                         </connections>
                                                     </textView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSa-3B-lPP">
-                                                        <rect key="frame" x="0.0" y="53" width="297" height="1"/>
+                                                        <rect key="frame" x="0.0" y="40.5" width="297" height="1"/>
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="CaL-hP-W6e"/>
@@ -1799,7 +1799,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEJ-EP-WTn">
-                                                <rect key="frame" x="305" y="7" width="40" height="40"/>
+                                                <rect key="frame" x="305" y="1" width="40" height="40"/>
                                                 <color key="backgroundColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="2Az-4t-mEN"/>
@@ -1897,6 +1897,6 @@
         <image name="image-aboutUs-header" width="1723" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oF6-Ih-1Eq"/>
+        <segue reference="pn1-KP-j1Y"/>
     </inferredMetricsTieBreakers>
 </document>

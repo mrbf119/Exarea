@@ -134,11 +134,13 @@ class CustomSessionDelegate: SessionDelegate {
     @objc private func startLoading(_ notif: Notification) {
         guard let indicator = NetworkManager.loadingIndicator else { return }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
             if !indicator.hasRequestedShowing {
                 NetworkManager.session.session.getAllTasks { tasks in
                     if tasks.contains(where: { $0.state == .running }) {
-                        NetworkManager.loadingIndicator?.startLoading()
+                        DispatchQueue.main.async {
+                            NetworkManager.loadingIndicator?.startLoading()
+                        }
                     }
                 }
             }
@@ -149,7 +151,9 @@ class CustomSessionDelegate: SessionDelegate {
     @objc private func stopLoading(_ notif: Notification) {
         NetworkManager.session.session.getAllTasks { tasks in
             if !tasks.contains(where: { $0.state == .running }) {
-                NetworkManager.loadingIndicator?.stopLoading()
+                DispatchQueue.main.async {
+                    NetworkManager.loadingIndicator?.stopLoading()
+                }
             }
         }
     }

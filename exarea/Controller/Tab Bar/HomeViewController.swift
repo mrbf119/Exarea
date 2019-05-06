@@ -7,6 +7,7 @@
 //
 
 import ImageSlideshow
+import AlignedCollectionViewFlowLayout
 
 class HomeViewController: UIViewController {
     
@@ -49,6 +50,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let alignedFlowLayout = self.collectionView.collectionViewLayout as? AlignedCollectionViewFlowLayout
+        alignedFlowLayout?.horizontalAlignment = .right
+        alignedFlowLayout?.minimumInteritemSpacing = self.cellMargin
+        alignedFlowLayout?.minimumLineSpacing = self.cellMargin
+        alignedFlowLayout?.sectionInset = UIEdgeInsets(top: self.cellMargin, left: self.cellMargin, bottom: self.cellMargin, right: self.cellMargin)
+        
         self.fairPaginator = Paginator<Fair>(pageSize: 12) { page, pageSize, completion in
             Fair.getAll(page: page, pageSize: pageSize) { result in
                 switch result {
@@ -213,18 +220,6 @@ extension HomeViewController: UICollectionViewDelegate {
 }
     
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return self.cellMargin
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return self.cellMargin
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: self.cellMargin, left: self.cellMargin, bottom: self.cellMargin, right: self.cellMargin)
-    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if self.isInFairMode && indexPath.section == 0 {
