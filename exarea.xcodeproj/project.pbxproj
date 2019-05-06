@@ -349,10 +349,10 @@
 		349326412254D18A00686D4E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */,
 				342C40332252236000ABBA9F /* Login.storyboard */,
 				34E310DB215B1A1900C3E68E /* Main.storyboard */,
 				342C4050225226CC00ABBA9F /* Booth.storyboard */,
-				34E310E0215B1A1B00C3E68E /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -876,17 +876,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = MPD5DLY7SV;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ACL3HTXHT6;
 				INFOPLIST_FILE = exarea/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.viratejarat.exarea;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sorush.exarea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ALI GOLSHANI";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "exarea/Resources/exarea-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -901,17 +901,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = MPD5DLY7SV;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ACL3HTXHT6;
 				INFOPLIST_FILE = exarea/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.viratejarat.exarea;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sorush.exarea;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ALI GOLSHANI";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "exarea/Resources/exarea-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
