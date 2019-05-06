@@ -17,6 +17,19 @@ struct MainSliderItem: JSONSerializable {
 }
 
 struct Fair: JSONSerializable, ImageTitled {
+    
+    struct Banner: JSONSerializable, ImageTitled {
+        let bannerID: Int
+        let position: Int
+        let imageAddress: String
+        let link: String
+        let rank: Int
+        
+        var imageURL: URL? { return URL(string: self.imageAddress) }
+        var textToShow: String { return "" }
+    }
+    
+    
     let fairID: Int
     let name: String
     let slogan: String?
@@ -46,6 +59,16 @@ extension Fair {
             .requestWithValidation(req)
             .response(responseSerializer: [Fair].responseDataSerializer) { response in
             completion(response.result)
+        }
+    }
+    
+    static func getBanners(page: Int = 0, completion: @escaping DataResult<[Fair.Banner]>) {
+        let pageParams = ["Position": 2, "FetchRow": page + 1, "SkipRow": page]
+        let req = CustomRequest(path: "/Fair/GetBanner", method: .post, parameters: pageParams).api().authorize()
+        NetworkManager.session
+            .requestWithValidation(req)
+            .response(responseSerializer: [Fair.Banner].responseDataSerializer) { response in
+                completion(response.result)
         }
     }
     

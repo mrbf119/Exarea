@@ -6,7 +6,11 @@
 //  Copyright © 1397 tamtom. All rights reserved.
 //
 
-import UIKit
+import Kingfisher
+
+protocol Imaged {
+    var imageURL: URL? { get }
+}
 
 class ImagedCollectionViewCell: ShadowableCollectionCell {
     
@@ -18,6 +22,14 @@ class ImagedCollectionViewCell: ShadowableCollectionCell {
     var isDeletable: Bool = false {
         didSet {
             self.buttonTrash?.isHidden = !self.isDeletable
+        }
+    }
+    
+    func update(with data: Imaged) {
+        if let url = data.imageURL {
+            let resource = ImageResource(downloadURL: url)
+            self.imageView.kf.setImage(with: resource)
+            self.imageView.kf.indicatorType = .activity
         }
     }
     
