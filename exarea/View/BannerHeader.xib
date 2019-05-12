@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="06u-NP-6ew" customClass="ImageReusableView" customModule="exarea" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="640" height="377"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buu-Rq-hd0">
+                    <rect key="frame" x="0.0" y="44" width="640" height="299"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUQ-LL-RAH">
+                            <rect key="frame" x="5" y="5" width="630" height="289"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rTW-To-cEB">
+                                    <rect key="frame" x="0.0" y="0.0" width="630" height="289"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="rTW-To-cEB" secondAttribute="trailing" id="Dmz-Yj-dQ7"/>
+                                <constraint firstItem="rTW-To-cEB" firstAttribute="top" secondItem="tUQ-LL-RAH" secondAttribute="top" id="IrQ-H7-FkW"/>
+                                <constraint firstItem="rTW-To-cEB" firstAttribute="leading" secondItem="tUQ-LL-RAH" secondAttribute="leading" id="gJ9-cY-aiP"/>
+                                <constraint firstAttribute="bottom" secondItem="rTW-To-cEB" secondAttribute="bottom" id="uke-Mr-S8f"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="tUQ-LL-RAH" firstAttribute="top" secondItem="buu-Rq-hd0" secondAttribute="top" constant="5" id="1PU-rQ-r51"/>
+                        <constraint firstItem="tUQ-LL-RAH" firstAttribute="leading" secondItem="buu-Rq-hd0" secondAttribute="leading" constant="5" id="Rfi-kH-fuM"/>
+                        <constraint firstAttribute="trailing" secondItem="tUQ-LL-RAH" secondAttribute="trailing" constant="5" id="ULa-gp-DsU"/>
+                        <constraint firstAttribute="bottom" secondItem="tUQ-LL-RAH" secondAttribute="bottom" constant="5" id="ha1-zA-A34"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Acr-C7-IM7" firstAttribute="bottom" secondItem="buu-Rq-hd0" secondAttribute="bottom" id="Vbs-rb-now"/>
+                <constraint firstItem="buu-Rq-hd0" firstAttribute="top" secondItem="Acr-C7-IM7" secondAttribute="top" id="b79-S0-p7t"/>
+                <constraint firstItem="Acr-C7-IM7" firstAttribute="trailing" secondItem="buu-Rq-hd0" secondAttribute="trailing" id="uqD-am-Xep"/>
+                <constraint firstItem="buu-Rq-hd0" firstAttribute="leading" secondItem="Acr-C7-IM7" secondAttribute="leading" id="yxh-3h-TKO"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Acr-C7-IM7"/>
+            <connections>
+                <outlet property="containerView" destination="tUQ-LL-RAH" id="fAV-lA-aFM"/>
+                <outlet property="imageView" destination="rTW-To-cEB" id="Zkv-Ki-0Sy"/>
+            </connections>
+            <point key="canvasLocation" x="379.71014492753625" y="232.03125"/>
+        </collectionReusableView>
+    </objects>
+</document>

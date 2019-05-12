@@ -33,8 +33,6 @@ target 'exarea' do
   
   pod 'GrowingTextView', '0.6.1'
   
-  pod "AlignedCollectionViewFlowLayout"
-  
   inhibit_all_warnings!
 
 end

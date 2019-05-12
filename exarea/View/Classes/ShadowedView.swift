@@ -10,12 +10,12 @@ import UIKit
 
 class ShadowedView: UIView {
     
-    @IBOutlet private var contentView: UIView!
+    @IBOutlet var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.clipsToBounds = true
-        self.contentView.layer.cornerRadius = 5
+        self.containerView.clipsToBounds = true
+        self.containerView.layer.cornerRadius = 5
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize(width: 1, height: 1)
