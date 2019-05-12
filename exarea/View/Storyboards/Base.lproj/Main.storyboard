@@ -335,7 +335,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJD-SM-Ikj">
                                                 <rect key="frame" x="0.0" y="38" width="375" height="2"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.99215686274509807" green="0.72549019607843135" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="JNt-uz-dxy"/>
                                                 </constraints>
@@ -425,7 +425,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUD-E5-epn">
                                                 <rect key="frame" x="0.0" y="38" width="375" height="2"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.99215686274509807" green="0.72549019607843135" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="x1h-aw-Unv"/>
                                                 </constraints>
@@ -653,7 +653,7 @@
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CV4-o8-HRE">
                                             <rect key="frame" x="0.0" y="97" width="375" height="3"/>
-                                            <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="3" id="Nle-Vc-zcH"/>
                                             </constraints>
@@ -1136,7 +1136,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobileFaNum" pointSize="17"/>
                                 <state key="normal" title="ثبت">
-                                    <color key="titleColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="submitButtonClicked" destination="h1O-Ke-vGC" eventType="touchUpInside" id="lR1-RN-MhF"/>
@@ -1805,7 +1805,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="2Az-4t-mEN"/>
                                                     <constraint firstAttribute="width" secondItem="uEJ-EP-WTn" secondAttribute="height" id="bBp-KF-d71"/>
                                                 </constraints>
-                                                <color key="tintColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                                                 <state key="normal" image="icon-send-yellow"/>
                                                 <connections>
@@ -1897,6 +1897,6 @@
         <image name="image-aboutUs-header" width="1723" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pn1-KP-j1Y"/>
+        <segue reference="oF6-Ih-1Eq"/>
     </inferredMetricsTieBreakers>
 </document>

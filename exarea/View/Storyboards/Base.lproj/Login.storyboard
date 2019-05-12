@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7op-uc-Qam">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7op-uc-Qam">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -293,11 +293,17 @@
                                     <action selector="didTapLoginButton" destination="CEQ-3N-hzx" eventType="touchUpInside" id="Laz-iF-dUs"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="veN-xX-hDU">
+                                <rect key="frame" x="140" y="622" width="20" height="20"/>
+                                <color key="color" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1019607843" green="0.12549019610000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="veN-xX-hDU" firstAttribute="centerY" secondItem="q88-Mh-ROL" secondAttribute="centerY" id="2N5-DK-Zsi"/>
                             <constraint firstItem="91L-Du-6jR" firstAttribute="centerX" secondItem="SDM-GT-fP3" secondAttribute="centerX" id="8UX-Vu-3eD"/>
                             <constraint firstItem="O1Q-VR-YSU" firstAttribute="centerX" secondItem="SDM-GT-fP3" secondAttribute="centerX" id="C4r-zA-yNF"/>
+                            <constraint firstItem="veN-xX-hDU" firstAttribute="centerX" secondItem="q88-Mh-ROL" secondAttribute="centerX" multiplier="0.8" id="CP9-yn-TcC"/>
                             <constraint firstItem="q88-Mh-ROL" firstAttribute="width" secondItem="SDM-GT-fP3" secondAttribute="width" multiplier="0.7" priority="999" id="IZl-bu-SdU"/>
                             <constraint firstItem="q88-Mh-ROL" firstAttribute="centerX" secondItem="SDM-GT-fP3" secondAttribute="centerX" id="Pdn-Sn-5My"/>
                             <constraint firstItem="O1Q-VR-YSU" firstAttribute="centerY" secondItem="SDM-GT-fP3" secondAttribute="centerY" id="QVO-6S-hmV"/>
@@ -310,6 +316,7 @@
                     <navigationItem key="navigationItem" id="ACp-g9-RGh"/>
                     <connections>
                         <outlet property="forgotPassButton" destination="Fbd-9E-QRp" id="Mvq-GN-5QC"/>
+                        <outlet property="indicatorLoading" destination="veN-xX-hDU" id="mR2-YP-3LX"/>
                         <outlet property="loginButton" destination="q88-Mh-ROL" id="v8f-mg-vR3"/>
                         <outlet property="passwordTextField" destination="sg8-sO-N3Y" id="hU3-GZ-pbP"/>
                         <outlet property="phoneNumberTextField" destination="XGn-zd-lrW" id="uy2-ij-8QB"/>

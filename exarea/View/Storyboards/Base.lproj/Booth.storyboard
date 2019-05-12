@@ -29,10 +29,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+<<<<<<< Updated upstream
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RMU-Hp-ovU">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EhF-wO-o2u">
+=======
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMU-Hp-ovU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhF-wO-o2u">
+>>>>>>> Stashed changes
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="460"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ad0-q2-VgN" customClass="ImageSlideshow" customModule="ImageSlideshow">
@@ -50,7 +57,7 @@
                                                     <constraint firstAttribute="height" constant="80" id="Q3c-I9-e1l"/>
                                                 </constraints>
                                             </imageView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-4v-SnJ" customClass="CosmosView" customModule="Cosmos">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-4v-SnJ" customClass="CosmosView" customModule="Cosmos">
                                                 <rect key="frame" x="10" y="223" width="112" height="20"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
@@ -118,7 +125,11 @@
                                                     <constraint firstAttribute="height" constant="25" id="Kwu-ej-Aa1"/>
                                                 </constraints>
                                             </stackView>
+<<<<<<< Updated upstream
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rKy-wl-lqX" customClass="ShadowedView" customModule="exarea" customModuleProvider="target">
+=======
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKy-wl-lqX" customClass="ShadowedView" customModule="exarea" customModuleProvider="target">
+>>>>>>> Stashed changes
                                                 <rect key="frame" x="56.5" y="263" width="262.5" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfI-ux-DYd">
@@ -150,7 +161,11 @@
                                                     <outlet property="contentView" destination="NfI-ux-DYd" id="GQY-ID-9yd"/>
                                                 </connections>
                                             </view>
+<<<<<<< Updated upstream
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lHk-dj-oUz">
+=======
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lHk-dj-oUz">
+>>>>>>> Stashed changes
                                                 <rect key="frame" x="47.5" y="323" width="280" height="60"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ikr-9r-RAO">
@@ -196,7 +211,11 @@
                                                     <constraint firstItem="Ikr-9r-RAO" firstAttribute="height" secondItem="K9L-fO-DNS" secondAttribute="height" id="YTp-nz-C6p"/>
                                                 </constraints>
                                             </stackView>
+<<<<<<< Updated upstream
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" text="توضیحات" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E4-y0-EkM">
+=======
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="توضیحات" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E4-y0-EkM">
+>>>>>>> Stashed changes
                                                 <rect key="frame" x="47.5" y="393" width="280" height="18"/>
                                                 <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -285,7 +304,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< Updated upstream
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l2k-ns-0Gf">
+=======
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l2k-ns-0Gf">
+>>>>>>> Stashed changes
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vY5-cE-9QQ">
@@ -296,7 +319,11 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageTitledCell" id="Yp2-ef-uTE" customClass="ImageTitledCollectionCell" customModule="exarea" customModuleProvider="target">
+<<<<<<< Updated upstream
                                         <rect key="frame" x="0.0" y="0.0" width="147" height="222"/>
+=======
+                                        <rect key="frame" x="228" y="0.0" width="147" height="222"/>
+>>>>>>> Stashed changes
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="147" height="222"/>
@@ -525,7 +552,11 @@
                                                     <gestureRecognizers/>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAu-Lo-WqT">
+<<<<<<< Updated upstream
                                                     <rect key="frame" x="327.5" y="10" width="37.5" height="21.5"/>
+=======
+                                                    <rect key="frame" x="366.5" y="10" width="37.5" height="21.5"/>
+>>>>>>> Stashed changes
                                                     <fontDescription key="fontDescription" name="IRANSansMobile" family="IRANSansMobile" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -576,7 +607,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< Updated upstream
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="99v-FI-fh5">
+=======
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="99v-FI-fh5">
+>>>>>>> Stashed changes
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mXN-vb-dHf">
@@ -994,7 +1029,11 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBr-YS-6v5">
                                                 <rect key="frame" x="0.0" y="0.0" width="157.5" height="40"/>
+<<<<<<< Updated upstream
                                                 <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+=======
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+>>>>>>> Stashed changes
                                                 <fontDescription key="fontDescription" name="IRANSansMobileFaNum" family="IRANSansMobile(FaNum)" pointSize="17"/>
                                                 <state key="normal" title="لغو">
                                                     <color key="titleColor" red="0.094117647060000004" green="0.25098039220000001" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1005,7 +1044,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yls-YM-Aok">
                                                 <rect key="frame" x="177.5" y="0.0" width="157.5" height="40"/>
+<<<<<<< Updated upstream
                                                 <color key="backgroundColor" red="0.99215686270000003" green="0.83137254900000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+=======
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.72549019609999998" blue="0.074509803920000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+>>>>>>> Stashed changes
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="cac-7x-Lys"/>
                                                 </constraints>
