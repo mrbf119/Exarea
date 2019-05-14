@@ -77,7 +77,17 @@ class BoothDetailsViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.labelBoothName.text = self.booth.title
-            self.labelAbout.text = self.booth.about
+            
+            
+            if let string = self.booth.about {
+                let paragraph = NSMutableParagraphStyle()
+                paragraph.alignment = .justified
+                paragraph.baseWritingDirection = .rightToLeft
+                let attrString = NSAttributedString(string: string, attributes: [.font: UIFont.iranSans,
+                                                                                 .paragraphStyle: paragraph,
+                                                                                 .foregroundColor: UIColor.gray])
+                self.labelAbout.attributedText = attrString
+            }
             
             self.cosmosViewScore.didFinishTouchingCosmos = self.score
             if let url = self.booth.imageURL {
