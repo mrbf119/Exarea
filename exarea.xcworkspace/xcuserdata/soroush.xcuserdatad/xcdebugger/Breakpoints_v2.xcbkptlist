@@ -2,8 +2,6 @@
 <Bucket
    type = "0"
    version = "2.0">
-<<<<<<< Updated upstream
-=======
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
@@ -11,48 +9,15 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "exarea/Controller/Tab Bar/HomeViewController.swift"
-            timestampString = "579343468.1393189"
+            filePath = "exarea/Controller/BoothDetailsViewController.swift"
+            timestampString = "579489567.413492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "configPaginators()"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "shareButtonClicked()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Int, Swift.Int, (Alamofire.Result&lt;Swift.Array&lt;exarea.Fair&gt;&gt;) -&gt; ()) -&gt; () in exarea.HomeViewController.(configPaginators in _715F197AB56A27CE2073659CB06D81A2)() -&gt; ()"
-                  moduleName = "exarea"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/soroush/Projects/Exarea/exarea/Controller/Tab%20Bar/HomeViewController.swift"
-                  timestampString = "579343338.597549"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "59">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.Result&lt;Swift.Array&lt;exarea.Fair&gt;&gt;) -&gt; () in closure #1 (Swift.Int, Swift.Int, (Alamofire.Result&lt;Swift.Array&lt;exarea.Fair&gt;&gt;) -&gt; ()) -&gt; () in exarea.HomeViewController.(configPaginators in _715F197AB56A27CE2073659CB06D81A2)() -&gt; ()"
-                  moduleName = "exarea"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/soroush/Projects/Exarea/exarea/Controller/Tab%20Bar/HomeViewController.swift"
-                  timestampString = "579343338.6017081"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "212">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
->>>>>>> Stashed changes
 </Bucket>

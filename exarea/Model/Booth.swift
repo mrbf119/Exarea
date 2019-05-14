@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import SwiftyJSON
 
 class Booth: JSONSerializable, ImageTitled {
     
@@ -121,8 +122,8 @@ extension Booth {
     func getScore(completion: @escaping ErrorableResult) {
         let params = ["BoothID": self.boothID]
         let req = CustomRequest(path: "/Booth/BoothScore", method: .post, parameters: params).api().authorize()
-        NetworkManager.session.requestWithValidation(req).response(responseSerializer: String.responseDataSerializer) { response in
-            if let value = response.result.value, let score = Int(value) {
+        NetworkManager.session.requestWithValidation(req).response(responseSerializer: JSON.responseDataSerializer) { response in
+            if let json = response.result.value, let score = json["Result","AvrageScore"].int {
                 self._score = score
             }
             completion(response.result.error)
@@ -141,6 +142,18 @@ extension Booth {
         }
         
         return dataReq
+    }
+    
+    func getQRImage(completion: @escaping DataResult<Data>) {
+        guard let qrURL = self.qRCodePhotoAddress else { return completion(.failure(AFError.responseSerializationFailed(reason: .inputDataNil))) }
+        Alamofire.request(qrURL).responseData { response in
+            switch response.result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure:
+                completion(response.result)
+            }
+        }
     }
     
     func getPhotos(completion: @escaping ErrorableResult) {

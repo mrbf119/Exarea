@@ -92,7 +92,11 @@ class BarcodeScannerViewController: UIViewController {
         if captureSession.canAddOutput(metadataOutput) {
             captureSession.addOutput(metadataOutput)
             metadataOutput.setMetadataObjectsDelegate(self, queue: .main)
-            metadataOutput.metadataObjectTypes = [.qr]
+            metadataOutput.metadataObjectTypes = [.aztec, .code128, .code39,
+                                                  .code39Mod43, .code93, .dataMatrix,
+                                                  .ean13, .ean8, .interleaved2of5,
+                                                  .itf14, .pdf417, .qr, .upce]
+            
         } else {
             print("output - not supported this device")
             return
@@ -186,6 +190,11 @@ extension BarcodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         guard !metadataObjects.isEmpty else { return print("no bar code scanned") }
+        guard metadataObjects.contains(where: { $0.type == .qr }) else {
+            Toaster.default.toast(error: "qr کد معتبر نیست")
+            self.stopSession()
+            return
+        }
         
         if let metadataObject = metadataObjects.first {
             guard
