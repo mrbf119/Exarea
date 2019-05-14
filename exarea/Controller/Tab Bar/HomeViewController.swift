@@ -127,13 +127,20 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return self.isInFairMode && section == 0 ? 1 : self.currentList.count
+        return self.isInFairMode && section == 0 && self.selectedFair!.about != nil ? 1 : self.currentList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if self.isInFairMode, indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! ExpandableLabelCollectionViewCell
-            cell.label.text = self.selectedFair?.about
+            let string = self.selectedFair!.about!
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = .justified
+            paragraph.baseWritingDirection = .rightToLeft
+            let attrString = NSAttributedString(string: string, attributes: [.font: UIFont.iranSans,
+                                                                             .paragraphStyle: paragraph,
+                                                                             .foregroundColor: UIColor.black])
+            cell.label.attributedText = attrString
             cell.label.numberOfLines = self.isExtended ? 0 : 3
             cell.delegate = self
             cell.makeShadowed()

@@ -34,7 +34,13 @@ class Toaster {
                    duration: .automatic)
     }
     
-    
+    func toast(error title: String) {
+        self.toast(title: "",
+                   content: title,
+                   image: nil,
+                   theme: .error,
+                   duration: .automatic)
+    }
     
     func toast(title: String,
                content: String,

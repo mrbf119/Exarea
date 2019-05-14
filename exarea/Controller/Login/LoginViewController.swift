@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet private var segmentControl: UISegmentedControl!
     @IBOutlet private var segmentSection: UIView!
+    @IBOutlet private var indicatorLoading: UIActivityIndicatorView!
     
     //MARK: - Properties
     
@@ -90,12 +91,23 @@ class LoginViewController: UIViewController {
         self.passwordTextField.errorMessage = ""
     }
     
+    private func startLoading() {
+        self.view.isUserInteractionEnabled = false
+        self.indicatorLoading.startAnimating()
+    }
+    
+    private func stopLoading() {
+        self.view.isUserInteractionEnabled = true
+        self.indicatorLoading.stopAnimating()
+    }
+    
     @IBAction private func didTapLoginButton() {
         guard let form = self.validateForm() else { return }
-
+        self.startLoading()
         if self.isInLoginMode {
             let form = LoginForm(userName: form.user, password: form.pass)
             Account.login(with: form) { error in
+                self.stopLoading()
                 if let error = error {
                     return print(error.localizedDescription)
                 }
@@ -104,6 +116,7 @@ class LoginViewController: UIViewController {
         } else {
             let form = RegisterForm(userName: form.user, password: form.pass, roleID: Account.Role(self.segmentControl.selectedSegmentIndex)!)
             Account.register(with: form) { result in
+                self.stopLoading()
                 switch result {
                 case .success(let userID):
                     self.performSegue(withIdentifier: "toActivateVC", sender: userID)

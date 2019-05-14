@@ -71,9 +71,25 @@ class BoothDetailsViewController: UIViewController {
             print(error)
         }
         
+        self.booth.getScore { error in
+            self.cosmosViewScore.rating = Double(self.booth.score)
+        }
+        
         DispatchQueue.main.async {
             self.labelBoothName.text = self.booth.title
-            self.labelAbout.text = self.booth.about
+            
+            
+            if let string = self.booth.about {
+                let paragraph = NSMutableParagraphStyle()
+                paragraph.alignment = .justified
+                paragraph.baseWritingDirection = .rightToLeft
+                let attrString = NSAttributedString(string: string, attributes: [.font: UIFont.iranSans,
+                                                                                 .paragraphStyle: paragraph,
+                                                                                 .foregroundColor: UIColor.gray])
+                self.labelAbout.attributedText = attrString
+            }
+            
+            self.cosmosViewScore.didFinishTouchingCosmos = self.score
             if let url = self.booth.imageURL {
                 let resource = ImageResource(downloadURL: url)
                 self.imageViewLogo.kf.setImage(with: resource)
@@ -165,16 +181,18 @@ class BoothDetailsViewController: UIViewController {
     }
     
     @IBAction private func shareButtonClicked() {
-        Fair.getAll { result in
-            if let all = result.value, let fair = all.first(where: { $0.fairID == self.booth.fairID }) {
+        
+        self.booth.getQRImage { result in
+            if let qrcodeImg = result.value, let ciImage = CIImage(data: qrcodeImg), let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh]) {
+                
+                let features = detector.features(in: ciImage)
+                guard let feature = (features as! [CIQRCodeFeature]).first, let url = feature.messageString else { return }
+                
                 let title = "EXAREA"
-                let url = "https://www.exarea.ir/"
-                    .appending("غرفه")
-                    .appending("/\(self.booth.sEOFriendlyBoothName!)")
-                    .appending("/\(self.booth.boothID.description)")
-                let textArray = [title, url, fair.name]
-                let activity = UIActivityViewController(activityItems: [textArray.joined(separator: "\n")], applicationActivities: nil)
+                let textToShow = [title, url].joined(separator: "\n")
+                let activity = UIActivityViewController(activityItems: [textToShow], applicationActivities: nil)
                 self.present(activity, animated: true)
+                
             }
         }
     }
@@ -213,19 +231,13 @@ class BoothDetailsViewController: UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
     
-    @IBAction private func score() {
+    private func score(score: Double) {
         if let req = self.pendingScoreRequest {
             req.cancel()
         }
         
         let score = Int(self.cosmosViewScore.rating)
-        self.pendingScoreRequest = self.booth.doScore(score) { error in
-            if let error = error {
-                print(error)
-            } else {
-                self.cosmosViewScore.rating = Double(self.booth.score)
-            }
-        }
+        self.pendingScoreRequest = self.booth.doScore(score) { error in }
     }
 }
 
