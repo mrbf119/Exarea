@@ -13,14 +13,18 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private var selectedFair: Fair? {
-        didSet { self.setBoothPaginator(); self.getData() }
+        didSet { self.setBoothPaginator(); self.getData(); self.isExtended = false }
     }
     
     private var hasRequestedFairData = false
     private var endOfList = false
     
     private var isInFairMode: Bool { return self.selectedFair != nil }
-    private var isExtended = false
+    private var isExtended = false {
+        didSet {
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
     
     
     var fairBannerArray = [Imaged]()
@@ -133,15 +137,10 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if self.isInFairMode, indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! ExpandableLabelCollectionViewCell
-            let string = self.selectedFair!.about!
-            let paragraph = NSMutableParagraphStyle()
-            paragraph.alignment = .justified
-            paragraph.baseWritingDirection = .rightToLeft
-            let attrString = NSAttributedString(string: string, attributes: [.font: UIFont.iranSans,
-                                                                             .paragraphStyle: paragraph,
-                                                                             .foregroundColor: UIColor.black])
-            cell.label.attributedText = attrString
-            cell.label.numberOfLines = self.isExtended ? 0 : 3
+            cell.setDescription(string: self.selectedFair!.about!)
+            if cell.isExtended != self.isExtended {
+                cell.collapse()
+            }
             cell.delegate = self
             cell.makeShadowed()
             return cell
@@ -237,7 +236,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if self.isInFairMode && indexPath.section == 0 {
             let label = UILabel()
             label.numberOfLines = self.isExtended ? 0 : 3
-            label.font = UIFont.iranSansEnglish.withSize(17)
+            label.font = UIFont.iranSansEnglish.withSize(15)
             label.text = self.selectedFair!.about
             let size = label.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 40, height: UIView.layoutFittingCompressedSize.height))
             return CGSize(width: size.width + 20, height: size.height + 60)
@@ -261,7 +260,6 @@ extension HomeViewController: Reloadable {
 extension HomeViewController: ExpandableLabelCollectionViewCellDelegate {
     func expandableCell(_ cell: ExpandableLabelCollectionViewCell, didChangeState isExtened: Bool) {
         self.isExtended = isExtened
-        self.collectionView.collectionViewLayout.invalidateLayout()
     }
 }
 
