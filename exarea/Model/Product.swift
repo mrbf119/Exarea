@@ -22,7 +22,7 @@ struct Product: JSONSerializable, ImageTitled {
 
 extension Product {
     static func search(query: String, page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Product]>) {
-        let params: Parameters = ["FetchRow": page + pageSize, "SkipRow": page, "TargetWord": query]
+        let params: Parameters = ["FetchRow": pageSize, "SkipRow": page, "TargetWord": query]
         let req = CustomRequest(path: "/Search/SearchProduct", method: .post, parameters: params).api().authorize()
         NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Product].responseDataSerializer) { response in
             completion(response.result)

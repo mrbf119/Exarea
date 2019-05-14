@@ -53,7 +53,7 @@ struct Fair: JSONSerializable, ImageTitled {
 extension Fair {
     
     static func getAll(page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Fair]>) {
-        let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
+        let pageParams = ["FetchRow": pageSize, "SkipRow": page]
         let req = CustomRequest(path: "/Fair/ActiveFairs", method: .post, parameters: pageParams).api().authorize()
         NetworkManager.session
             .requestWithValidation(req)
@@ -63,7 +63,7 @@ extension Fair {
     }
     
     static func getBanners(page: Int = 0, completion: @escaping DataResult<[Fair.Banner]>) {
-        let pageParams = ["Position": 2, "FetchRow": page + 1, "SkipRow": page]
+        let pageParams = ["Position": 2, "FetchRow": 1, "SkipRow": page]
         let req = CustomRequest(path: "/Fair/GetBanner", method: .post, parameters: pageParams).api().authorize()
         NetworkManager.session
             .requestWithValidation(req)

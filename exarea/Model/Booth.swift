@@ -111,7 +111,7 @@ extension Booth {
 extension Booth {
     
     static func getBooths(of fair: Fair, page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
-        let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
+        let pageParams = ["FetchRow": pageSize, "SkipRow": page]
         let params = pageParams.merging(["FairID": fair.fairID]) { old, new in new }
         let req = CustomRequest(path: "/Booth/List", method: .post, parameters: params).api().authorize()
         NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
@@ -181,7 +181,7 @@ extension Booth {
     }
     
     static func getFavorites(page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
-        let pageParams = ["FetchRow": page + pageSize, "SkipRow": page]
+        let pageParams = ["FetchRow": pageSize, "SkipRow": page]
         let req = CustomRequest(path: "/Booth/Favorites", method: .post, parameters: pageParams).api().authorize()
         NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
             completion(response.result)
@@ -189,7 +189,7 @@ extension Booth {
     }
     
     static func search(query: String, page: Int = 0, pageSize: Int = 20, completion: @escaping DataResult<[Booth]>) {
-        let params: Parameters = ["FetchRow": page + pageSize, "SkipRow": page, "TargetWord": query]
+        let params: Parameters = ["FetchRow": pageSize, "SkipRow": page, "TargetWord": query]
         let req = CustomRequest(path: "/Search/SearchBooth", method: .post, parameters: params).api().authorize()
         NetworkManager.session.requestWithValidation(req).response(responseSerializer: [Booth].responseDataSerializer) { response in
             completion(response.result)

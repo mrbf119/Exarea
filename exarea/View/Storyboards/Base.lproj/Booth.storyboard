@@ -70,7 +70,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OcW-pH-iqf">
-                                                <rect key="frame" x="245" y="203" width="120" height="40"/>
+                                                <rect key="frame" x="250" y="203" width="120" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ge6-hL-HGD">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -234,14 +234,14 @@
                                             <constraint firstItem="OcW-pH-iqf" firstAttribute="centerY" secondItem="ucs-4v-SnJ" secondAttribute="centerY" id="NH3-MS-fji"/>
                                             <constraint firstAttribute="trailing" secondItem="Ad0-q2-VgN" secondAttribute="trailing" id="NHM-c9-THA"/>
                                             <constraint firstItem="rKy-wl-lqX" firstAttribute="centerX" secondItem="Zkr-26-dKC" secondAttribute="centerX" id="R5v-Bu-8lu"/>
+                                            <constraint firstItem="Zkr-26-dKC" firstAttribute="trailing" secondItem="rKy-wl-lqX" secondAttribute="trailing" constant="10" id="WTX-2y-21n"/>
                                             <constraint firstItem="lHk-dj-oUz" firstAttribute="leading" secondItem="rKy-wl-lqX" secondAttribute="leading" id="YCb-Kl-QET"/>
                                             <constraint firstItem="zLo-DE-lHj" firstAttribute="leading" secondItem="Ad0-q2-VgN" secondAttribute="leading" id="aCD-ts-Syp"/>
                                             <constraint firstItem="UPe-fJ-iOG" firstAttribute="centerX" secondItem="Ad0-q2-VgN" secondAttribute="centerX" id="aba-Wj-nXi"/>
-                                            <constraint firstItem="NfI-ux-DYd" firstAttribute="trailing" secondItem="OcW-pH-iqf" secondAttribute="trailing" id="bM7-i0-cYI"/>
                                             <constraint firstItem="lHk-dj-oUz" firstAttribute="trailing" secondItem="rKy-wl-lqX" secondAttribute="trailing" id="bjS-gz-Wmm"/>
                                             <constraint firstItem="Ad0-q2-VgN" firstAttribute="leading" secondItem="Zkr-26-dKC" secondAttribute="leading" id="grw-8N-jMw"/>
-                                            <constraint firstItem="Zkr-26-dKC" firstAttribute="trailing" secondItem="OcW-pH-iqf" secondAttribute="trailing" constant="10" id="hkt-T3-MlF"/>
-                                            <constraint firstItem="rKy-wl-lqX" firstAttribute="leading" secondItem="ucs-4v-SnJ" secondAttribute="leading" id="pUL-7t-T9a"/>
+                                            <constraint firstItem="Zkr-26-dKC" firstAttribute="trailing" secondItem="OcW-pH-iqf" secondAttribute="trailing" constant="5" id="hkt-T3-MlF"/>
+                                            <constraint firstItem="rKy-wl-lqX" firstAttribute="leading" secondItem="Zkr-26-dKC" secondAttribute="leading" constant="10" id="jO9-67-aFQ"/>
                                             <constraint firstItem="UPe-fJ-iOG" firstAttribute="centerY" secondItem="Ad0-q2-VgN" secondAttribute="bottom" id="rvW-Vk-pt6"/>
                                             <constraint firstItem="ucs-4v-SnJ" firstAttribute="centerY" secondItem="UPe-fJ-iOG" secondAttribute="bottom" multiplier="0.93" id="ul1-z7-eN2"/>
                                         </constraints>
